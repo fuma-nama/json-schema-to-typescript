@@ -1,7 +1,7 @@
 import {readFileSync} from 'fs'
 import {JSONSchema4} from 'json-schema'
 import {ParserOptions as $RefOptions} from '@apidevtools/json-schema-ref-parser'
-import {cloneDeep, endsWith, merge} from 'lodash'
+import merge from 'lodash.merge'
 import {dirname} from 'path'
 import {Options as PrettierOptions} from 'prettier'
 import {format} from './formatter'
@@ -12,7 +12,6 @@ import {parse} from './parser'
 import {dereference} from './resolver'
 import {error, stripExtension, Try, log, parseFileAsJSONSchema} from './utils'
 import {validate} from './validator'
-import {isDeepStrictEqual} from 'util'
 import {link} from './linker'
 import {validateOptions} from './optionValidator'
 import {JSONSchema as LinkedJSONSchema} from './types/JSONSchema'
@@ -143,25 +142,18 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   }
 
   // normalize options
-  if (!endsWith(_options.cwd, '/')) {
+  if (!_options.cwd.endsWith('/')) {
     _options.cwd += '/'
   }
 
   // Initial clone to avoid mutating the input
-  const _schema = cloneDeep(schema)
+  const _schema = structuredClone(schema)
 
   const {dereferencedPaths, dereferencedSchema} = await dereference(_schema, _options)
-  if (process.env.VERBOSE) {
-    if (isDeepStrictEqual(_schema, dereferencedSchema)) {
-      log('green', 'dereferencer', time(), '✅ No change')
-    } else {
-      log('green', 'dereferencer', time(), '✅ Result:', dereferencedSchema)
-    }
-  }
 
   const linked = link(dereferencedSchema)
   if (process.env.VERBOSE) {
-    log('green', 'linker', time(), '✅ No change')
+    log('linker', time(), '✅ No change')
   }
 
   const errors = validate(linked, name)
@@ -170,23 +162,23 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
     throw new ValidationError()
   }
   if (process.env.VERBOSE) {
-    log('green', 'validator', time(), '✅ No change')
+    log('validator', time(), '✅ No change')
   }
 
   const normalized = normalize(linked, dereferencedPaths, name, _options)
-  log('yellow', 'normalizer', time(), '✅ Result:', normalized)
+  log('normalizer', time(), '✅ Result:', normalized)
 
   const parsed = parse(normalized, _options)
-  log('blue', 'parser', time(), '✅ Result:', parsed)
+  log('parser', time(), '✅ Result:', parsed)
 
   const optimized = optimize(parsed, _options)
-  log('cyan', 'optimizer', time(), '✅ Result:', optimized)
+  log('optimizer', time(), '✅ Result:', optimized)
 
   const generated = generate(optimized, _options)
-  log('magenta', 'generator', time(), '✅ Result:', generated)
+  log('generator', time(), '✅ Result:', generated)
 
   const formatted = await format(generated, _options)
-  log('white', 'formatter', time(), '✅ Result:', formatted)
+  log('formatter', time(), '✅ Result:', formatted)
 
   return formatted
 }

@@ -1,9 +1,10 @@
-import {deburr, isPlainObject, trim, upperFirst} from 'lodash'
+import deburr from "lodash.deburr"
+import isPlainObject from "lodash.isplainobject"
+import upperFirst from 'lodash.upperfirst'
 import {basename, dirname, extname, normalize, sep, posix} from 'path'
 import {Intersection, JSONSchema, LinkedJSONSchema, NormalizedJSONSchema, Parent} from './types/JSONSchema'
 import {JSONSchema4} from 'json-schema'
 import yaml from 'js-yaml'
-import type {Format} from 'cli-color'
 
 // TODO: pull out into a separate package
 export function Try<T>(fn: () => T, err: (e: Error) => any): T {
@@ -199,7 +200,7 @@ export function toSafeString(string: string) {
       // uppercase letters after digits, dollars
       .replace(/([\d$]+[a-zA-Z])/g, match => match.toUpperCase())
       // uppercase first letter after whitespace
-      .replace(/\s+([a-zA-Z])/g, match => trim(match.toUpperCase()))
+      .replace(/\s+([a-zA-Z])/g, match => match.toUpperCase().trim())
       // remove remaining whitespace
       .replace(/\s/g, ''),
   )
@@ -230,12 +231,10 @@ export function error(...messages: any[]): void {
   if (!process.env.VERBOSE) {
     return console.error(messages)
   }
-  console.error(getStyledTextForLogging('red')?.('error'), ...messages)
+  console.error('[error]', ...messages)
 }
 
-type LogStyle = 'blue' | 'cyan' | 'green' | 'magenta' | 'red' | 'white' | 'yellow'
-
-export function log(style: LogStyle, title: string, ...messages: unknown[]): void {
+export function log(title: string, ...messages: unknown[]): void {
   if (!process.env.VERBOSE) {
     return
   }
@@ -243,31 +242,9 @@ export function log(style: LogStyle, title: string, ...messages: unknown[]): voi
   if (messages.length > 1 && typeof messages[messages.length - 1] !== 'string') {
     lastMessage = messages.splice(messages.length - 1, 1)
   }
-  console.info(color()?.whiteBright.bgCyan('debug'), getStyledTextForLogging(style)?.(title), ...messages)
+  console.info(`[debug]`, title, ...messages)
   if (lastMessage) {
     console.dir(lastMessage, {depth: 6, maxArrayLength: 6})
-  }
-}
-
-function getStyledTextForLogging(style: LogStyle): ((text: string) => string) | undefined {
-  if (!process.env.VERBOSE) {
-    return
-  }
-  switch (style) {
-    case 'blue':
-      return color()?.whiteBright.bgBlue
-    case 'cyan':
-      return color()?.whiteBright.bgCyan
-    case 'green':
-      return color()?.whiteBright.bgGreen
-    case 'magenta':
-      return color()?.whiteBright.bgMagenta
-    case 'red':
-      return color()?.whiteBright.bgRedBright
-    case 'white':
-      return color()?.black.bgWhite
-    case 'yellow':
-      return color()?.whiteBright.bgYellow
   }
 }
 
@@ -411,12 +388,4 @@ export function parseFileAsJSONSchema(filename: string | null, contents: string)
 
 function isYaml(filename: string) {
   return filename.endsWith('.yaml') || filename.endsWith('.yml')
-}
-
-function color(): Format {
-  let cliColor
-  try {
-    cliColor = require('cli-color')
-  } catch {}
-  return cliColor
 }

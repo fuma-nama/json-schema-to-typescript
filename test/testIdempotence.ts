@@ -1,6 +1,5 @@
 import test from 'ava'
 import {JSONSchema4} from 'json-schema'
-import {cloneDeep} from 'lodash'
 import {compile} from '../src'
 
 export function run() {
@@ -15,7 +14,7 @@ export function run() {
   }
 
   test('compile() should not mutate its input', async t => {
-    const before = cloneDeep(SCHEMA)
+    const before = structuredClone(SCHEMA)
     await compile(SCHEMA, 'A')
     t.deepEqual(before, SCHEMA)
   })

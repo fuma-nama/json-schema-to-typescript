@@ -1,5 +1,4 @@
 import {JSONSchema4Type, JSONSchema4TypeName} from 'json-schema'
-import {findKey, includes, isPlainObject, map, memoize, omit} from 'lodash'
 import {format} from 'util'
 import {Options} from './'
 import {applySchemaTyping} from './applySchemaTyping'
@@ -15,6 +14,9 @@ import type {
 } from './types/JSONSchema'
 import {Intersection, Types, getRootSchema, isBoolean, isPrimitive} from './types/JSONSchema'
 import {generateName, log, maybeStripDefault} from './utils'
+import omit from 'lodash.omit'
+import isPlainObject from 'lodash.isplainobject'
+import memoize from 'lodash.memoize'
 
 export type Processed = Map<NormalizedJSONSchema, Map<SchemaType, AST>>
 
@@ -45,14 +47,14 @@ export function parse(
       ast.params.push(parseAsTypeWithCache(schema, type, options, keyName, processed, usedNames))
     })
 
-    log('blue', 'parser', 'Types:', [...types], 'Input:', schema, 'Output:', ast)
+    log('parser', 'Types:', [...types], 'Input:', schema, 'Output:', ast)
     return ast
   }
 
   if (types.size === 1) {
     const type = [...types][0]
     const ast = parseAsTypeWithCache(schema, type, options, keyName, processed, usedNames)
-    log('blue', 'parser', 'Type:', type, 'Input:', schema, 'Output:', ast)
+    log('parser', 'Type:', type, 'Input:', schema, 'Output:', ast)
     return ast
   }
 
@@ -120,7 +122,7 @@ function parseNonLiteral(
   usedNames: UsedNames,
 ): AST {
   const definitions = getDefinitionsMemoized(getRootSchema(schema as any)) // TODO
-  const keyNameFromDefinition = findKey(definitions, _ => _ === schema)
+  const keyNameFromDefinition = Array.from(Object.keys(definitions)).find((k) => definitions[k] === schema) 
 
   switch (type) {
     case 'ALL_OF':
@@ -380,10 +382,10 @@ function parseSchema(
   usedNames: UsedNames,
   parentSchemaName: string,
 ): TInterfaceParam[] {
-  let asts: TInterfaceParam[] = map(schema.properties, (value, key: string) => ({
+  let asts: TInterfaceParam[] = Array.from(Object.entries(schema.properties)).map(([key, value]) => ({
     ast: parse(value, options, key, processed, usedNames),
     isPatternProperty: false,
-    isRequired: includes(schema.required || [], key),
+    isRequired: (schema.required ?? []).includes(key),
     isUnreachableDefinition: false,
     keyName: key,
   }))
@@ -396,7 +398,7 @@ function parseSchema(
     singlePatternProperty = !schema.additionalProperties && Object.keys(schema.patternProperties).length === 1
 
     asts = asts.concat(
-      map(schema.patternProperties, (value, key: string) => {
+      Array.from(Object.entries(schema.patternProperties)).map(([key, value]) => {
         const ast = parse(value, options, key, processed, usedNames)
         const comment = `This interface was referenced by \`${parentSchemaName}\`'s JSON-Schema definition
 via the \`patternProperty\` "${key.replace('*/', '*\\/')}".`
@@ -404,7 +406,7 @@ via the \`patternProperty\` "${key.replace('*/', '*\\/')}".`
         return {
           ast,
           isPatternProperty: !singlePatternProperty,
-          isRequired: singlePatternProperty || includes(schema.required || [], key),
+          isRequired: singlePatternProperty || (schema.required ?? []).includes(key),
           isUnreachableDefinition: false,
           keyName: singlePatternProperty ? '[k: string]' : key,
         }
@@ -414,7 +416,7 @@ via the \`patternProperty\` "${key.replace('*/', '*\\/')}".`
 
   if (options.unreachableDefinitions) {
     asts = asts.concat(
-      map(schema.$defs, (value, key: string) => {
+      Array.from(Object.entries(schema.$defs ?? {})).map(([key, value]) => {
         const ast = parse(value, options, key, processed, usedNames)
         const comment = `This interface was referenced by \`${parentSchemaName}\`'s JSON-Schema
 via the \`definition\` "${key}".`
@@ -422,7 +424,7 @@ via the \`definition\` "${key}".`
         return {
           ast,
           isPatternProperty: false,
-          isRequired: includes(schema.required || [], key),
+          isRequired: (schema.required ?? []).includes(key),
           isUnreachableDefinition: true,
           keyName: key,
         }

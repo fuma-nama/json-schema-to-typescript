@@ -1,4 +1,4 @@
-import {uniqBy} from 'lodash'
+import uniqBy from 'lodash.uniqby'
 import {Options} from '.'
 import {generateType} from './generator'
 import {AST, T_ANY, T_UNKNOWN} from './types/AST'
@@ -29,13 +29,13 @@ export function optimize(ast: AST, options: Options, processed = new Set<AST>())
 
       // [A, B, C, Any] -> Any
       if (optimizedAST.params.some(_ => _.type === 'ANY')) {
-        log('cyan', 'optimizer', '[A, B, C, Any] -> Any', optimizedAST)
+        log('optimizer', '[A, B, C, Any] -> Any', optimizedAST)
         return T_ANY
       }
 
       // [A, B, C, Unknown] -> Unknown
       if (optimizedAST.params.some(_ => _.type === 'UNKNOWN')) {
-        log('cyan', 'optimizer', '[A, B, C, Unknown] -> Unknown', optimizedAST)
+        log('optimizer', '[A, B, C, Unknown] -> Unknown', optimizedAST)
         return T_UNKNOWN
       }
 
@@ -48,14 +48,14 @@ export function optimize(ast: AST, options: Options, processed = new Set<AST>())
         }) &&
         optimizedAST.params.some(_ => _.standaloneName !== undefined)
       ) {
-        log('cyan', 'optimizer', '[A (named), A] -> [A (named)]', optimizedAST)
+        log('optimizer', '[A (named), A] -> [A (named)]', optimizedAST)
         optimizedAST.params = optimizedAST.params.filter(_ => _.standaloneName !== undefined)
       }
 
       // [A, B, B] -> [A, B]
       const params = uniqBy(optimizedAST.params, _ => generateType(_, options))
       if (params.length !== optimizedAST.params.length) {
-        log('cyan', 'optimizer', '[A, B, B] -> [A, B]', optimizedAST)
+        log('optimizer', '[A, B, B] -> [A, B]', optimizedAST)
         optimizedAST.params = params
       }
 

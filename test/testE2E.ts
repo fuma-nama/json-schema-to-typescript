@@ -1,11 +1,11 @@
 import type {FileInfo} from '@apidevtools/json-schema-ref-parser'
 import test from 'ava'
 import {readdirSync} from 'fs'
-import {find, merge} from 'lodash'
 import {join} from 'path'
 import {compile, JSONSchema, Options} from '../src'
 import {log, stripExtension} from '../src/utils'
 import {getWithCache} from './http'
+import merge from 'lodash.merge'
 
 const dir = __dirname + '/e2e'
 
@@ -33,7 +33,8 @@ export function run() {
 
   // exporting `const only=true` will only run that test
   // exporting `const exclude=true` will not run that test
-  const only = find(modules, _ => Boolean(_[1].only))
+  const only = modules.find(v => Boolean(v[1].only))
+
   if (only) {
     runOne(only[1], only[0])
   } else {
@@ -50,7 +51,7 @@ const httpWithCacheResolver = {
 }
 
 function runOne(exports: TestCase, name: string) {
-  log('blue', 'Running test', name)
+  log('Running test', name)
 
   const options = merge(exports.options, {$refOptions: {resolve: {http: httpWithCacheResolver}}})
 
