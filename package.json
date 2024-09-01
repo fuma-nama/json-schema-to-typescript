@@ -1,15 +1,15 @@
 {
-  "name": "json-schema-to-typescript",
-  "version": "15.0.2",
+  "name": "json-schema-to-typescript-esm",
+  "version": "1.0.0",
   "description": "compile json schema to typescript typings",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "bin": {
     "json2ts": "dist/bin/cli.js"
   },
   "type": "module",
-  "typings": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "build": "tsup",
@@ -19,6 +19,7 @@
     "test": "vitest",
     "watch": "tsup --watch"
   },
+  "files": ["./dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcherny/json-schema-to-typescript.git"
