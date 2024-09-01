@@ -4,7 +4,7 @@ import {Parent} from '../src/types/JSONSchema'
 import {input} from './e2e/basics'
 
 test("linker should link to each node's parent schema", () => {
-  const schema = link(input) 
+  const schema = link(input)
 
   expect(schema[Parent]).toBe(null)
   expect(schema.properties?.[Parent as unknown as keyof typeof schema.properties]).toBe(schema)

@@ -5,7 +5,7 @@ import {readFileSync} from 'fs'
 test('pipe in, pipe out', () => {
   const file = readFileSync('./test/resources/ReferencedType.json').toString()
 
-  expect(execSync(`node dist/bin/cli.js`, {encoding: 'utf-8', input: file }).toString()).toMatchFileSnapshot(
+  expect(execSync(`node dist/bin/cli.js`, {encoding: 'utf-8', input: file}).toString()).toMatchFileSnapshot(
     './snapshots/cli-pipe-in',
   )
 })
@@ -13,7 +13,7 @@ test('pipe in, pipe out', () => {
 test('pipe in, pipe out: schema without ID', () => {
   const file = readFileSync('./test/resources/ReferencedTypeWithoutID.json').toString()
 
-  expect(execSync('node dist/bin/cli.js', {encoding: 'utf-8', input: file }).toString()).toMatchFileSnapshot(
+  expect(execSync('node dist/bin/cli.js', {encoding: 'utf-8', input: file}).toString()).toMatchFileSnapshot(
     './snapshots/cli-pipe-in-without-id',
   )
 })

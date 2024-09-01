@@ -11,10 +11,10 @@ test('pathTransform', () => {
 test('generateName', () => {
   const usedNames = new Set<string>()
   expect(generateName('a', usedNames)).toBe('A')
-  expect(generateName('abc', usedNames), ).toBe('Abc')
-  expect(generateName('ABcd', usedNames), ).toBe('ABcd')
-  expect(generateName('$Abc_123', usedNames), ).toBe('$Abc_123')
-  expect(generateName('Abc-de-f', usedNames), ).toBe('AbcDeF')
+  expect(generateName('abc', usedNames)).toBe('Abc')
+  expect(generateName('ABcd', usedNames)).toBe('ABcd')
+  expect(generateName('$Abc_123', usedNames)).toBe('$Abc_123')
+  expect(generateName('Abc-de-f', usedNames)).toBe('AbcDeF')
 
   // Index should increment:
   expect(generateName('a', usedNames)).toBe('A1')
@@ -36,7 +36,7 @@ test('isSchemaLike', () => {
     },
     required: ['firstName', 'lastName'],
   })
-  
+
   expect(isSchemaLike(schema)).toBe(true)
   expect(isSchemaLike([])).toBe(false)
   expect(isSchemaLike(schema.properties)).toBe(false)

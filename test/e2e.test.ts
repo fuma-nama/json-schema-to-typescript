@@ -38,8 +38,10 @@ function runOne(exports: TestCase, name: string) {
   })
 }
 
-const modules =  await Promise.all(readdirSync(dir)
-  .filter(item => !item.includes('.ignore.') && /^.*\.ts$/.test(item))
-  .map(async item => [item, await import(`./e2e/${item}`) ]))
+const modules = await Promise.all(
+  readdirSync(dir)
+    .filter(item => !item.includes('.ignore.') && /^.*\.ts$/.test(item))
+    .map(async item => [item, await import(`./e2e/${item}`)]),
+)
 
 modules.filter(mod => !mod[1].exclude).forEach(mod => runOne(mod[1], mod[0]))
