@@ -4,5 +4,5 @@ export default defineConfig({
   entry: ['src/cli.ts'],
   format: 'esm',
   target: 'es6',
-  clean: true,
+  clean: true
 })

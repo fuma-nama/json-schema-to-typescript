@@ -6,7 +6,7 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "version": "changeset version",
-    "lint:format": "prettier . --check",
+    "lint:format": "prettier . --cache --check --ignore-path .gitignore --ignore-path .prettierignore .",
     "format": "prettier --cache --write --list-different --ignore-path .gitignore --ignore-path .prettierignore .",
     "test": "vitest",
     "release": "pnpm build --filter=./packages/* && changeset publish"

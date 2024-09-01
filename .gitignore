@@ -3,8 +3,7 @@
 .pnp.*
 npm-debug.log
 node_modules
-*.map
 dist/
-yarn-error.log
 
 .turbo
+**/.vitepress/cache/**/*

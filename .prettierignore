@@ -3,4 +3,4 @@ pnpm-lock.yaml
 .changeset/*.md
 .github/**/*.md
 
-**/test/snaphosts/**/*
+**/test/snapshots/**/*

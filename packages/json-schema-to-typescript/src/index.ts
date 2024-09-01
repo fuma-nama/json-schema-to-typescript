@@ -16,7 +16,7 @@ import { link } from './linker'
 import { validateOptions } from './optionValidator'
 import { JSONSchema as LinkedJSONSchema } from './types/JSONSchema'
 
-export { parseFileAsJSONSchema } from "./utils"
+export { parseFileAsJSONSchema } from './utils'
 export type { EnumJSONSchema, JSONSchema, NamedEnumJSONSchema, CustomTypeJSONSchema } from './types/JSONSchema'
 
 export interface Options {
@@ -117,7 +117,6 @@ export const DEFAULT_OPTIONS: Options = {
   unknownAny: true
 }
 
-
 export function compileFromFile(filename: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
   const schema = parseAsJSONSchema(filename)
   return compile(schema, stripExtension(filename), { cwd: dirname(filename), ...options })
@@ -182,4 +181,4 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   return formatted
 }
 
-export class ValidationError extends Error { }
+export class ValidationError extends Error {}
