@@ -5,10 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type B = unknown
+export type B = unknown;
 
 export interface EmptyProperties {
-  a?: unknown
-  b?: B
-  [k: string]: unknown
+  a?: unknown;
+  b?: B;
+  [k: string]: unknown;
 }

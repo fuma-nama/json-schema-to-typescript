@@ -5,18 +5,18 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type LastName = string
-export type Height = number
+export type LastName = string;
+export type Height = number;
 
 export interface ExampleSchema {
-  firstName: string
-  lastName: LastName
+  firstName: string;
+  lastName: LastName;
   /**
    * Age in years
    */
-  age?: number
-  height?: Height
-  favoriteFoods?: unknown[]
-  likesDogs?: boolean
-  [k: string]: unknown
+  age?: number;
+  height?: Height;
+  favoriteFoods?: unknown[];
+  likesDogs?: boolean;
+  [k: string]: unknown;
 }

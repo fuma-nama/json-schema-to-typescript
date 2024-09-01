@@ -6,19 +6,19 @@
  */
 
 export type Intersection = {
-  a: A
-  b: B
-} & (C | D)
+  a: A;
+  b: B;
+} & (C | D);
 
 export interface A {
-  a: string
+  a: string;
 }
 export interface B {
-  b: string
+  b: string;
 }
 export interface C {
-  c: string
+  c: string;
 }
 export interface D {
-  d: string
+  d: string;
 }

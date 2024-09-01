@@ -10,102 +10,102 @@ export interface ArrayMaxMinItems {
     /**
      * @minItems 3
      */
-    withMinItems?: string[]
+    withMinItems?: string[];
     /**
      * @maxItems 3
      */
-    withMaxItems?: string[]
+    withMaxItems?: string[];
     /**
      * @minItems 3
      * @maxItems 8
      */
-    withMinMaxItems?: string[]
+    withMinMaxItems?: string[];
     /**
      * @maxItems 0
      */
-    withMaxItems0?: string[]
+    withMaxItems0?: string[];
     /**
      * @minItems 0
      */
-    withMinItems0?: string[]
+    withMinItems0?: string[];
     /**
      * @minItems 0
      * @maxItems 0
      */
-    withMinMaxItems0?: string[]
-  }
+    withMinMaxItems0?: string[];
+  };
   untyped?: {
     /**
      * @minItems 3
      */
-    withMinItems?: unknown[]
+    withMinItems?: unknown[];
     /**
      * @maxItems 3
      */
-    withMaxItems?: unknown[]
+    withMaxItems?: unknown[];
     /**
      * @minItems 3
      * @maxItems 8
      */
-    withMinMaxItems?: unknown[]
+    withMinMaxItems?: unknown[];
     /**
      * @maxItems 0
      */
-    withMaxItems0?: unknown[]
+    withMaxItems0?: unknown[];
     /**
      * @minItems 0
      */
-    withMinItems0?: unknown[]
+    withMinItems0?: unknown[];
     /**
      * @minItems 0
      * @maxItems 0
      */
-    withMinMaxItems0?: unknown[]
-  }
+    withMinMaxItems0?: unknown[];
+  };
   tuple?: {
     /**
      * @minItems 2
      */
-    withMinItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMinItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 8
      */
-    withMinItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMinItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @maxItems 2
      */
-    withMaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @maxItems 8
      */
-    withMaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 4
      * @maxItems 8
      */
-    withMinItemsLessThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMinItemsLessThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 2
      * @maxItems 4
      */
-    withMinItemsLessThanItemLength_and_MaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMinItemsLessThanItemLength_and_MaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 8
      * @maxItems 10
      */
-    withMinItemsGreaterThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
+    withMinItemsGreaterThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6];
     /**
      * @maxItems 0
      */
-    withMaxItems0?: [1, 2, 3, 4, 5, 6]
+    withMaxItems0?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 0
      */
-    withMinItems0?: [1, 2, 3, 4, 5, 6]
+    withMinItems0?: [1, 2, 3, 4, 5, 6];
     /**
      * @minItems 0
      * @maxItems 0
      */
-    withMinMaxItems0?: [1, 2, 3, 4, 5, 6]
-  }
+    withMinMaxItems0?: [1, 2, 3, 4, 5, 6];
+  };
 }

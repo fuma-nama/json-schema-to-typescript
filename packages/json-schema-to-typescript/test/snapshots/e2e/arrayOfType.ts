@@ -6,9 +6,9 @@
  */
 
 export interface ArrayOfType {
-  foo?: string[]
-  bar?: string[]
-  baz?: (string | number)[]
-  moo?: [] | [number] | [number, string]
-  [k: string]: unknown
+  foo?: string[];
+  bar?: string[];
+  baz?: (string | number)[];
+  moo?: [] | [number] | [number, string];
+  [k: string]: unknown;
 }

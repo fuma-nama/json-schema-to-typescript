@@ -6,13 +6,13 @@
  */
 
 export interface DefinitionsOnly {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `DefinitionsOnly`'s JSON-Schema
  * via the `definition` "DummyPerson".
  */
 export interface DummyPerson {
-  age?: number
-  [k: string]: unknown
+  age?: number;
+  [k: string]: unknown;
 }

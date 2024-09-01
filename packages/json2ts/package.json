@@ -1,0 +1,50 @@
+{
+  "name": "@fumari/json2ts",
+  "version": "1.0.1",
+  "description": "a CLI tool to compile json schema to typescript typings",
+  "bin": "dist/cli.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src/**/*.ts",
+    "dev": "tsup --watch"
+  },
+  "files": [
+    "./dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuma-nama/json-schema-to-typescript.git"
+  },
+  "keywords": [
+    "json",
+    "schema",
+    "typescript",
+    "compile",
+    "transpile",
+    "api",
+    "interface",
+    "typing",
+    "share",
+    "cli"
+  ],
+  "author": "Fuma Nama; Boris Cherny",
+  "license": "MIT",
+  "dependencies": {
+    "@fumari/json-schema-to-typescript": "workspace:*",
+    "glob": "^11.0.0",
+    "is-glob": "^4.0.3",
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "@types/is-glob": "^4.0.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.5.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -6,5 +6,5 @@
  */
 
 export interface ReferencingCombined {
-  foo: ExampleCombinedSchema
+  foo: ExampleCombinedSchema;
 }

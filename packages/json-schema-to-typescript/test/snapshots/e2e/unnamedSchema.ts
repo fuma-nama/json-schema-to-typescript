@@ -6,5 +6,5 @@
  */
 
 export interface UnnamedSchema {
-  foo: string
+  foo: string;
 }

@@ -44,28 +44,13 @@ importers:
       '@apidevtools/json-schema-ref-parser':
         specifier: ^11.7.0
         version: 11.7.0
-      glob:
-        specifier: ^11.0.0
-        version: 11.0.0
-      is-glob:
-        specifier: ^4.0.3
-        version: 4.0.3
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
-      minimist:
-        specifier: ^1.2.8
-        version: 1.2.8
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
     devDependencies:
-      '@changesets/cli':
-        specifier: ^2.27.7
-        version: 2.27.7
-      '@types/is-glob':
-        specifier: ^4.0.4
-        version: 4.0.4
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -93,18 +78,9 @@ importers:
       '@types/lodash.upperfirst':
         specifier: ^4.3.9
         version: 4.3.9
-      '@types/minimist':
-        specifier: ^1.2.5
-        version: 1.2.5
       '@types/node':
         specifier: ^22.5.1
         version: 22.5.1
-      eslint:
-        specifier: ^9.9.1
-        version: 9.9.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.9.1)
       lodash.deburr:
         specifier: ^4.1.0
         version: 4.1.0
@@ -126,21 +102,31 @@ importers:
       lodash.upperfirst:
         specifier: ^4.3.1
         version: 4.3.1
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
-      tsup:
-        specifier: ^8.2.4
-        version: 8.2.4(postcss@8.4.42)(typescript@5.5.4)
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
-      typescript-eslint:
-        specifier: ^8.3.0
-        version: 8.3.0(eslint@9.9.1)(typescript@5.5.4)
-      vitest:
-        specifier: ^2.0.5
-        version: 2.0.5(@types/node@22.5.1)
+
+  packages/json2ts:
+    dependencies:
+      '@fumari/json-schema-to-typescript':
+        specifier: workspace:*
+        version: link:../json-schema-to-typescript
+      glob:
+        specifier: ^11.0.0
+        version: 11.0.0
+      is-glob:
+        specifier: ^4.0.3
+        version: 4.0.3
+      minimist:
+        specifier: ^1.2.8
+        version: 1.2.8
+    devDependencies:
+      '@types/is-glob':
+        specifier: ^4.0.4
+        version: 4.0.4
+      '@types/minimist':
+        specifier: ^1.2.5
+        version: 1.2.5
+      '@types/node':
+        specifier: ^22.5.1
+        version: 22.5.1
 
 packages:
 

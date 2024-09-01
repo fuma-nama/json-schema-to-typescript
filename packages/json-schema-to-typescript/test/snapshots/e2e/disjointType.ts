@@ -9,13 +9,13 @@
  * My cool schema
  */
 export interface ExampleSchema {
-  value: number | string
-  anotherValue?: null | string
-  nullableStringEnum?: null | ('foo' | 'bar')
+  value: number | string;
+  anotherValue?: null | string;
+  nullableStringEnum?: null | ("foo" | "bar");
   nullableObj?: null | {
-    foo: string
-    [k: string]: unknown
-  }
-  nullableArrayEnums?: null | ('foo' | 'bar')[]
-  [k: string]: unknown
+    foo: string;
+    [k: string]: unknown;
+  };
+  nullableArrayEnums?: null | ("foo" | "bar")[];
+  [k: string]: unknown;
 }

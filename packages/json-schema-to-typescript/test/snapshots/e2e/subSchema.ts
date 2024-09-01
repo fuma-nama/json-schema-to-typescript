@@ -6,18 +6,18 @@
  */
 
 export interface SchemaWithSubschema {
-  firstName: string
+  firstName: string;
   friend?: {
-    knowsFrom: 'work' | 'school' | 'other'
-    [k: string]: unknown
-  }
+    knowsFrom: "work" | "school" | "other";
+    [k: string]: unknown;
+  };
   coworker?: {
     company?: {
-      name: string
-    }
-    [k: string]: KString
-  }
-  [k: string]: unknown
+      name: string;
+    };
+    [k: string]: KString;
+  };
+  [k: string]: unknown;
 }
 
 export const enum KString {

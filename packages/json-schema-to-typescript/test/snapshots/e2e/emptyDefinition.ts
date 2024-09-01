@@ -5,8 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type MyInterface = unknown
+export type MyInterface = unknown;
 
 export interface EmptyDefinition {
-  [k: string]: MyInterface
+  [k: string]: MyInterface;
 }

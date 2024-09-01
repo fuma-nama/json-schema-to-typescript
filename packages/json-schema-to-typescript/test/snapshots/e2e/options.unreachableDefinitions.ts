@@ -5,21 +5,21 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type LastName = string
+export type LastName = string;
 
 export interface UnreachableDefinition {
   b?: {
-    likesDogs?: boolean
-    [k: string]: unknown
-  }
-  [k: string]: unknown
+    likesDogs?: boolean;
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `UnreachableDefinition`'s JSON-Schema
  * via the `definition` "a".
  */
 export interface A {
-  firstName?: string
-  lastName?: LastName
-  [k: string]: unknown
+  firstName?: string;
+  lastName?: LastName;
+  [k: string]: unknown;
 }

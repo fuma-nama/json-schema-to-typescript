@@ -6,9 +6,9 @@
  */
 
 export interface Sample {
-  neighborhood?: Person[]
+  neighborhood?: Person[];
 }
 export interface Person {
-  age?: number
-  [k: string]: unknown
+  age?: number;
+  [k: string]: unknown;
 }

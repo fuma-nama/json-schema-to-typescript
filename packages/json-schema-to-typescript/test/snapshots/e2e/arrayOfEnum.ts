@@ -6,8 +6,8 @@
  */
 
 export interface ArrayOfEnum {
-  namedEnum: NamedEnum[]
-  tuples?: [] | [string] | [string, NamedEnum2]
+  namedEnum: NamedEnum[];
+  tuples?: [] | [string] | [string, NamedEnum2];
 }
 
 export const enum NamedEnum {

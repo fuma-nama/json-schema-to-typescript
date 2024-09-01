@@ -7,19 +7,19 @@
 
 export type UnionWithProps = (
   | {
-      obj_type: 'Foo'
-      foo_type?: string
-      [k: string]: unknown
+      obj_type: "Foo";
+      foo_type?: string;
+      [k: string]: unknown;
     }
   | {
-      obj_type: 'Bar'
-      bar_type?: string
-      team: string
-      health: number
-      [k: string]: unknown
+      obj_type: "Bar";
+      bar_type?: string;
+      team: string;
+      health: number;
+      [k: string]: unknown;
     }
 ) & {
-  coords: number
-  id: number
-  [k: string]: unknown
-}
+  coords: number;
+  id: number;
+  [k: string]: unknown;
+};

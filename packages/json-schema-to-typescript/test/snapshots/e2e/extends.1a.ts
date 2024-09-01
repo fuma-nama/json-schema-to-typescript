@@ -6,9 +6,9 @@
  */
 
 export interface Extends extends Base1 {
-  foo: string
+  foo: string;
 }
 export interface Base1 {
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
 }

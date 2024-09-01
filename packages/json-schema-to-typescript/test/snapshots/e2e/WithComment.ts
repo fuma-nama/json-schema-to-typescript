@@ -13,8 +13,8 @@ export interface WithComment {
     /**
      * /* nested comment * /
      */
-    b?: string
-    [k: string]: unknown
-  }
-  [k: string]: unknown
+    b?: string;
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
 }

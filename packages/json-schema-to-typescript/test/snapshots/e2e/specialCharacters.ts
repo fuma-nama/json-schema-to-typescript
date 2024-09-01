@@ -6,10 +6,10 @@
  */
 
 export interface ExampleSchema {
-  '`foo`': string
-  "'bar'": string
-  '"baz"': string
-  '$zoo 2'?: string
-  'qux...'?: number
-  [k: string]: unknown
+  "`foo`": string;
+  "'bar'": string;
+  '"baz"': string;
+  "$zoo 2"?: string;
+  "qux..."?: number;
+  [k: string]: unknown;
 }

@@ -5,17 +5,17 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type RootAnyOf = Foo | Bar | Baz
+export type RootAnyOf = Foo | Bar | Baz;
 
 export interface Foo {
-  a: string
-  b?: number
+  a: string;
+  b?: number;
 }
 export interface Bar {
-  a?: 'a' | 'b' | 'c'
-  [k: string]: unknown
+  a?: "a" | "b" | "c";
+  [k: string]: unknown;
 }
 export interface Baz {
-  baz?: Bar
-  [k: string]: unknown
+  baz?: Bar;
+  [k: string]: unknown;
 }

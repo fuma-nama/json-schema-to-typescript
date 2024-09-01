@@ -5,22 +5,22 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type A = string
+export type A = string;
 
 export interface OptimizableSchema2 {
-  a: A
-  b: B
-  c: B | C
+  a: A;
+  b: B;
+  c: B | C;
   d: {
-    [k: string]: unknown
-  }
+    [k: string]: unknown;
+  };
   e: {
-    [k: string]: unknown
-  }
+    [k: string]: unknown;
+  };
 }
 export interface B {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
 export interface C {
-  [k: string]: unknown
+  [k: string]: unknown;
 }

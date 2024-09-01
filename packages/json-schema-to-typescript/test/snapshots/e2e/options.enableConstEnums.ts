@@ -6,21 +6,21 @@
  */
 
 export interface Enum {
-  stringEnum: 'a' | 'b' | 'c'
-  impliedStringEnum: 'a' | 'b' | 'c'
-  booleanEnum: true
-  impliedBooleanEnum: true
-  integerEnum: -1 | 0 | 1
-  impliedIntegerEnum: -1 | 0 | 1
-  numberEnum?: -1.1 | 0 | 1.2
-  namedIntegerEnum?: NamedIntegerEnum
-  impliedNamedIntegerEnum: ImpliedNamedIntegerEnum
-  impliedHeterogeneousEnum?: -20.1 | null | 'foo' | false
-  namedIntegerEnumTitle: NamedInteger
-  impliedNamedIntegerEnumTitle: ImpliedNamedInteger
-  oneOfNamedEnum: IntegerOneOfNamedEnum | StringOneOfNamedEnum
-  anyOfNamedEnum: IntegerAnyOfNamedEnum | StringAnyOfNamedEnum
-  allOfNamedEnum: IntegerAllOfNamedEnum & StringAllOfNamedEnum
+  stringEnum: "a" | "b" | "c";
+  impliedStringEnum: "a" | "b" | "c";
+  booleanEnum: true;
+  impliedBooleanEnum: true;
+  integerEnum: -1 | 0 | 1;
+  impliedIntegerEnum: -1 | 0 | 1;
+  numberEnum?: -1.1 | 0 | 1.2;
+  namedIntegerEnum?: NamedIntegerEnum;
+  impliedNamedIntegerEnum: ImpliedNamedIntegerEnum;
+  impliedHeterogeneousEnum?: -20.1 | null | "foo" | false;
+  namedIntegerEnumTitle: NamedInteger;
+  impliedNamedIntegerEnumTitle: ImpliedNamedInteger;
+  oneOfNamedEnum: IntegerOneOfNamedEnum | StringOneOfNamedEnum;
+  anyOfNamedEnum: IntegerAnyOfNamedEnum | StringAnyOfNamedEnum;
+  allOfNamedEnum: IntegerAllOfNamedEnum & StringAllOfNamedEnum;
 }
 
 export const enum NamedIntegerEnum {
@@ -49,9 +49,9 @@ export const enum IntegerOneOfNamedEnum {
   Three = 3
 }
 export const enum StringOneOfNamedEnum {
-  Four = 'four',
-  Five = 'five',
-  Six = 'six'
+  Four = "four",
+  Five = "five",
+  Six = "six"
 }
 export const enum IntegerAnyOfNamedEnum {
   One = 1,
@@ -59,9 +59,9 @@ export const enum IntegerAnyOfNamedEnum {
   Three = 3
 }
 export const enum StringAnyOfNamedEnum {
-  Four = 'four',
-  Five = 'five',
-  Six = 'six'
+  Four = "four",
+  Five = "five",
+  Six = "six"
 }
 export const enum IntegerAllOfNamedEnum {
   One = 1,
@@ -69,7 +69,7 @@ export const enum IntegerAllOfNamedEnum {
   Three = 3
 }
 export const enum StringAllOfNamedEnum {
-  Four = 'four',
-  Five = 'five',
-  Six = 'six'
+  Four = "four",
+  Five = "five",
+  Six = "six"
 }

@@ -5,11 +5,11 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type ArrayItems = ArrayItem[]
+export type ArrayItems = ArrayItem[];
 
 export interface ObjectWithArrayField {
-  data: ArrayItems
+  data: ArrayItems;
 }
 export interface ArrayItem {
-  prop: string
+  prop: string;
 }

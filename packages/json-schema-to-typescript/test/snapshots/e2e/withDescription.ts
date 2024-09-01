@@ -9,11 +9,11 @@
  * My cool schema
  */
 export interface ExampleSchema {
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
   /**
    * Age in years
    */
-  age?: number
-  [k: string]: unknown
+  age?: number;
+  [k: string]: unknown;
 }

@@ -7,9 +7,9 @@
 
 export interface EntityObjectDefinition {
   definitions?: {
-    [k: string]: EntityObject
-  }
-  [k: string]: unknown
+    [k: string]: EntityObject;
+  };
+  [k: string]: unknown;
 }
 /**
  * My example entity object definition
@@ -19,13 +19,13 @@ export interface EntityObjectDefinition {
  */
 export interface EntityObject {
   EntityDataCategory: {
-    APorpertyName?: EntityDataCategory
-  }
-  [k: string]: unknown
+    APorpertyName?: EntityDataCategory;
+  };
+  [k: string]: unknown;
 }
 
 export const enum EntityDataCategory {
-  Table = 'TABLE',
-  Field = 'OBJ',
-  Func = 'FUNC'
+  Table = "TABLE",
+  Field = "OBJ",
+  Func = "FUNC"
 }

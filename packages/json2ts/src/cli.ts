@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 import minimist from 'minimist'
-import { readFileSync, writeFileSync, existsSync, lstatSync, readdirSync, mkdirSync } from 'fs'
+import { writeFileSync, existsSync, lstatSync, readdirSync, mkdirSync, readFileSync, createReadStream } from 'fs'
 import { glob } from 'glob'
 import isGlob from 'is-glob'
 import { join, resolve, dirname } from 'path'
-import { compile, DEFAULT_OPTIONS, Options } from '../index'
-import { pathTransform, error, parseFileAsJSONSchema, justName } from '../utils'
-import pkg from '../../package.json'
+import { compile, DEFAULT_OPTIONS, parseFileAsJSONSchema, Options } from '@fumari/json-schema-to-typescript'
+import { pathTransform, error, justName } from './utils'
+import pkg from '../package.json'
 
 main(
   minimist(process.argv.slice(2), {

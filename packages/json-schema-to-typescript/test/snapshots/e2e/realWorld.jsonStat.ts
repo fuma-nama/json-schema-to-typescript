@@ -10,118 +10,118 @@
  */
 export type JSONStat20Schema =
   | {
-      class: 'dataset'
-      version: Version
-      href?: Href
-      label?: Label
-      note?: Note
-      link?: Link
-      updated?: Updated
-      source?: Source
-      error?: Error
-      extension?: Extension
-      id: Note
-      size: number[]
+      class: "dataset";
+      version: Version;
+      href?: Href;
+      label?: Label;
+      note?: Note;
+      link?: Link;
+      updated?: Updated;
+      source?: Source;
+      error?: Error;
+      extension?: Extension;
+      id: Note;
+      size: number[];
       role?: {
-        time?: Note
-        geo?: Note
-        metric?: Note
-      }
+        time?: Note;
+        geo?: Note;
+        metric?: Note;
+      };
       dimension: {
         [k: string]: {
-          href?: Href
-          label?: Label
-          note?: Note
-          link?: Link
-          extension?: Extension
-          category: Category
-        }
-      }
+          href?: Href;
+          label?: Label;
+          note?: Note;
+          link?: Link;
+          extension?: Extension;
+          category: Category;
+        };
+      };
       value:
         | (number | null | string)[]
         | {
-            [k: string]: number | null | string
-          }
+            [k: string]: number | null | string;
+          };
       status?:
         | string
         | string[]
         | {
-            [k: string]: string
-          }
+            [k: string]: string;
+          };
     }
   | {
-      class: 'dimension'
-      version: Version
-      href?: Href
-      label?: Label
-      note?: Note
-      link?: Link
-      updated?: Updated
-      source?: Source
-      error?: Error
-      extension?: Extension
-      category: Category
+      class: "dimension";
+      version: Version;
+      href?: Href;
+      label?: Label;
+      note?: Note;
+      link?: Link;
+      updated?: Updated;
+      source?: Source;
+      error?: Error;
+      extension?: Extension;
+      category: Category;
     }
   | {
-      class: 'collection'
-      version: Version
-      href?: Href
-      label?: Label
-      note?: Note
+      class: "collection";
+      version: Version;
+      href?: Href;
+      label?: Label;
+      note?: Note;
       link: {
         item?: {
-          type?: string
-          class?: 'dataset' | 'collection' | 'dimension'
-          href?: Href
-          label?: Label
-          note?: Note
-          link?: Link
-          updated?: Updated
-          source?: Source
-          extension?: Extension
-          category?: Category
-          id?: Note
-          size?: number[]
+          type?: string;
+          class?: "dataset" | "collection" | "dimension";
+          href?: Href;
+          label?: Label;
+          note?: Note;
+          link?: Link;
+          updated?: Updated;
+          source?: Source;
+          extension?: Extension;
+          category?: Category;
+          id?: Note;
+          size?: number[];
           role?: {
-            time?: Note
-            geo?: Note
-            metric?: Note
-          }
+            time?: Note;
+            geo?: Note;
+            metric?: Note;
+          };
           dimension?: {
             [k: string]: {
-              href?: Href
-              label?: Label
-              note?: Note
-              link?: Link
-              extension?: Extension
-              category: Category
-            }
-          }
+              href?: Href;
+              label?: Label;
+              note?: Note;
+              link?: Link;
+              extension?: Extension;
+              category: Category;
+            };
+          };
           value?:
             | (number | null | string)[]
             | {
-                [k: string]: number | null | string
-              }
+                [k: string]: number | null | string;
+              };
           status?:
             | string
             | string[]
             | {
-                [k: string]: string
-              }
-        }[]
-      }
-      updated?: Updated
-      source?: Source
-      error?: Error
-      extension?: Extension
-    }
-export type Version = '2.0'
-export type Href = string
-export type Label = string
-export type Note = string[]
-export type Updated = string
-export type Source = string
-export type Error = unknown[]
+                [k: string]: string;
+              };
+        }[];
+      };
+      updated?: Updated;
+      source?: Source;
+      error?: Error;
+      extension?: Extension;
+    };
+export type Version = "2.0";
+export type Href = string;
+export type Label = string;
+export type Note = string[];
+export type Updated = string;
+export type Source = string;
+export type Error = unknown[];
 
 export interface Link {
   /**
@@ -129,73 +129,73 @@ export interface Link {
    * via the `patternProperty` "^(about|alternate|appendix|archives|author|blocked-by|bookmark|canonical|chapter|collection|contents|copyright|create-form|current|derivedfrom|describedby|describes|disclosure|dns-prefetch|duplicate|edit|edit-form|edit-media|enclosure|first|glossary|help|hosts|hub|icon|index|item|last|latest-version|license|lrdd|memento|monitor|monitor-group|next|next-archive|nofollow|noreferrer|original|payment|pingback|preconnect|predecessor-version|prefetch|preload|prerender|prev|preview|previous|prev-archive|privacy-policy|profile|related|replies|search|section|self|service|start|stylesheet|subsection|successor-version|tag|terms-of-service|timegate|timemap|type|up|version-history|via|webmention|working-copy|working-copy-of)$".
    */
   [k: string]: {
-    type?: string
-    class?: 'dataset' | 'collection' | 'dimension'
-    href?: Href
-    label?: Label
-    note?: Note
-    link?: Link
-    updated?: Updated
-    source?: Source
-    extension?: Extension
-    category?: Category
-    id?: Note
-    size?: number[]
+    type?: string;
+    class?: "dataset" | "collection" | "dimension";
+    href?: Href;
+    label?: Label;
+    note?: Note;
+    link?: Link;
+    updated?: Updated;
+    source?: Source;
+    extension?: Extension;
+    category?: Category;
+    id?: Note;
+    size?: number[];
     role?: {
-      time?: Note
-      geo?: Note
-      metric?: Note
-    }
+      time?: Note;
+      geo?: Note;
+      metric?: Note;
+    };
     dimension?: {
       [k: string]: {
-        href?: Href
-        label?: Label
-        note?: Note
-        link?: Link
-        extension?: Extension
-        category: Category
-      }
-    }
+        href?: Href;
+        label?: Label;
+        note?: Note;
+        link?: Link;
+        extension?: Extension;
+        category: Category;
+      };
+    };
     value?:
       | (number | null | string)[]
       | {
-          [k: string]: number | null | string
-        }
+          [k: string]: number | null | string;
+        };
     status?:
       | string
       | string[]
       | {
-          [k: string]: string
-        }
-  }[]
+          [k: string]: string;
+        };
+  }[];
 }
 export interface Extension {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
 export interface Category {
   index?:
     | Note
     | {
-        [k: string]: number
-      }
+        [k: string]: number;
+      };
   label?: {
-    [k: string]: string
-  }
+    [k: string]: string;
+  };
   note?: {
-    [k: string]: Note
-  }
+    [k: string]: Note;
+  };
   unit?: {
     [k: string]: {
-      label?: Label
-      decimals?: number
-      position?: 'start' | 'end'
-      [k: string]: unknown
-    }
-  }
+      label?: Label;
+      decimals?: number;
+      position?: "start" | "end";
+      [k: string]: unknown;
+    };
+  };
   coordinates?: {
-    [k: string]: [] | [number] | [number, number]
-  }
+    [k: string]: [] | [number] | [number, number];
+  };
   child?: {
-    [k: string]: Note
-  }
+    [k: string]: Note;
+  };
 }

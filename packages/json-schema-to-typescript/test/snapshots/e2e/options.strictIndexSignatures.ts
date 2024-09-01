@@ -6,14 +6,14 @@
  */
 
 export interface StrictIndexSignatures {
-  maybe?: string
+  maybe?: string;
   complex?: {
-    maybe?: string
-    [k: string]: Leaf | undefined
-  }
-  [k: string]: string | undefined
+    maybe?: string;
+    [k: string]: Leaf | undefined;
+  };
+  [k: string]: string | undefined;
 }
 export interface Leaf {
-  maybe?: string
-  [k: string]: unknown
+  maybe?: string;
+  [k: string]: unknown;
 }

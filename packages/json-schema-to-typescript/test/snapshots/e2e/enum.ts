@@ -5,26 +5,26 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type EnumFromDefinition = 'a' | 'b' | 'c'
+export type EnumFromDefinition = "a" | "b" | "c";
 
 export interface Enum {
-  stringEnum: 'a' | 'b' | 'c'
-  impliedStringEnum: 'a' | 'b' | 'c'
-  booleanEnum: true
-  impliedBooleanEnum: true
-  integerEnum: -1 | 0 | 1
-  impliedIntegerEnum: -1 | 0 | 1
-  numberEnum?: -1.1 | 0 | 1.2
-  namedIntegerEnum?: NamedIntegerEnum
-  impliedNamedIntegerEnum: ImpliedNamedIntegerEnum
-  impliedHeterogeneousEnum?: -20.1 | null | 'foo' | false
-  namedIntegerEnumTitle: NamedInteger
-  impliedNamedIntegerEnumTitle: ImpliedNamedInteger
-  enumThatComesFromADefinition?: EnumFromDefinition
+  stringEnum: "a" | "b" | "c";
+  impliedStringEnum: "a" | "b" | "c";
+  booleanEnum: true;
+  impliedBooleanEnum: true;
+  integerEnum: -1 | 0 | 1;
+  impliedIntegerEnum: -1 | 0 | 1;
+  numberEnum?: -1.1 | 0 | 1.2;
+  namedIntegerEnum?: NamedIntegerEnum;
+  impliedNamedIntegerEnum: ImpliedNamedIntegerEnum;
+  impliedHeterogeneousEnum?: -20.1 | null | "foo" | false;
+  namedIntegerEnumTitle: NamedInteger;
+  impliedNamedIntegerEnumTitle: ImpliedNamedInteger;
+  enumThatComesFromADefinition?: EnumFromDefinition;
   propertyWithAnEnum?: {
-    enumThatComesFromADefinition?: EnumFromDefinition
-    [k: string]: unknown
-  }
+    enumThatComesFromADefinition?: EnumFromDefinition;
+    [k: string]: unknown;
+  };
 }
 
 export const enum NamedIntegerEnum {

@@ -6,5 +6,5 @@
  */
 
 export interface EmptySchema {
-  [k: string]: unknown
+  [k: string]: unknown;
 }

@@ -7,136 +7,136 @@
 
 export interface ArrayAdditionalItems {
   namedEums?: {
-    additionalItemsAny?: [] | [NamedEnum2, ...unknown[]]
-    additionalItems?: [] | [NamedEnum21, ...NamedEnum22[]]
-  }
+    additionalItemsAny?: [] | [NamedEnum2, ...unknown[]];
+    additionalItems?: [] | [NamedEnum21, ...NamedEnum22[]];
+  };
   unnamedEmums?: {
-    additionalItemsAny?: [] | [1 | 2 | 3, ...unknown[]]
-    additionalItems?: [] | ['One' | 'Two' | 'Three', ...(4 | 5 | 6)[]]
-  }
+    additionalItemsAny?: [] | [1 | 2 | 3, ...unknown[]];
+    additionalItems?: [] | ["One" | "Two" | "Three", ...(4 | 5 | 6)[]];
+  };
   namedSchema?: {
-    additionalItemsAny?: [] | [StringSchema1] | [StringSchema1, NumberSchema1, ...unknown[]]
-    additionalItems?: [] | [StringSchema2] | [StringSchema2, NumberSchema2, ...BooleanSchema1[]]
-  }
+    additionalItemsAny?: [] | [StringSchema1] | [StringSchema1, NumberSchema1, ...unknown[]];
+    additionalItems?: [] | [StringSchema2] | [StringSchema2, NumberSchema2, ...BooleanSchema1[]];
+  };
   schema?: {
     additionalItemsAny?:
       | []
       | [
           {
-            foo?: string
-            [k: string]: unknown
+            foo?: string;
+            [k: string]: unknown;
           }
         ]
       | [
           {
-            foo?: string
-            [k: string]: unknown
+            foo?: string;
+            [k: string]: unknown;
           },
           {
-            bar?: number
-            [k: string]: unknown
+            bar?: number;
+            [k: string]: unknown;
           },
           ...unknown[]
-        ]
+        ];
     additionalItems?:
       | []
       | [
           {
-            foo?: string
-            [k: string]: unknown
+            foo?: string;
+            [k: string]: unknown;
           }
         ]
       | [
           {
-            foo?: string
-            [k: string]: unknown
+            foo?: string;
+            [k: string]: unknown;
           },
           {
-            bar?: number
-            [k: string]: unknown
+            bar?: number;
+            [k: string]: unknown;
           },
           ...{
-            baz?: boolean
-            [k: string]: unknown
+            baz?: boolean;
+            [k: string]: unknown;
           }[]
-        ]
-  }
+        ];
+  };
   ofType?: {
-    additonalItemsAny?: [] | [number] | [number, string, ...unknown[]]
-    additonalItems?: [] | [number] | [number, string, ...boolean[]]
-  }
+    additonalItemsAny?: [] | [number] | [number, string, ...unknown[]];
+    additonalItems?: [] | [number] | [number, string, ...boolean[]];
+  };
   refs?: {
-    additionalItemsAny?: [] | [ExampleSchema, ...unknown[]]
-    additionalItems?: [] | [ExampleSchema1, ...ExampleSchema2[]]
-  }
+    additionalItemsAny?: [] | [ExampleSchema, ...unknown[]];
+    additionalItems?: [] | [ExampleSchema1, ...ExampleSchema2[]];
+  };
   defs?: {
-    additionalItemsAny?: [] | [FirstDefinition, ...unknown[]]
-    additionalItems?: [] | [UnrelatedTitle, ...ThirdDefinition[]]
-  }
+    additionalItemsAny?: [] | [FirstDefinition, ...unknown[]];
+    additionalItems?: [] | [UnrelatedTitle, ...ThirdDefinition[]];
+  };
 }
 export interface StringSchema1 {
-  foo?: string
-  [k: string]: unknown
+  foo?: string;
+  [k: string]: unknown;
 }
 export interface NumberSchema1 {
-  bar?: number
-  [k: string]: unknown
+  bar?: number;
+  [k: string]: unknown;
 }
 export interface StringSchema2 {
-  foo?: string
-  [k: string]: unknown
+  foo?: string;
+  [k: string]: unknown;
 }
 export interface NumberSchema2 {
-  bar?: number
-  [k: string]: unknown
+  bar?: number;
+  [k: string]: unknown;
 }
 export interface BooleanSchema1 {
-  baz?: boolean
-  [k: string]: unknown
+  baz?: boolean;
+  [k: string]: unknown;
 }
 export interface ExampleSchema {
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
   /**
    * Age in years
    */
-  age?: number
-  height?: number
-  favoriteFoods?: unknown[]
-  likesDogs?: boolean
-  [k: string]: unknown
+  age?: number;
+  height?: number;
+  favoriteFoods?: unknown[];
+  likesDogs?: boolean;
+  [k: string]: unknown;
 }
 export interface ExampleSchema1 {
-  firstName: string
-  lastName: string
+  firstName: string;
+  lastName: string;
   /**
    * Age in years
    */
-  age?: number
-  height?: number
-  favoriteFoods?: unknown[]
-  likesDogs?: boolean
-  [k: string]: unknown
+  age?: number;
+  height?: number;
+  favoriteFoods?: unknown[];
+  likesDogs?: boolean;
+  [k: string]: unknown;
 }
 export interface ExampleSchema2 {
-  isConflict: boolean
+  isConflict: boolean;
 }
 /**
  * Title matches definition key for kicks
  */
 export interface FirstDefinition {
-  name?: string
+  name?: string;
 }
 /**
  * Title is unrelated to definition key and behaviour is the same
  */
 export interface UnrelatedTitle {
-  name?: string
+  name?: string;
 } /**
  * Definition has no title and produces no duplicate Interface
  */
 export interface ThirdDefinition {
-  name?: string
+  name?: string;
 }
 
 export const enum NamedEnum2 {

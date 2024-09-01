@@ -6,8 +6,8 @@
  */
 
 export interface ReservedWords {
-  additionalProperties?: number[]
-  definitions?: number
-  properties?: boolean
-  [k: string]: unknown
+  additionalProperties?: number[];
+  definitions?: number;
+  properties?: boolean;
+  [k: string]: unknown;
 }

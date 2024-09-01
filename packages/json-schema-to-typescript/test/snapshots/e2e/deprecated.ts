@@ -13,15 +13,15 @@ export interface ExampleSchema {
   /**
    * @deprecated
    */
-  firstName: string
+  firstName: string;
   /**
    * @deprecated
    * Hi, my name's Doechii, this will be in a  comment
    */
-  middleName?: string
+  middleName?: string;
   /**
    * nested comment
    */
-  lastName?: string
-  description?: string
+  lastName?: string;
+  description?: string;
 }

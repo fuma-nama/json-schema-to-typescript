@@ -5,8 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type ExampleCombinedSchema = string | number
+export type ExampleCombinedSchema = string | number;
 
 export interface ReferencingCombined {
-  foo: ExampleCombinedSchema
+  foo: ExampleCombinedSchema;
 }

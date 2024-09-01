@@ -5,21 +5,21 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Intersection = Car | Truck
+export type Intersection = Car | Truck;
 export type Car = Vehicle & {
-  numDoors: number
-  [k: string]: unknown
-}
+  numDoors: number;
+  [k: string]: unknown;
+};
 export type Vehicle = Thing & {
-  year: number
-  [k: string]: unknown
-}
+  year: number;
+  [k: string]: unknown;
+};
 export type Truck = Vehicle & {
-  numAxles: number
-  [k: string]: unknown
-}
+  numAxles: number;
+  [k: string]: unknown;
+};
 
 export interface Thing {
-  name: string
-  [k: string]: unknown
+  name: string;
+  [k: string]: unknown;
 }

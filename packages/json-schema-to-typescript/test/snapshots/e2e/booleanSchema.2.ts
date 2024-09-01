@@ -6,7 +6,7 @@
  */
 
 export interface SchemaWithBooleanSubschemas {
-  always?: any
-  never?: never
-  [k: string]: any
+  always?: any;
+  never?: never;
+  [k: string]: any;
 }

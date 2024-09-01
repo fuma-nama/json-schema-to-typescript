@@ -12,17 +12,17 @@ export interface Deep {
         | Foo
         | Bar
         | {
-            baz?: number
-            [k: string]: unknown
+            baz?: number;
+            [k: string]: unknown;
           }
       )
-    | Bar
+    | Bar;
 }
 export interface Foo {
-  a: string
-  b: number
+  a: string;
+  b: number;
 }
 export interface Bar {
-  a: string
-  [k: string]: unknown
+  a: string;
+  [k: string]: unknown;
 }

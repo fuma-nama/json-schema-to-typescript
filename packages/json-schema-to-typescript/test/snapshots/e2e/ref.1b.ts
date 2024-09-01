@@ -6,5 +6,5 @@
  */
 
 export interface Referencing {
-  foo: ExampleSchema
+  foo: ExampleSchema;
 }

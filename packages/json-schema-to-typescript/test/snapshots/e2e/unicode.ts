@@ -5,9 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type NoName1 = string
+export type NoName1 = string;
 
 export interface NoName {
-  someKey?: NoName1
-  [k: string]: unknown
+  someKey?: NoName1;
+  [k: string]: unknown;
 }

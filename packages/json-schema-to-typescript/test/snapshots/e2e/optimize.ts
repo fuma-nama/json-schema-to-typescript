@@ -6,8 +6,8 @@
  */
 
 export interface OptimizableSchema {
-  bar: string | number
-  foo: unknown
-  fooBar: A | B
-  [k: string]: unknown
+  bar: string | number;
+  foo: unknown;
+  fooBar: A | B;
+  [k: string]: unknown;
 }

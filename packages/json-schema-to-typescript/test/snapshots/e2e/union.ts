@@ -10,12 +10,12 @@ export interface Union {
     /**
      * @minItems 1
      */
-    test1?: boolean | [string, ...string[]]
+    test1?: boolean | [string, ...string[]];
     /**
      * @minItems 1
      */
-    test2?: boolean | [string, ...string[]]
-    [k: string]: unknown
-  }
-  [k: string]: unknown
+    test2?: boolean | [string, ...string[]];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
 }

@@ -6,10 +6,10 @@
  */
 
 export interface ReservedWords {
-  definitions?: Definitions
-  [k: string]: unknown
+  definitions?: Definitions;
+  [k: string]: unknown;
 }
 export interface Definitions {
-  additionalProperties?: Definitions
-  [k: string]: unknown
+  additionalProperties?: Definitions;
+  [k: string]: unknown;
 }

@@ -5,23 +5,23 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type C = number
-export type D = number
+export type C = number;
+export type D = number;
 
 export interface Test {
-  a?: A
-  b?: A | B
-  c?: C | D
-  d?: C | D
-  e?: D
-  f?: A | B | C | D
-  [k: string]: unknown
+  a?: A;
+  b?: A | B;
+  c?: C | D;
+  d?: C | D;
+  e?: D;
+  f?: A | B | C | D;
+  [k: string]: unknown;
 }
 export interface A {
-  name?: string
-  [k: string]: unknown
+  name?: string;
+  [k: string]: unknown;
 }
 export interface B {
-  name?: string
-  [k: string]: unknown
+  name?: string;
+  [k: string]: unknown;
 }

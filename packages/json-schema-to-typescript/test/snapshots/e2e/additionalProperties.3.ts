@@ -7,18 +7,18 @@
 
 export interface AdditionalPropertiesDefaultToTrue {
   a?: {
-    [k: string]: unknown
-  }
-  b?: {}
+    [k: string]: unknown;
+  };
+  b?: {};
   c?: {
-    [k: string]: unknown
-  }
+    [k: string]: unknown;
+  };
   d?: {
-    [k: string]: number
-  }
-  e?: E
-  [k: string]: unknown
+    [k: string]: number;
+  };
+  e?: E;
+  [k: string]: unknown;
 }
 export interface E {
-  [k: string]: unknown
+  [k: string]: unknown;
 }

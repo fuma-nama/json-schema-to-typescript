@@ -9,7 +9,7 @@ export interface Union {
   input?:
     | string
     | {
-        [k: string]: unknown
+        [k: string]: unknown;
       }
-    | string[]
+    | string[];
 }

@@ -5,13 +5,13 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Union = A | B
-export type A = C | D
-export type B = C | D
+export type Union = A | B;
+export type A = C | D;
+export type B = C | D;
 
 export interface C {
-  c?: string
+  c?: string;
 }
 export interface D {
-  d?: string
+  d?: string;
 }

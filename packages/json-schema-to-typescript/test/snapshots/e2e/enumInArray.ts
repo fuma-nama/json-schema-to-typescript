@@ -6,12 +6,12 @@
  */
 
 export interface EnumInArray {
-  foo?: KeyNameFromDefinitionItems[]
-  title?: 'foo'
-  [k: string]: unknown
+  foo?: KeyNameFromDefinitionItems[];
+  title?: "foo";
+  [k: string]: unknown;
 }
 
 export const enum KeyNameFromDefinitionItems {
-  BAR = 'BAR',
-  BAZ = 'BAZ'
+  BAR = "BAR",
+  BAZ = "BAZ"
 }

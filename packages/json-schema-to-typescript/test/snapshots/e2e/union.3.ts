@@ -6,5 +6,5 @@
  */
 
 export interface MySchema {
-  example?: boolean | string
+  example?: boolean | string;
 }

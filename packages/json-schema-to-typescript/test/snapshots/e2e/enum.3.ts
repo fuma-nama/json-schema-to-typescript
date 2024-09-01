@@ -5,13 +5,13 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type InterfaceWithTsEnumNames = InterfaceWithTsEnumNames1
+export type InterfaceWithTsEnumNames = InterfaceWithTsEnumNames1;
 
 export interface InterfaceWithTsEnumNames1 {
-  TsEnumNames?: TsEnums
+  TsEnumNames?: TsEnums;
 }
 
 export const enum TsEnums {
-  publish = 'publish',
-  draft = 'draft'
+  publish = "publish",
+  draft = "draft"
 }

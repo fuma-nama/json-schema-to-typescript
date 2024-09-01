@@ -6,6 +6,6 @@
  */
 
 export interface AdditionalProperties {
-  foo?: string
-  [k: string]: number
+  foo?: string;
+  [k: string]: number;
 }

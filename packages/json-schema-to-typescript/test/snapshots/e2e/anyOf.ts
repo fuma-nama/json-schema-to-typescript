@@ -6,18 +6,18 @@
  */
 
 export interface AnyOf {
-  foo: Foo | Bar | Baz
+  foo: Foo | Bar | Baz;
 }
 export interface Foo {
-  a: string
-  b?: number
+  a: string;
+  b?: number;
 }
 export interface Bar {
-  a?: 'a' | 'b' | 'c'
-  bam?: 'wam'[]
-  [k: string]: unknown
+  a?: "a" | "b" | "c";
+  bam?: "wam"[];
+  [k: string]: unknown;
 }
 export interface Baz {
-  baz?: Bar
-  [k: string]: unknown
+  baz?: Bar;
+  [k: string]: unknown;
 }

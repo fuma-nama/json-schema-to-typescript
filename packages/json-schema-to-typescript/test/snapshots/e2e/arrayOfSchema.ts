@@ -6,30 +6,30 @@
  */
 
 export type Countries = {
-  id: string
-  name: string
-  [k: string]: unknown
-}[]
+  id: string;
+  name: string;
+  [k: string]: unknown;
+}[];
 
 export interface ArrayOfSchema {
-  countries?: Countries
+  countries?: Countries;
   tuple?:
     | []
     | [
         {
-          foo?: string
-          [k: string]: unknown
+          foo?: string;
+          [k: string]: unknown;
         }
       ]
     | [
         {
-          foo?: string
-          [k: string]: unknown
+          foo?: string;
+          [k: string]: unknown;
         },
         {
-          bar?: number
-          [k: string]: unknown
+          bar?: number;
+          [k: string]: unknown;
         }
-      ]
-  [k: string]: unknown
+      ];
+  [k: string]: unknown;
 }

@@ -5,16 +5,16 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Intersection = A | B
+export type Intersection = A | B;
 export type A = Base & {
-  b?: B
-  [k: string]: unknown
-}
+  b?: B;
+  [k: string]: unknown;
+};
 export type B = Base & {
-  x?: string
-  [k: string]: unknown
-}
+  x?: string;
+  [k: string]: unknown;
+};
 
 export interface Base {
-  y?: string
+  y?: string;
 }

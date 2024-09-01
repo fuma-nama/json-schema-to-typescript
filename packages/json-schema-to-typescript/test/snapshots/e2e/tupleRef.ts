@@ -5,9 +5,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type A = string
-export type B = number
+export type A = string;
+export type B = number;
 
 export interface TupleRef {
-  c?: [] | [A] | [A, B]
+  c?: [] | [A] | [A, B];
 }

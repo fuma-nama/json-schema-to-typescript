@@ -7,20 +7,20 @@
 
 export type Intersection = A &
   B & {
-    c: string
-    d: string
+    c: string;
+    d: string;
     /**
      * This interface was referenced by `undefined`'s JSON-Schema definition
      * via the `patternProperty` "^x-".
      */
-    [k: string]: unknown
-  }
+    [k: string]: unknown;
+  };
 
 export interface A {
-  a?: string
-  [k: string]: unknown
+  a?: string;
+  [k: string]: unknown;
 }
 export interface B {
-  b?: string
-  [k: string]: unknown
+  b?: string;
+  [k: string]: unknown;
 }

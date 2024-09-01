@@ -8,7 +8,7 @@
 export type LastName = string
 
 export interface ExampleSchema {
-  firstName: string
-  lastName: LastName
-  [k: string]: unknown
+	firstName: string
+	lastName: LastName
+	[k: string]: unknown
 }

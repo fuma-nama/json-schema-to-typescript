@@ -5,13 +5,13 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type TupleFooBar = [] | [Foo] | [Foo, Bar]
+export type TupleFooBar = [] | [Foo] | [Foo, Bar];
 
 export interface Foo {
-  foo?: string
-  [k: string]: unknown
+  foo?: string;
+  [k: string]: unknown;
 }
 export interface Bar {
-  bar?: string
-  [k: string]: unknown
+  bar?: string;
+  [k: string]: unknown;
 }
