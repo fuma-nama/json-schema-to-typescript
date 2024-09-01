@@ -8,6 +8,7 @@
     "allowJs": true,
     "declaration": true,
     "declarationMap": true,
+    "module": "ESNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
@@ -19,14 +20,14 @@
     "preserveWatchOutput": true,
     "strictNullChecks": true,
     "noEmit": true,
-    "outDir": "dist",
     "preserveConstEnums": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es6"
+    "target": "ESNext"
   },
   "exclude": [
     "example",
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }

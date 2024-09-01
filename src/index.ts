@@ -146,10 +146,7 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
     _options.cwd += '/'
   }
 
-  // Initial clone to avoid mutating the input
-  const _schema = structuredClone(schema)
-
-  const {dereferencedPaths, dereferencedSchema} = await dereference(_schema, _options)
+  const {dereferencedPaths, dereferencedSchema} = await dereference(schema, _options)
 
   const linked = link(dereferencedSchema)
   if (process.env.VERBOSE) {

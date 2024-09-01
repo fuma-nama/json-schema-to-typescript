@@ -121,8 +121,8 @@ function parseNonLiteral(
   processed: Processed,
   usedNames: UsedNames,
 ): AST {
-  const definitions = getDefinitionsMemoized(getRootSchema(schema as any)) // TODO
-  const keyNameFromDefinition = Array.from(Object.keys(definitions)).find((k) => definitions[k] === schema) 
+  const definitions = getDefinitionsMemoized(getRootSchema(schema))
+  const keyNameFromDefinition = Array.from(Object.keys(definitions)).find(k => definitions[k] === schema)
 
   switch (type) {
     case 'ALL_OF':
@@ -382,13 +382,13 @@ function parseSchema(
   usedNames: UsedNames,
   parentSchemaName: string,
 ): TInterfaceParam[] {
-  let asts: TInterfaceParam[] = Array.from(Object.entries(schema.properties)).map(([key, value]) => ({
+  let asts = Array.from(Object.entries(schema.properties ?? {})).map(([key, value]) => ({
     ast: parse(value, options, key, processed, usedNames),
     isPatternProperty: false,
     isRequired: (schema.required ?? []).includes(key),
     isUnreachableDefinition: false,
     keyName: key,
-  }))
+  })) as TInterfaceParam[]
 
   let singlePatternProperty = false
   if (schema.patternProperties) {

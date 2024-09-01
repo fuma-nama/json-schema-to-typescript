@@ -9,7 +9,6 @@
 !.yarn/versions
 npm-debug.log
 node_modules
-*.js
 *.map
 dist/
 dist_tests/

@@ -1,5 +1,5 @@
-import deburr from "lodash.deburr"
-import isPlainObject from "lodash.isplainobject"
+import deburr from 'lodash.deburr'
+import isPlainObject from 'lodash.isplainobject'
 import upperFirst from 'lodash.upperfirst'
 import {basename, dirname, extname, normalize, sep, posix} from 'path'
 import {Intersection, JSONSchema, LinkedJSONSchema, NormalizedJSONSchema, Parent} from './types/JSONSchema'
@@ -7,7 +7,7 @@ import {JSONSchema4} from 'json-schema'
 import yaml from 'js-yaml'
 
 // TODO: pull out into a separate package
-export function Try<T>(fn: () => T, err: (e: Error) => any): T {
+export function Try<T>(fn: () => T, err: (e: Error) => T): T {
   try {
     return fn()
   } catch (e) {
@@ -227,7 +227,7 @@ export function generateName(from: string, usedNames: Set<string>) {
   return name
 }
 
-export function error(...messages: any[]): void {
+export function error(...messages: unknown[]): void {
   if (!process.env.VERBOSE) {
     return console.error(messages)
   }
@@ -337,13 +337,13 @@ export function appendToDescription(existingDescription: string | undefined, ...
   return values.join('\n')
 }
 
-export function isSchemaLike(schema: any): schema is LinkedJSONSchema {
-  if (!isPlainObject(schema)) {
+export function isSchemaLike(schema: unknown): schema is LinkedJSONSchema {
+  if (!isPlainObject(schema) || !schema || typeof schema !== 'object') {
     return false
   }
 
   // top-level schema
-  const parent = schema[Parent]
+  const parent = schema[Parent as keyof typeof schema]
   if (parent === null) {
     return true
   }
