@@ -2,10 +2,11 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.2/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
+  "fixed": [["@fumari/json-schema-to-typescript", "@fumari/json2ts"]],
   "linked": [],
   "access": "public",
   "baseBranch": "master",
+  "privatePackages": { "version": false },
   "updateInternalDependencies": "patch",
   "ignore": []
 }
