@@ -160,7 +160,7 @@ function generateTypeUnmemoized(ast: AST, options: Options): string {
 
   return type
 }
-export const generateType = memoize(generateTypeUnmemoized)
+export const generateType: typeof generateTypeUnmemoized = memoize(generateTypeUnmemoized)
 
 function generateRawType(ast: AST, options: Options): string {
   log('generator', ast)

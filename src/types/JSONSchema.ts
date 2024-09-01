@@ -132,7 +132,7 @@ export interface CustomTypeJSONSchema extends NormalizedJSONSchema {
   tsType: string
 }
 
-export const getRootSchema = memoize((schema: NormalizedJSONSchema): NormalizedJSONSchema => {
+export const getRootSchema: (schema: NormalizedJSONSchema) => NormalizedJSONSchema = memoize((schema: NormalizedJSONSchema): NormalizedJSONSchema => {
   const parent = schema[Parent]
   if (!parent) {
     return schema
