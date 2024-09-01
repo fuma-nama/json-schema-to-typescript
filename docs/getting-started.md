@@ -4,6 +4,13 @@
 
 Check out the [live demo](https://borischerny.com/json-schema-to-typescript-browser/).
 
+:::info
+
+This library is forked from https://github.com/bcherny/json-schema-to-typescript.
+Consider to support the original repo by giving it a star.
+
+:::
+
 ## Installation
 
 ::: code-group
