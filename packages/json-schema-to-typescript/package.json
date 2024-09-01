@@ -1,0 +1,83 @@
+{
+  "name": "@fumari/json-schema-to-typescript",
+  "version": "1.0.0",
+  "description": "compile json schema to typescript typings",
+  "main": "dist/index.js",
+  "bin": {
+    "json2ts": "dist/bin/cli.js"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src/**/*.ts",
+    "dev": "tsup --watch"
+  },
+  "files": [
+    "./dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuma-nama/json-schema-to-typescript.git"
+  },
+  "keywords": [
+    "json",
+    "schema",
+    "typescript",
+    "compile",
+    "transpile",
+    "api",
+    "interface",
+    "typing",
+    "share"
+  ],
+  "author": "Fuma Nama; Boris Cherny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuma-nama/json-schema-to-typescript/issues"
+  },
+  "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^11.7.0",
+    "glob": "^11.0.0",
+    "is-glob": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "minimist": "^1.2.8",
+    "prettier": "^3.3.3"
+  },
+  "packageManager": "pnpm@9.9.0",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@types/is-glob": "^4.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/json-schema": "^7.0.15",
+    "@types/lodash.deburr": "^4.1.9",
+    "@types/lodash.isplainobject": "^4.0.9",
+    "@types/lodash.memoize": "^4.1.9",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/lodash.omit": "^4.5.9",
+    "@types/lodash.uniqby": "^4.7.9",
+    "@types/lodash.upperfirst": "^4.3.9",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.5.1",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "lodash.deburr": "^4.1.0",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.memoize": "^4.1.2",
+    "lodash.merge": "^4.6.2",
+    "lodash.omit": "^4.5.0",
+    "lodash.uniqby": "^4.7.0",
+    "lodash.upperfirst": "^4.3.1",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0",
+    "vitest": "^2.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
