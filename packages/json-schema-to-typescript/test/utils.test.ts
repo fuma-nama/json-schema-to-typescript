@@ -1,12 +1,6 @@
 import { expect, test } from 'vitest'
 import { link } from '../src/linker'
-import { pathTransform, generateName, isSchemaLike } from '../src/utils'
-
-test('pathTransform', () => {
-  expect(pathTransform('types', 'schemas', 'schemas/foo/a.json')).toBe('types/foo')
-  expect(pathTransform('./schemas/types', './schemas', 'schemas/foo/bar/a.json')).toBe('schemas/types/foo/bar')
-  expect(pathTransform('types', './src/../types/../schemas', 'schemas/foo/a.json')).toBe('types/foo')
-})
+import { generateName, isSchemaLike } from '../src/utils'
 
 test('generateName', () => {
   const usedNames = new Set<string>()

@@ -2,7 +2,7 @@ import type { FileInfo } from '@apidevtools/json-schema-ref-parser'
 import { expect, test } from 'vitest'
 import { readdirSync } from 'fs'
 import { compile, JSONSchema, Options } from '../src'
-import { log, stripExtension } from '../src/utils'
+import { log } from '../src/utils'
 import { getWithCache } from './http'
 import merge from 'lodash.merge'
 import path from 'path'
@@ -25,6 +25,13 @@ const httpWithCacheResolver = {
   async read({ url }: FileInfo) {
     return await getWithCache(url)
   }
+}
+
+/**
+ * Avoid appending "js" to top-level unnamed schemas
+ */
+function stripExtension(filename: string): string {
+  return filename.replace(path.extname(filename), '')
 }
 
 function runOne(exports: TestCase, name: string) {

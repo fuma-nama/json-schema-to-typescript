@@ -1,5 +1,4 @@
 import { JSONSchema4Type, JSONSchema4TypeName } from 'json-schema'
-import { format } from 'util'
 import { Options } from './'
 import { applySchemaTyping } from './applySchemaTyping'
 import type { AST, TInterface, TInterfaceParam, TIntersection, TNamedInterface, TTuple } from './types/AST'
@@ -224,7 +223,7 @@ function parseNonLiteral(
         type: 'UNION'
       }
     case 'REFERENCE':
-      throw Error(format('Refs should have been resolved by the resolver!', schema))
+      throw Error('Refs should have been resolved by the resolver!')
     case 'STRING':
       return {
         comment: schema.description,

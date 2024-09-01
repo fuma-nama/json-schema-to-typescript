@@ -1,8 +1,6 @@
-import { readFileSync } from 'fs'
 import { JSONSchema4 } from 'json-schema'
 import { ParserOptions as $RefOptions } from '@apidevtools/json-schema-ref-parser'
 import merge from 'lodash.merge'
-import { dirname } from 'path'
 import { Options as PrettierOptions } from 'prettier'
 import { format } from './formatter'
 import { generate } from './generator'
@@ -10,13 +8,13 @@ import { normalize } from './normalizer'
 import { optimize } from './optimizer'
 import { parse } from './parser'
 import { dereference } from './resolver'
-import { error, stripExtension, Try, log, parseFileAsJSONSchema } from './utils'
+import { error, Try, log } from './utils'
 import { validate } from './validator'
 import { link } from './linker'
 import { validateOptions } from './optionValidator'
 import { JSONSchema as LinkedJSONSchema } from './types/JSONSchema'
+import yaml from "js-yaml"
 
-export { parseFileAsJSONSchema } from './utils'
 export type { EnumJSONSchema, JSONSchema, NamedEnumJSONSchema, CustomTypeJSONSchema } from './types/JSONSchema'
 
 export interface Options {
@@ -117,19 +115,30 @@ export const DEFAULT_OPTIONS: Options = {
   unknownAny: true
 }
 
-export function compileFromFile(filename: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
-  const schema = parseAsJSONSchema(filename)
-  return compile(schema, stripExtension(filename), { cwd: dirname(filename), ...options })
-}
-
-function parseAsJSONSchema(filename: string): JSONSchema4 {
-  const contents = Try(
-    () => readFileSync(filename),
+export function compileJsonFile(file: string | Buffer, name: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
+  const schema = Try(
+    () => JSON.parse(getContent(file)),
     () => {
-      throw new ReferenceError(`Unable to read file "${filename}"`)
+      throw new TypeError(`Error parsing JSON in "${name}"`)
     }
   )
-  return parseFileAsJSONSchema(filename, contents.toString())
+
+  return compile(schema, name, options)
+}
+
+function getContent(file: string | Buffer): string {
+  return file.toString()
+}
+
+export function compileYamlFile(file: string | Buffer, name: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
+  const schema = Try(
+    () => yaml.load(getContent(file)) as JSONSchema4,
+    () => {
+      throw new TypeError(`Error parsing YML in "${name}"`)
+    }
+  )
+
+  return compile(schema, name, options)
 }
 
 export async function compile(schema: JSONSchema4, name: string, options: Partial<Options> = {}): Promise<string> {
@@ -150,35 +159,20 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   const { dereferencedPaths, dereferencedSchema } = await dereference(schema, _options)
 
   const linked = link(dereferencedSchema)
-  if (process.env.VERBOSE) {
-    log('linker', time(), '✅ No change')
-  }
 
   const errors = validate(linked, name)
   if (errors.length) {
     errors.forEach(_ => error(_))
     throw new ValidationError()
   }
-  if (process.env.VERBOSE) {
-    log('validator', time(), '✅ No change')
-  }
 
   const normalized = normalize(linked, dereferencedPaths, name, _options)
-  log('normalizer', time(), '✅ Result:', normalized)
-
   const parsed = parse(normalized, _options)
-  log('parser', time(), '✅ Result:', parsed)
-
   const optimized = optimize(parsed, _options)
-  log('optimizer', time(), '✅ Result:', optimized)
-
   const generated = generate(optimized, _options)
-  log('generator', time(), '✅ Result:', generated)
-
   const formatted = await format(generated, _options)
-  log('formatter', time(), '✅ Result:', formatted)
 
   return formatted
 }
 
-export class ValidationError extends Error {}
+export class ValidationError extends Error { }

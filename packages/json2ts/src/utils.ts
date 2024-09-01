@@ -1,4 +1,4 @@
-import { basename, dirname, extname, normalize, sep, posix } from 'node:path'
+import { basename, dirname, extname, normalize, sep, posix } from 'path'
 
 /**
  * Eg. `foo/bar/baz.json` => `baz`

@@ -1,12 +1,8 @@
 import deburr from 'lodash.deburr'
 import isPlainObject from 'lodash.isplainobject'
 import upperFirst from 'lodash.upperfirst'
-import { basename, dirname, extname, normalize, sep, posix } from 'path'
 import { Intersection, JSONSchema, LinkedJSONSchema, NormalizedJSONSchema, Parent } from './types/JSONSchema'
-import { JSONSchema4 } from 'json-schema'
-import yaml from 'js-yaml'
 
-// TODO: pull out into a separate package
 export function Try<T>(fn: () => T, err: (e: Error) => T): T {
   try {
     return fn()
@@ -166,20 +162,6 @@ export function traverse(
 }
 
 /**
- * Eg. `foo/bar/baz.json` => `baz`
- */
-export function justName(filename = ''): string {
-  return stripExtension(basename(filename))
-}
-
-/**
- * Avoid appending "js" to top-level unnamed schemas
- */
-export function stripExtension(filename: string): string {
-  return filename.replace(extname(filename), '')
-}
-
-/**
  * Convert a string that might contain spaces or special characters to one that
  * can safely be used as a TypeScript interface or enum name.
  */
@@ -228,9 +210,6 @@ export function generateName(from: string, usedNames: Set<string>) {
 }
 
 export function error(...messages: unknown[]): void {
-  if (!process.env.VERBOSE) {
-    return console.error(messages)
-  }
   console.error('[error]', ...messages)
 }
 
@@ -261,25 +240,6 @@ export function escapeBlockComment(schema: JSONSchema) {
       schema[key] = schema[key]!.replace(/\*\//g, replacer)
     }
   }
-}
-
-/*
-the following logic determines the out path by comparing the in path to the users specified out path.
-For example, if input directory MultiSchema looks like:
-  MultiSchema/foo/a.json
-  MultiSchema/bar/fuzz/c.json
-  MultiSchema/bar/d.json
-And the user wants the outputs to be in MultiSchema/Out, then this code will be able to map the inner directories foo, bar, and fuzz into the intended Out directory like so:
-  MultiSchema/Out/foo/a.json
-  MultiSchema/Out/bar/fuzz/c.json
-  MultiSchema/Out/bar/d.json
-*/
-export function pathTransform(outputPath: string, inputPath: string, filePath: string): string {
-  const inPathList = normalize(inputPath).split(sep)
-  const filePathList = dirname(normalize(filePath)).split(sep)
-  const filePathRel = filePathList.filter((f, i) => f !== inPathList[i])
-
-  return posix.join(posix.normalize(outputPath), ...filePathRel)
 }
 
 /**
@@ -366,26 +326,4 @@ export function isSchemaLike(schema: unknown): schema is LinkedJSONSchema {
   }
 
   return true
-}
-
-export function parseFileAsJSONSchema(filename: string | null, contents: string): JSONSchema4 {
-  if (filename != null && isYaml(filename)) {
-    return Try(
-      () => yaml.load(contents.toString()) as JSONSchema4,
-      () => {
-        throw new TypeError(`Error parsing YML in file "${filename}"`)
-      }
-    )
-  }
-
-  return Try(
-    () => JSON.parse(contents.toString()),
-    () => {
-      throw new TypeError(`Error parsing JSON in file "${filename}"`)
-    }
-  )
-}
-
-function isYaml(filename: string) {
-  return filename.endsWith('.yaml') || filename.endsWith('.yml')
 }

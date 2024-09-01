@@ -1,21 +1,26 @@
 import { expect, test } from 'vitest'
-import { compileFromFile } from '../src'
+import { compileJsonFile, compileYamlFile } from '../src'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { readFile } from 'fs/promises'
 
 const dir = path.dirname(fileURLToPath(import.meta.url))
 
-test('compileFromFile should resolve refs from cwd option', async () => {
+test('compile: JSON', async () => {
+  const file = await readFile(path.join(dir, './resources/other/ReferencingType.json'))
+
   expect(
-    await compileFromFile(path.join(dir, './resources/other/ReferencingType.json'), {
+    await compileJsonFile(file, 'ReferencingType', {
       cwd: path.join(dir, './resources')
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file.ts')
 })
 
-test('compileFromFile should resolve refs from cwd option as yml', async () => {
+test('compile: Yaml', async () => {
+  const file = await readFile(path.join(dir, './resources/other/ReferencingType.yml'))
+
   expect(
-    await compileFromFile(path.join(dir, './resources/other/ReferencingType.yml'), {
+    await compileYamlFile(file, 'ReferencingType', {
       cwd: path.join(dir, './resources')
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file-yaml.ts')

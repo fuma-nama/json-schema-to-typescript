@@ -1,9 +1,8 @@
 import { JSONSchemaTypeName, LinkedJSONSchema, NormalizedJSONSchema, Parent } from './types/JSONSchema'
-import { appendToDescription, escapeBlockComment, isSchemaLike, justName, toSafeString, traverse } from './utils'
+import { appendToDescription, escapeBlockComment, isSchemaLike, toSafeString, traverse } from './utils'
 import { Options } from './'
 import { applySchemaTyping } from './applySchemaTyping'
 import { DereferencedPaths } from './resolver'
-import { isDeepStrictEqual } from 'util'
 
 type Rule = (
   schema: LinkedJSONSchema,
@@ -25,6 +24,16 @@ function isArrayType(schema: LinkedJSONSchema) {
 }
 function isEnumTypeWithoutTsEnumNames(schema: LinkedJSONSchema) {
   return schema.type === 'string' && schema.enum !== undefined && schema.tsEnumNames === undefined
+}
+
+function normalizeName(filename: string): string {
+  const name = filename.split('/').at(-1)
+  if (!name) return filename
+
+  const dotIdx = name.lastIndexOf('.')
+  if (dotIdx === -1) return name
+
+  return name.slice(0, dotIdx)
 }
 
 rules.set('Remove `type=["null"]` if `enum=[null]`', schema => {
@@ -84,7 +93,7 @@ rules.set('Add an $id to anything that needs it', (schema, fileName, _options, _
 
   // Top-level schema
   if (!schema.$id && !schema[Parent]) {
-    schema.$id = toSafeString(justName(fileName))
+    schema.$id = toSafeString(normalizeName(fileName))
     return
   }
 
@@ -97,7 +106,7 @@ rules.set('Add an $id to anything that needs it', (schema, fileName, _options, _
   // TODO: Normalize upstream
   const dereferencedName = dereferencedPaths.get(schema)
   if (!schema.$id && !schema.title && dereferencedName) {
-    schema.$id = toSafeString(justName(dereferencedName))
+    schema.$id = toSafeString(normalizeName(dereferencedName))
   }
 
   if (dereferencedName) {
@@ -208,7 +217,7 @@ rules.set('Make extends always an array, if it is defined', schema => {
 })
 
 rules.set('Transform definitions to $defs', (schema, fileName) => {
-  if (schema.definitions && schema.$defs && !isDeepStrictEqual(schema.definitions, schema.$defs)) {
+  if (schema.definitions && schema.$defs) {
     throw ReferenceError(
       `Schema must define either definitions or $defs, not both. Given id=${schema.id} in ${fileName}`
     )

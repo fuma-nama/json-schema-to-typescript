@@ -2,7 +2,9 @@
   "name": "@fumari/json2ts",
   "version": "1.0.1",
   "description": "a CLI tool to compile json schema to typescript typings",
-  "bin": "dist/cli.js",
+  "bin": {
+    "json2ts": "./dist/cli.js"
+  },
   "type": "module",
   "engines": {
     "node": ">=18.0.0"

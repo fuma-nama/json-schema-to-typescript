@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import minimist from 'minimist'
-import { writeFileSync, existsSync, lstatSync, readdirSync, mkdirSync, readFileSync, createReadStream } from 'fs'
+import { writeFileSync, existsSync, lstatSync, readdirSync, mkdirSync, readFileSync } from 'fs'
 import { glob } from 'glob'
 import isGlob from 'is-glob'
 import { join, resolve, dirname } from 'path'
-import { compile, DEFAULT_OPTIONS, parseFileAsJSONSchema, Options } from '@fumari/json-schema-to-typescript'
+import { DEFAULT_OPTIONS, compileJsonFile, Options, compileYamlFile } from '@fumari/json-schema-to-typescript'
 import { pathTransform, error, justName } from './utils'
 import pkg from '../package.json'
 
@@ -127,8 +127,16 @@ function outputResult(result: string, outputPath: string | undefined): void {
 
 async function processFile(argIn: string, argv: Partial<Options>): Promise<string> {
   const { filename, contents } = await readInput(argIn)
-  const schema = parseFileAsJSONSchema(filename, contents)
-  return compile(schema, argIn, argv)
+
+  if (filename) {
+    if (filename.endsWith('.json')) {
+      return compileJsonFile(contents, justName(filename), argv)
+    }
+
+    return compileYamlFile(contents, justName(filename), argv)
+  }
+
+  return compileJsonFile(contents, '', argv)
 }
 
 function getPaths(path: string, paths: string[] = []) {

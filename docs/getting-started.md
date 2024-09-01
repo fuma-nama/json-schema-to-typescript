@@ -9,15 +9,15 @@ Check out the [live demo](https://borischerny.com/json-schema-to-typescript-brow
 ::: code-group
 
 ```sh [npm]
-npm install json-schema-to-typescript
+npm install @fumari/json-schema-to-typescript
 ```
 
 ```sh [pnpm]
-pnpm add json-schema-to-typescript
+pnpm add @fumari/json-schema-to-typescript
 ```
 
 ```sh [yarn]
-yarn add json-schema-to-typescript
+yarn add @fumari/json-schema-to-typescript
 ```
 
 :::
@@ -27,18 +27,25 @@ yarn add json-schema-to-typescript
 Transform your JSON Schema to TypeScript Definitions.
 
 ```js
-import { compile, compileFromFile } from 'json-schema-to-typescript'
+import { compile } from 'json-schema-to-typescript'
 
-// compile from file
-compileFromFile('foo.json')
-  .then(ts => fs.writeFileSync('foo.d.ts', ts))
-
-// or, compile a JS object
-let mySchema = {
+const mySchema = {
   properties: [...]
 }
+
 compile(mySchema, 'MySchema')
-  .then(ts => ...)
+  .then(ts => console.log(ts))
+```
+
+YAML and JSON files are also supported.
+
+```js
+import fs from 'node:fs'
+import { compileJsonFile, compileYamlFile } from 'json-schema-to-typescript'
+
+compileJsonFile(fs.readFileSync('foo.json'), 'MyType').then(ts => fs.writeFileSync('foo.d.ts', ts))
+
+compileYamlFile(fs.readFileSync('foo.yaml'), 'MyType').then(ts => fs.writeFileSync('foo.d.ts', ts))
 ```
 
 You can see [Options](/options) for available options.
