@@ -5,10 +5,8 @@ import { typesOfSchema } from './typesOfSchema'
 export function applySchemaTyping(schema: LinkedJSONSchema) {
   const types = typesOfSchema(schema)
 
-  Object.defineProperty(schema, Types, {
-    enumerable: false,
-    value: types,
-    writable: false
+  Object.assign(schema, {
+    [Types]: types
   })
 
   if (types.size === 1) {
@@ -43,9 +41,7 @@ export function applySchemaTyping(schema: LinkedJSONSchema) {
   delete schema.name
   delete schema.title
 
-  Object.defineProperty(schema, Intersection, {
-    enumerable: false,
-    value: intersection,
-    writable: false
+  Object.assign(schema, {
+    [Intersection]: intersection
   })
 }

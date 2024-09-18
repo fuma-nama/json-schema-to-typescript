@@ -16,12 +16,10 @@ export function link(schema: JSONSchema4Type | JSONSchema, parent: JSONSchema4Ty
     return schema as LinkedJSONSchema
   }
 
-  // Add a reference to this schema's parent
-  Object.defineProperty(schema, Parent, {
-    enumerable: false,
-    value: parent,
-    writable: false
-  })
+  if (schema)
+    Object.assign(schema, {
+      [Parent]: parent
+    })
 
   // Arrays
   if (Array.isArray(schema)) {
