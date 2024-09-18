@@ -1,5 +1,11 @@
 # @fumari/json-schema-to-typescript
 
+## 1.1.1
+
+### Patch Changes
+
+- 726b8b4: Support disabling schema dereference
+
 ## 1.1.0
 
 ### Minor Changes

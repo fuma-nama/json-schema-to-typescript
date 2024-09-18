@@ -1,5 +1,12 @@
 # @fumari/json2ts
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [726b8b4]
+  - @fumari/json-schema-to-typescript@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
