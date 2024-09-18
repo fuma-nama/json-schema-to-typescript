@@ -20,8 +20,11 @@ export type { EnumJSONSchema, JSONSchema, NamedEnumJSONSchema, CustomTypeJSONSch
 export interface Options {
   /**
    * [$RefParser](https://github.com/APIDevTools/json-schema-ref-parser) Options, used when resolving `$ref`s
+   * 
+   * If `false`, disable dereferencing
    */
-  $refOptions: $RefOptions
+  $refOptions: $RefOptions | false
+
   /**
    * Default value for additionalProperties, when it is not explicitly set.
    */
@@ -147,16 +150,15 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   const _options = merge({}, DEFAULT_OPTIONS, options)
 
   const start = Date.now()
-  function time() {
-    return `(${Date.now() - start}ms)`
-  }
 
   // normalize options
   if (!_options.cwd.endsWith('/')) {
     _options.cwd += '/'
   }
 
-  const { dereferencedPaths, dereferencedSchema } = await dereference(schema, _options)
+  const { dereferencedPaths, dereferencedSchema } = _options.$refOptions !== false ?
+    await dereference(schema, _options.cwd, _options.$refOptions)
+    : { dereferencedSchema: schema, dereferencedPaths: new WeakMap() }
 
   const linked = link(dereferencedSchema)
 
