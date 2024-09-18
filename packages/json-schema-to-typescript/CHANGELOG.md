@@ -1,5 +1,11 @@
 # @fumari/json-schema-to-typescript
 
+## 1.1.2
+
+### Patch Changes
+
+- 5bb63c7: Make refs public
+
 ## 1.1.1
 
 ### Patch Changes
