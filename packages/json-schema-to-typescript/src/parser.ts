@@ -2,7 +2,7 @@ import { JSONSchema4Type, JSONSchema4TypeName } from 'json-schema'
 import { Options } from './'
 import { applySchemaTyping } from './applySchemaTyping'
 import type { AST, TInterface, TInterfaceParam, TIntersection, TNamedInterface, TTuple } from './types/AST'
-import { T_ANY, T_ANY_ADDITIONAL_PROPERTIES, T_UNKNOWN, T_UNKNOWN_ADDITIONAL_PROPERTIES } from './types/AST'
+import { T_ANY, T_ANY_ADDITIONAL_PROPERTIES, T_NULL, T_UNKNOWN, T_UNKNOWN_ADDITIONAL_PROPERTIES } from './types/AST'
 import type {
   EnumJSONSchema,
   JSONSchemaWithDefinitions,
@@ -124,15 +124,52 @@ function parseNonLiteral(
   const keyNameFromDefinition = Array.from(Object.keys(definitions)).find(k => definitions[k] === schema)
 
   switch (type) {
-    case 'ALL_OF':
-      return {
+    case 'ALL_OF': {
+      const hasNullable = schema.allOf!.some(s => s.nullable && s.type === undefined)
+      const params = schema.allOf!
+        .filter(s => !s.nullable || s.type !== undefined)
+        .map(_ => parse(_, options, undefined, processed, usedNames))
+
+      const baseAst = {
         comment: schema.description,
         deprecated: schema.deprecated,
         keyName,
         standaloneName: standaloneName(schema, keyNameFromDefinition, usedNames, options),
-        params: schema.allOf!.map(_ => parse(_, options, undefined, processed, usedNames)),
-        type: 'INTERSECTION'
       }
+
+      if (!hasNullable) {
+        return {
+          ...baseAst,
+          type: 'INTERSECTION',
+          params: params
+        }
+      }
+      if (params.length === 0) {
+        return {
+          ...baseAst,
+          type: 'NULL'
+        }
+      } else if (params.length === 1) {
+        return {
+          ...baseAst,
+          type: 'UNION',
+          params: [params[0], T_NULL]
+        }
+      } else {
+        return {
+          ...baseAst,
+          type: 'UNION',
+          params: [
+            {
+              type: 'INTERSECTION',
+              params: params
+            },
+            T_NULL
+          ]
+        }
+      }
+    }
+
     case 'ANY':
       return {
         ...(options.unknownAny ? T_UNKNOWN : T_ANY),
@@ -288,7 +325,7 @@ function parseNonLiteral(
       }
     case 'UNNAMED_SCHEMA':
       return newInterface(schema as SchemaSchema, options, processed, usedNames, keyName, keyNameFromDefinition)
-    case 'UNTYPED_ARRAY':
+    case 'UNTYPED_ARRAY': {
       // normalised to not be undefined
       const minItems = schema.minItems!
       const maxItems = typeof schema.maxItems === 'number' ? schema.maxItems : -1
@@ -317,6 +354,7 @@ function parseNonLiteral(
         standaloneName: standaloneName(schema, keyNameFromDefinition, usedNames, options),
         type: 'ARRAY'
       }
+    }
   }
 }
 

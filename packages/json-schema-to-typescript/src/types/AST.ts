@@ -156,6 +156,10 @@ export const T_ANY: TAny = {
   type: 'ANY'
 }
 
+export const T_NULL: TNull = {
+  type: 'NULL'
+}
+
 export const T_ANY_ADDITIONAL_PROPERTIES: TAny & ASTWithName = {
   keyName: '[k: string]',
   type: 'ANY'
