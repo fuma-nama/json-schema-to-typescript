@@ -47,6 +47,16 @@ rules.set('Remove `type=["null"]` if `enum=[null]`', schema => {
   }
 })
 
+rules.set('Convert nullable to type: [..., "null"]', schema => {
+  if (schema.nullable && schema.type !== undefined) {
+    if (!Array.isArray(schema.type)) {
+      schema.type = [schema.type]
+    }
+    schema.type.push('null')
+    delete schema.nullable
+  }
+})
+
 rules.set('Destructure unary types', schema => {
   if (schema.type && Array.isArray(schema.type) && schema.type.length === 1) {
     schema.type = schema.type[0]
