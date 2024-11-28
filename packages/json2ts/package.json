@@ -1,6 +1,6 @@
 {
   "name": "@fumari/json2ts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "a CLI tool to compile json schema to typescript typings",
   "bin": {
     "json2ts": "./dist/cli.js"

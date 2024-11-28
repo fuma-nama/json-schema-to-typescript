@@ -1,5 +1,12 @@
 # @fumari/json-schema-to-typescript
 
+## 1.1.2
+
+### Patch Changes
+
+- 5bb63c7: Make refs public
+- a04791f: Support to pass `schemaToId` to compile
+
 ## 1.1.1
 
 ### Patch Changes
