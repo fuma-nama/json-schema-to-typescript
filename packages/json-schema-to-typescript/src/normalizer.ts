@@ -107,7 +107,7 @@ rules.set('Add an $id to anything that needs it', (schema, fileName, _options, _
     return
   }
 
-  if (!dereferencedPaths) return;
+  if (!dereferencedPaths) return
 
   // Sub-schemas with references
   if (!isArrayType(schema) && !isObjectType(schema)) {

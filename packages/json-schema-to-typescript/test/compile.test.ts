@@ -21,7 +21,7 @@ test('compile: JSON', async () => {
 test('compile: JSON, dereferenced', async () => {
   const cwd = path.join(dir, './resources')
   const dereferenced = await Parser.dereference<JSONSchema4>(path.join(dir, './resources/Person.json'), {
-    mutateInputSchema: true,
+    mutateInputSchema: true
   })
 
   const res = await compile(dereferenced, 'Person', {

@@ -126,15 +126,15 @@ function parseNonLiteral(
   switch (type) {
     case 'ALL_OF': {
       const hasNullable = schema.allOf!.some(s => s.nullable && s.type === undefined)
-      const params = schema.allOf!
-        .filter(s => !s.nullable || s.type !== undefined)
+      const params = schema
+        .allOf!.filter(s => !s.nullable || s.type !== undefined)
         .map(_ => parse(_, options, undefined, processed, usedNames))
 
       const baseAst = {
         comment: schema.description,
         deprecated: schema.deprecated,
         keyName,
-        standaloneName: standaloneName(schema, keyNameFromDefinition, usedNames, options),
+        standaloneName: standaloneName(schema, keyNameFromDefinition, usedNames, options)
       }
 
       if (!hasNullable) {

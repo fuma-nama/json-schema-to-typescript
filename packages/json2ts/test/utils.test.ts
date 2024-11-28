@@ -1,5 +1,5 @@
-import { expect, test } from "vitest"
-import { pathTransform } from "../src/utils"
+import { expect, test } from 'vitest'
+import { pathTransform } from '../src/utils'
 
 test('pathTransform', () => {
   expect(pathTransform('types', 'schemas', 'schemas/foo/a.json')).toBe('types/foo')

@@ -13,14 +13,14 @@ import { validate } from './validator'
 import { link } from './linker'
 import { validateOptions } from './optionValidator'
 import { JSONSchema as LinkedJSONSchema } from './types/JSONSchema'
-import yaml from "js-yaml"
+import yaml from 'js-yaml'
 
 export type { EnumJSONSchema, JSONSchema, NamedEnumJSONSchema, CustomTypeJSONSchema } from './types/JSONSchema'
 
 export interface Options {
   /**
    * [$RefParser](https://github.com/APIDevTools/json-schema-ref-parser) Options, used when resolving `$ref`s
-   * 
+   *
    * If `false`, disable dereferencing
    */
   $refOptions: $RefOptions | false
@@ -125,7 +125,11 @@ export const DEFAULT_OPTIONS: Options = {
   unknownAny: true
 }
 
-export function compileJsonFile(file: string | Buffer, name: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
+export function compileJsonFile(
+  file: string | Buffer,
+  name: string,
+  options: Partial<Options> = DEFAULT_OPTIONS
+): Promise<string> {
   const schema = Try(
     () => JSON.parse(getContent(file)),
     () => {
@@ -140,7 +144,11 @@ function getContent(file: string | Buffer): string {
   return file.toString()
 }
 
-export function compileYamlFile(file: string | Buffer, name: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
+export function compileYamlFile(
+  file: string | Buffer,
+  name: string,
+  options: Partial<Options> = DEFAULT_OPTIONS
+): Promise<string> {
   const schema = Try(
     () => yaml.load(getContent(file)) as JSONSchema4,
     () => {
@@ -161,9 +169,10 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
     _options.cwd += '/'
   }
 
-  const { dereferencedSchema, dereferencedPaths } = _options.$refOptions !== false ?
-    await dereference(schema, _options.cwd, _options.$refOptions)
-    : { dereferencedSchema: schema, dereferencedPaths: _options.schemaToId }
+  const { dereferencedSchema, dereferencedPaths } =
+    _options.$refOptions !== false
+      ? await dereference(schema, _options.cwd, _options.$refOptions)
+      : { dereferencedSchema: schema, dereferencedPaths: _options.schemaToId }
 
   const linked = link(dereferencedSchema)
 
@@ -182,4 +191,4 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   return formatted
 }
 
-export class ValidationError extends Error { }
+export class ValidationError extends Error {}

@@ -10,43 +10,25 @@ export const input = {
       nullable: true
     },
     C: {
-      allOf: [
-        { type: 'string' },
-        { nullable: true }
-      ]
+      allOf: [{ type: 'string' }, { nullable: true }]
     },
     D: {
       type: ['string', 'null']
     },
     E: {
-      allOf: [
-        { $ref: '#/definitions/MyString' },
-        { nullable: true }
-      ]
+      allOf: [{ $ref: '#/definitions/MyString' }, { nullable: true }]
     },
     F: {
-      allOf: [
-        { type: 'string' },
-        { $ref: '#/definitions/MyNullable' }
-      ]
+      allOf: [{ type: 'string' }, { $ref: '#/definitions/MyNullable' }]
     },
     G: {
-      allOf: [
-        { $ref: '#/definitions/MyString' },
-        { $ref: '#/definitions/MyNullable' }
-      ]
+      allOf: [{ $ref: '#/definitions/MyString' }, { $ref: '#/definitions/MyNullable' }]
     },
     H: {
-      allOf: [
-        { enum: ['foo', 'bar'] },
-        { $ref: '#/definitions/MyNullable' }
-      ]
+      allOf: [{ enum: ['foo', 'bar'] }, { $ref: '#/definitions/MyNullable' }]
     },
     I: {
-      allOf: [
-        { type: ['string', 'number' ] },
-        { nullable: true },
-      ]
+      allOf: [{ type: ['string', 'number'] }, { nullable: true }]
     },
     J: {
       allOf: [
@@ -54,7 +36,7 @@ export const input = {
           type: 'object',
           properties: {
             foo: { type: 'string' },
-            bar: { type: 'number' },
+            bar: { type: 'number' }
           },
           required: ['foo', 'bar'],
           additionalProperties: false
@@ -67,6 +49,6 @@ export const input = {
   additionalProperties: false,
   definitions: {
     MyString: { name: 'string', type: 'string' },
-    MyNullable: { nullable: true },
+    MyNullable: { nullable: true }
   }
 }
