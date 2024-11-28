@@ -37,7 +37,7 @@ function stripExtension(filename: string): string {
 function runOne(exports: TestCase, name: string) {
   log('Running test', name)
 
-  const options = merge({ cwd }, exports.options, { $refOptions: { resolve: { http: httpWithCacheResolver } } })
+  const options = merge({ cwd }, { $refOptions: { resolve: { http: httpWithCacheResolver } } }, exports.options)
 
   test(name, async () => {
     if (exports.error) {

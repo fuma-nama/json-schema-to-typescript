@@ -7,8 +7,8 @@ import { generate } from './generator'
 import { normalize } from './normalizer'
 import { optimize } from './optimizer'
 import { parse } from './parser'
-import { dereference } from './resolver'
-import { error, Try, log } from './utils'
+import { dereference, type DereferencedPaths } from './resolver'
+import { error, Try } from './utils'
 import { validate } from './validator'
 import { link } from './linker'
 import { validateOptions } from './optionValidator'
@@ -86,6 +86,13 @@ export interface Options {
    * Generate unknown type instead of any
    */
   unknownAny: boolean
+
+  /**
+   * When `$refOptions` is disabled, this is used to find the original ref id from schema.
+   * 
+z  * Required for dereferenced schemas to resolve cyclic references
+   */
+  schemaToId?: DereferencedPaths
 }
 
 export const DEFAULT_OPTIONS: Options = {
@@ -149,16 +156,14 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
 
   const _options = merge({}, DEFAULT_OPTIONS, options)
 
-  const start = Date.now()
-
   // normalize options
   if (!_options.cwd.endsWith('/')) {
     _options.cwd += '/'
   }
 
-  const { dereferencedPaths, dereferencedSchema } = _options.$refOptions !== false ?
+  const { dereferencedSchema, dereferencedPaths } = _options.$refOptions !== false ?
     await dereference(schema, _options.cwd, _options.$refOptions)
-    : { dereferencedSchema: schema, dereferencedPaths: new WeakMap() }
+    : { dereferencedSchema: schema, dereferencedPaths: _options.schemaToId }
 
   const linked = link(dereferencedSchema)
 

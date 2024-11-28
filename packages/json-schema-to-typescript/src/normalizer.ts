@@ -9,7 +9,7 @@ type Rule = (
   fileName: string,
   options: Options,
   key: string | null,
-  dereferencedPaths: DereferencedPaths
+  dereferencedPaths: DereferencedPaths | undefined
 ) => void
 const rules = new Map<string, Rule>()
 
@@ -97,13 +97,13 @@ rules.set('Add an $id to anything that needs it', (schema, fileName, _options, _
     return
   }
 
+  if (!dereferencedPaths) return;
+
   // Sub-schemas with references
   if (!isArrayType(schema) && !isObjectType(schema)) {
     return
   }
 
-  // We'll infer from $id and title downstream
-  // TODO: Normalize upstream
   const dereferencedName = dereferencedPaths.get(schema)
   if (!schema.$id && !schema.title && dereferencedName) {
     schema.$id = toSafeString(normalizeName(dereferencedName))
@@ -259,7 +259,7 @@ rules.set('Pre-calculate schema types and intersections', schema => {
 
 export function normalize(
   rootSchema: LinkedJSONSchema,
-  dereferencedPaths: DereferencedPaths,
+  dereferencedPaths: DereferencedPaths | undefined,
   filename: string,
   options: Options
 ): NormalizedJSONSchema {
