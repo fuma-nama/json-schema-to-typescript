@@ -1,7 +1,7 @@
 import { JSONSchema4 } from 'json-schema'
 import { ParserOptions as $RefOptions } from '@apidevtools/json-schema-ref-parser'
 import merge from 'lodash.merge'
-import { Options as PrettierOptions } from 'prettier'
+import type { Options as PrettierOptions } from 'prettier'
 import { format } from './formatter'
 import { generate } from './generator'
 import { normalize } from './normalizer'
@@ -191,4 +191,4 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   return formatted
 }
 
-export class ValidationError extends Error {}
+export class ValidationError extends Error { }

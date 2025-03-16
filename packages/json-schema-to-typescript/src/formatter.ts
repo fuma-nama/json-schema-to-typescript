@@ -5,6 +5,6 @@ export async function format(code: string, options: Options): Promise<string> {
     return code
   }
 
-  const prettier = await import('prettier')
+  const prettier = await import('prettier/standalone')
   return prettier.format(code, { parser: 'typescript', ...options.style })
 }
