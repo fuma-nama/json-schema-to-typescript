@@ -67,51 +67,9 @@ importers:
       '@types/json-schema':
         specifier: ^7.0.15
         version: 7.0.15
-      '@types/lodash.deburr':
-        specifier: ^4.1.9
-        version: 4.1.9
-      '@types/lodash.isplainobject':
-        specifier: ^4.0.9
-        version: 4.0.9
-      '@types/lodash.memoize':
-        specifier: ^4.1.9
-        version: 4.1.9
-      '@types/lodash.merge':
-        specifier: ^4.6.9
-        version: 4.6.9
-      '@types/lodash.omit':
-        specifier: ^4.5.9
-        version: 4.5.9
-      '@types/lodash.uniqby':
-        specifier: ^4.7.9
-        version: 4.7.9
-      '@types/lodash.upperfirst':
-        specifier: ^4.3.9
-        version: 4.3.9
       '@types/node':
         specifier: ^22.13.10
         version: 22.13.10
-      lodash.deburr:
-        specifier: ^4.1.0
-        version: 4.1.0
-      lodash.isplainobject:
-        specifier: ^4.0.6
-        version: 4.0.6
-      lodash.memoize:
-        specifier: ^4.1.2
-        version: 4.1.2
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
-      lodash.omit:
-        specifier: ^4.5.0
-        version: 4.5.0
-      lodash.uniqby:
-        specifier: ^4.7.0
-        version: 4.7.0
-      lodash.upperfirst:
-        specifier: ^4.3.1
-        version: 4.3.1
 
   packages/json2ts:
     dependencies:
@@ -851,30 +809,6 @@ packages:
   '@types/linkify-it@5.0.0':
     resolution: {integrity: sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q==}
 
-  '@types/lodash.deburr@4.1.9':
-    resolution: {integrity: sha512-rbn84qZUAXcjZsr9Oi5TSrMAYBq8l7JfUex+QMy8+MxHWz2L9lE6ZH3j9ytSlFQmxqFsIrv5TeROllW8D95u4Q==}
-
-  '@types/lodash.isplainobject@4.0.9':
-    resolution: {integrity: sha512-QC8nKcap5hRrbtIaPRjUMlcXXnLeayqQZPSaWJDx3xeuN17+2PW5wkmEJ4+lZgNnQRlSPzxjTYKCfV1uTnPaEg==}
-
-  '@types/lodash.memoize@4.1.9':
-    resolution: {integrity: sha512-glY1nQuoqX4Ft8Uk+KfJudOD7DQbbEDF6k9XpGncaohW3RW4eSWBlx6AA0fZCrh40tZcQNH4jS/Oc59J6Eq+aw==}
-
-  '@types/lodash.merge@4.6.9':
-    resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
-
-  '@types/lodash.omit@4.5.9':
-    resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
-
-  '@types/lodash.uniqby@4.7.9':
-    resolution: {integrity: sha512-rjrXji/seS6BZJRgXrU2h6FqxRVufsbq/HE0Tx0SdgbtlWr2YmD/M64BlYEYYlaMcpZwy32IYVkMfUMYlPuv0w==}
-
-  '@types/lodash.upperfirst@4.3.9':
-    resolution: {integrity: sha512-bYhT1QEsk9/ggrFjK86Pb5bnKJgTBbpVA77Ygbb1aW1oiWJNGRbVjSlQ9We/ihB9vVpX5WqDJvbISXlukGR+dQ==}
-
-  '@types/lodash@4.17.7':
-    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
-
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
 
@@ -1585,33 +1519,14 @@ packages:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
 
-  lodash.deburr@4.1.0:
-    resolution: {integrity: sha512-m/M1U1f3ddMCs6Hq2tAsYThTBDaAKFDX3dwDo97GEYzamXi9SqUpjWi/Rrj/gf3X2n8ktwgZrlP1z6E3v/IExQ==}
-
-  lodash.isplainobject@4.0.6:
-    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
-
-  lodash.memoize@4.1.2:
-    resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
-
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
-
-  lodash.omit@4.5.0:
-    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
-    deprecated: This package is deprecated. Use destructuring assignment syntax instead.
 
   lodash.sortby@4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
 
   lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
-
-  lodash.uniqby@4.7.0:
-    resolution: {integrity: sha512-e/zcLx6CSbmaEgFHCA7BnoQKyCtKMxnuWrJygbwPs/AIn+IMKl66L8/s+wBUn5LRw2pZx3bUHibiV1b6aTWIww==}
-
-  lodash.upperfirst@4.3.1:
-    resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
 
   loupe@3.1.3:
     resolution: {integrity: sha512-kkIp7XSkP78ZxJEsSxW3712C6teJVoeHHwgo9zJ380de7IYyJ2ISlxojcH2pC5OFLewESmnRi/+XCDIEEVyoug==}
@@ -2997,36 +2912,6 @@ snapshots:
 
   '@types/linkify-it@5.0.0': {}
 
-  '@types/lodash.deburr@4.1.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.isplainobject@4.0.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.memoize@4.1.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.merge@4.6.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.omit@4.5.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.uniqby@4.7.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.upperfirst@4.3.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash@4.17.7': {}
-
   '@types/markdown-it@14.1.2':
     dependencies:
       '@types/linkify-it': 5.0.0
@@ -3818,23 +3703,11 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
-  lodash.deburr@4.1.0: {}
-
-  lodash.isplainobject@4.0.6: {}
-
-  lodash.memoize@4.1.2: {}
-
   lodash.merge@4.6.2: {}
-
-  lodash.omit@4.5.0: {}
 
   lodash.sortby@4.7.0: {}
 
   lodash.startcase@4.4.0: {}
-
-  lodash.uniqby@4.7.0: {}
-
-  lodash.upperfirst@4.3.1: {}
 
   loupe@3.1.3: {}
 

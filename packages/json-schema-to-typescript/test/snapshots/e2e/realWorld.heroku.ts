@@ -54,7 +54,7 @@ output?: string
  */
 exit_code?: number
 [k: string]: unknown
-} & null & (Postdeploy | Postdeploy))
+} & null & Postdeploy)
 /**
  * buildpacks executed for this build, in order
  */
@@ -74,7 +74,7 @@ export type Release = ({
  */
 id?: string
 [k: string]: unknown
-} & null & (Release | Release))
+} & null & Release)
 /**
  * price information for this dyno size
  */
@@ -98,7 +98,7 @@ id?: string
  */
 name?: string
 [k: string]: unknown
-} & null & (Addon | Addon))
+} & null & Addon)
 /**
  * The scope of access OAuth authorization allows
  */

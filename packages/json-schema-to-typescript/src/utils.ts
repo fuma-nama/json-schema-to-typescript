@@ -1,6 +1,3 @@
-import deburr from 'lodash.deburr'
-import isPlainObject from 'lodash.isplainobject'
-import upperFirst from 'lodash.upperfirst'
 import { Intersection, JSONSchema, LinkedJSONSchema, NormalizedJSONSchema, Parent } from './types/JSONSchema'
 
 export function Try<T>(fn: () => T, err: (e: Error) => T): T {
@@ -162,30 +159,27 @@ export function traverse(
 }
 
 /**
- * Convert a string that might contain spaces or special characters to one that
- * can safely be used as a TypeScript interface or enum name.
+ * Convert any string into a valid TypeScript type name.
+ * Removes special characters, converts to PascalCase, and ensures name starts with a letter.
  */
-export function toSafeString(string: string) {
-  // identifiers in javaScript/ts:
-  // First character: a-zA-Z | _ | $
-  // Rest: a-zA-Z | _ | $ | 0-9
+export function toSafeString(str: string): string {
+  // Convert to string if not already
+  const value = str
+    .normalize()
+    // Replace special characters with spaces
+    .replace(/[^a-zA-Z0-9_$]/g, ' ')
+    // Convert to PascalCase
+    .replace(/(^\w|\s+\w|_\w|\d\w)/g, letter => {
+      if (letter.startsWith('_')) return letter.slice(1).toUpperCase()
 
-  return upperFirst(
-    // remove accents, umlauts, ... by their basic latin letters
-    deburr(string)
-      // replace chars which are not valid for typescript identifiers with whitespace
-      .replace(/(^\s*[^a-zA-Z_$])|([^a-zA-Z_$\d])/g, ' ')
-      // uppercase leading underscores followed by lowercase
-      .replace(/^_[a-z]/g, match => match.toUpperCase())
-      // remove non-leading underscores followed by lowercase (convert snake_case)
-      .replace(/_[a-z]/g, match => match.substr(1, match.length).toUpperCase())
-      // uppercase letters after digits, dollars
-      .replace(/([\d$]+[a-zA-Z])/g, match => match.toUpperCase())
-      // uppercase first letter after whitespace
-      .replace(/\s+([a-zA-Z])/g, match => match.toUpperCase().trim())
-      // remove remaining whitespace
-      .replace(/\s/g, '')
-  )
+      return letter.trim().toUpperCase()
+    })
+    // Remove spaces
+    .replace(/\s+/g, '')
+    // Ensure starts with valid letter
+    .replace(/^\d+/, '')
+
+  return value
 }
 
 export function generateName(from: string, usedNames: Set<string>) {
@@ -326,4 +320,60 @@ export function isSchemaLike(schema: unknown): schema is LinkedJSONSchema {
   }
 
   return true
+}
+
+export function omit<T extends object, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
+  const result = { ...obj }
+  for (const key of keys) {
+    delete result[key]
+  }
+  return result
+}
+
+export function isPlainObject(value: unknown): value is object {
+  if (!value || typeof value !== 'object') {
+    return false
+  }
+
+  // Check if prototype is null or Object.prototype
+  const proto = Object.getPrototypeOf(value)
+  if (proto === null) {
+    return true
+  }
+
+  // Check if constructor is Object
+  const Ctor = Object.prototype.hasOwnProperty.call(proto, 'constructor') && proto.constructor
+  return (
+    typeof Ctor === 'function' &&
+    Ctor instanceof Ctor &&
+    Function.prototype.toString.call(Ctor) === Function.prototype.toString.call(Object)
+  )
+}
+
+export function deepMerge<T>(target: unknown, ...sources: unknown[]): T {
+  if (!sources.length) return target as T
+  const source = sources.shift() as Record<string, unknown>
+
+  if (isPlainObject(target) && isPlainObject(source)) {
+    const _target = target as Record<string, unknown>
+
+    for (const key in source) {
+      if (isPlainObject(source[key])) {
+        if (!(key in target) || typeof _target[key] !== 'object') Object.assign(_target, { [key]: {} })
+
+        deepMerge(_target[key], source[key])
+      } else {
+        Object.assign(target, { [key]: source[key] })
+      }
+
+      if (Array.isArray(source[key])) {
+        if (!Array.isArray(_target[key])) _target[key] = [] as never
+
+        const arr = _target[key] as unknown[]
+        arr.push(source[key])
+      }
+    }
+  }
+
+  return deepMerge(target, ...sources)
 }

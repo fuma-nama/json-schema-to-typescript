@@ -64,7 +64,7 @@ export type CoreSchemaMetaSchema = {
   oneOf?: SchemaArray;
   not?: CoreSchemaMetaSchema;
   [k: string]: unknown;
-} & (CoreSchemaMetaSchema | CoreSchemaMetaSchema) &
+} & CoreSchemaMetaSchema &
   boolean;
 export type NonNegativeInteger = number;
 export type NonNegativeIntegerDefault0 = NonNegativeInteger;

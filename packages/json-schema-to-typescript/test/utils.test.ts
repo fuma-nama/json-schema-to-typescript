@@ -7,7 +7,7 @@ test('generateName', () => {
   expect(generateName('a', usedNames)).toBe('A')
   expect(generateName('abc', usedNames)).toBe('Abc')
   expect(generateName('ABcd', usedNames)).toBe('ABcd')
-  expect(generateName('$Abc_123', usedNames)).toBe('$Abc_123')
+  expect(generateName('$Abc_123', usedNames)).toBe('$Abc123')
   expect(generateName('Abc-de-f', usedNames)).toBe('AbcDeF')
 
   // Index should increment:

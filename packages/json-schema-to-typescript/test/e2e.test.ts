@@ -2,9 +2,8 @@ import type { FileInfo } from '@apidevtools/json-schema-ref-parser'
 import { expect, test } from 'vitest'
 import { readdirSync } from 'fs'
 import { compile, JSONSchema, Options } from '../src'
-import { log } from '../src/utils'
+import { log, deepMerge } from '../src/utils'
 import { getWithCache } from './http'
-import merge from 'lodash.merge'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -37,7 +36,11 @@ function stripExtension(filename: string): string {
 function runOne(exports: TestCase, name: string) {
   log('Running test', name)
 
-  const options = merge({ cwd }, { $refOptions: { resolve: { http: httpWithCacheResolver } } }, exports.options)
+  const options = deepMerge<Options>(
+    { cwd },
+    { $refOptions: { resolve: { http: httpWithCacheResolver } } },
+    exports.options
+  )
 
   test(name, async () => {
     if (exports.error) {

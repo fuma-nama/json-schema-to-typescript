@@ -1,4 +1,3 @@
-import uniqBy from 'lodash.uniqby'
 import { Options } from '.'
 import { generateType } from './generator'
 import { AST, T_ANY, T_UNKNOWN } from './types/AST'
@@ -53,7 +52,7 @@ export function optimize(ast: AST, options: Options, processed = new Set<AST>())
       }
 
       // [A, B, B] -> [A, B]
-      const params = uniqBy(optimizedAST.params, _ => generateType(_, options))
+      const params = deduplicate(optimizedAST.params, item => generateType(item, options))
       if (params.length !== optimizedAST.params.length) {
         log('optimizer', '[A, B, B] -> [A, B]', optimizedAST)
         optimizedAST.params = params
@@ -75,4 +74,19 @@ function omitStandaloneName<A extends AST>(ast: A): A {
     default:
       return { ...ast, standaloneName: undefined }
   }
+}
+
+function deduplicate(asts: AST[], hasher: (item: AST) => string): AST[] {
+  const out: AST[] = []
+  const added = new Set<string>()
+
+  for (const item of asts) {
+    const hash = hasher(item)
+
+    if (added.has(hash)) continue
+    added.add(hash)
+    out.push(item)
+  }
+
+  return out
 }

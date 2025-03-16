@@ -36,7 +36,7 @@ export interface SnakeCase {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "_startsWithUnderscore".
  */
-export interface _StartsWithUnderscore {
+export interface StartsWithUnderscore {
   a?: boolean;
   [k: string]: unknown;
 }
@@ -44,7 +44,7 @@ export interface _StartsWithUnderscore {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "_StartsWithUnderscoreUppercase".
  */
-export interface _StartsWithUnderscoreUppercase {
+export interface StartsWithUnderscoreUppercase {
   a?: boolean;
   [k: string]: unknown;
 }
@@ -60,7 +60,7 @@ export interface EndsWithUnderscore_ {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "UPPER_CASE".
  */
-export interface UPPER_CASE {
+export interface UPPERCASE {
   a?: boolean;
   [k: string]: unknown;
 }
@@ -68,7 +68,7 @@ export interface UPPER_CASE {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "______________".
  */
-export interface ______________ {
+export interface ___ {
   a?: boolean;
   [k: string]: unknown;
 }
@@ -190,7 +190,7 @@ export interface ContainsComma {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "$startsWithDollar".
  */
-export interface $StartsWithDollar {
+export interface $startsWithDollar {
   a?: string;
   [k: string]: unknown;
 }
@@ -222,7 +222,7 @@ export interface $ {
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
  * via the `definition` "UPPERCASE".
  */
-export interface UPPERCASE {
+export interface UPPERCASE1 {
   a?: string;
   [k: string]: unknown;
 }

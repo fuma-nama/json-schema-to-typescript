@@ -1,6 +1,5 @@
 import { JSONSchema4 } from 'json-schema'
 import { ParserOptions as $RefOptions } from '@apidevtools/json-schema-ref-parser'
-import merge from 'lodash.merge'
 import type { Options as PrettierOptions } from 'prettier'
 import { format } from './formatter'
 import { generate } from './generator'
@@ -8,7 +7,7 @@ import { normalize } from './normalizer'
 import { optimize } from './optimizer'
 import { parse } from './parser'
 import { dereference, type DereferencedPaths } from './resolver'
-import { error, Try } from './utils'
+import { deepMerge, error, Try } from './utils'
 import { validate } from './validator'
 import { link } from './linker'
 import { validateOptions } from './optionValidator'
@@ -162,7 +161,7 @@ export function compileYamlFile(
 export async function compile(schema: JSONSchema4, name: string, options: Partial<Options> = {}): Promise<string> {
   validateOptions(options)
 
-  const _options = merge({}, DEFAULT_OPTIONS, options)
+  const _options = deepMerge<Options>({}, DEFAULT_OPTIONS, options)
 
   // normalize options
   if (!_options.cwd.endsWith('/')) {
@@ -191,4 +190,4 @@ export async function compile(schema: JSONSchema4, name: string, options: Partia
   return formatted
 }
 
-export class ValidationError extends Error { }
+export class ValidationError extends Error {}

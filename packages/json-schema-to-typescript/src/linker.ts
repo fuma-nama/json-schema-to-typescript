@@ -1,5 +1,5 @@
 import { JSONSchema, Parent, LinkedJSONSchema } from './types/JSONSchema'
-import isPlainObject from 'lodash.isplainobject'
+import { isPlainObject } from './utils'
 import { JSONSchema4Type } from 'json-schema'
 
 /**
@@ -8,7 +8,7 @@ import { JSONSchema4Type } from 'json-schema'
  */
 export function link(schema: JSONSchema4Type | JSONSchema, parent: JSONSchema4Type | null = null): LinkedJSONSchema {
   if (!Array.isArray(schema) && !isPlainObject(schema)) {
-    return schema as LinkedJSONSchema
+    return schema as unknown as LinkedJSONSchema
   }
 
   // Handle cycles

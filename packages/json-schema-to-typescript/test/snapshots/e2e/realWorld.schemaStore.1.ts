@@ -422,7 +422,7 @@ export interface PackageExportsEntryObject {
   [k: string]: PackageExportsEntry | PackageExportsFallback;
 }
 /**
- * Used to specify conditional exports, note that Conditional exports are unsupported in older environments, so it's recommended to use the fallback array option if support for those environments is a concern.
+ * The module path that is resolved when the module specifier matches "name", shadows the "main" field.
  */
 export interface PackageExportsEntryObject1 {
   /**

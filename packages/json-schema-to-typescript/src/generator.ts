@@ -1,5 +1,3 @@
-import omit from 'lodash.omit'
-import memoize from 'lodash.memoize'
 import { DEFAULT_OPTIONS, Options } from './index'
 import {
   AST,
@@ -15,7 +13,7 @@ import {
   TUnion,
   T_UNKNOWN
 } from './types/AST'
-import { log, toSafeString } from './utils'
+import { log, toSafeString, omit } from './utils'
 
 export function generate(ast: AST, options = DEFAULT_OPTIONS): string {
   return (
@@ -151,16 +149,15 @@ function declareNamedTypes(ast: AST, options: Options, rootASTName: string, proc
   }
 }
 
-function generateTypeUnmemoized(ast: AST, options: Options): string {
+export function generateType(ast: AST, options: Options): string {
   const type = generateRawType(ast, options)
 
-  if (options.strictIndexSignatures && ast.keyName === '[k: string]') {
+  if (options.strictIndexSignatures && ast.keyName === '[k: string]' && ast.type !== 'UNKNOWN' && ast.type !== 'ANY') {
     return `${type} | undefined`
   }
 
   return type
 }
-export const generateType: typeof generateTypeUnmemoized = memoize(generateTypeUnmemoized)
 
 function generateRawType(ast: AST, options: Options): string {
   log('generator', ast)
@@ -357,7 +354,7 @@ function generateStandaloneType(ast: ASTWithStandaloneName, options: Options): s
   return (
     (hasComment(ast) ? generateComment(ast.comment) + '\n' : '') +
     `export type ${toSafeString(ast.standaloneName)} = ${generateType(
-      omit<AST>(ast, 'standaloneName') as AST /* TODO */,
+      omit(ast, 'standaloneName') as AST /* TODO */,
       options
     )}`
   )

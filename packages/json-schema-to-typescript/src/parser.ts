@@ -12,10 +12,7 @@ import type {
   SchemaType
 } from './types/JSONSchema'
 import { Intersection, Types, getRootSchema, isBoolean, isPrimitive } from './types/JSONSchema'
-import { generateName, log, maybeStripDefault } from './utils'
-import omit from 'lodash.omit'
-import isPlainObject from 'lodash.isplainobject'
-import memoize from 'lodash.memoize'
+import { generateName, isPlainObject, log, maybeStripDefault, omit } from './utils'
 
 export type Processed = Map<NormalizedJSONSchema, Map<SchemaType, AST>>
 
@@ -120,7 +117,7 @@ function parseNonLiteral(
   processed: Processed,
   usedNames: UsedNames
 ): AST {
-  const definitions = getDefinitionsMemoized(getRootSchema(schema))
+  const definitions = getDefinitions(getRootSchema(schema))
   const keyNameFromDefinition = Array.from(Object.keys(definitions)).find(k => definitions[k] === schema)
 
   switch (type) {
@@ -502,6 +499,8 @@ via the \`definition\` "${key}".`
 
 type Definitions = { [k: string]: NormalizedJSONSchema }
 
+const cacheList: [NormalizedJSONSchema, Definitions][] = []
+
 function getDefinitions(
   schema: NormalizedJSONSchema,
   isSchema = true,
@@ -510,18 +509,23 @@ function getDefinitions(
   if (processed.has(schema)) {
     return {}
   }
+
+  const cached = cacheList.findLast(item => item[0] === schema)?.[1]
+  if (cached) return cached
+
+  let result: Definitions = {}
   processed.add(schema)
+
   if (Array.isArray(schema)) {
-    return schema.reduce(
+    result = schema.reduce(
       (prev, cur) => ({
         ...prev,
         ...getDefinitions(cur, false, processed)
       }),
       {}
     )
-  }
-  if (isPlainObject(schema)) {
-    return {
+  } else if (isPlainObject(schema)) {
+    result = {
       ...(isSchema && hasDefinitions(schema) ? schema.$defs : {}),
       ...Object.keys(schema).reduce<Definitions>(
         (prev, cur) => ({
@@ -532,10 +536,11 @@ function getDefinitions(
       )
     }
   }
-  return {}
-}
 
-const getDefinitionsMemoized = memoize(getDefinitions)
+  cacheList.push([schema, result])
+  if (cacheList.length > 100) cacheList.shift()
+  return result
+}
 
 /**
  * TODO: Reduce rate of false positives
