@@ -1,5 +1,11 @@
 # @fumari/json-schema-to-typescript
 
+## 1.1.3
+
+### Patch Changes
+
+- c1eb7fb: Bump deps
+
 ## 1.1.2
 
 ### Patch Changes
