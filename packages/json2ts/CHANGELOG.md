@@ -1,5 +1,13 @@
 # @fumari/json2ts
 
+## 1.1.3
+
+### Patch Changes
+
+- c1eb7fb: Bump deps
+- Updated dependencies [c1eb7fb]
+  - @fumari/json-schema-to-typescript@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes
