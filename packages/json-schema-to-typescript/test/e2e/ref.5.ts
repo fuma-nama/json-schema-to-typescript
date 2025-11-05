@@ -1,5 +1,6 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { Options } from '../../src'
 
 export const input = {
   title: 'Referencing',
@@ -16,6 +17,8 @@ export const input = {
   additionalProperties: false
 }
 
-export const options = {
-  cwd: path.join(path.dirname(fileURLToPath(import.meta.url)), '../resources')
+export const options: Partial<Options> = {
+  $refOptions: {
+    cwd: path.join(path.dirname(fileURLToPath(import.meta.url)), '../resources')
+  }
 }

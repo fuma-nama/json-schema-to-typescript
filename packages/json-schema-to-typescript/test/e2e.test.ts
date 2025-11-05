@@ -37,8 +37,7 @@ function runOne(exports: TestCase, name: string) {
   log('Running test', name)
 
   const options = deepMerge<Options>(
-    { cwd },
-    { $refOptions: { resolve: { http: httpWithCacheResolver } } },
+    { $refOptions: { cwd, resolve: { http: httpWithCacheResolver } } },
     exports.options
   )
 

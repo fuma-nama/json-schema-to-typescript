@@ -13,19 +13,19 @@ test('compile: JSON', async () => {
 
   await expect(
     await compileJsonFile(file, 'ReferencingType', {
-      cwd: path.join(dir, './resources')
+      $refOptions: {
+        cwd: path.join(dir, './resources')
+      }
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file.ts')
 })
 
 test('compile: JSON, dereferenced', async () => {
-  const cwd = path.join(dir, './resources')
   const dereferenced = await Parser.dereference<JSONSchema4>(path.join(dir, './resources/Person.json'), {
     mutateInputSchema: true
   })
 
   const res = await compile(dereferenced, 'Person', {
-    cwd,
     $refOptions: false
   })
 
@@ -37,7 +37,9 @@ test('compile: Yaml', async () => {
 
   await expect(
     await compileYamlFile(file, 'ReferencingType', {
-      cwd: path.join(dir, './resources')
+      $refOptions: {
+        cwd: path.join(dir, './resources')
+      }
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file-yaml.ts')
 })
