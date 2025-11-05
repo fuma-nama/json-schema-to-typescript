@@ -1,5 +1,43 @@
 # @fumari/json-schema-to-typescript
 
+## 2.0.0
+
+### Major Changes
+
+- ca826ca: **No longer dereference schemas by default**
+
+  In general, most usage has a dereferenced schema a head of time, or needs re-using them.
+  Dereferencing schemas on user-land is more efficient, hence now the default.
+
+  To enable dereferencing, use the `refsPlugins()` and install `@apidevtools/json-schema-ref-parser`:
+
+  ```ts
+  import { compile } from '@fumari/json-schema-to-typescript'
+  import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
+
+  const res = await compile(schema, 'Person', {
+    plugins: [refsPlugin()]
+  })
+  ```
+
+- e1f400b: **Make `prettier` optional**
+
+  It now prefers the plugin system to manage similar needs:
+
+  ```ts
+  import { compile } from '@fumari/json-schema-to-typescript'
+  import { prettierPlugin } from '@fumari/json-schema-to-typescript/plugins/prettier'
+
+  const res = await compile(schema, 'Person', {
+    plugins: [prettierPlugin()]
+  })
+  ```
+
+### Patch Changes
+
+- 1e04119: Allow Map-like structure for `schemaToId`
+- 0421cd0: Move `cwd` option to `$refOptions.cwd`
+
 ## 1.1.3
 
 ### Patch Changes
