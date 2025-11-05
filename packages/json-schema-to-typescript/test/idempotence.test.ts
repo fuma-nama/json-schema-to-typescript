@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { JSONSchema4 } from 'json-schema'
 import { compile } from '../src'
+import { refsPlugin } from '../src/plugins/refs'
 
 const SCHEMA: JSONSchema4 = {
   type: 'object',
@@ -14,14 +15,20 @@ const SCHEMA: JSONSchema4 = {
 
 test('compile() should not mutate its input', async () => {
   const before = structuredClone(SCHEMA)
-  await compile(SCHEMA, 'A')
+  await compile(SCHEMA, 'A', {
+    plugins: [refsPlugin()]
+  })
 
   expect(before).toStrictEqual(SCHEMA)
 })
 
 test('compile() should be idempotent', async () => {
-  const a = await compile(SCHEMA, 'A')
-  const b = await compile(SCHEMA, 'A')
+  const a = await compile(SCHEMA, 'A', {
+    plugins: [refsPlugin()]
+  })
+  const b = await compile(SCHEMA, 'A', {
+    plugins: [refsPlugin()]
+  })
 
   expect(a).toStrictEqual(b)
 })

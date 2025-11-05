@@ -1,8 +1,7 @@
 import { JSONSchemaTypeName, LinkedJSONSchema, NormalizedJSONSchema, Parent } from './types/JSONSchema'
 import { appendToDescription, escapeBlockComment, isSchemaLike, toSafeString, traverse } from './utils'
-import { Options } from './'
+import type { LinkedInput, Options, RawRefResolver } from './'
 import { applySchemaTyping } from './applySchemaTyping'
-import type { RawRefResolver } from './resolver'
 
 type Rule = (
   schema: LinkedJSONSchema,
@@ -263,12 +262,7 @@ rules.set('Pre-calculate schema types and intersections', schema => {
   }
 })
 
-export function normalize(
-  rootSchema: LinkedJSONSchema,
-  dereferencedPaths: RawRefResolver | undefined,
-  filename: string,
-  options: Options
-): NormalizedJSONSchema {
-  rules.forEach(rule => traverse(rootSchema, (schema, key) => rule(schema, filename, options, key, dereferencedPaths)))
-  return rootSchema as NormalizedJSONSchema
+export function normalize(input: LinkedInput, filename: string, options: Options): NormalizedJSONSchema {
+  rules.forEach(rule => traverse(input.schema, (schema, key) => rule(schema, filename, options, key, input.schemaToId)))
+  return input.schema as NormalizedJSONSchema
 }

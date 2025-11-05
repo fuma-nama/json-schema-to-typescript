@@ -1,15 +1,13 @@
 import { JSONSchema4 } from 'json-schema'
-import { ParserOptions as $RefOptions } from '@apidevtools/json-schema-ref-parser'
 import { generate } from './generator'
 import { normalize } from './normalizer'
 import { optimize } from './optimizer'
 import { parse } from './parser'
-import { dereference, type RawRefResolver } from './resolver'
 import { deepMerge, error } from './utils'
 import { validate } from './validator'
 import { link } from './linker'
 import { validateOptions } from './optionValidator'
-import { JSONSchema as LinkedJSONSchema } from './types/JSONSchema'
+import type { JSONSchema, LinkedJSONSchema } from './types/JSONSchema'
 
 export type { EnumJSONSchema, JSONSchema, NamedEnumJSONSchema, CustomTypeJSONSchema } from './types/JSONSchema'
 
@@ -17,24 +15,25 @@ type Awaitable<T> = T | Promise<T>
 
 export interface Plugin {
   config?: (options: Options) => Awaitable<Options | undefined>
+  input?: (input: Input) => Awaitable<Input | undefined>
   output?: (code: string) => Awaitable<string | undefined>
 }
 
-export interface Options {
-  /**
-   * [$RefParser](https://github.com/APIDevTools/json-schema-ref-parser) Options, used when resolving `$ref`s
-   *
-   * If `false`, disable dereferencing
-   */
-  $refOptions:
-    | ($RefOptions & {
-        /**
-         * Root directory for resolving [`$ref`](https://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html)s.
-         */
-        cwd?: string
-      })
-    | false
+export interface RawRefResolver {
+  get: (key: LinkedJSONSchema) => string | undefined
+}
 
+export interface Input {
+  schema: JSONSchema
+  schemaToId?: RawRefResolver
+}
+
+export interface LinkedInput {
+  schema: LinkedJSONSchema
+  schemaToId?: RawRefResolver
+}
+
+export interface Options {
   /**
    * Default value for additionalProperties, when it is not explicitly set.
    */
@@ -86,7 +85,7 @@ export interface Options {
   unknownAny: boolean
 
   /**
-   * When `$refOptions` is disabled, this is used to find the original ref id from schema.
+   * When the input schema is dereferenced ahead of time, this is used to find the original ref id from schema.
    *
    * Required for dereferenced schemas to resolve cyclic references
    */
@@ -96,7 +95,6 @@ export interface Options {
 }
 
 export const DEFAULT_OPTIONS: Options = {
-  $refOptions: {},
   additionalProperties: false,
   bannerComment: '',
   declareExternallyReferenced: true,
@@ -157,19 +155,19 @@ export async function compile(
     options = (await plugin.config?.(options)) ?? options
   }
 
-  const { dereferencedSchema, dereferencedPaths } =
-    options.$refOptions !== false
-      ? await dereference(schema, options.$refOptions.cwd ?? process.cwd(), options.$refOptions)
-      : { dereferencedSchema: schema, dereferencedPaths: options.schemaToId }
+  let input: Input = { schema, schemaToId: options.schemaToId }
+  for (const plugin of options.plugins) {
+    input = (await plugin.input?.(input)) ?? input
+  }
 
-  const linked = link(dereferencedSchema)
+  const linked: LinkedInput = { schema: link(input.schema), schemaToId: input.schemaToId }
   const errors = validate(linked, name)
   if (errors.length) {
     errors.forEach(_ => error(_))
     throw new ValidationError()
   }
 
-  const normalized = normalize(linked, dereferencedPaths, name, options)
+  const normalized = normalize(linked, name, options)
   const parsed = parse(normalized, options)
   const optimized = optimize(parsed, options)
   let output = generate(optimized, options)

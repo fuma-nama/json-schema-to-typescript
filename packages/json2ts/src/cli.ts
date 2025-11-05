@@ -6,6 +6,8 @@ import { glob } from 'glob'
 import isGlob from 'is-glob'
 import { join, resolve, dirname } from 'path'
 import { DEFAULT_OPTIONS, compileJsonFile, Options, compileYamlFile } from '@fumari/json-schema-to-typescript'
+import { prettierPlugin } from '@fumari/json-schema-to-typescript/plugins/prettier'
+import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/with-refs'
 import { pathTransform, error, justName } from './utils'
 import pkg from '../package.json'
 
@@ -127,16 +129,20 @@ function outputResult(result: string, outputPath: string | undefined): void {
 
 async function processFile(argIn: string, argv: Partial<Options>): Promise<string> {
   const { filename, contents } = await readInput(argIn)
+  const options: Partial<Options> = {
+    ...argv,
+    plugins: [prettierPlugin(), refsPlugin()]
+  }
 
   if (filename) {
     if (filename.endsWith('.json')) {
-      return compileJsonFile(contents, justName(filename), argv)
+      return compileJsonFile(contents, justName(filename), options)
     }
 
-    return compileYamlFile(contents, justName(filename), argv)
+    return compileYamlFile(contents, justName(filename), options)
   }
 
-  return compileJsonFile(contents, '', argv)
+  return compileJsonFile(contents, '', options)
 }
 
 function getPaths(path: string, paths: string[] = []) {

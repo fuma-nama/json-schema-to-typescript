@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 import { readFile } from 'fs/promises'
 import Parser from '@apidevtools/json-schema-ref-parser'
 import type { JSONSchema4 } from 'json-schema'
+import { refsPlugin } from '../src/plugins/refs'
 
 const dir = path.dirname(fileURLToPath(import.meta.url))
 
@@ -13,9 +14,11 @@ test('compile: JSON', async () => {
 
   await expect(
     await compileJsonFile(file, 'ReferencingType', {
-      $refOptions: {
-        cwd: path.join(dir, './resources')
-      }
+      plugins: [
+        refsPlugin({
+          cwd: path.join(dir, './resources')
+        })
+      ]
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file.ts')
 })
@@ -25,9 +28,7 @@ test('compile: JSON, dereferenced', async () => {
     mutateInputSchema: true
   })
 
-  const res = await compile(dereferenced, 'Person', {
-    $refOptions: false
-  })
+  const res = await compile(dereferenced, 'Person')
 
   await expect(res).toMatchFileSnapshot('./snapshots/compile-dereferenced.ts')
 })
@@ -37,9 +38,11 @@ test('compile: Yaml', async () => {
 
   await expect(
     await compileYamlFile(file, 'ReferencingType', {
-      $refOptions: {
-        cwd: path.join(dir, './resources')
-      }
+      plugins: [
+        refsPlugin({
+          cwd: path.join(dir, './resources')
+        })
+      ]
     })
   ).toMatchFileSnapshot('./snapshots/compile-from-file-yaml.ts')
 })

@@ -44,20 +44,24 @@
   "author": "Fuma Nama; Boris Cherny",
   "license": "MIT",
   "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^14.2.1",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
     "@types/js-yaml": "^4.0.9",
     "@types/json-schema": "^7.0.15",
-    "@types/node": "^24.10.0"
+    "@types/node": "^24.10.0",
+    "@apidevtools/json-schema-ref-parser": "^14.2.1"
   },
   "peerDependencies": {
+    "@apidevtools/json-schema-ref-parser": "14.x.x",
     "prettier": "3.x.x"
   },
   "peerDependenciesMeta": {
     "prettier": {
+      "optional": true
+    },
+    "@apidevtools/json-schema-ref-parser": {
       "optional": true
     }
   },

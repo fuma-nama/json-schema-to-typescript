@@ -86,7 +86,8 @@ export const input = {
   description: 'Butler_API_Entities_UserPrivate model'
 }
 
+export const ref = false
+
 export const options = {
-  $refOptions: false,
   schemaToId: new Map([[Butler_API_Entities_Project, 'project']])
 }

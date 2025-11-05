@@ -1,11 +1,12 @@
 import type { FileInfo } from '@apidevtools/json-schema-ref-parser'
 import { expect, test } from 'vitest'
 import { readdirSync } from 'fs'
-import { compile, JSONSchema, Options } from '../src'
+import { compile, JSONSchema, Options, Plugin } from '../src'
 import { log, deepMerge } from '../src/utils'
 import { getWithCache } from './http'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { refsPlugin, type RefsPluginOptions } from '../src/plugins/refs'
 
 const cwd = path.join(path.dirname(fileURLToPath(import.meta.url)), '../')
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), './e2e')
@@ -16,6 +17,7 @@ type TestCase = {
   exclude?: boolean
   only?: boolean
   options?: Options
+  ref?: false | RefsPluginOptions
 }
 
 const httpWithCacheResolver = {
@@ -36,10 +38,22 @@ function stripExtension(filename: string): string {
 function runOne(exports: TestCase, name: string) {
   log('Running test', name)
 
-  const options = deepMerge<Options>(
-    { $refOptions: { cwd, resolve: { http: httpWithCacheResolver } } },
-    exports.options
-  )
+  const plugins: Plugin[] = []
+  if (exports.ref !== false) {
+    const refOptions = deepMerge<RefsPluginOptions>(
+      {
+        cwd,
+        resolve: {
+          http: httpWithCacheResolver
+        }
+      },
+      exports.ref
+    )
+
+    plugins.push(refsPlugin(refOptions))
+  }
+
+  const options = deepMerge<Options>({ plugins }, exports.options)
 
   test(name, async () => {
     if (exports.error) {
