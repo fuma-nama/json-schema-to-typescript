@@ -34,7 +34,7 @@ yarn add @fumari/json-schema-to-typescript
 Transform your JSON Schema to TypeScript Definitions.
 
 ```js
-import { compile } from 'json-schema-to-typescript'
+import { compile } from '@fumari/json-schema-to-typescript'
 
 const mySchema = {
   properties: [...]
@@ -48,7 +48,7 @@ YAML and JSON files are also supported.
 
 ```js
 import fs from 'node:fs'
-import { compileJsonFile, compileYamlFile } from 'json-schema-to-typescript'
+import { compileJsonFile, compileYamlFile } from '@fumari/json-schema-to-typescript'
 
 compileJsonFile(fs.readFileSync('foo.json'), 'MyType').then(ts => fs.writeFileSync('foo.d.ts', ts))
 
@@ -56,6 +56,41 @@ compileYamlFile(fs.readFileSync('foo.yaml'), 'MyType').then(ts => fs.writeFileSy
 ```
 
 You can see [Options](/options) for available options.
+
+### Formatting
+
+By default, it doesn't format the output TypeScript code.
+
+You can install `prettier` and enable the Prettier plugin to format outputs:
+
+::: code-group
+
+```sh [npm]
+npm install prettier
+```
+
+```sh [pnpm]
+pnpm add prettier
+```
+
+```sh [yarn]
+yarn add prettier
+```
+
+:::
+
+```js
+import { compile } from '@fumari/json-schema-to-typescript'
+import { prettierPlugin } from '@fumari/json-schema-to-typescript/plugins/prettier'
+
+const mySchema = {
+  properties: [...]
+}
+
+await compile(mySchema, 'MySchema', {
+  plugins: [prettierPlugin()]
+})
+```
 
 ## Features
 
@@ -161,7 +196,8 @@ Overrides the names used for the elements in an enum. Can also be used to create
 
 ### It is crashing on my giant file. What can I do?
 
-Prettier is known to run slowly on really big files. To skip formatting and improve performance, set the `format` option to `false`.
+1. Disable code formatting if you've Prettier plugin enabled.
+2. Check if there's any issue resolving recursive schemas, welcome to open a bug report.
 
 ## Further Reading
 
