@@ -1,13 +1,5 @@
 import { Intersection, JSONSchema, LinkedJSONSchema, NormalizedJSONSchema, Parent } from './types/JSONSchema'
 
-export function Try<T>(fn: () => T, err: (e: Error) => T): T {
-  try {
-    return fn()
-  } catch (e) {
-    return err(e as Error)
-  }
-}
-
 // keys that shouldn't be traversed by the catchall step
 const BLACKLISTED_KEYS = new Set([
   'id',

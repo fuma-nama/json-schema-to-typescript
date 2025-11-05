@@ -12,6 +12,12 @@ export async function dereference(
   options: ParserOptions
 ): Promise<{ dereferencedPaths: RawRefResolver; dereferencedSchema: JSONSchema }> {
   log('dereferencer', 'Dereferencing input schema:', cwd, schema)
+
+  // normalize options
+  if (!cwd.endsWith('/')) {
+    cwd += '/'
+  }
+
   const schemaToRefs = new WeakMap<JSONSchema, string>()
   const dereferencedSchema = await Parser.dereference<JSONSchema>(cwd, schema, {
     ...options,
