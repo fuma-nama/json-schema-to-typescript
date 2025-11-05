@@ -15,5 +15,4 @@ export interface StrictIndexSignatures {
 }
 export interface Leaf {
   maybe?: string;
-  [k: string]: unknown;
 }

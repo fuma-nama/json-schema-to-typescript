@@ -11,7 +11,7 @@ const dir = path.dirname(fileURLToPath(import.meta.url))
 test('compile: JSON', async () => {
   const file = await readFile(path.join(dir, './resources/other/ReferencingType.json'))
 
-  expect(
+  await expect(
     await compileJsonFile(file, 'ReferencingType', {
       cwd: path.join(dir, './resources')
     })
@@ -29,13 +29,13 @@ test('compile: JSON, dereferenced', async () => {
     $refOptions: false
   })
 
-  expect(res).toMatchFileSnapshot('./snapshots/compile-dereferenced.ts')
+  await expect(res).toMatchFileSnapshot('./snapshots/compile-dereferenced.ts')
 })
 
 test('compile: Yaml', async () => {
   const file = await readFile(path.join(dir, './resources/other/ReferencingType.yml'))
 
-  expect(
+  await expect(
     await compileYamlFile(file, 'ReferencingType', {
       cwd: path.join(dir, './resources')
     })

@@ -15,5 +15,4 @@ export interface Cycle3 {
 export interface Cycle4 {
   foo?: number;
   bar?: Cycle3;
-  [k: string]: unknown;
 }

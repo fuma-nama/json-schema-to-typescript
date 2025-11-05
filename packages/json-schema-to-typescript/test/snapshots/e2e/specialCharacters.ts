@@ -11,5 +11,4 @@ export interface ExampleSchema {
   '"baz"': string;
   "$zoo 2"?: string;
   "qux..."?: number;
-  [k: string]: unknown;
 }

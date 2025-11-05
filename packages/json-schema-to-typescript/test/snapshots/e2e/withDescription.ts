@@ -15,5 +15,4 @@ export interface ExampleSchema {
    * Age in years
    */
   age?: number;
-  [k: string]: unknown;
 }

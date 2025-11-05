@@ -7,9 +7,7 @@
 
 export interface RealWorldSwagger {
   definitions?: Definitions;
-  [k: string]: unknown;
 }
 export interface Definitions {
   additionalProperties?: Definitions;
-  [k: string]: unknown;
 }

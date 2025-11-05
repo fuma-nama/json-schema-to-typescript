@@ -15,5 +15,4 @@ export type UserIdArray = string[];
  */
 export interface ExampleSchema {
   users?: UserIdArray;
-  [k: string]: unknown;
 }

@@ -10,5 +10,4 @@ export interface ArrayOfType {
   bar?: string[];
   baz?: (string | number)[];
   moo?: [] | [number] | [number, string];
-  [k: string]: unknown;
 }

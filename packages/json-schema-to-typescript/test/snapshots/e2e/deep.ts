@@ -13,7 +13,6 @@ export interface Deep {
         | Bar
         | {
             baz?: number;
-            [k: string]: unknown;
           }
       )
     | Bar;
@@ -24,5 +23,4 @@ export interface Foo {
 }
 export interface Bar {
   a: string;
-  [k: string]: unknown;
 }

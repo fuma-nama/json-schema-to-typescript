@@ -9,7 +9,6 @@ export interface SchemaWithSubschema {
   firstName: string;
   friend?: {
     knowsFrom: "work" | "school" | "other";
-    [k: string]: unknown;
   };
   coworker?: {
     company?: {
@@ -17,7 +16,6 @@ export interface SchemaWithSubschema {
     };
     [k: string]: KString;
   };
-  [k: string]: unknown;
 }
 
 export const enum KString {

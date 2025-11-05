@@ -24,7 +24,6 @@ export interface Ref {
   access_token?: string;
   role?: string;
   projects?: Project;
-  [k: string]: unknown;
 }
 /**
  * Butler_API_Entities_Project model
@@ -51,5 +50,4 @@ export interface Project {
   code_repository_id?: string;
   created_at?: string;
   updated_at?: string;
-  [k: string]: unknown;
 }

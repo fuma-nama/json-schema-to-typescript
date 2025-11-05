@@ -29,9 +29,8 @@ url?: string
  * if the action requires the user to own the app
  */
 requires_owner?: boolean
-[k: string]: unknown
 } & {
-[k: string]: unknown
+
 }[])
 /**
  * config vars exposed to the owning app by this add-on
@@ -53,7 +52,6 @@ output?: string
  * The exit code of the postdeploy script
  */
 exit_code?: number
-[k: string]: unknown
 } & null & Postdeploy)
 /**
  * buildpacks executed for this build, in order
@@ -63,7 +61,6 @@ export type Buildpacks = ({
  * location of the buildpack for the app. Either a url (unofficial buildpacks) or an internal urn (heroku official buildpacks).
  */
 url?: string
-[k: string]: unknown
 }[] | null)
 /**
  * release resulting from the build
@@ -73,13 +70,12 @@ export type Release = ({
  * unique identifier of release
  */
 id?: string
-[k: string]: unknown
 } & null & Release)
 /**
  * price information for this dyno size
  */
 export type Cost = (null | {
-[k: string]: unknown
+
 })
 /**
  * the serialized resource affected by the event
@@ -97,7 +93,6 @@ id?: string
  * globally unique name of the add-on
  */
 name?: string
-[k: string]: unknown
 } & null & Addon)
 /**
  * The scope of access OAuth authorization allows
@@ -190,7 +185,6 @@ space?: HerokuPlatformAPISpace
 stack?: HerokuPlatformAPIStack
 "user-preferences"?: HerokuPlatformAPIUserPreferences
 "whitelisted-add-on-service"?: HerokuPlatformAPIWhitelistedEntity
-[k: string]: unknown
 }
 /**
  * An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
@@ -236,7 +230,6 @@ display_name?: string
  * e-mail to send feedback about the feature
  */
 feedback_email?: string
-[k: string]: unknown
 }
 /**
  * An account represents an individual signed up to use the Heroku platform.
@@ -279,9 +272,7 @@ organization?: {
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 } | null)
 /**
  * when account last authorized with Heroku
@@ -327,15 +318,13 @@ id?: string
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 } | null)
-[k: string]: unknown
 }
 /**
  * Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
  */
 export interface HerokuPlatformAPIAddOnAction {
-[k: string]: unknown
+
 }
 /**
  * An add-on attachment represents a connection between an app and an add-on that it has been given access to.
@@ -365,7 +354,6 @@ id?: string
  * unique name of app
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * identity of add-on plan
@@ -379,7 +367,6 @@ id?: string
  * unique name of this plan
  */
 name?: string
-[k: string]: unknown
 }
 }
 /**
@@ -394,7 +381,6 @@ id?: string
  * unique name of app
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when add-on attachment was created
@@ -420,7 +406,6 @@ updated_at?: string
  * URL for logging into web interface of add-on in attached app context
  */
 web_url?: (null | string)
-[k: string]: unknown
 }
 /**
  * Configuration of an Add-on
@@ -434,7 +419,6 @@ name?: string
  * value of the config
  */
 value?: (string | null)
-[k: string]: unknown
 }
 /**
  * Add-on Plan Actions are Provider functionality for specific add-on installations
@@ -460,7 +444,6 @@ url?: string
  * if the action requires the user to own the app
  */
 requires_owner?: boolean
-[k: string]: unknown
 }
 /**
  * Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.
@@ -476,7 +459,6 @@ id?: string
 supports_private_networking?: boolean
 addon_service?: HerokuPlatformAPIAddOnService
 region?: HerokuPlatformAPIRegion
-[k: string]: unknown
 }
 /**
  * Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
@@ -518,7 +500,6 @@ supports_sharing?: boolean
  * when add-on-service was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * A region represents a geographic location in which your application may run.
@@ -557,7 +538,6 @@ provider?: Provider
  * when region was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * provider of underlying substrate
@@ -571,7 +551,6 @@ name?: string
  * region name used by provider
  */
 region?: string
-[k: string]: unknown
 }
 /**
  * Add-ons represent add-ons that have been provisioned and attached to one or more apps.
@@ -590,7 +569,6 @@ id?: string
  * unique name of this add-on-service
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * billing application associated with this add-on
@@ -604,7 +582,6 @@ id?: string
  * unique name of app
  */
 name?: string
-[k: string]: unknown
 }
 config_vars?: ConfigVars
 /**
@@ -631,7 +608,6 @@ id?: string
  * unique name of this plan
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * id of this add-on with its provider
@@ -649,7 +625,6 @@ updated_at?: string
  * URL for logging into web interface of add-on (e.g. a dashboard)
  */
 web_url?: (null | string)
-[k: string]: unknown
 }
 /**
  * An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.
@@ -695,7 +670,6 @@ display_name?: string
  * e-mail to send feedback about the feature
  */
 feedback_email?: string
-[k: string]: unknown
 }
 /**
  * App formation set describes the combination of process types with their quantities and sizes as well as application process tier
@@ -721,13 +695,11 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * last time fomation-set was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
@@ -765,7 +737,6 @@ id?: string
  * unique name of app
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * identity and status of build
@@ -783,7 +754,6 @@ status?: ("failed" | "pending" | "succeeded")
  * Build process output will be available from this URL as a stream. The stream is available as either `text/plain` or `text/event-stream`. Clients should be prepared to handle disconnects and can resume the stream by sending a `Range` header (for `text/plain`) or a `Last-Event-Id` header (for `text/event-stream`).
  */
 output_stream_url?: string
-[k: string]: unknown
 })
 manifest_errors?: ManifestErrors
 postdeploy?: Postdeploy
@@ -791,7 +761,6 @@ postdeploy?: Postdeploy
  * fully qualified success url
  */
 resolved_success_url?: (string | null)
-[k: string]: unknown
 }
 /**
  * An app transfer represents a two party interaction for transferring ownership of an app.
@@ -809,7 +778,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when app transfer was created
@@ -831,7 +799,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * identity of the recipient of the transfer
@@ -845,7 +812,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the current state of an app transfer
@@ -855,7 +821,6 @@ state?: ("pending" | "accepted" | "declined")
  * when app transfer was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * An app represents the program that you would like to deploy and run on Heroku.
@@ -881,7 +846,6 @@ id?: string
  * unique name of stack
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when app was created
@@ -915,7 +879,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * identity of organization
@@ -929,7 +892,6 @@ id?: string
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 })
 /**
  * identity of app region
@@ -943,7 +905,6 @@ id?: string
  * unique name of region
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when app was released
@@ -973,7 +934,6 @@ name?: string
  * true if this space has shield enabled
  */
 shield?: boolean
-[k: string]: unknown
 })
 /**
  * identity of app stack
@@ -987,7 +947,6 @@ id?: string
  * unique name of stack
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when app was updated
@@ -997,7 +956,6 @@ updated_at?: string
  * web URL of app
  */
 web_url?: string
-[k: string]: unknown
 }
 /**
  * A build result contains the output from a build.
@@ -1019,7 +977,6 @@ status?: ("failed" | "pending" | "succeeded")
  * Build process output will be available from this URL as a stream. The stream is available as either `text/plain` or `text/event-stream`. Clients should be prepared to handle disconnects and can resume the stream by sending a `Range` header (for `text/plain`) or a `Last-Event-Id` header (for `text/event-stream`).
  */
 output_stream_url?: string
-[k: string]: unknown
 }
 /**
  * status from the build
@@ -1029,7 +986,6 @@ exit_code?: number
  * A list of all the lines of a build's output. This has been replaced by the `output_stream_url` attribute on the build resource.
  */
 lines?: Line[]
-[k: string]: unknown
 }
 /**
  * a single line of output to STDOUT or STDERR from the build.
@@ -1043,7 +999,6 @@ stream?: ("STDOUT" | "STDERR")
  * A line of output from the build.
  */
 line?: string
-[k: string]: unknown
 }
 /**
  * A build represents the process of transforming a code tarball into a slug
@@ -1057,7 +1012,6 @@ app?: {
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 buildpacks?: Buildpacks
 /**
@@ -1082,7 +1036,6 @@ slug?: ({
  * unique identifier of slug
  */
 id?: string
-[k: string]: unknown
 } | null)
 /**
  * status of build
@@ -1104,9 +1057,7 @@ id?: string
  * unique email address of account
  */
 email?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * location of gzipped tarball of source code used to create build
@@ -1124,7 +1075,6 @@ url?: string
  * Version of the gzipped tarball.
  */
 version?: (string | null)
-[k: string]: unknown
 }
 /**
  * A buildpack installation represents a buildpack that will be run against an app.
@@ -1146,9 +1096,7 @@ url?: string
  * either the shorthand name (heroku official buildpacks) or url (unofficial buildpacks) of the buildpack for the app
  */
 name?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * A collaborator represents an account that has been given access to an app on Heroku.
@@ -1166,7 +1114,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when collaborator was created
@@ -1201,7 +1148,6 @@ federated?: boolean
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 }
 /**
@@ -1216,7 +1162,6 @@ name?: string
  * A description of what the app permission allows.
  */
 description?: string
-[k: string]: unknown
 }
 /**
  * Config Vars allow you to manage the configuration information provided to an app on Heroku.
@@ -1260,7 +1205,6 @@ title?: string
  * when credit was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Domains define what web routes should be routed to an app on Heroku.
@@ -1278,7 +1222,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * canonical name record, the address to point a domain at
@@ -1308,7 +1251,6 @@ updated_at?: string
  * status of this record's cname
  */
 status?: string
-[k: string]: unknown
 }
 /**
  * Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
@@ -1343,7 +1285,6 @@ name?: string
  * whether this dyno can only be provisioned in a private space
  */
 private_space_only?: boolean
-[k: string]: unknown
 }
 /**
  * Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
@@ -1381,7 +1322,6 @@ id?: string
  * unique version assigned to the release
  */
 version?: number
-[k: string]: unknown
 }
 /**
  * app formation belongs to
@@ -1395,7 +1335,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * dyno size (default: "standard-1X")
@@ -1413,7 +1352,6 @@ type?: string
  * when process last changed state
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * An event represents an action performed on another API resource.
@@ -1435,7 +1373,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when the event was created
@@ -1450,7 +1387,7 @@ id?: string
  * data fields that were changed during update with previous values
  */
 previous_data?: {
-[k: string]: unknown
+
 }
 /**
  * when the event was published
@@ -1472,7 +1409,6 @@ updated_at?: string
  * the event's API version string
  */
 version?: string
-[k: string]: unknown
 }
 /**
  * A failed event represents a failure of an action performed on another API resource.
@@ -1514,9 +1450,7 @@ id?: string
  * the type of resource affected
  */
 name?: ("addon" | "addon-attachment" | "app" | "app-setup" | "app-transfer" | "build" | "collaborator" | "domain" | "dyno" | "failed-event" | "formation" | "formation-set" | "inbound-ruleset" | "organization" | "release" | "space" | "user")
-[k: string]: unknown
 } | null)
-[k: string]: unknown
 }
 /**
  * The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the `process_types` attribute for the [slug](#slug) currently released on an app.
@@ -1534,7 +1468,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * command to use to launch this process
@@ -1564,7 +1497,6 @@ type?: string
  * when dyno type was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.
@@ -1583,7 +1515,6 @@ rules?: Rule[]
  * unique email address of account
  */
 created_by?: string
-[k: string]: unknown
 }
 /**
  * the combination of an IP address in CIDR notation and whether to allow or deny it's traffic.
@@ -1597,7 +1528,6 @@ action: ("allow" | "deny")
  * is the request’s source in CIDR notation
  */
 source: string
-[k: string]: unknown
 }
 /**
  * Organizations allow you to manage access to a shared group of applications across your development team.
@@ -1643,7 +1573,6 @@ type?: ("enterprise" | "team")
  * when the organization was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * A release represents a combination of code, config vars and add-ons for an app on Heroku.
@@ -1665,7 +1594,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when release was created
@@ -1691,7 +1619,6 @@ slug?: ({
  * unique identifier of slug
  */
 id?: string
-[k: string]: unknown
 } | null)
 /**
  * current status of the release
@@ -1709,7 +1636,6 @@ id?: string
  * unique email address of account
  */
 email?: string
-[k: string]: unknown
 }
 /**
  * unique version assigned to the release
@@ -1719,7 +1645,6 @@ version?: number
  * indicates this release as being the current one for the app
  */
 current?: boolean
-[k: string]: unknown
 }
 /**
  * A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.
@@ -1745,7 +1670,6 @@ organization?: {
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * identity of space region
@@ -1759,7 +1683,6 @@ id?: string
  * unique name of region
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * true if this space has shield enabled
@@ -1773,13 +1696,12 @@ state?: ("allocating" | "allocated" | "deleting")
  * when space was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
  */
 export interface HerokuPlatformAPIFilters {
-[k: string]: unknown
+
 }
 /**
  * Identity Providers represent the SAML configuration of an Organization.
@@ -1817,13 +1739,11 @@ organization?: (null | {
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 })
 /**
  * when the identity provider record was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * An invitation represents an invite sent to a user to use the Heroku platform.
@@ -1846,9 +1766,7 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * An invoice address represents the address that should be listed on an invoice.
@@ -1887,7 +1805,6 @@ state?: string
  * flag to use the invoice address for an account or not
  */
 use_invoice_address?: boolean
-[k: string]: unknown
 }
 /**
  * An invoice is an itemized bill of goods for an account which includes pricing and charges.
@@ -1933,7 +1850,6 @@ total?: number
  * when invoice was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.
@@ -1968,7 +1884,6 @@ public_key?: string
  * when key was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
@@ -1995,7 +1910,6 @@ updated_at?: string
  * url associated with the log drain
  */
 url?: string
-[k: string]: unknown
 }
 /**
  * A log session is a reference to the http based log stream for an app.
@@ -2017,7 +1931,6 @@ logplex_url?: string
  * when log session was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * OAuth authorizations represent clients that a Heroku user has authorized to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
@@ -2039,7 +1952,6 @@ id?: string
  * contents of the token to be used for authorization
  */
 token?: string
-[k: string]: unknown
 })
 /**
  * identifier of the client that obtained this authorization, if any
@@ -2057,7 +1969,6 @@ name?: string
  * endpoint for redirection after authorization with OAuth client
  */
 redirect_uri?: string
-[k: string]: unknown
 })
 /**
  * when OAuth authorization was created
@@ -2079,7 +1990,6 @@ expires_in?: number
  * unique identifier of OAuth grant
  */
 id?: string
-[k: string]: unknown
 })
 /**
  * unique identifier of OAuth authorization
@@ -2101,7 +2011,6 @@ id?: string
  * contents of the token to be used for authorization
  */
 token?: string
-[k: string]: unknown
 })
 scope?: Scope
 /**
@@ -2124,9 +2033,7 @@ email?: string
  * full name of the account owner
  */
 full_name?: (string | null)
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * OAuth clients are applications that Heroku users can authorize to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth).
@@ -2160,13 +2067,12 @@ secret?: string
  * when OAuth client was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * OAuth grants are used to obtain authorizations on behalf of a user. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
  */
 export interface HerokuPlatformAPIOAuthGrant {
-[k: string]: unknown
+
 }
 /**
  * OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
@@ -2188,7 +2094,6 @@ id?: string
  * contents of the token to be used for authorization
  */
 token?: string
-[k: string]: unknown
 }
 /**
  * authorization for this set of tokens
@@ -2198,7 +2103,6 @@ authorization?: {
  * unique identifier of OAuth authorization
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * OAuth client secret used to obtain token
@@ -2208,7 +2112,6 @@ client?: (null | {
  * secret used to obtain OAuth authorizations under this client
  */
 secret?: string
-[k: string]: unknown
 })
 /**
  * when OAuth token was created
@@ -2226,7 +2129,6 @@ code?: string
  * type of grant requested, one of `authorization_code` or `refresh_token`
  */
 type?: string
-[k: string]: unknown
 }
 /**
  * unique identifier of OAuth token
@@ -2248,7 +2150,6 @@ id?: string
  * contents of the token to be used for authorization
  */
 token?: string
-[k: string]: unknown
 }
 /**
  * OAuth session using this token
@@ -2258,7 +2159,6 @@ session?: {
  * unique identifier of OAuth token
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when OAuth token was updated
@@ -2272,15 +2172,13 @@ user?: {
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * A list of add-ons the Organization uses across all apps
  */
 export interface HerokuPlatformAPIOrganizationAddOn {
-[k: string]: unknown
+
 }
 /**
  * An organization collaborator represents an account that has been given access to an organization app on Heroku.
@@ -2298,7 +2196,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when collaborator was created
@@ -2332,9 +2229,7 @@ federated?: boolean
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * An organization app encapsulates the organization specific functionality of Heroku apps.
@@ -2384,7 +2279,6 @@ organization?: (null | {
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 })
 /**
  * identity of app owner
@@ -2398,7 +2292,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 })
 /**
  * identity of app region
@@ -2412,7 +2305,6 @@ id?: string
  * unique name of region
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when app was released
@@ -2438,7 +2330,6 @@ id?: string
  * unique name of space
  */
 name?: string
-[k: string]: unknown
 })
 /**
  * identity of app stack
@@ -2452,7 +2343,6 @@ id?: string
  * unique name of stack
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when app was updated
@@ -2462,7 +2352,6 @@ updated_at?: string
  * web URL of app
  */
 web_url?: string
-[k: string]: unknown
 }
 /**
  * An organization feature represents a feature enabled on an organization account.
@@ -2508,7 +2397,6 @@ display_name?: string
  * e-mail to send feedback about the feature
  */
 feedback_email?: string
-[k: string]: unknown
 }
 /**
  * An organization invitation represents an invite to an organization.
@@ -2535,7 +2423,6 @@ id?: string
  * full name of the account owner
  */
 name?: (string | null)
-[k: string]: unknown
 }
 organization?: {
 /**
@@ -2546,7 +2433,6 @@ id?: string
  * unique name of organization
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * role in the organization
@@ -2569,9 +2455,7 @@ id?: string
  * full name of the account owner
  */
 name?: (string | null)
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
@@ -2641,7 +2525,6 @@ updated_at?: string
  * The total amount of hours consumed across dyno types.
  */
 weighted_dyno_hours?: number
-[k: string]: unknown
 }
 /**
  * An organization member is an individual with access to an organization.
@@ -2691,7 +2574,6 @@ id?: string
  * full name of the account owner
  */
 name?: (string | null)
-[k: string]: unknown
 }
 }
 /**
@@ -2706,7 +2588,6 @@ export interface HerokuPlatformAPIOrganizationPreferences {
  * Whether whitelisting rules should be applied to add-on installations
  */
 "whitelisting-enabled"?: (boolean | null)
-[k: string]: unknown
 }
 /**
  * An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
@@ -2725,7 +2606,6 @@ rules?: Rule1[]
  * unique email address of account
  */
 created_by?: string
-[k: string]: unknown
 }
 /**
  * the combination of an IP address in CIDR notation, a from_port, to_port and protocol.
@@ -2747,7 +2627,6 @@ to_port: number
  * formal standards and policies comprised of rules, procedures and formats that define communication between two or more devices over a network
  */
 protocol: string
-[k: string]: unknown
 }
 /**
  * A password reset represents a in-process password reset attempt.
@@ -2766,9 +2645,7 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * Information about an app's coupling to a pipeline
@@ -2782,7 +2659,6 @@ app?: {
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when pipeline coupling was created
@@ -2800,7 +2676,6 @@ pipeline?: {
  * unique identifier of pipeline
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * target pipeline stage
@@ -2810,7 +2685,6 @@ stage?: ("test" | "review" | "development" | "staging" | "production")
  * when pipeline coupling was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Promotion targets represent an individual app being promoted to
@@ -2824,7 +2698,6 @@ app?: {
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * an error message for why the promotion failed
@@ -2842,7 +2715,6 @@ pipeline_promotion?: {
  * unique identifier of promotion
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the release which was created on the target app
@@ -2852,13 +2724,11 @@ release?: ({
  * unique identifier of release
  */
 id?: string
-[k: string]: unknown
 } | null)
 /**
  * status of promotion
  */
 status?: ("pending" | "succeeded" | "failed")
-[k: string]: unknown
 }
 /**
  * Promotions allow you to move code from an app in a pipeline to all targets
@@ -2880,7 +2750,6 @@ pipeline?: {
  * unique identifier of pipeline
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the app being promoted from
@@ -2894,7 +2763,6 @@ app?: {
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the release used to promoted from
@@ -2904,9 +2772,7 @@ release?: {
  * unique identifier of release
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * status of promotion
@@ -2916,7 +2782,6 @@ status?: ("pending" | "completed")
  * when promotion was updated
  */
 updated_at?: (string | null)
-[k: string]: unknown
 }
 /**
  * A pipeline allows grouping of apps into different stages.
@@ -2938,7 +2803,6 @@ name?: string
  * when pipeline was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Plans represent different configurations of add-ons that may be added to apps. Endpoints under add-on services can be accessed without authentication.
@@ -2956,7 +2820,6 @@ id?: string
  * unique name of this add-on-service
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when plan was created
@@ -3003,7 +2866,6 @@ cents?: number
  * unit of price for plan
  */
 unit?: string
-[k: string]: unknown
 }
 /**
  * whether this plan is the default for apps in Private Spaces
@@ -3021,7 +2883,6 @@ updated_at?: string
  * whether this plan is publicly visible
  */
 visible?: boolean
-[k: string]: unknown
 }
 /**
  * Rate Limit represents the number of request tokens each account holds. Requests to this endpoint do not count towards the rate limit.
@@ -3031,7 +2892,6 @@ export interface HerokuPlatformAPIRateLimit {
  * allowed requests remaining in current interval
  */
 remaining?: number
-[k: string]: unknown
 }
 /**
  * A slug is a snapshot of your application code that is ready to run on the platform.
@@ -3049,7 +2909,6 @@ method?: string
  * URL to interact with the slug blob
  */
 url?: string
-[k: string]: unknown
 }
 /**
  * description from buildpack of slug
@@ -3092,13 +2951,11 @@ id?: string
  * unique name of stack
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * when slug was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * hash mapping process type names to their respective command
@@ -3118,7 +2975,6 @@ export interface HerokuPlatformAPISMSNumber {
  * SMS number of account
  */
 sms_number?: (string | null)
-[k: string]: unknown
 }
 /**
  * SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.
@@ -3148,7 +3004,6 @@ name?: string
  * when SNI endpoint was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * A source is a location for uploading and downloading an application's source code.
@@ -3166,9 +3021,7 @@ get_url?: string
  * URL to upload the source
  */
 put_url?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * Space access represents the permissions a particular user has on a particular space.
@@ -3186,7 +3039,6 @@ name?: string
  * unique identifier of app
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * when space was created
@@ -3202,7 +3054,6 @@ id?: string
 permissions?: {
 description?: string
 name?: string
-[k: string]: unknown
 }[]
 /**
  * when space was updated
@@ -3220,9 +3071,7 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
-[k: string]: unknown
 }
 /**
  * Network address translation (NAT) for stable outbound IP addresses from a space
@@ -3241,7 +3090,6 @@ state?: ("disabled" | "updating" | "enabled")
  * when network address translation for a space was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * [SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` add-on installed before it can provision an SSL Endpoint using these APIs.
@@ -3259,7 +3107,6 @@ id?: string
  * unique name of app
  */
 name?: string
-[k: string]: unknown
 }
 /**
  * raw contents of the public certificate chain (eg: .crt or .pem file)
@@ -3285,7 +3132,6 @@ name?: string
  * when endpoint was updated
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Stacks are the different application execution environments available in the Heroku platform.
@@ -3311,7 +3157,6 @@ state?: string
  * when stack was last modified
  */
 updated_at?: string
-[k: string]: unknown
 }
 /**
  * Tracks a user's preferences and message dismissals
@@ -3354,7 +3199,6 @@ timezone?: (string | null)
  * Whether the user has dismissed the 2FA SMS banner
  */
 "dismissed-sms-banner"?: (boolean | null)
-[k: string]: unknown
 }
 /**
  * Entities that have been whitelisted to be used by an Organization
@@ -3370,7 +3214,6 @@ addon_service?: AddonService
  * unique identifier for this whitelisting entity
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the user which whitelisted the Add-on Service
@@ -3384,7 +3227,6 @@ email?: string
  * unique identifier of an account
  */
 id?: string
-[k: string]: unknown
 }
 /**
  * the Add-on Service whitelisted for use
@@ -3402,5 +3244,4 @@ name?: string
  * human-readable name of the add-on service provider
  */
 human_name?: string
-[k: string]: unknown
 }

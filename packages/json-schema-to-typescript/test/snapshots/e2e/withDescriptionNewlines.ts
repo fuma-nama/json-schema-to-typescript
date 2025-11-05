@@ -19,5 +19,4 @@ export interface ExampleSchema {
    * multiple lines
    */
   age?: number;
-  [k: string]: unknown;
 }

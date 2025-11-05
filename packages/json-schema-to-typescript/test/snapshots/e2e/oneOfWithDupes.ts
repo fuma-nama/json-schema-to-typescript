@@ -15,13 +15,10 @@ export interface Test {
   d?: C | D;
   e?: D;
   f?: A | B | C | D;
-  [k: string]: unknown;
 }
 export interface A {
   name?: string;
-  [k: string]: unknown;
 }
 export interface B {
   name?: string;
-  [k: string]: unknown;
 }

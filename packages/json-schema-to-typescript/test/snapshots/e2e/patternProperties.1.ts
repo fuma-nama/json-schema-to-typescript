@@ -14,5 +14,4 @@ export interface Parent {
  */
 export interface Child {
   aProperty?: string;
-  [k: string]: unknown;
 }

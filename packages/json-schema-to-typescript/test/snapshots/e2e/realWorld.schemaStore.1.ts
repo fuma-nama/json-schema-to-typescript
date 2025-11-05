@@ -5,9 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type JSONSchemaForNPMPackageJsonFiles = {
-  [k: string]: unknown;
-} & {
+export type JSONSchemaForNPMPackageJsonFiles = {} & {
   /**
    * The name of the package.
    */
@@ -41,7 +39,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
          * The email address to which issues should be reported.
          */
         email?: string;
-        [k: string]: unknown;
       }
     | string;
   /**
@@ -54,7 +51,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
   licenses?: {
     type?: string;
     url?: string;
-    [k: string]: unknown;
   }[];
   author?: Person;
   /**
@@ -95,8 +91,8 @@ export type JSONSchemaForNPMPackageJsonFiles = {
          */
         [k: string]: PackageExportsEntry | PackageExportsFallback;
       }
-    | PackageExportsEntryObject1
-    | PackageExportsFallback1;
+    | PackageExportsEntryObject
+    | PackageExportsFallback;
   bin?:
     | string
     | {
@@ -154,7 +150,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
      */
     man?: string;
     test?: string;
-    [k: string]: unknown;
   };
   /**
    * Specify the place where your code lives. This is helpful for people who want to contribute.
@@ -164,7 +159,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
         type?: string;
         url?: string;
         directory?: string;
-        [k: string]: unknown;
       }
     | string;
   /**
@@ -258,9 +252,7 @@ export type JSONSchemaForNPMPackageJsonFiles = {
   /**
    * Resolutions is used to support selective version resolutions, which lets you define custom package versions or ranges inside your dependencies. See: https://classic.yarnpkg.com/en/docs/selective-version-resolutions
    */
-  resolutions?: {
-    [k: string]: unknown;
-  };
+  resolutions?: {};
   engines?: {
     node?: string;
     [k: string]: string;
@@ -291,7 +283,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
   dist?: {
     shasum?: string;
     tarball?: string;
-    [k: string]: unknown;
   };
   readme?: string;
   /**
@@ -322,7 +313,6 @@ export type JSONSchemaForNPMPackageJsonFiles = {
          * Packages to block from hoisting to the workspace root. Currently only supported in Yarn only.
          */
         nohoist?: string[];
-        [k: string]: unknown;
       };
   jspm?: JSONSchemaForNPMPackageJsonFiles;
   /**
@@ -340,7 +330,6 @@ export type Person = {
   name: string;
   url?: string;
   email?: string;
-  [k: string]: unknown;
 } & string &
   Person1;
 export type Person1 = Person;
@@ -353,10 +342,6 @@ export type PackageExportsEntryPath = string | null;
  * Used to allow fallbacks in case this environment doesn't support the preceding entries.
  */
 export type PackageExportsFallback = PackageExportsEntry[];
-/**
- * Used to allow fallbacks in case this environment doesn't support the preceding entries.
- */
-export type PackageExportsFallback1 = PackageExportsEntry[];
 /**
  * Run AFTER the package is published.
  */
@@ -414,40 +399,6 @@ export interface PackageExportsEntryObject {
    * The module path that is resolved when this environment matches the property name.
    *
    * This interface was referenced by `PackageExportsEntryObject`'s JSON-Schema definition
-   * via the `patternProperty` "^(?![\.0-9]).".
-   *
-   * This interface was referenced by `PackageExportsEntryObject1`'s JSON-Schema definition
-   * via the `patternProperty` "^(?![\.0-9]).".
-   */
-  [k: string]: PackageExportsEntry | PackageExportsFallback;
-}
-/**
- * The module path that is resolved when the module specifier matches "name", shadows the "main" field.
- */
-export interface PackageExportsEntryObject1 {
-  /**
-   * The module path that is resolved when this specifier is imported as a CommonJS module using the `require(...)` function.
-   */
-  require?: PackageExportsEntry | PackageExportsFallback;
-  /**
-   * The module path that is resolved when this specifier is imported as an ECMAScript module using an `import` declaration or the dynamic `import(...)` function.
-   */
-  import?: PackageExportsEntry | PackageExportsFallback;
-  /**
-   * The module path that is resolved when this environment is Node.js.
-   */
-  node?: PackageExportsEntry | PackageExportsFallback;
-  /**
-   * The module path that is resolved when no other export type matches.
-   */
-  default?: PackageExportsEntry | PackageExportsFallback;
-  /**
-   * The module path that is resolved when this environment matches the property name.
-   *
-   * This interface was referenced by `PackageExportsEntryObject`'s JSON-Schema definition
-   * via the `patternProperty` "^(?![\.0-9]).".
-   *
-   * This interface was referenced by `PackageExportsEntryObject1`'s JSON-Schema definition
    * via the `patternProperty` "^(?![\.0-9]).".
    */
   [k: string]: PackageExportsEntry | PackageExportsFallback;

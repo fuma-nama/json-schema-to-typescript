@@ -23,7 +23,6 @@ export interface Enum {
   enumThatComesFromADefinition?: EnumFromDefinition;
   propertyWithAnEnum?: {
     enumThatComesFromADefinition?: EnumFromDefinition;
-    [k: string]: unknown;
   };
 }
 

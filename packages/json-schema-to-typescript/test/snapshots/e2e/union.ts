@@ -15,7 +15,5 @@ export interface Union {
      * @minItems 1
      */
     test2?: boolean | [string, ...string[]];
-    [k: string]: unknown;
   };
-  [k: string]: unknown;
 }

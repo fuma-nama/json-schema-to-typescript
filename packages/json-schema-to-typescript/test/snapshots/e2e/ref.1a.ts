@@ -18,5 +18,4 @@ export interface ExampleSchema {
   height?: number;
   favoriteFoods?: unknown[];
   likesDogs?: boolean;
-  [k: string]: unknown;
 }

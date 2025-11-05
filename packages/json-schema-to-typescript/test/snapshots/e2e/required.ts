@@ -15,5 +15,4 @@ export interface Required {
 export interface Location {
   city?: string;
   postalCode?: number;
-  [k: string]: unknown;
 }

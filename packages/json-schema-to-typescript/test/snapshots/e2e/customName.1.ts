@@ -9,7 +9,6 @@ export interface FooTitle {
   propaaa?: CustomPrefixDefaa;
   propaab?: CustomPrefixDefaa;
   propbbb?: PropbbbTitle;
-  [k: string]: unknown;
 }
 export interface CustomPrefixDefaa {
   [k: string]: unknown;

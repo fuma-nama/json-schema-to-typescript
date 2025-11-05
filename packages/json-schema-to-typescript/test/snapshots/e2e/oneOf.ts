@@ -14,9 +14,7 @@ export interface Foo {
 }
 export interface Bar {
   a?: "a" | "b" | "c";
-  [k: string]: unknown;
 }
 export interface Baz {
   baz?: Bar;
-  [k: string]: unknown;
 }

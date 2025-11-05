@@ -14,8 +14,6 @@ export interface ExampleSchema {
   nullableStringEnum?: null | ("foo" | "bar");
   nullableObj?: null | {
     foo: string;
-    [k: string]: unknown;
   };
   nullableArrayEnums?: null | ("foo" | "bar")[];
-  [k: string]: unknown;
 }

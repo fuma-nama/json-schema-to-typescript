@@ -22,7 +22,6 @@ export interface StraNgeName {
  */
 export interface KeepUPPERCASE {
   a?: "a" | "b" | "c";
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -30,7 +29,6 @@ export interface KeepUPPERCASE {
  */
 export interface SnakeCase {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -38,7 +36,6 @@ export interface SnakeCase {
  */
 export interface StartsWithUnderscore {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -46,7 +43,6 @@ export interface StartsWithUnderscore {
  */
 export interface StartsWithUnderscoreUppercase {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -54,7 +50,6 @@ export interface StartsWithUnderscoreUppercase {
  */
 export interface EndsWithUnderscore_ {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -62,7 +57,6 @@ export interface EndsWithUnderscore_ {
  */
 export interface UPPERCASE {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -70,7 +64,6 @@ export interface UPPERCASE {
  */
 export interface ___ {
   a?: boolean;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -80,7 +73,6 @@ export interface CamelCase {
   a?: {
     [k: string]: unknown;
   };
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -88,7 +80,6 @@ export interface CamelCase {
  */
 export interface KebabCase {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -96,7 +87,6 @@ export interface KebabCase {
  */
 export interface StartsWithSpace {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -104,7 +94,6 @@ export interface StartsWithSpace {
  */
 export interface ContainsSpace {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -112,7 +101,6 @@ export interface ContainsSpace {
  */
 export interface TartsWithDigit {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -120,7 +108,6 @@ export interface TartsWithDigit {
  */
 export interface TartsWithBlankAndDigit {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -128,7 +115,6 @@ export interface TartsWithBlankAndDigit {
  */
 export interface EndsWithDigi7 {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -136,7 +122,6 @@ export interface EndsWithDigi7 {
  */
 export interface Contains4Digit {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -144,7 +129,6 @@ export interface Contains4Digit {
  */
 export interface StartsWithPeriod {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -152,7 +136,6 @@ export interface StartsWithPeriod {
  */
 export interface EndsWithPeriod {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -160,7 +143,6 @@ export interface EndsWithPeriod {
  */
 export interface ContainsPeriod {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -168,7 +150,6 @@ export interface ContainsPeriod {
  */
 export interface StartsWithComma {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -176,7 +157,6 @@ export interface StartsWithComma {
  */
 export interface EndsWithComma {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -184,7 +164,6 @@ export interface EndsWithComma {
  */
 export interface ContainsComma {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -192,7 +171,6 @@ export interface ContainsComma {
  */
 export interface $startsWithDollar {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -200,7 +178,6 @@ export interface $startsWithDollar {
  */
 export interface EndsWithDollar$ {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -208,7 +185,6 @@ export interface EndsWithDollar$ {
  */
 export interface Contains$Dollar {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -216,7 +192,6 @@ export interface Contains$Dollar {
  */
 export interface $ {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -224,7 +199,6 @@ export interface $ {
  */
 export interface UPPERCASE1 {
   a?: string;
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `SafeTypeNames`'s JSON-Schema
@@ -232,5 +206,4 @@ export interface UPPERCASE1 {
  */
 export interface Startsuppercase {
   a?: string;
-  [k: string]: unknown;
 }

@@ -7,7 +7,6 @@
 
 export interface RefWithCycle {
   owner?: Person;
-  [k: string]: unknown;
 }
 export interface Person {
   name?: string;

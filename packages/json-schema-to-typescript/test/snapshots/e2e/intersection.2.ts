@@ -18,9 +18,7 @@ export type Intersection = A &
 
 export interface A {
   a?: string;
-  [k: string]: unknown;
 }
 export interface B {
   b?: string;
-  [k: string]: unknown;
 }

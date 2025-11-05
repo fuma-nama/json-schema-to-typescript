@@ -46,7 +46,9 @@ function runOne(exports: TestCase, name: string) {
     if (exports.error) {
       await expect(compile(exports.input, stripExtension(name), options)).rejects.toThrowError()
     } else {
-      expect(await compile(exports.input, stripExtension(name), options)).toMatchFileSnapshot(`./snapshots/e2e/${name}`)
+      await expect(await compile(exports.input, stripExtension(name), options)).toMatchFileSnapshot(
+        `./snapshots/e2e/${name}`
+      )
     }
   })
 }

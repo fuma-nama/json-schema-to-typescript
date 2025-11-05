@@ -7,7 +7,6 @@
 
 export interface Referencing {
   a: ExampleSchema;
-  [k: string]: unknown;
 }
 export interface ExampleSchema {
   /**
@@ -20,5 +19,4 @@ export interface ExampleSchema {
     | [number, number, number]
     | [number, number, number, number]
     | [number, number, number, number, number];
-  [k: string]: unknown;
 }

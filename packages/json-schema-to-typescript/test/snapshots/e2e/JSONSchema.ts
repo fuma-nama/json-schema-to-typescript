@@ -64,5 +64,4 @@ export interface HttpJsonSchemaOrgDraft04Schema {
   anyOf?: SchemaArray;
   oneOf?: SchemaArray;
   not?: HttpJsonSchemaOrgDraft04Schema;
-  [k: string]: unknown;
 }

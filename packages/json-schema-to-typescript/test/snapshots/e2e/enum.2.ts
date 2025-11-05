@@ -9,7 +9,6 @@ export interface EntityObjectDefinition {
   definitions?: {
     [k: string]: EntityObject;
   };
-  [k: string]: unknown;
 }
 /**
  * My example entity object definition
@@ -21,7 +20,6 @@ export interface EntityObject {
   EntityDataCategory: {
     APorpertyName?: EntityDataCategory;
   };
-  [k: string]: unknown;
 }
 
 export const enum EntityDataCategory {

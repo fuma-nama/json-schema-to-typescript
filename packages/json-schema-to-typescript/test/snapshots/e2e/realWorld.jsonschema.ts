@@ -63,7 +63,6 @@ export type CoreSchemaMetaSchema = {
   anyOf?: SchemaArray;
   oneOf?: SchemaArray;
   not?: CoreSchemaMetaSchema;
-  [k: string]: unknown;
 } & CoreSchemaMetaSchema &
   boolean;
 export type NonNegativeInteger = number;

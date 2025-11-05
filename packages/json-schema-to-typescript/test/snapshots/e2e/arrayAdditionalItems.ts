@@ -24,17 +24,14 @@ export interface ArrayAdditionalItems {
       | [
           {
             foo?: string;
-            [k: string]: unknown;
           }
         ]
       | [
           {
             foo?: string;
-            [k: string]: unknown;
           },
           {
             bar?: number;
-            [k: string]: unknown;
           },
           ...unknown[]
         ];
@@ -43,21 +40,17 @@ export interface ArrayAdditionalItems {
       | [
           {
             foo?: string;
-            [k: string]: unknown;
           }
         ]
       | [
           {
             foo?: string;
-            [k: string]: unknown;
           },
           {
             bar?: number;
-            [k: string]: unknown;
           },
           ...{
             baz?: boolean;
-            [k: string]: unknown;
           }[]
         ];
   };
@@ -76,23 +69,18 @@ export interface ArrayAdditionalItems {
 }
 export interface StringSchema1 {
   foo?: string;
-  [k: string]: unknown;
 }
 export interface NumberSchema1 {
   bar?: number;
-  [k: string]: unknown;
 }
 export interface StringSchema2 {
   foo?: string;
-  [k: string]: unknown;
 }
 export interface NumberSchema2 {
   bar?: number;
-  [k: string]: unknown;
 }
 export interface BooleanSchema1 {
   baz?: boolean;
-  [k: string]: unknown;
 }
 export interface ExampleSchema {
   firstName: string;
@@ -104,7 +92,6 @@ export interface ExampleSchema {
   height?: number;
   favoriteFoods?: unknown[];
   likesDogs?: boolean;
-  [k: string]: unknown;
 }
 export interface ExampleSchema1 {
   firstName: string;
@@ -116,7 +103,6 @@ export interface ExampleSchema1 {
   height?: number;
   favoriteFoods?: unknown[];
   likesDogs?: boolean;
-  [k: string]: unknown;
 }
 export interface ExampleSchema2 {
   isConflict: boolean;

@@ -45,22 +45,18 @@ export type ParameterLocation =
       in?: "path";
       style?: "matrix" | "label" | "simple";
       required: true;
-      [k: string]: unknown;
     }
   | {
       in?: "query";
       style?: "form" | "spaceDelimited" | "pipeDelimited" | "deepObject";
-      [k: string]: unknown;
     }
   | {
       in?: "header";
       style?: "simple";
-      [k: string]: unknown;
     }
   | {
       in?: "cookie";
       style?: "form";
-      [k: string]: unknown;
     };
 export type MediaType = ExampleXORExamples & {
   schema?: Schema | Reference;
@@ -119,13 +115,11 @@ export type HTTPSecurityScheme = {
 export type HTTPSecurityScheme1 =
   | {
       scheme?: "bearer";
-      [k: string]: unknown;
     }
   | {
       scheme?: {
         [k: string]: unknown;
       };
-      [k: string]: unknown;
     };
 
 /**
@@ -302,7 +296,6 @@ export interface Discriminator {
   mapping?: {
     [k: string]: string;
   };
-  [k: string]: unknown;
 }
 export interface XML {
   name?: string;

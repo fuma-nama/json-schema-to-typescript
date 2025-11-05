@@ -10,9 +10,7 @@ export type LastName = string;
 export interface UnreachableDefinition {
   b?: {
     likesDogs?: boolean;
-    [k: string]: unknown;
   };
-  [k: string]: unknown;
 }
 /**
  * This interface was referenced by `UnreachableDefinition`'s JSON-Schema
@@ -21,5 +19,4 @@ export interface UnreachableDefinition {
 export interface A {
   firstName?: string;
   lastName?: LastName;
-  [k: string]: unknown;
 }

@@ -9,9 +9,7 @@ export type TupleFooBar = [] | [Foo] | [Foo, Bar];
 
 export interface Foo {
   foo?: string;
-  [k: string]: unknown;
 }
 export interface Bar {
   bar?: string;
-  [k: string]: unknown;
 }

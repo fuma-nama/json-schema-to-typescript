@@ -103,7 +103,6 @@ export interface RealWorld {
  */
 export interface ColumnGroup {
   GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
-  [k: string]: unknown;
 }
 /**
  * <p>Geospatial column group that denotes a hierarchy.</p>
@@ -170,7 +169,6 @@ export interface GeoSpatialColumnGroup {
    * <p>A display name for the hierarchy.</p>
    */
   Name: string;
-  [k: string]: unknown;
 }
 export interface ColumnLevelPermissionRule {
   /**
@@ -182,7 +180,6 @@ export interface ColumnLevelPermissionRule {
    * @maxItems 100
    */
   Principals?: [string, ...string[]];
-  [k: string]: unknown;
 }
 export interface FieldFolderMap {
   [k: string]: FieldFolder;
@@ -198,7 +195,6 @@ export interface FieldFolder {
    * @maxItems 5000
    */
   Columns?: string[];
-  [k: string]: unknown;
 }
 export interface LogicalTableMap {
   [k: string]: LogicalTable;
@@ -225,7 +221,6 @@ export interface LogicalTable {
    */
   DataTransforms?: [TransformOperation, ...TransformOperation[]];
   Source: LogicalTableSource;
-  [k: string]: unknown;
 }
 /**
  * <p>A data transformation on a logical table. This is a variant type structure. For this
@@ -238,7 +233,6 @@ export interface TransformOperation {
   CreateColumnsOperation?: CreateColumnsOperation;
   RenameColumnOperation?: RenameColumnOperation;
   ProjectOperation?: ProjectOperation;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that tags a column with additional information.</p>
@@ -361,7 +355,6 @@ export interface TagColumnOperation {
         ColumnTag,
         ColumnTag
       ];
-  [k: string]: unknown;
 }
 /**
  * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
@@ -371,7 +364,6 @@ export interface TagColumnOperation {
 export interface ColumnTag {
   ColumnGeographicRole?: GeoSpatialDataRole;
   ColumnDescription?: ColumnDescription;
-  [k: string]: unknown;
 }
 /**
  * <p>Metadata that contains a description for a column.</p>
@@ -381,7 +373,6 @@ export interface ColumnDescription {
    * <p>The text of a description for a column.</p>
    */
   Text?: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that filters rows based on a condition.</p>
@@ -392,7 +383,6 @@ export interface FilterOperation {
    *             evaluates to true are kept in the dataset.</p>
    */
   ConditionExpression: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that casts a column to a different type.</p>
@@ -408,7 +398,6 @@ export interface CastColumnTypeOperation {
    */
   Format?: string;
   NewColumnType: ColumnDataType;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that creates calculated columns. Columns created in one such
@@ -422,7 +411,6 @@ export interface CreateColumnsOperation {
    * @maxItems 128
    */
   Columns: [CalculatedColumn, ...CalculatedColumn[]];
-  [k: string]: unknown;
 }
 /**
  * <p>A calculated column for a dataset.</p>
@@ -442,7 +430,6 @@ export interface CalculatedColumn {
    * <p>An expression that defines the calculated column.</p>
    */
   Expression: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that renames a column.</p>
@@ -456,7 +443,6 @@ export interface RenameColumnOperation {
    * <p>The name of the column to be renamed.</p>
    */
   ColumnName: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A transform operation that projects columns. Operations that come after a projection
@@ -470,7 +456,6 @@ export interface ProjectOperation {
    * @maxItems 2000
    */
   ProjectedColumns: [string, ...string[]];
-  [k: string]: unknown;
 }
 /**
  * <p>Information about the source of a logical table. This is a variant type structure. For
@@ -482,7 +467,6 @@ export interface LogicalTableSource {
    */
   PhysicalTableId?: string;
   JoinInstruction?: JoinInstruction;
-  [k: string]: unknown;
 }
 /**
  * <p>Join instruction.</p>
@@ -503,11 +487,9 @@ export interface JoinInstruction {
    */
   RightOperand: string;
   RightJoinKeyProperties?: JoinKeyProperties;
-  [k: string]: unknown;
 }
 export interface JoinKeyProperties {
   UniqueKey?: boolean;
-  [k: string]: unknown;
 }
 /**
  * <p>Output column.</p>
@@ -522,7 +504,6 @@ export interface OutputColumn {
    * <p>A display name for the dataset.</p>
    */
   Name?: string;
-  [k: string]: unknown;
 }
 /**
  * <p>Permission for the resource.</p>
@@ -602,7 +583,6 @@ export interface ResourcePermission {
    *          </ul>
    */
   Principal: string;
-  [k: string]: unknown;
 }
 export interface PhysicalTableMap {
   [k: string]: PhysicalTable;
@@ -619,7 +599,6 @@ export interface PhysicalTable {
   RelationalTable?: RelationalTable;
   CustomSql?: CustomSql;
   S3Source?: S3Source;
-  [k: string]: unknown;
 }
 /**
  * <p>A physical table type for relational data sources.</p>
@@ -648,7 +627,6 @@ export interface RelationalTable {
    * <p>The name of the relational table.</p>
    */
   Name: string;
-  [k: string]: unknown;
 }
 /**
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
@@ -659,7 +637,6 @@ export interface InputColumn {
    * <p>The name of this column in the underlying data source.</p>
    */
   Name: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A physical table type built from the results of the custom SQL query.</p>
@@ -684,7 +661,6 @@ export interface CustomSql {
    * <p>A display name for the SQL query result.</p>
    */
   Name: string;
-  [k: string]: unknown;
 }
 /**
  * <p>A physical table type for as S3 data source.</p>
@@ -702,7 +678,6 @@ export interface S3Source {
    */
   InputColumns: [InputColumn, ...InputColumn[]];
   UploadSettings?: UploadSettings;
-  [k: string]: unknown;
 }
 /**
  * <p>Information about the format for a source file or files.</p>
@@ -722,7 +697,6 @@ export interface UploadSettings {
    * <p>The delimiter between values in the file.</p>
    */
   Delimiter?: string;
-  [k: string]: unknown;
 }
 /**
  * <p>The row-level security configuration for the dataset.</p>
@@ -738,7 +712,6 @@ export interface RowLevelPermissionDataSet {
   Namespace?: string;
   PermissionPolicy: RowLevelPermissionPolicy;
   FormatVersion?: RowLevelPermissionFormatVersion;
-  [k: string]: unknown;
 }
 /**
  * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
@@ -753,7 +726,6 @@ export interface Tag {
    * <p>Tag key.</p>
    */
   Key: string;
-  [k: string]: unknown;
 }
 /**
  * <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
@@ -769,5 +741,4 @@ export interface IngestionWaitPolicy {
    *  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
    */
   IngestionWaitTimeInHours?: number;
-  [k: string]: unknown;
 }

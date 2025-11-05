@@ -11,16 +11,8 @@ export interface OptimizableSchema2 {
   a: A;
   b: B;
   c: B | C;
-  d: {
-    [k: string]: unknown;
-  };
-  e: {
-    [k: string]: unknown;
-  };
+  d: {};
+  e: {};
 }
-export interface B {
-  [k: string]: unknown;
-}
-export interface C {
-  [k: string]: unknown;
-}
+export interface B {}
+export interface C {}

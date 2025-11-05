@@ -8,11 +8,9 @@
 export type Intersection = A | B;
 export type A = Base & {
   b?: B;
-  [k: string]: unknown;
 };
 export type B = Base & {
   x?: string;
-  [k: string]: unknown;
 };
 
 export interface Base {

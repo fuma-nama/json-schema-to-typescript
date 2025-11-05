@@ -169,9 +169,7 @@ export interface Link {
         };
   }[];
 }
-export interface Extension {
-  [k: string]: unknown;
-}
+export interface Extension {}
 export interface Category {
   index?:
     | Note
@@ -189,7 +187,6 @@ export interface Category {
       label?: Label;
       decimals?: number;
       position?: "start" | "end";
-      [k: string]: unknown;
     };
   };
   coordinates?: {

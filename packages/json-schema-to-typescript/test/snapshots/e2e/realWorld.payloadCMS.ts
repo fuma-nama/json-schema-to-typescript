@@ -195,9 +195,7 @@ export interface Page {
       | "fullscreenBackground"
       | "fullscreenSlider";
     basic?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -222,9 +220,7 @@ export interface Page {
       }[];
     };
     content?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -249,9 +245,7 @@ export interface Page {
       }[];
     };
     contentMedia?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -277,9 +271,7 @@ export interface Page {
       media: string | Media;
     };
     contentMedia2?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -305,9 +297,7 @@ export interface Page {
       media: string | Media;
     };
     contentSidebar?: {
-      mainContent?: {
-        [k: string]: unknown;
-      }[];
+      mainContent?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -330,16 +320,12 @@ export interface Page {
         };
         id?: string;
       }[];
-      sidebarContent?: {
-        [k: string]: unknown;
-      }[];
+      sidebarContent?: {}[];
     };
     columnsBelow?: {
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -389,9 +375,7 @@ export interface Page {
       invertColors?: boolean;
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -419,9 +403,7 @@ export interface Page {
       invertColors?: boolean;
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -469,9 +451,7 @@ export interface Page {
     };
     fullscreenSlider?: {
       useStaticContent?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -497,9 +477,7 @@ export interface Page {
       slides?: {
         backgroundMedia: string | Media;
         useOverlay?: boolean;
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         links?: {
           link?: {
             appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -535,9 +513,7 @@ export interface Page {
           columns?: {
             width: "oneThird" | "half" | "twoThirds" | "full";
             alignment: "left" | "center" | "right";
-            richText?: {
-              [k: string]: unknown;
-            }[];
+            richText?: {}[];
             links?: {
               link?: {
                 type?: "reference" | "custom";
@@ -568,9 +544,7 @@ export interface Page {
         blockType: "accordion";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "blackbaudForm";
@@ -579,9 +553,7 @@ export interface Page {
         invertColors?: boolean;
         backgroundMedia?: string | Media;
         useOverlay?: boolean;
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         links?: {
           link?: {
             appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -609,14 +581,10 @@ export interface Page {
         blockType: "callToAction";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cardStyle: "fullBG" | "insetImage" | "noImage";
         cards?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -643,15 +611,11 @@ export interface Page {
         blockType: "cardGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         cardStyle: "fullBG" | "insetImage" | "noImage";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -678,9 +642,7 @@ export interface Page {
         blockType: "cardSlider";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         media1?: string | Media;
         media2?: string | Media;
         media3?: string | Media;
@@ -693,9 +655,7 @@ export interface Page {
         columns?: {
           width: "oneThird" | "half" | "twoThirds" | "full";
           alignment: "left" | "center" | "right";
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           links?: {
             link?: {
               type?: "reference" | "custom";
@@ -727,13 +687,9 @@ export interface Page {
         cellWidth?: "two" | "three";
         invertColors?: boolean;
         enableCellNumbers?: boolean;
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cells?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -760,14 +716,10 @@ export interface Page {
         blockType: "contentGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -794,34 +746,26 @@ export interface Page {
         blockType: "contentSlider";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "housingMap";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "housingList";
       }
     | {
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         form: string | Form;
         id?: string;
         blockName?: string;
         blockType: "embeddedForm";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         locations?: (string | Location)[];
         id?: string;
         blockName?: string;
@@ -833,9 +777,7 @@ export interface Page {
         vimeoID: string;
         aspectRatio?: "56.25" | "75";
         size?: "normal" | "wide" | "fullscreen";
-        caption?: {
-          [k: string]: unknown;
-        }[];
+        caption?: {}[];
         id?: string;
         blockName?: string;
         blockType: "media";
@@ -853,9 +795,7 @@ export interface Page {
         alignment: "contentOnLeft" | "contentOnRight";
         overlap?: boolean;
         invertColors?: boolean;
-        richText: {
-          [k: string]: unknown;
-        }[];
+        richText: {}[];
         media: string | Media;
         embeddedVideo?: {
           embed?: boolean;
@@ -891,9 +831,7 @@ export interface Page {
         blockType: "mediaContent";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
           media: string | Media;
@@ -906,9 +844,7 @@ export interface Page {
     | {
         items?: {
           label: string;
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -974,9 +910,7 @@ export interface Post {
       | "fullscreenBackground"
       | "fullscreenSlider";
     basic?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1001,9 +935,7 @@ export interface Post {
       }[];
     };
     content?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1028,9 +960,7 @@ export interface Post {
       }[];
     };
     contentMedia?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1056,9 +986,7 @@ export interface Post {
       media: string | Media;
     };
     contentMedia2?: {
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1084,9 +1012,7 @@ export interface Post {
       media: string | Media;
     };
     contentSidebar?: {
-      mainContent?: {
-        [k: string]: unknown;
-      }[];
+      mainContent?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1109,16 +1035,12 @@ export interface Post {
         };
         id?: string;
       }[];
-      sidebarContent?: {
-        [k: string]: unknown;
-      }[];
+      sidebarContent?: {}[];
     };
     columnsBelow?: {
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1168,9 +1090,7 @@ export interface Post {
       invertColors?: boolean;
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1198,9 +1118,7 @@ export interface Post {
       invertColors?: boolean;
       backgroundMedia: string | Media;
       useOverlay?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1248,9 +1166,7 @@ export interface Post {
     };
     fullscreenSlider?: {
       useStaticContent?: boolean;
-      richText?: {
-        [k: string]: unknown;
-      }[];
+      richText?: {}[];
       links?: {
         link?: {
           appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1276,9 +1192,7 @@ export interface Post {
       slides?: {
         backgroundMedia: string | Media;
         useOverlay?: boolean;
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         links?: {
           link?: {
             appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1314,9 +1228,7 @@ export interface Post {
           columns?: {
             width: "oneThird" | "half" | "twoThirds" | "full";
             alignment: "left" | "center" | "right";
-            richText?: {
-              [k: string]: unknown;
-            }[];
+            richText?: {}[];
             links?: {
               link?: {
                 type?: "reference" | "custom";
@@ -1347,9 +1259,7 @@ export interface Post {
         blockType: "accordion";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "blackbaudForm";
@@ -1358,9 +1268,7 @@ export interface Post {
         invertColors?: boolean;
         backgroundMedia?: string | Media;
         useOverlay?: boolean;
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         links?: {
           link?: {
             appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1388,14 +1296,10 @@ export interface Post {
         blockType: "callToAction";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cardStyle: "fullBG" | "insetImage" | "noImage";
         cards?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -1422,15 +1326,11 @@ export interface Post {
         blockType: "cardGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         cardStyle: "fullBG" | "insetImage" | "noImage";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -1457,9 +1357,7 @@ export interface Post {
         blockType: "cardSlider";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         media1?: string | Media;
         media2?: string | Media;
         media3?: string | Media;
@@ -1472,9 +1370,7 @@ export interface Post {
         columns?: {
           width: "oneThird" | "half" | "twoThirds" | "full";
           alignment: "left" | "center" | "right";
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           links?: {
             link?: {
               type?: "reference" | "custom";
@@ -1506,13 +1402,9 @@ export interface Post {
         cellWidth?: "two" | "three";
         invertColors?: boolean;
         enableCellNumbers?: boolean;
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cells?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -1539,14 +1431,10 @@ export interface Post {
         blockType: "contentGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -1573,34 +1461,26 @@ export interface Post {
         blockType: "contentSlider";
       }
     | {
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         form: string | Form;
         id?: string;
         blockName?: string;
         blockType: "embeddedForm";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "housingMap";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         id?: string;
         blockName?: string;
         blockType: "housingList";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         locations?: (string | Location)[];
         id?: string;
         blockName?: string;
@@ -1612,9 +1492,7 @@ export interface Post {
         vimeoID: string;
         aspectRatio?: "56.25" | "75";
         size?: "normal" | "wide" | "fullscreen";
-        caption?: {
-          [k: string]: unknown;
-        }[];
+        caption?: {}[];
         id?: string;
         blockName?: string;
         blockType: "media";
@@ -1632,9 +1510,7 @@ export interface Post {
         alignment: "contentOnLeft" | "contentOnRight";
         overlap?: boolean;
         invertColors?: boolean;
-        richText: {
-          [k: string]: unknown;
-        }[];
+        richText: {}[];
         media: string | Media;
         embeddedVideo?: {
           embed?: boolean;
@@ -1670,9 +1546,7 @@ export interface Post {
         blockType: "mediaContent";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
           media: string | Media;
@@ -1685,9 +1559,7 @@ export interface Post {
     | {
         items?: {
           label: string;
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -1812,9 +1684,7 @@ export interface Housing {
           columns?: {
             width: "oneThird" | "half" | "twoThirds" | "full";
             alignment: "left" | "center" | "right";
-            richText?: {
-              [k: string]: unknown;
-            }[];
+            richText?: {}[];
             links?: {
               link?: {
                 type?: "reference" | "custom";
@@ -1848,9 +1718,7 @@ export interface Housing {
         invertColors?: boolean;
         backgroundMedia?: string | Media;
         useOverlay?: boolean;
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         links?: {
           link?: {
             appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -1878,14 +1746,10 @@ export interface Housing {
         blockType: "callToAction";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cardStyle: "fullBG" | "insetImage" | "noImage";
         cards?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -1912,15 +1776,11 @@ export interface Housing {
         blockType: "cardGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         cardStyle: "fullBG" | "insetImage" | "noImage";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           link?: {
             type?: "reference" | "custom";
             reference:
@@ -1947,9 +1807,7 @@ export interface Housing {
         blockType: "cardSlider";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         media1?: string | Media;
         media2?: string | Media;
         media3?: string | Media;
@@ -1962,9 +1820,7 @@ export interface Housing {
         columns?: {
           width: "oneThird" | "half" | "twoThirds" | "full";
           alignment: "left" | "center" | "right";
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           links?: {
             link?: {
               type?: "reference" | "custom";
@@ -1996,13 +1852,9 @@ export interface Housing {
         cellWidth?: "two" | "three";
         invertColors?: boolean;
         enableCellNumbers?: boolean;
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         cells?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -2029,14 +1881,10 @@ export interface Housing {
         blockType: "contentGrid";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -2063,18 +1911,14 @@ export interface Housing {
         blockType: "contentSlider";
       }
     | {
-        richText?: {
-          [k: string]: unknown;
-        }[];
+        richText?: {}[];
         form: string | Form;
         id?: string;
         blockName?: string;
         blockType: "embeddedForm";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         locations?: (string | Location)[];
         id?: string;
         blockName?: string;
@@ -2086,9 +1930,7 @@ export interface Housing {
         vimeoID: string;
         aspectRatio?: "56.25" | "75";
         size?: "normal" | "wide" | "fullscreen";
-        caption?: {
-          [k: string]: unknown;
-        }[];
+        caption?: {}[];
         id?: string;
         blockName?: string;
         blockType: "media";
@@ -2106,9 +1948,7 @@ export interface Housing {
         alignment: "contentOnLeft" | "contentOnRight";
         overlap?: boolean;
         invertColors?: boolean;
-        richText: {
-          [k: string]: unknown;
-        }[];
+        richText: {}[];
         media: string | Media;
         embeddedVideo?: {
           embed?: boolean;
@@ -2144,9 +1984,7 @@ export interface Housing {
         blockType: "mediaContent";
       }
     | {
-        introContent?: {
-          [k: string]: unknown;
-        }[];
+        introContent?: {}[];
         backgroundType?: "light" | "color";
         slides?: {
           media: string | Media;
@@ -2159,9 +1997,7 @@ export interface Housing {
     | {
         items?: {
           label: string;
-          richText?: {
-            [k: string]: unknown;
-          }[];
+          richText?: {}[];
           enableLink?: boolean;
           link?: {
             type?: "reference" | "custom";
@@ -2277,9 +2113,7 @@ export interface Media {
 export interface Form {
   title: string;
   emailTo?: string;
-  successMessage?: {
-    [k: string]: unknown;
-  }[];
+  successMessage?: {}[];
   redirect?: string;
   submitButtonLabel?: string;
   fields?: (
@@ -2346,9 +2180,7 @@ export interface Form {
         blockType: "checkbox";
       }
     | {
-        message?: {
-          [k: string]: unknown;
-        }[];
+        message?: {}[];
         id?: string;
         blockName?: string;
         blockType: "message";
@@ -2770,9 +2602,7 @@ export interface Alert {
   placement: "global" | "subsite";
   subsites: (string | Subsite)[];
   backgroundColor?: "matchTheme" | "green" | "blue" | "red" | "purple";
-  content: {
-    [k: string]: unknown;
-  }[];
+  content: {}[];
   links?: {
     link?: {
       appearance?: "text" | "primaryButton" | "secondaryButton";
@@ -2846,9 +2676,7 @@ export interface Person {
     url: string;
     id?: string;
   }[];
-  richText?: {
-    [k: string]: unknown;
-  }[];
+  richText?: {}[];
   meta?: {
     title?: string;
     description?: string;

@@ -8,7 +8,6 @@
 export type Countries = {
   id: string;
   name: string;
-  [k: string]: unknown;
 }[];
 
 export interface ArrayOfSchema {
@@ -18,18 +17,14 @@ export interface ArrayOfSchema {
     | [
         {
           foo?: string;
-          [k: string]: unknown;
         }
       ]
     | [
         {
           foo?: string;
-          [k: string]: unknown;
         },
         {
           bar?: number;
-          [k: string]: unknown;
         }
       ];
-  [k: string]: unknown;
 }

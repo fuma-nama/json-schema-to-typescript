@@ -10,5 +10,4 @@ export interface Sample {
 }
 export interface Person {
   age?: number;
-  [k: string]: unknown;
 }

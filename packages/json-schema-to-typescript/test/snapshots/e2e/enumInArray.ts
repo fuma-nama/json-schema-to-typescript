@@ -8,7 +8,6 @@
 export interface EnumInArray {
   foo?: KeyNameFromDefinitionItems[];
   title?: "foo";
-  [k: string]: unknown;
 }
 
 export const enum KeyNameFromDefinitionItems {

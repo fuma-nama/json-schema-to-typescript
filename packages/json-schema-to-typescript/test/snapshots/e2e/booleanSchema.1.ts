@@ -8,5 +8,4 @@
 export interface SchemaWithBooleanSubschemasUnknownAny {
   always?: unknown;
   never?: never;
-  [k: string]: unknown;
 }
