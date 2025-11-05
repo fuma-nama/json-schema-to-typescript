@@ -57,11 +57,48 @@ compileYamlFile(fs.readFileSync('foo.yaml'), 'MyType').then(ts => fs.writeFileSy
 
 You can see [Options](/options) for available options.
 
+### Handling `$ref`
+
+You can either:
+
+- Pass a dereferenced schema, along with a `schemaToId` option:
+
+  ```ts
+  import { compile } from '@fumari/json-schema-to-typescript'
+  import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
+  
+  const res = await compile(dereferenced, 'Person', {
+    schemaToId: {
+      get(schema) {
+        // return the original $ref ID of given schema
+        return '...'
+      }
+    }
+  })
+  ```
+
+- Use the `refsPlugin()` to enable built-in dereferencing:
+
+  ```ts
+  import { compile } from '@fumari/json-schema-to-typescript'
+  import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
+  
+  const res = await compile(schema, 'Person', {
+    plugins: [refsPlugin()]
+  })
+  ```
+
+  :::info
+  
+  This requires `@apidevtools/json-schema-ref-parser` to be installed.
+  
+  :::
+
 ### Formatting
 
 By default, it doesn't format the output TypeScript code.
 
-You can install `prettier` and enable the Prettier plugin to format outputs:
+You can install `prettier` and enable the Prettier plugin to format output:
 
 ::: code-group
 

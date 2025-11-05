@@ -7,7 +7,7 @@ import isGlob from 'is-glob'
 import { join, resolve, dirname } from 'path'
 import { DEFAULT_OPTIONS, compileJsonFile, Options, compileYamlFile } from '@fumari/json-schema-to-typescript'
 import { prettierPlugin } from '@fumari/json-schema-to-typescript/plugins/prettier'
-import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/with-refs'
+import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
 import { pathTransform, error, justName } from './utils'
 import pkg from '../package.json'
 

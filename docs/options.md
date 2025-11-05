@@ -10,7 +10,7 @@
 
 Default value for `additionalProperties`, when it is not explicitly set.
 
-Default: `true`
+Default: `false`
 
 ### `bannerComment`
 
@@ -66,12 +66,12 @@ Generates code for `$defs` that aren't referenced by the schema.
 
 Default: `false`
 
-### `$refOptions`
+## `refsPlugin()` Options
 
-[$RefParser](https://github.com/APIDevTools/json-schema-ref-parser) Options, used when resolving `$ref`s
+Inherited from [`$RefParser`](https://github.com/APIDevTools/json-schema-ref-parser) Options, used when resolving `$ref`s.
 
-#### `$refOptions.cwd`
+### `cwd`
 
-Additional option to specify the root directory for resolving [`$ref`](https://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html)
+Specify the root directory for resolving [`$ref`](https://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html).
 
 Default: `process.cwd()`
