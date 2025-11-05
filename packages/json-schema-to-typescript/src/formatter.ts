@@ -1,5 +1,5 @@
 import type { Plugin } from 'prettier'
-import { Options } from './'
+import type { Options } from './'
 
 export async function format(code: string, options: Options): Promise<string> {
   if (!options.format) {

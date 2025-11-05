@@ -2,14 +2,14 @@ import { JSONSchemaTypeName, LinkedJSONSchema, NormalizedJSONSchema, Parent } fr
 import { appendToDescription, escapeBlockComment, isSchemaLike, toSafeString, traverse } from './utils'
 import { Options } from './'
 import { applySchemaTyping } from './applySchemaTyping'
-import { DereferencedPaths } from './resolver'
+import type { RawRefResolver } from './resolver'
 
 type Rule = (
   schema: LinkedJSONSchema,
   fileName: string,
   options: Options,
   key: string | null,
-  dereferencedPaths: DereferencedPaths | undefined
+  dereferencedPaths: RawRefResolver | undefined
 ) => void
 const rules = new Map<string, Rule>()
 
@@ -117,10 +117,6 @@ rules.set('Add an $id to anything that needs it', (schema, fileName, _options, _
   const dereferencedName = dereferencedPaths.get(schema)
   if (!schema.$id && !schema.title && dereferencedName) {
     schema.$id = toSafeString(normalizeName(dereferencedName))
-  }
-
-  if (dereferencedName) {
-    dereferencedPaths.delete(schema)
   }
 })
 
@@ -269,7 +265,7 @@ rules.set('Pre-calculate schema types and intersections', schema => {
 
 export function normalize(
   rootSchema: LinkedJSONSchema,
-  dereferencedPaths: DereferencedPaths | undefined,
+  dereferencedPaths: RawRefResolver | undefined,
   filename: string,
   options: Options
 ): NormalizedJSONSchema {

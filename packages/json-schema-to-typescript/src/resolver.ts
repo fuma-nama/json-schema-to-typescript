@@ -2,24 +2,26 @@ import Parser, { type ParserOptions } from '@apidevtools/json-schema-ref-parser'
 import { JSONSchema } from './types/JSONSchema'
 import { log } from './utils'
 
-export type DereferencedPaths = WeakMap<JSONSchema, string>
+export interface RawRefResolver {
+  get: (key: JSONSchema) => string | undefined
+}
 
 export async function dereference(
   schema: JSONSchema,
   cwd: string,
   options: ParserOptions
-): Promise<{ dereferencedPaths: DereferencedPaths; dereferencedSchema: JSONSchema }> {
+): Promise<{ dereferencedPaths: RawRefResolver; dereferencedSchema: JSONSchema }> {
   log('dereferencer', 'Dereferencing input schema:', cwd, schema)
-  const dereferencedPaths: DereferencedPaths = new WeakMap()
+  const schemaToRefs = new WeakMap<JSONSchema, string>()
   const dereferencedSchema = await Parser.dereference<JSONSchema>(cwd, schema, {
     ...options,
     mutateInputSchema: false,
     dereference: {
       ...options.dereference,
       onDereference($ref: string, schema: JSONSchema) {
-        dereferencedPaths.set(schema, $ref)
+        schemaToRefs.set(schema, $ref)
       }
     }
   })
-  return { dereferencedPaths, dereferencedSchema }
+  return { dereferencedSchema, dereferencedPaths: schemaToRefs }
 }
