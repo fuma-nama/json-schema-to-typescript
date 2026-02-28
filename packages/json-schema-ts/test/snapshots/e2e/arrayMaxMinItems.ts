@@ -1,4 +1,4 @@
-export type ArrayMaxMinItems = { 
+export interface ArrayMaxMinItems {
 	array?: { 
 		withMinItems?: string[];
 		withMaxItems?: string[];
@@ -29,4 +29,4 @@ export type ArrayMaxMinItems = {
 		withMinItems0?: [1?, 2?, 3?, 4?, 5?, 6?];
 		withMinMaxItems0?: [1?, 2?, 3?, 4?, 5?, 6?]
 	 }
- };
+}

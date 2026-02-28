@@ -1,8 +1,11 @@
-export type Basics = { 
+export interface Basics {
 	firstName: string;
 	lastName: string;
-	/*Age in years*/ age?: number;
+	/**
+	* Age in years
+	*/
+	age?: number;
 	height?: number;
 	favoriteFoods?: any[];
 	likesDogs?: boolean
- };
+}

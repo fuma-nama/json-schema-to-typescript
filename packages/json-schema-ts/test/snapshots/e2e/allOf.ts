@@ -1,1 +1,3 @@
-export type AllOf = { foo: { a: string; b: number } & { a: string } };
+export interface Foo { a: string; b: number }
+export interface Bar { a: string }
+export interface AllOf { foo: Foo & Bar }

@@ -1,1 +1,1 @@
-export type OptionsStyle = { firstName: string; lastName: string };
+export interface OptionsStyle { firstName: string; lastName: string }

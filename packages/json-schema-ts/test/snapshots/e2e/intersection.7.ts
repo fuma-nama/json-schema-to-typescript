@@ -1,4 +1,7 @@
-export type Intersection7 = { 
+export type MyString = string;
+export type MyNullable = null;
+
+export interface Intersection7 {
 	A: string;
 	B: string;
 	C: string & null;
@@ -9,7 +12,4 @@ export type Intersection7 = {
 	H: 'foo' | 'bar' & MyNullable;
 	I: string | number & null;
 	J: { foo: string; bar: number } & MyNullable
- };
-
-export type MyString = string;
-export type MyNullable = null;
+}

@@ -1,2 +1,2 @@
-export type ReservedWords2 = { definitions?: { additionalProperties?: Schema } };
-export type Schema = { additionalProperties?: Schema };
+export interface Schema { additionalProperties?: Schema }
+export interface ReservedWords2 { definitions?: Schema }

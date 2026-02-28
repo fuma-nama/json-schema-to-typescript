@@ -1,2 +1,2 @@
-export type RealWorldSwagger2 = { definitions?: { additionalProperties?: Schema } };
-export type Schema = { additionalProperties?: Schema };
+export interface Schema { additionalProperties?: Schema }
+export interface RealWorldSwagger2 { definitions?: Schema }

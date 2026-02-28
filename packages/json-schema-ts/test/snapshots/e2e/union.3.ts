@@ -1,1 +1,1 @@
-export type Union3 = { example?: boolean | string };
+export interface Union3 { example?: boolean | string }

@@ -1,2 +1,2 @@
-export type OptionsUnreachableDefinitions = { b?: { likesDogs?: boolean } };
-export type A = { firstName?: string; lastName?: string };
+export interface OptionsUnreachableDefinitions { b?: { likesDogs?: boolean } }
+export interface A { firstName?: string; lastName?: string }

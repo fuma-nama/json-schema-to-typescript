@@ -1,4 +1,6 @@
-export type Enum = { 
+export type EnumFromDefinition = 'a' | 'b' | 'c';
+
+export interface Enum {
 	stringEnum: 'a' | 'b' | 'c';
 	impliedStringEnum: 'a' | 'b' | 'c';
 	booleanEnum: true;
@@ -13,6 +15,4 @@ export type Enum = {
 	impliedNamedIntegerEnumTitle: 4 | 5 | 6;
 	enumThatComesFromADefinition?: EnumFromDefinition;
 	propertyWithAnEnum?: { enumThatComesFromADefinition?: EnumFromDefinition }
- };
-
-export type EnumFromDefinition = 'a' | 'b' | 'c';
+}

@@ -6,7 +6,8 @@ export default defineConfig({
   target: 'es6',
   clean: true,
   deps: {
-    onlyAllowBundle: []
+    onlyAllowBundle: ['@typescript-eslint/types']
   },
-  dts: true
+  dts: true,
+  exports: true
 })

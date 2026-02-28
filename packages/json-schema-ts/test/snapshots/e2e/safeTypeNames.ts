@@ -1,29 +1,29 @@
 export type SafeTypeNames = unknown;
-export type StraNgeName = { a: string; b?: number };
-export type KeepUPPERCASE = { a?: 'a' | 'b' | 'c' };
-export type SnakeCase = { a?: boolean };
-export type startsWithUnderscore = { a?: boolean };
-export type StartsWithUnderscoreUppercase = { a?: boolean };
-export type EndsWithUnderscore_ = { a?: boolean };
-export type UPPERCASE = { a?: boolean };
-export type _______ = { a?: boolean };
-export type CamelCase = { a?: unknown };
-export type KebabCase = { a?: string };
-export type StartsWithSpace = { a?: string };
-export type ContainsSpace = { a?: string };
-export type tartsWithDigit = { a?: string };
-export type tartsWithBlankAndDigit = { a?: string };
-export type EndsWithDigi7 = { a?: string };
-export type Contains4Digit = { a?: string };
-export type StartsWithPeriod = { a?: string };
-export type EndsWithPeriod = { a?: string };
-export type ContainsPeriod = { a?: string };
-export type StartsWithComma = { a?: string };
-export type EndsWithComma = { a?: string };
-export type ContainsComma = { a?: string };
-export type $startsWithDollar = { a?: string };
-export type EndsWithDollar$ = { a?: string };
-export type Contains$Dollar = { a?: string };
-export type $ = { a?: string };
-export type UPPERCASE1 = { a?: string };
-export type Startsuppercase = { a?: string };
+export interface StraNgeName { a: string; b?: number }
+export interface KeepUPPERCASE { a?: 'a' | 'b' | 'c' }
+export interface SnakeCase { a?: boolean }
+export interface startsWithUnderscore { a?: boolean }
+export interface StartsWithUnderscoreUppercase { a?: boolean }
+export interface EndsWithUnderscore_ { a?: boolean }
+export interface UPPERCASE { a?: boolean }
+export interface _______ { a?: boolean }
+export interface CamelCase { a?: unknown }
+export interface KebabCase { a?: string }
+export interface StartsWithSpace { a?: string }
+export interface ContainsSpace { a?: string }
+export interface tartsWithDigit { a?: string }
+export interface tartsWithBlankAndDigit { a?: string }
+export interface EndsWithDigi7 { a?: string }
+export interface Contains4Digit { a?: string }
+export interface StartsWithPeriod { a?: string }
+export interface EndsWithPeriod { a?: string }
+export interface ContainsPeriod { a?: string }
+export interface StartsWithComma { a?: string }
+export interface EndsWithComma { a?: string }
+export interface ContainsComma { a?: string }
+export interface $startsWithDollar { a?: string }
+export interface EndsWithDollar$ { a?: string }
+export interface Contains$Dollar { a?: string }
+export interface $ { a?: string }
+export interface UPPERCASE1 { a?: string }
+export interface Startsuppercase { a?: string }

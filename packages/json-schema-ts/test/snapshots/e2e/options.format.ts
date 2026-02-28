@@ -1,1 +1,1 @@
-export type OptionsFormat = { firstName: string; lastName: string };
+export interface OptionsFormat { firstName: string; lastName: string }

@@ -1,3 +1,5 @@
+import { replace } from './utils'
+
 export function createPendingFactory() {
   const allPendings = new WeakSet()
 
@@ -12,15 +14,8 @@ export function createPendingFactory() {
       return allPendings.has(obj)
     },
 
-    setPending(obj: object, value: unknown) {
-      for (const key in obj) {
-        delete obj[key as never]
-      }
-
-      Object.assign(obj, value)
-    },
-
-    unmarkPending(obj: object) {
+    resolvePending(obj: object, value: object) {
+      replace(obj, value)
       allPendings.delete(obj)
     }
   }

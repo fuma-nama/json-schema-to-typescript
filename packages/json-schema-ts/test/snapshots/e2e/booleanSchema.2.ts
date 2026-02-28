@@ -1,1 +1,1 @@
-export type BooleanSchema2 = { always?: any; never?: never };
+export interface BooleanSchema2 { always?: any; never?: never }

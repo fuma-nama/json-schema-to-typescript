@@ -1,1 +1,2 @@
-export type EmptyProperties = { a?: unknown; b?: unknown };
+export type B = unknown;
+export interface EmptyProperties { a?: unknown; b?: B }

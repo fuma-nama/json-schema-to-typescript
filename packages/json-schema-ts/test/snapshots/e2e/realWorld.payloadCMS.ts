@@ -1,13 +1,380 @@
 export type RealWorldPayloadCMS = unknown;
 
-export type MainMenu = { 
-	items?: { 
-		type?: 'link' | 'subMenu';
-		label: string;
-		subMenu?: { 
-			column1?: 
-				{ 
-					appearance?: 'primary' | 'secondary' | 'arrow';
+export interface Page {
+	breadcrumbs?: { 
+		doc?: string | Page;
+		url?: string;
+		label?: string;
+		id?: string
+	 }[];
+	title: string;
+	showBreadcrumbs?: boolean;
+	hero?: { 
+		type: 
+			'basic' |
+			'content' |
+			'contentMedia' |
+			'contentMedia2' |
+			'contentSidebar' |
+			'columnsBelow' |
+			'quickNav' |
+			'fullscreenBackground' |
+			'fullscreenSlider'
+		;
+
+		basic?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		content?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		contentMedia?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			media: string | Media
+		 };
+
+		contentMedia2?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			media: string | Media
+		 };
+
+		contentSidebar?: { 
+			mainContent?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			sidebarContent?: {  }[]
+		 };
+
+		columnsBelow?: { 
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			columns?: { 
+				heading: string;
+				description: string;
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		fullscreenBackground?: { 
+			invertColors?: boolean;
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		quickNav?: { 
+			invertColors?: boolean;
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			columns?: { 
+				heading: string;
+				description: string;
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		fullscreenSlider?: { 
+			useStaticContent?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			slides?: { 
+				backgroundMedia: string | Media;
+				useOverlay?: boolean;
+				richText?: {  }[];
+				links?: { 
+					link?: { 
+						appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string
+				 }[];
+				id?: string
+			 }[]
+		 }
+	 };
+
+	layout?: (
+		{ 
+			appearance?: 'default' | 'condensed';
+			sections?: { 
+				label: string;
+				openOnInit?: boolean;
+				columns?: { 
+					width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+					alignment: 'left' | 'center' | 'right';
+					richText?: {  }[];
+					links?: { 
+						link?: { 
+							type?: 'reference' | 'custom';
+							label: string;
+							reference: 
+								{ value: string | Page; relationTo: 'pages' } |
+								{ value: string | Post; relationTo: 'posts' } |
+								{ value: string | Housing; relationTo: 'housing' }
+							;
+							url: string
+						 };
+						id?: string
+					 }[];
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'accordion'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'blackbaudForm'
+		 } |
+
+		{ 
+			invertColors?: boolean;
+			backgroundMedia?: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'callToAction'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			cards?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media?: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardGrid'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			slides?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardSlider'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			media1?: string | Media;
+			media2?: string | Media;
+			media3?: string | Media;
+			id?: string;
+			blockName?: string;
+			blockType: 'careerSearch'
+		 } |
+
+		{ 
+			enableGrayBackground?: boolean;
+			columns?: { 
+				width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+				alignment: 'left' | 'center' | 'right';
+				richText?: {  }[];
+				links?: { 
 					link?: { 
 						type?: 'reference' | 'custom';
 						label: string;
@@ -18,23 +385,421 @@ export type MainMenu = {
 						;
 						url: string
 					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuLink'
-				 } |
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'content'
+		 } |
 
-				{ 
-					content: string;
-					id?: string;
-					blockName?: string;
-					blockType: 'menuDescription'
-				 } |
+		{ 
+			cellWidth?: 'two' | 'three';
+			invertColors?: boolean;
+			enableCellNumbers?: boolean;
+			introContent?: {  }[];
+			cells?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentGrid'
+		 } |
 
-				{ 
-					media: string | Media;
-					headline: string;
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentSlider'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'housingMap'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'housingList'
+		 } |
+
+		{ 
+			richText?: {  }[];
+			form: string | Form;
+			id?: string;
+			blockName?: string;
+			blockType: 'embeddedForm'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			locations?: (string | Location)[];
+			id?: string;
+			blockName?: string;
+			blockType: 'locations'
+		 } |
+
+		{ 
+			media: string | Media;
+			useVimeo?: boolean;
+			vimeoID: string;
+			aspectRatio?: '56.25' | '75';
+			size?: 'normal' | 'wide' | 'fullscreen';
+			caption?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'media'
+		 } |
+
+		{ 
+			collage?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaCollage'
+		 } |
+
+		{ 
+			alignment: 'contentOnLeft' | 'contentOnRight';
+			overlap?: boolean;
+			invertColors?: boolean;
+			richText: {  }[];
+			media: string | Media;
+			embeddedVideo?: { 
+				embed?: boolean;
+				poster?: string | Media;
+				platform?: 'youtube' | 'vimeo';
+				videoID: string;
+				aspectRatio?: '56.25' | '75'
+			 };
+
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaContent'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaSlider'
+		 } |
+
+		{ 
+			items?: { 
+				label: string;
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'stickyList'
+		 } |
+		{ id?: string; blockName?: string; blockType: 'divider' }
+	)[];
+	fullTitle?: string;
+	excerpt?: string;
+	meta?: { 
+		title?: string;
+		description?: string;
+		keywords?: string;
+		image?: string | Media
+	 };
+	status?: 'published' | 'draft';
+	slug?: string;
+	parent?: string | Page;
+	subsite?: string | Subsite;
+	color?: 'green' | 'blue' | 'red' | 'purple';
+	author?: string | User;
+	preview?: string
+}
+
+export interface Post {
+	title: string;
+	hero?: { 
+		type: 
+			'basic' |
+			'content' |
+			'contentMedia' |
+			'contentMedia2' |
+			'contentSidebar' |
+			'columnsBelow' |
+			'quickNav' |
+			'fullscreenBackground' |
+			'fullscreenSlider'
+		;
+
+		basic?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		content?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		contentMedia?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			media: string | Media
+		 };
+
+		contentMedia2?: { 
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			media: string | Media
+		 };
+
+		contentSidebar?: { 
+			mainContent?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			sidebarContent?: {  }[]
+		 };
+
+		columnsBelow?: { 
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			columns?: { 
+				heading: string;
+				description: string;
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		fullscreenBackground?: { 
+			invertColors?: boolean;
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		quickNav?: { 
+			invertColors?: boolean;
+			backgroundMedia: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			columns?: { 
+				heading: string;
+				description: string;
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[]
+		 };
+
+		fullscreenSlider?: { 
+			useStaticContent?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+
+			slides?: { 
+				backgroundMedia: string | Media;
+				useOverlay?: boolean;
+				richText?: {  }[];
+				links?: { 
 					link?: { 
+						appearance?: 'text' | 'primaryButton' | 'secondaryButton';
 						type?: 'reference' | 'custom';
+						label: string;
 						reference: 
 							{ value: string | Page; relationTo: 'pages' } |
 							{ value: string | Post; relationTo: 'posts' } |
@@ -42,15 +807,140 @@ export type MainMenu = {
 						;
 						url: string
 					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuFeature'
-				 }
-			[];
-			enableColumn2?: boolean;
-			column2?: 
-				{ 
-					appearance?: 'primary' | 'secondary' | 'arrow';
+					id?: string
+				 }[];
+				id?: string
+			 }[]
+		 }
+	 };
+
+	layout?: (
+		{ 
+			appearance?: 'default' | 'condensed';
+			sections?: { 
+				label: string;
+				openOnInit?: boolean;
+				columns?: { 
+					width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+					alignment: 'left' | 'center' | 'right';
+					richText?: {  }[];
+					links?: { 
+						link?: { 
+							type?: 'reference' | 'custom';
+							label: string;
+							reference: 
+								{ value: string | Page; relationTo: 'pages' } |
+								{ value: string | Post; relationTo: 'posts' } |
+								{ value: string | Housing; relationTo: 'housing' }
+							;
+							url: string
+						 };
+						id?: string
+					 }[];
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'accordion'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'blackbaudForm'
+		 } |
+
+		{ 
+			invertColors?: boolean;
+			backgroundMedia?: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'callToAction'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			cards?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media?: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardGrid'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			slides?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardSlider'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			media1?: string | Media;
+			media2?: string | Media;
+			media3?: string | Media;
+			id?: string;
+			blockName?: string;
+			blockType: 'careerSearch'
+		 } |
+
+		{ 
+			enableGrayBackground?: boolean;
+			columns?: { 
+				width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+				alignment: 'left' | 'center' | 'right';
+				richText?: {  }[];
+				links?: { 
 					link?: { 
 						type?: 'reference' | 'custom';
 						label: string;
@@ -61,76 +951,638 @@ export type MainMenu = {
 						;
 						url: string
 					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuLink'
-				 } |
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'content'
+		 } |
 
-				{ 
-					content: string;
-					id?: string;
-					blockName?: string;
-					blockType: 'menuDescription'
-				 } |
+		{ 
+			cellWidth?: 'two' | 'three';
+			invertColors?: boolean;
+			enableCellNumbers?: boolean;
+			introContent?: {  }[];
+			cells?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentGrid'
+		 } |
 
-				{ 
-					media: string | Media;
-					headline: string;
-					link?: { 
-						type?: 'reference' | 'custom';
-						reference: 
-							{ value: string | Page; relationTo: 'pages' } |
-							{ value: string | Post; relationTo: 'posts' } |
-							{ value: string | Housing; relationTo: 'housing' }
-						;
-						url: string
-					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuFeature'
-				 }
-			[]
-		 };
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentSlider'
+		 } |
 
-		link?: { 
-			type?: 'reference' | 'custom';
-			reference: 
-				{ value: string | Page; relationTo: 'pages' } |
-				{ value: string | Post; relationTo: 'posts' } |
-				{ value: string | Housing; relationTo: 'housing' }
-			;
-			url: string
-		 };
+		{ 
+			richText?: {  }[];
+			form: string | Form;
+			id?: string;
+			blockName?: string;
+			blockType: 'embeddedForm'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'housingMap'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'housingList'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			locations?: (string | Location)[];
+			id?: string;
+			blockName?: string;
+			blockType: 'locations'
+		 } |
+
+		{ 
+			media: string | Media;
+			useVimeo?: boolean;
+			vimeoID: string;
+			aspectRatio?: '56.25' | '75';
+			size?: 'normal' | 'wide' | 'fullscreen';
+			caption?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'media'
+		 } |
+
+		{ 
+			collage?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaCollage'
+		 } |
+
+		{ 
+			alignment: 'contentOnLeft' | 'contentOnRight';
+			overlap?: boolean;
+			invertColors?: boolean;
+			richText: {  }[];
+			media: string | Media;
+			embeddedVideo?: { 
+				embed?: boolean;
+				poster?: string | Media;
+				platform?: 'youtube' | 'vimeo';
+				videoID: string;
+				aspectRatio?: '56.25' | '75'
+			 };
+
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaContent'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaSlider'
+		 } |
+
+		{ 
+			items?: { 
+				label: string;
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'stickyList'
+		 } |
+		{ id?: string; blockName?: string; blockType: 'divider' }
+	)[];
+	slug?: string;
+	category: string | PostCategory;
+	subsite?: string | Subsite;
+	meta?: { 
+		title?: string;
+		description?: string;
+		keywords?: string;
+		image?: string | Media
+	 }
+}
+
+export interface Housing {
+	title: string;
+	address?: { 
+		line1?: string;
+		line2?: string;
+		city?: string;
+		state?: 
+			'None' |
+			'Alabama' |
+			'Alaska' |
+			'Arizona' |
+			'Arkansas' |
+			'California' |
+			'Colorado' |
+			'Connecticut' |
+			'Delaware' |
+			'Florida' |
+			'Georgia' |
+			'Hawaii' |
+			'Idaho' |
+			'Illinois' |
+			'Indiana' |
+			'Iowa' |
+			'Kansas' |
+			'Kentucky' |
+			'Louisiana' |
+			'Maine' |
+			'Maryland' |
+			'Massachusetts' |
+			'Michigan' |
+			'Minnesota' |
+			'Mississippi' |
+			'Missouri' |
+			'Montana' |
+			'Nebraska' |
+			'Nevada' |
+			'New Hampshire' |
+			'New Jersey' |
+			'New Mexico' |
+			'New York' |
+			'North Carolina' |
+			'North Dakota' |
+			'Ohio' |
+			'Oklahoma' |
+			'Oregon' |
+			'Pennsylvania' |
+			'Rhode Island' |
+			'South Carolina' |
+			'South Dakota' |
+			'Tennessee' |
+			'Texas' |
+			'Utah' |
+			'Vermont' |
+			'Virginia' |
+			'Washington' |
+			'West Virginia' |
+			'Wisconsin' |
+			'Wyoming'
+		;
+		zip?: string;
+		coords?: { lat?: number; lng?: number }
+	 };
+
+	contacts?: { 
+		type?: 'mailto' | 'tel' | 'fax';
+		label?: string;
+		value?: string;
 		id?: string
 	 }[];
 
-	secondaryItems?: { 
-		link?: { 
-			type?: 'reference' | 'custom';
-			label: string;
-			reference: 
-				{ value: string | Page; relationTo: 'pages' } |
-				{ value: string | Post; relationTo: 'posts' } |
-				{ value: string | Housing; relationTo: 'housing' }
-			;
-			url: string
+	layout?: (
+		{ 
+			appearance?: 'default' | 'condensed';
+			sections?: { 
+				label: string;
+				openOnInit?: boolean;
+				columns?: { 
+					width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+					alignment: 'left' | 'center' | 'right';
+					richText?: {  }[];
+					links?: { 
+						link?: { 
+							type?: 'reference' | 'custom';
+							label: string;
+							reference: 
+								{ value: string | Page; relationTo: 'pages' } |
+								{ value: string | Post; relationTo: 'posts' } |
+								{ value: string | Housing; relationTo: 'housing' }
+							;
+							url: string
+						 };
+						id?: string
+					 }[];
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'accordion'
+		 } |
+
+		{ 
+			invertColors?: boolean;
+			backgroundMedia?: string | Media;
+			useOverlay?: boolean;
+			richText?: {  }[];
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'callToAction'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			cards?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media?: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardGrid'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			cardStyle: 'fullBG' | 'insetImage' | 'noImage';
+			slides?: { 
+				richText?: {  }[];
+				link?: { 
+					type?: 'reference' | 'custom';
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				media: string | Media;
+				useOverlay?: boolean;
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'cardSlider'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			media1?: string | Media;
+			media2?: string | Media;
+			media3?: string | Media;
+			id?: string;
+			blockName?: string;
+			blockType: 'careerSearch'
+		 } |
+
+		{ 
+			enableGrayBackground?: boolean;
+			columns?: { 
+				width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+				alignment: 'left' | 'center' | 'right';
+				richText?: {  }[];
+				links?: { 
+					link?: { 
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string
+				 }[];
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'content'
+		 } |
+
+		{ 
+			cellWidth?: 'two' | 'three';
+			invertColors?: boolean;
+			enableCellNumbers?: boolean;
+			introContent?: {  }[];
+			cells?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentGrid'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { 
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'contentSlider'
+		 } |
+
+		{ 
+			richText?: {  }[];
+			form: string | Form;
+			id?: string;
+			blockName?: string;
+			blockType: 'embeddedForm'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			locations?: (string | Location)[];
+			id?: string;
+			blockName?: string;
+			blockType: 'locations'
+		 } |
+
+		{ 
+			media: string | Media;
+			useVimeo?: boolean;
+			vimeoID: string;
+			aspectRatio?: '56.25' | '75';
+			size?: 'normal' | 'wide' | 'fullscreen';
+			caption?: {  }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'media'
+		 } |
+
+		{ 
+			collage?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaCollage'
+		 } |
+
+		{ 
+			alignment: 'contentOnLeft' | 'contentOnRight';
+			overlap?: boolean;
+			invertColors?: boolean;
+			richText: {  }[];
+			media: string | Media;
+			embeddedVideo?: { 
+				embed?: boolean;
+				poster?: string | Media;
+				platform?: 'youtube' | 'vimeo';
+				videoID: string;
+				aspectRatio?: '56.25' | '75'
+			 };
+
+			links?: { 
+				link?: { 
+					appearance?: 'text' | 'primaryButton' | 'secondaryButton';
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaContent'
+		 } |
+
+		{ 
+			introContent?: {  }[];
+			backgroundType?: 'light' | 'color';
+			slides?: { media: string | Media; id?: string }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'mediaSlider'
+		 } |
+
+		{ 
+			items?: { 
+				label: string;
+				richText?: {  }[];
+				enableLink?: boolean;
+				link?: { 
+					type?: 'reference' | 'custom';
+					label: string;
+					reference: 
+						{ value: string | Page; relationTo: 'pages' } |
+						{ value: string | Post; relationTo: 'posts' } |
+						{ value: string | Housing; relationTo: 'housing' }
+					;
+					url: string
+				 };
+				id?: string
+			 }[];
+			id?: string;
+			blockName?: string;
+			blockType: 'stickyList'
+		 }
+	)[];
+
+	meta?: { 
+		title?: string;
+		description?: string;
+		keywords?: string;
+		image?: string | Media
+	 };
+	slug?: string;
+	categories?: (string | HousingCategory)[];
+	subsite?: string | Subsite
+}
+
+export interface Media {
+	url?: string;
+	filename?: string;
+	mimeType?: string;
+	filesize?: number;
+	width?: number;
+	height?: number;
+	sizes?: { 
+		thumbnail?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
 		 };
-		id?: string
-	 }[]
- };
 
-export type Page = Page;
-export type Post = Post;
-export type Housing = Housing;
-export type Media = Media;
+		card?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 };
 
-export type Form = { 
+		portrait?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 };
+
+		square?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 };
+
+		feature?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 };
+
+		meta?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 };
+
+		hero?: { 
+			url?: string;
+			width?: number;
+			height?: number;
+			mimeType?: string;
+			filesize?: number;
+			filename?: string
+		 }
+	 };
+	alt: string;
+	fallback?: string | Media
+}
+
+export interface Form {
 	title: string;
 	emailTo?: string;
 	successMessage?: {  }[];
 	redirect?: string;
 	submitButtonLabel?: string;
-	fields?: 
+	fields?: (
 		{ 
 			name: string;
 			label: string;
@@ -201,10 +1653,10 @@ export type Form = {
 			blockName?: string;
 			blockType: 'message'
 		 }
-	[]
- };
+	)[]
+}
 
-export type Location = { 
+export interface Location {
 	name: string;
 	address?: { 
 		line1?: string;
@@ -280,9 +1732,11 @@ export type Location = {
 		keywords?: string;
 		image?: string | Media
 	 }
- };
+}
 
-export type Subsite = { 
+export interface HousingCategory { title: string; slug?: string }
+
+export interface Subsite {
 	title: string;
 	menuItems?: { 
 		type?: 'link' | 'subMenu';
@@ -298,7 +1752,7 @@ export type Subsite = {
 		 };
 		label: string;
 		subMenu?: { 
-			column1?: 
+			column1?: (
 				{ 
 					appearance?: 'primary' | 'secondary' | 'arrow';
 					link?: { 
@@ -339,9 +1793,9 @@ export type Subsite = {
 					blockName?: string;
 					blockType: 'menuFeature'
 				 }
-			[];
+			)[];
 			enableColumn2?: boolean;
-			column2?: 
+			column2?: (
 				{ 
 					appearance?: 'primary' | 'secondary' | 'arrow';
 					link?: { 
@@ -382,9 +1836,9 @@ export type Subsite = {
 					blockName?: string;
 					blockType: 'menuFeature'
 				 }
-			[];
+			)[];
 			enableColumn3?: boolean;
-			column3?: 
+			column3?: (
 				{ 
 					appearance?: 'primary' | 'secondary' | 'arrow';
 					link?: { 
@@ -425,16 +1879,150 @@ export type Subsite = {
 					blockName?: string;
 					blockType: 'menuFeature'
 				 }
-			[]
+			)[]
 		 };
 		id?: string
 	 }[];
 	slug?: string;
 	color?: 'green' | 'blue' | 'red' | 'purple';
 	home: string | Page
- };
+}
 
-export type Footer = { 
+export interface PostCategory {
+	title: string;
+	color?: 'green' | 'blue' | 'red' | 'purple';
+	slug?: string;
+	subsite?: string | Subsite
+}
+
+export interface User {
+	email?: string;
+	resetPasswordToken?: string;
+	resetPasswordExpiration?: string;
+	loginAttempts?: number;
+	lockUntil?: string
+}
+
+export interface MainMenu {
+	items?: { 
+		type?: 'link' | 'subMenu';
+		label: string;
+		subMenu?: { 
+			column1?: (
+				{ 
+					appearance?: 'primary' | 'secondary' | 'arrow';
+					link?: { 
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuLink'
+				 } |
+
+				{ 
+					content: string;
+					id?: string;
+					blockName?: string;
+					blockType: 'menuDescription'
+				 } |
+
+				{ 
+					media: string | Media;
+					headline: string;
+					link?: { 
+						type?: 'reference' | 'custom';
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuFeature'
+				 }
+			)[];
+			enableColumn2?: boolean;
+			column2?: (
+				{ 
+					appearance?: 'primary' | 'secondary' | 'arrow';
+					link?: { 
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuLink'
+				 } |
+
+				{ 
+					content: string;
+					id?: string;
+					blockName?: string;
+					blockType: 'menuDescription'
+				 } |
+
+				{ 
+					media: string | Media;
+					headline: string;
+					link?: { 
+						type?: 'reference' | 'custom';
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuFeature'
+				 }
+			)[]
+		 };
+
+		link?: { 
+			type?: 'reference' | 'custom';
+			reference: 
+				{ value: string | Page; relationTo: 'pages' } |
+				{ value: string | Post; relationTo: 'posts' } |
+				{ value: string | Housing; relationTo: 'housing' }
+			;
+			url: string
+		 };
+		id?: string
+	 }[];
+
+	secondaryItems?: { 
+		link?: { 
+			type?: 'reference' | 'custom';
+			label: string;
+			reference: 
+				{ value: string | Page; relationTo: 'pages' } |
+				{ value: string | Post; relationTo: 'posts' } |
+				{ value: string | Housing; relationTo: 'housing' }
+			;
+			url: string
+		 };
+		id?: string
+	 }[]
+}
+
+export interface Footer {
 	column1?: { 
 		appearance?: 'primary' | 'secondary' | 'tertiary';
 		label?: string;
@@ -466,9 +2054,9 @@ export type Footer = {
 		 };
 		id?: string
 	 }[]
- };
+}
 
-export type Meta = { 
+export interface Meta {
 	socialMediaLinks?: { 
 		type: 'facebook' | 'vimeo' | 'twitter' | 'linkedin' | 'instagram';
 		url: string;
@@ -488,19 +2076,16 @@ export type Meta = {
 		 };
 		id?: string
 	 }[];
-	locations?: string | Location[];
+	locations?: (string | Location)[];
 	phone?: string;
 	nationalPhone?: string;
 	fax?: string;
 	popularSearchTerms?: { term: string; id?: string }[]
- };
+}
 
-export type PostCategories = PostCategories;
-export type HousingCategories = HousingCategories;
-
-export type Alerts = { 
+export interface Alerts {
 	placement: 'global' | 'subsite';
-	subsites: string | Subsite[];
+	subsites: (string | Subsite)[];
 	backgroundColor?: 'matchTheme' | 'green' | 'blue' | 'red' | 'purple';
 	content: {  }[];
 	links?: { 
@@ -517,9 +2102,35 @@ export type Alerts = {
 		 };
 		id?: string
 	 }[]
- };
+}
 
-export type Search = { 
+export interface Person {
+	name: string;
+	position?: string;
+	contacts?: { 
+		type?: 'mailto' | 'tel' | 'fax';
+		label?: string;
+		value?: string;
+		id?: string
+	 }[];
+
+	socialMediaLinks?: { 
+		type: 'facebook' | 'vimeo' | 'twitter' | 'linkedin' | 'instagram';
+		url: string;
+		id?: string
+	 }[];
+	richText?: {  }[];
+	meta?: { 
+		title?: string;
+		description?: string;
+		keywords?: string;
+		image?: string | Media
+	 };
+	slug?: string;
+	home?: string | Page
+}
+
+export interface Search {
 	title: string;
 	description?: string;
 	keywords?: string;
@@ -529,15 +2140,11 @@ export type Search = {
 		{ value: string | Page; relationTo: 'pages' } |
 		{ value: string | Post; relationTo: 'posts' } |
 		{ value: string | Housing; relationTo: 'housing' } |
-		{ value: string | People; relationTo: 'people' } |
+		{ value: string | Person; relationTo: 'people' } |
 		{ value: string | Location; relationTo: 'locations' }
- };
+}
 
-export type People = People;
-
-export type FormSubmissions = { 
+export interface FormSubmissions {
 	form: string | Form;
 	submissionData?: { field: string; value: string; id?: string }[]
- };
-
-export type Users = Users;
+}

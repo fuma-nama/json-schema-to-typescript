@@ -1,4 +1,4 @@
-export type OptionsEnableConstEnums = { 
+export interface OptionsEnableConstEnums {
 	stringEnum: 'a' | 'b' | 'c';
 	impliedStringEnum: 'a' | 'b' | 'c';
 	booleanEnum: true;
@@ -14,4 +14,4 @@ export type OptionsEnableConstEnums = {
 	oneOfNamedEnum: 1 | 2 | 3 | 'four' | 'five' | 'six';
 	anyOfNamedEnum: 1 | 2 | 3 | 'four' | 'five' | 'six';
 	allOfNamedEnum: 1 | 2 | 3 & 'four' | 'five' | 'six'
- };
+}

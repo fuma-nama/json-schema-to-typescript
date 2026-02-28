@@ -30,3 +30,14 @@ export function toSafeString(str: string): string {
 export function isValidPropertyName(name: string) {
   return /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(name)
 }
+
+/**
+ * replace objects in-place
+ */
+export function replace(obj: object, by: object) {
+  for (const key in obj) {
+    delete obj[key as never]
+  }
+
+  Object.assign(obj, by)
+}

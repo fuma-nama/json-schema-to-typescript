@@ -1,1 +1,1 @@
-export type Unicode = { someKey?: string };
+export interface Unicode { someKey?: string }

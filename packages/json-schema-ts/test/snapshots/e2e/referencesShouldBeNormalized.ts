@@ -1,1 +1,2 @@
-export type ReferencesShouldBeNormalized = { a: { b?: number[] } };
+export interface ExampleSchema { b?: number[] }
+export interface ReferencesShouldBeNormalized { a: ExampleSchema }

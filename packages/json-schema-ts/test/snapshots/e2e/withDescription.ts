@@ -1,5 +1,11 @@
-/*My cool schema*/ export type WithDescription = { 
+/**
+* My cool schema
+*/
+export interface WithDescription {
 	firstName: string;
 	lastName: string;
-	/*Age in years*/ age?: number
- };
+	/**
+	* Age in years
+	*/
+	age?: number
+}

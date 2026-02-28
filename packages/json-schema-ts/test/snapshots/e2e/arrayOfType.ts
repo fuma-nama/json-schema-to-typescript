@@ -1,6 +1,6 @@
-export type ArrayOfType = { 
+export interface ArrayOfType {
 	foo?: string[];
 	bar?: string[];
-	baz?: string | number[];
+	baz?: (string | number)[];
 	moo?: [number?, string?]
- };
+}

@@ -5,17 +5,18 @@ import ts, { Comment } from 'esrap/languages/ts'
 import { createPendingFactory, PendingFactory } from './pending'
 import { isValidPropertyName, toSafeString } from './utils'
 
-export interface Context extends PendingFactory {
-  options: CompileOptions
+interface Context extends PendingFactory, Pick<CompileOptions, 'shouldSeparateDeclaration' | 'getSchemaId'> {
   declarations: Map<
     string,
     {
-      node: AST.TSTypeAliasDeclaration | AST.TSInterfaceDeclaration
       schema: JSONSchema
+      typeAnnotation: AST.TypeNode
     }
   >
   getSchemaId: (schema: object) => string | undefined
   inlineResults: WeakMap<Exclude<JSONSchema, boolean>, AST.TypeNode>
+
+  getSchemaDeclaration: (schema: Exclude<JSONSchema, boolean>) => string | undefined
 
   comments: Map<AST.Node, Comment[]>
   addComment: (node: AST.Node, ...comments: Comment[]) => void
@@ -25,12 +26,17 @@ export interface Context extends PendingFactory {
 function context(options: CompileOptions): Context {
   return {
     ...createPendingFactory(),
-    options,
+    ...options,
     declarations: new Map(),
     inlineResults: new Map(),
     comments: new Map(),
     getSchemaId(schema) {
       return options.getSchemaId?.(schema)
+    },
+    getSchemaDeclaration(schema) {
+      for (const [k, v] of this.declarations) {
+        if (v.schema === schema) return k
+      }
     },
     addComment(node, ...comments) {
       const list = this.comments.get(node)
@@ -54,28 +60,36 @@ function context(options: CompileOptions): Context {
 
 export interface CompileOptions {
   name?: string
+  /**
+   * assuming the input schema is already dereferenced, this function should return the original `$ref` value.
+   */
   getSchemaId?: (schema: object) => string | undefined
+  /**
+   * whether the schema should be generated separatedly as another type, or prefer inline if possible.
+   */
+  shouldSeparateDeclaration?: (schema: object) => boolean
   unreachableDefinitions?: boolean
 }
 
-export function compile(schema: JSONSchema, options: CompileOptions = {}): string {
+function compileAst(schema: JSONSchema, options: CompileOptions = {}) {
   const ctx = context(options)
-  declaration(options.name ?? 'NoName', schema, ctx)
+  registerDeclaration(options.name ?? 'NoName', schema, ctx, inline(schema, ctx))
 
   if (typeof schema === 'object' && options.unreachableDefinitions && 'definitions' in schema && schema.definitions) {
     for (const [k, v] of Object.entries(schema.definitions)) {
-      declaration(k, v, ctx)
+      if (typeof v === 'object' && ctx.getSchemaDeclaration(v)) continue
+      registerDeclaration(k, v, ctx, inline(v, ctx))
     }
   }
 
   const body: AST.ProgramStatement[] = []
-  for (const def of ctx.declarations.values()) {
+  for (const [name, { schema, typeAnnotation }] of ctx.declarations) {
     const node = {
       type: Types.ExportNamedDeclaration,
-      declaration: def.node,
+      declaration: createDeclaration(name, schema, typeAnnotation),
       exportKind: 'type'
     } as AST.ExportNamedDeclaration
-    ctx.transferComment(def.node, node)
+    ctx.transferComment(typeAnnotation, node)
     body.push(node)
   }
 
@@ -84,10 +98,15 @@ export function compile(schema: JSONSchema, options: CompileOptions = {}): strin
     body,
     sourceType: 'module'
   } as AST.Program
+  return { program, ctx }
+}
+
+export function compile(schema: JSONSchema, options: CompileOptions = {}): string {
+  const { program, ctx } = compileAst(schema, options)
 
   const visitor = ts({
     getLeadingComments(node) {
-      return ctx.comments.get(node as never)
+      return ctx.comments.get(node as never)?.map(formatComment)
     }
   })
   Object.assign(visitor, {
@@ -98,6 +117,21 @@ export function compile(schema: JSONSchema, options: CompileOptions = {}): strin
   return print(program, visitor).code
 }
 
+function formatComment(c: Comment) {
+  if (c.type === 'Block') {
+    const lines = c.value
+      .trim()
+      .split('\n')
+      .map(v => `* ${v}`)
+    return {
+      ...c,
+      value: `*\n${lines.join('\n')}\n`
+    }
+  }
+
+  return c
+}
+
 type DistributiveOmit<T, K extends PropertyKey> = T extends any ? Omit<T, K> : never
 
 type NoBase<T> = DistributiveOmit<T, 'range' | 'loc' | 'parent'>
@@ -106,19 +140,13 @@ function base<T>(t: NoBase<T>): T {
   return t as T
 }
 
-function declaration(
+function registerDeclaration(
   preferredName: string | undefined | null,
   schema: JSONSchema,
   ctx: Context,
-  typeAnnotation?: AST.TypeNode
-): {
-  createdName: string
-} {
+  typeAnnotation: AST.TypeNode
+): string {
   if (typeof schema !== 'boolean') {
-    for (const [k, v] of ctx.declarations) {
-      if (v.schema === schema) return { createdName: k }
-    }
-
     preferredName ??= schema.title ?? schema.$id ?? ctx.getSchemaId(schema)
   }
 
@@ -128,20 +156,30 @@ function declaration(
     name = `${originalName}${i}`
   }
 
-  const node = {
-    type: Types.TSTypeAliasDeclaration,
-    id: identifier(name),
-    typeAnnotation
-  } as AST.TSTypeAliasDeclaration
+  ctx.declarations.set(name, { schema, typeAnnotation })
+  return name
+}
 
-  ctx.declarations.set(name, {
-    node,
-    schema
-  })
-
-  node.typeAnnotation ??= inline(schema, ctx)
-  ctx.transferComment(node.typeAnnotation, node)
-  return { createdName: name }
+function createDeclaration(name: string, _schema: JSONSchema, typeAnnotation: AST.TypeNode): AST.Node {
+  if (typeAnnotation.type === Types.TSTypeLiteral) {
+    return base({
+      type: Types.TSInterfaceDeclaration,
+      declare: false,
+      extends: [],
+      typeParameters: undefined,
+      id: identifier(name),
+      body: base({
+        type: Types.TSInterfaceBody,
+        body: typeAnnotation.members
+      })
+    })
+  } else {
+    return {
+      type: Types.TSTypeAliasDeclaration,
+      id: identifier(name),
+      typeAnnotation
+    } as AST.TSTypeAliasDeclaration
+  }
 }
 
 function inline(schema: JSONSchema, ctx: Context, skipCache = false): AST.TypeNode {
@@ -149,36 +187,51 @@ function inline(schema: JSONSchema, ctx: Context, skipCache = false): AST.TypeNo
     return schema ? base({ type: Types.TSAnyKeyword }) : base({ type: Types.TSNeverKeyword })
 
   if (!skipCache) {
+    const createdDeclaration = ctx.getSchemaDeclaration(schema)
+    if (createdDeclaration) {
+      return {
+        type: Types.TSTypeReference,
+        typeName: identifier(createdDeclaration)
+      } as AST.TSTypeReference
+    }
+
     const cached = ctx.inlineResults.get(schema)
 
     // recursive (parent -> child -> parent)
     if (cached !== undefined && ctx.isPending(cached)) {
-      const { createdName } = declaration(null, schema, ctx, cached)
+      const createdId = registerDeclaration(null, schema, ctx, cached)
 
       return {
         type: Types.TSTypeReference,
-        typeName: identifier(createdName)
+        typeName: identifier(createdId)
       } as AST.TSTypeReference
     }
 
-    // referenced twice: separate declaration instead
     if (cached !== undefined) {
-      const { createdName } = declaration(null, schema, ctx, { ...cached })
-
-      ctx.setPending(cached, {
-        type: Types.TSTypeReference,
-        typeName: identifier(createdName)
-      } as AST.TSTypeReference)
       return cached
     }
 
-    const pending = ctx.createPending<AST.TypeNode>()
-    ctx.inlineResults.set(schema, pending)
-    ctx.setPending(pending, inline(schema, ctx, true))
-    ctx.unmarkPending(pending)
+    const shouldSeparateDeclaration = ctx.shouldSeparateDeclaration
+      ? ctx.shouldSeparateDeclaration(schema)
+      : ctx.getSchemaId(schema) !== undefined
+    if (shouldSeparateDeclaration) {
+      const pending = ctx.createPending<AST.TypeNode>()
+      ctx.inlineResults.set(schema, pending)
+      const createdId = registerDeclaration(null, schema, ctx, pending)
 
-    inlineComment(pending, schema, ctx)
-    return pending
+      ctx.resolvePending(pending, inline(schema, ctx, true))
+      inlineComment(pending, schema, ctx)
+      return {
+        type: Types.TSTypeReference,
+        typeName: identifier(createdId)
+      } as AST.TSTypeReference
+    } else {
+      const pending = ctx.createPending<AST.TypeNode>()
+      ctx.inlineResults.set(schema, pending)
+      ctx.resolvePending(pending, inline(schema, ctx, true))
+      inlineComment(pending, schema, ctx)
+      return pending
+    }
   }
 
   if ('tsType' in schema && typeof schema.tsType === 'string') {
@@ -338,25 +391,18 @@ function inline(schema: JSONSchema, ctx: Context, skipCache = false): AST.TypeNo
       if (Array.isArray(schema.items)) {
         return base({
           type: Types.TSTupleType,
-          elementTypes: schema.items.map(item => {
-            let child = inline(item, ctx)
-            if (child.type === Types.TSUnionType)
-              child = {
-                type: 'TSParenthesizedType',
-                typeAnnotation: child
-              } as never
-
-            return base({
+          elementTypes: schema.items.map(item =>
+            base({
               type: Types.TSOptionalType,
-              typeAnnotation: child
+              typeAnnotation: parenthesizeIfNeeded(inline(item, ctx))
             })
-          })
+          )
         })
       }
 
       return base({
         type: Types.TSArrayType,
-        elementType: schema.items ? inline(schema.items, ctx) : base({ type: Types.TSAnyKeyword })
+        elementType: schema.items ? parenthesizeIfNeeded(inline(schema.items, ctx)) : base({ type: Types.TSAnyKeyword })
       })
     }
     case 'any':
@@ -424,4 +470,13 @@ function stringLiteral(value: string): AST.StringLiteral {
 function simplifyUnion(t: NoBase<AST.TSUnionType>): AST.TypeNode {
   if (t.types.length === 1) return t.types[0]
   return t as AST.TSUnionType
+}
+
+function parenthesizeIfNeeded(node: AST.TypeNode): AST.TypeNode {
+  if (node.type === Types.TSUnionType || node.type === Types.TSIntersectionType)
+    return {
+      type: 'TSParenthesizedType',
+      typeAnnotation: node
+    } as never
+  return node
 }

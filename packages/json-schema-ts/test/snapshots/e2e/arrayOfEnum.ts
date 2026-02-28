@@ -1,1 +1,1 @@
-export type ArrayOfEnum = { namedEnum: 1 | 2 | 3[]; tuples?: [string?, (1 | 2 | 3)?] };
+export interface ArrayOfEnum { namedEnum: (1 | 2 | 3)[]; tuples?: [string?, (1 | 2 | 3)?] }

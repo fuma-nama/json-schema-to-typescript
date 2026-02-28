@@ -1,2 +1,4 @@
-export type Intersection4 = Base | Base;
-export type Base = { y?: string };
+export type A = Base;
+export interface Base { y?: string }
+export type B = Base;
+export type Intersection4 = A | B;

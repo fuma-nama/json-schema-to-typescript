@@ -1,1 +1,2 @@
-export type TypedArray1 = { data: { prop: string }[] };
+export interface ArrayItem { prop: string }
+export interface TypedArray1 { data: ArrayItem[] }

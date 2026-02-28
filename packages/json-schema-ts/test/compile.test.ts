@@ -6,8 +6,7 @@ import Parser from '@apidevtools/json-schema-ref-parser'
 import { JSONSchema } from 'json-schema-typed/draft-2020-12'
 
 const dir = path.dirname(fileURLToPath(import.meta.url))
-
-test.only('compile: JSON, dereferenced', async () => {
+test('compile: JSON, dereferenced', async () => {
   const dereferenced = await Parser.dereference<Exclude<JSONSchema, boolean>>(
     path.join(dir, './resources/Person.json'),
     {

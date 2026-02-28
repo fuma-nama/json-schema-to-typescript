@@ -1,1 +1,1 @@
-export type Extends1b = { foo: string };
+export interface Extends1b { foo: string }

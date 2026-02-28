@@ -1,1 +1,2 @@
-export type EmptyDefinition = Record<string, unknown>;
+export type MyInterface = unknown;
+export type EmptyDefinition = Record<string, MyInterface>;

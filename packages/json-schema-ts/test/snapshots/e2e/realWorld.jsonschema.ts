@@ -1,4 +1,4 @@
-export type RealWorldJsonschema = 
+export type CoreSchemaMetaSchema = 
 	{ 
 		$id?: string;
 		$schema?: string;
@@ -18,40 +18,41 @@ export type RealWorldJsonschema =
 		maxLength?: NonNegativeInteger;
 		minLength?: NonNegativeIntegerDefault0;
 		pattern?: string;
-		additionalItems?: RealWorldJsonschema;
-		items?: RealWorldJsonschema | SchemaArray;
+		additionalItems?: CoreSchemaMetaSchema;
+		items?: CoreSchemaMetaSchema | SchemaArray;
 		maxItems?: NonNegativeInteger;
 		minItems?: NonNegativeIntegerDefault0;
 		uniqueItems?: boolean;
-		contains?: RealWorldJsonschema;
+		contains?: CoreSchemaMetaSchema;
 		maxProperties?: NonNegativeInteger;
 		minProperties?: NonNegativeIntegerDefault0;
 		required?: StringArray;
-		additionalProperties?: RealWorldJsonschema;
-		definitions?: Record<string, RealWorldJsonschema>;
-		properties?: Record<string, RealWorldJsonschema>;
-		patternProperties?: Record<string, RealWorldJsonschema>;
-		dependencies?: Record<string, RealWorldJsonschema | StringArray>;
-		propertyNames?: RealWorldJsonschema;
+		additionalProperties?: CoreSchemaMetaSchema;
+		definitions?: Record<string, CoreSchemaMetaSchema>;
+		properties?: Record<string, CoreSchemaMetaSchema>;
+		patternProperties?: Record<string, CoreSchemaMetaSchema>;
+		dependencies?: Record<string, CoreSchemaMetaSchema | StringArray>;
+		propertyNames?: CoreSchemaMetaSchema;
 		const?: any;
 		enum?: any[];
 		type?: SimpleTypes | SimpleTypes[];
 		format?: string;
 		contentMediaType?: string;
 		contentEncoding?: string;
-		if?: RealWorldJsonschema;
-		then?: RealWorldJsonschema;
-		else?: RealWorldJsonschema;
+		if?: CoreSchemaMetaSchema;
+		then?: CoreSchemaMetaSchema;
+		else?: CoreSchemaMetaSchema;
 		allOf?: SchemaArray;
 		anyOf?: SchemaArray;
 		oneOf?: SchemaArray;
-		not?: RealWorldJsonschema
+		not?: CoreSchemaMetaSchema
 	 } |
 	boolean
 ;
 
 export type NonNegativeInteger = number;
 export type NonNegativeIntegerDefault0 = NonNegativeInteger & unknown;
+export type SchemaArray = CoreSchemaMetaSchema[];
 export type StringArray = string[];
 
 export type SimpleTypes = 
@@ -64,4 +65,4 @@ export type SimpleTypes =
 	'string'
 ;
 
-export type SchemaArray = RealWorldJsonschema[];
+export type RealWorldJsonschema = CoreSchemaMetaSchema;

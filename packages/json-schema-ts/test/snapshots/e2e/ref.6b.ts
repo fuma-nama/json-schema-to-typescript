@@ -1,1 +1,2 @@
-export type Ref6b = { foo: string | number };
+export type ExampleCombinedSchema = string | number;
+export interface Ref6b { foo: ExampleCombinedSchema }

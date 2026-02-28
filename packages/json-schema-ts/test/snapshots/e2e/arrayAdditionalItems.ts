@@ -1,4 +1,38 @@
-export type ArrayAdditionalItems = { 
+export interface ExampleSchema {
+	firstName: string;
+	lastName: string;
+	/**
+	* Age in years
+	*/
+	age?: number;
+	height?: number;
+	favoriteFoods?: any[];
+	likesDogs?: boolean
+}
+
+export interface ExampleSchema1 {
+	firstName: string;
+	lastName: string;
+	/**
+	* Age in years
+	*/
+	age?: number;
+	height?: number;
+	favoriteFoods?: any[];
+	likesDogs?: boolean
+}
+
+/**
+* Title matches definition key for kicks
+*/
+export interface FirstDefinition { name?: string }
+
+/**
+* Title is unrelated to definition key and behaviour is the same
+*/
+export interface UnrelatedTitle { name?: string }
+
+export interface ArrayAdditionalItems {
 	namedEums?: { 
 		additionalItemsAny?: [(1 | 2 | 3)?];
 		additionalItems?: [(1 | 2 | 3)?]
@@ -25,36 +59,12 @@ export type ArrayAdditionalItems = {
 	 };
 
 	refs?: { 
-		additionalItemsAny?: [
-			{ 
-				firstName: string;
-				lastName: string;
-				/*Age in years*/ age?: number;
-				height?: number;
-				favoriteFoods?: any[];
-				likesDogs?: boolean
-			 }?
-		];
-
-		additionalItems?: [
-			{ 
-				firstName: string;
-				lastName: string;
-				/*Age in years*/ age?: number;
-				height?: number;
-				favoriteFoods?: any[];
-				likesDogs?: boolean
-			 }?
-		]
+		additionalItemsAny?: [ExampleSchema?];
+		additionalItems?: [ExampleSchema1?]
 	 };
 
 	defs?: { 
-		additionalItemsAny?: [
-			/*Title matches definition key for kicks*/ { name?: string }?
-		];
-
-		additionalItems?: [
-			/*Title is unrelated to definition key and behaviour is the same*/ { name?: string }?
-		]
+		additionalItemsAny?: [FirstDefinition?];
+		additionalItems?: [UnrelatedTitle?]
 	 }
- };
+}

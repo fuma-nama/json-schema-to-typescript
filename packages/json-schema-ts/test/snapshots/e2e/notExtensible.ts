@@ -1,5 +1,8 @@
-export type NotExtensible = { 
+export interface NotExtensible {
 	firstName: string;
 	lastName: string;
-	/*Age in years*/ age?: number
- };
+	/**
+	* Age in years
+	*/
+	age?: number
+}

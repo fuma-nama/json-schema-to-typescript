@@ -1,1 +1,1 @@
-export type EnumInArray = { foo?: 'BAR' | 'BAZ'[] };
+export interface EnumInArray { foo?: ('BAR' | 'BAZ')[] }

@@ -1,7 +1,9 @@
-export type AdditionalProperties2 = { 
+export interface E {}
+
+export interface AdditionalProperties2 {
 	a?: {  };
 	b?: {  };
 	c?: Record<string, any>;
 	d?: Record<string, number>;
-	e?: {  }
- };
+	e?: E
+}

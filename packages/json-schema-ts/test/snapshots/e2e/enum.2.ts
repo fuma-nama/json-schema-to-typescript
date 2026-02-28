@@ -1,5 +1,7 @@
-export type Enum2 = { 
-	definitions?: Record<string, /*My example entity object definition*/ { 
-		EntityDataCategory: { APorpertyName?: 'TABLE' | 'OBJ' | 'FUNC' }
-	 }>
- };
+/**
+* My example entity object definition
+*/
+export interface EntityObject { EntityDataCategory: { APorpertyName?: EntityDataCategory } }
+
+export type EntityDataCategory = 'TABLE' | 'OBJ' | 'FUNC';
+export interface Enum2 { definitions?: Record<string, EntityObject> }

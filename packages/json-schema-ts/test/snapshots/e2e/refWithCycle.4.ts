@@ -1,1 +1,1 @@
-export type RefWithCycle4 = { id?: number; userId?: number };
+export interface RefWithCycle4 { id?: number; userId?: number }

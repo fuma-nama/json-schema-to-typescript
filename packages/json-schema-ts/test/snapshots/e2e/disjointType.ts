@@ -1,7 +1,10 @@
-/*My cool schema*/ export type DisjointType = { 
+/**
+* My cool schema
+*/
+export interface DisjointType {
 	value: number | string;
 	anotherValue?: null | string;
 	nullableStringEnum?: 'foo' | 'bar';
 	nullableObj?: null | { foo: string };
-	nullableArrayEnums?: null | 'foo' | 'bar'[]
- };
+	nullableArrayEnums?: null | ('foo' | 'bar')[]
+}
