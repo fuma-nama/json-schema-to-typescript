@@ -1,19 +1,9 @@
-export type A = string
+export type Optimize2 = { 
+	a: string | string;
+	b: {  } | {  } | B;
+	c: {  } | B | B | {  };
+	d: {  } & {  };
+	e: {  } | {  } & {  }
+ };
 
-export interface OptimizableSchema2 {
-a: A
-b: B
-c: (B | C)
-d: {
-
-}
-e: {
-
-}
-}
-export interface B {
-
-}
-export interface C {
-
-}
+export type B = {  };

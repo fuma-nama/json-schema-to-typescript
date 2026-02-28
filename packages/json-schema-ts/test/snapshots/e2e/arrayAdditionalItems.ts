@@ -1,116 +1,60 @@
-export interface ArrayAdditionalItems {
-namedEums?: {
-additionalItemsAny?: []|[NamedEnum2, ...(unknown)[]]
-additionalItems?: []|[NamedEnum21, ...(NamedEnum22)[]]
-}
-unnamedEmums?: {
-additionalItemsAny?: []|[(1 | 2 | 3), ...(unknown)[]]
-additionalItems?: []|[("One" | "Two" | "Three"), ...((4 | 5 | 6))[]]
-}
-namedSchema?: {
-additionalItemsAny?: []|[StringSchema1]|[StringSchema1, NumberSchema1, ...(unknown)[]]
-additionalItems?: []|[StringSchema2]|[StringSchema2, NumberSchema2, ...(BooleanSchema1)[]]
-}
-schema?: {
-additionalItemsAny?: []|[{
-foo?: string
-}]|[{
-foo?: string
-}, {
-bar?: number
-}, ...(unknown)[]]
-additionalItems?: []|[{
-foo?: string
-}]|[{
-foo?: string
-}, {
-bar?: number
-}, ...({
-baz?: boolean
-})[]]
-}
-ofType?: {
-additonalItemsAny?: []|[number]|[number, string, ...(unknown)[]]
-additonalItems?: []|[number]|[number, string, ...(boolean)[]]
-}
-refs?: {
-additionalItemsAny?: []|[ExampleSchema, ...(unknown)[]]
-additionalItems?: []|[ExampleSchema1, ...(ExampleSchema2)[]]
-}
-defs?: {
-additionalItemsAny?: []|[FirstDefinition, ...(unknown)[]]
-additionalItems?: []|[UnrelatedTitle, ...(ThirdDefinition)[]]
-}
-}
-export interface StringSchema1 {
-foo?: string
-}
-export interface NumberSchema1 {
-bar?: number
-}
-export interface StringSchema2 {
-foo?: string
-}
-export interface NumberSchema2 {
-bar?: number
-}export interface BooleanSchema1 {
-baz?: boolean
-}
-export interface ExampleSchema {
-firstName: string
-lastName: string
-/**
- * Age in years
- */
-age?: number
-height?: number
-favoriteFoods?: unknown[]
-likesDogs?: boolean
-}
-export interface ExampleSchema1 {
-firstName: string
-lastName: string
-/**
- * Age in years
- */
-age?: number
-height?: number
-favoriteFoods?: unknown[]
-likesDogs?: boolean
-}export interface ExampleSchema2 {
-isConflict: boolean
-}
-/**
- * Title matches definition key for kicks
- */
-export interface FirstDefinition {
-name?: string
-}
-/**
- * Title is unrelated to definition key and behaviour is the same
- */
-export interface UnrelatedTitle {
-name?: string
-}/**
- * Definition has no title and produces no duplicate Interface
- */
-export interface ThirdDefinition {
-name?: string
-}
+export type ArrayAdditionalItems = { 
+	namedEums?: { 
+		additionalItemsAny?: [(1 | 2 | 3)?];
+		additionalItems?: [(1 | 2 | 3)?]
+	 };
 
-export const enum NamedEnum2 {
-One = 1,
-Two = 2,
-Three = 3
-}
-export const enum NamedEnum21 {
-One = 1,
-Two = 2,
-Three = 3
-}
-export const enum NamedEnum22 {
-Four = 4,
-Five = 5,
-Six = 6
-}
+	unnamedEmums?: { 
+		additionalItemsAny?: [(1 | 2 | 3)?];
+		additionalItems?: [('One' | 'Two' | 'Three')?]
+	 };
 
+	namedSchema?: { 
+		additionalItemsAny?: [{ foo?: string }?, { bar?: number }?];
+		additionalItems?: [{ foo?: string }?, { bar?: number }?]
+	 };
+
+	schema?: { 
+		additionalItemsAny?: [{ foo?: string }?, { bar?: number }?];
+		additionalItems?: [{ foo?: string }?, { bar?: number }?]
+	 };
+
+	ofType?: { 
+		additonalItemsAny?: [number?, string?];
+		additonalItems?: [number?, string?]
+	 };
+
+	refs?: { 
+		additionalItemsAny?: [
+			{ 
+				firstName: string;
+				lastName: string;
+				/*Age in years*/ age?: number;
+				height?: number;
+				favoriteFoods?: any[];
+				likesDogs?: boolean
+			 }?
+		];
+
+		additionalItems?: [
+			{ 
+				firstName: string;
+				lastName: string;
+				/*Age in years*/ age?: number;
+				height?: number;
+				favoriteFoods?: any[];
+				likesDogs?: boolean
+			 }?
+		]
+	 };
+
+	defs?: { 
+		additionalItemsAny?: [
+			/*Title matches definition key for kicks*/ { name?: string }?
+		];
+
+		additionalItems?: [
+			/*Title is unrelated to definition key and behaviour is the same*/ { name?: string }?
+		]
+	 }
+ };

@@ -1,1 +1,1 @@
-export type Union = (string | false)
+export type Union4 = string | false;

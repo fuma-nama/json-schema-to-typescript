@@ -6,10 +6,10 @@ export const input = {
   type: 'object',
   properties: {
     foo: {
-      $ref: 'ReferencedTypeWithoutID.json'
+      $ref: 'test/resources/ReferencedTypeWithoutID.json'
     },
     bar: {
-      $ref: 'ReferencedTypeWithoutIDConflict.json'
+      $ref: 'test/resources/ReferencedTypeWithoutIDConflict.json'
     }
   },
   required: ['foo', 'bar'],

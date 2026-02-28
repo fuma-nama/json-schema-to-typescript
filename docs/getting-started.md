@@ -66,7 +66,7 @@ You can either:
   ```ts
   import { compile } from '@fumari/json-schema-to-typescript'
   import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
-  
+
   const res = await compile(dereferenced, 'Person', {
     schemaToId: {
       get(schema) {
@@ -82,16 +82,16 @@ You can either:
   ```ts
   import { compile } from '@fumari/json-schema-to-typescript'
   import { refsPlugin } from '@fumari/json-schema-to-typescript/plugins/refs'
-  
+
   const res = await compile(schema, 'Person', {
     plugins: [refsPlugin()]
   })
   ```
 
   :::info
-  
+
   This requires `@apidevtools/json-schema-ref-parser` to be installed.
-  
+
   :::
 
 ### Formatting

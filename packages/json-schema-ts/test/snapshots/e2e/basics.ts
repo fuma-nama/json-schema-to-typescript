@@ -1,14 +1,8 @@
-export type LastName = string
-export type Height = number
-
-export interface ExampleSchema {
-firstName: string
-lastName: LastName
-/**
- * Age in years
- */
-age?: number
-height?: Height
-favoriteFoods?: unknown[]
-likesDogs?: boolean
-}
+export type Basics = { 
+	firstName: string;
+	lastName: string;
+	/*Age in years*/ age?: number;
+	height?: number;
+	favoriteFoods?: any[];
+	likesDogs?: boolean
+ };

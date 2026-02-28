@@ -1,6 +1,1 @@
-export type LastName = string
-
-export interface ExampleSchema {
-firstName: string
-lastName: LastName
-}
+export type OptionsStyle = { firstName: string; lastName: string };

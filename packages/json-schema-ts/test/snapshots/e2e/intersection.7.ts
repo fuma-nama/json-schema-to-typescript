@@ -1,17 +1,15 @@
-export type MyString = string
+export type Intersection7 = { 
+	A: string;
+	B: string;
+	C: string & null;
+	D: string | null;
+	E: MyString & null;
+	F: string & MyNullable;
+	G: MyString & MyNullable;
+	H: 'foo' | 'bar' & MyNullable;
+	I: string | number & null;
+	J: { foo: string; bar: number } & MyNullable
+ };
 
-export interface Intersection {
-A: (string | null)
-B: (string | null)
-C: (string | null)
-D: (string | null)
-E: (MyString | null)
-F: (string | null)
-G: (MyString | null)
-H: (("foo" | "bar") | null)
-I: ((string | number) | null)
-J: ({
-foo: string
-bar: number
-} | null)
-}
+export type MyString = string;
+export type MyNullable = null;

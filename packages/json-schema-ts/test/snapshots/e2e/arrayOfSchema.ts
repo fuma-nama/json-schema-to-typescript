@@ -1,15 +1,4 @@
-export type Countries = {
-id: string
-name: string
-}[]
-
-export interface ArrayOfSchema {
-countries?: Countries
-tuple?: []|[{
-foo?: string
-}]|[{
-foo?: string
-}, {
-bar?: number
-}]
-}
+export type ArrayOfSchema = { 
+	countries?: { id: string; name: string }[];
+	tuple?: [{ foo?: string }?, { bar?: number }?]
+ };

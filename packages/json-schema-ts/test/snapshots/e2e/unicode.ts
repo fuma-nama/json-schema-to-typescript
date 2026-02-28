@@ -1,5 +1,1 @@
-export type NoName1 = string
-
-export interface NoName {
-someKey?: NoName1
-}
+export type Unicode = { someKey?: string };

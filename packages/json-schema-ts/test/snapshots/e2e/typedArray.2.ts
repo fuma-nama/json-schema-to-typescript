@@ -1,9 +1,1 @@
-export type Id = string
-export type ArrayItems = ArrayItem[]
-
-export interface ObjectWithArrayField {
-data: ArrayItems
-}
-export interface ArrayItem {
-id: Id
-}
+export type TypedArray2 = { data: { id: string }[] };

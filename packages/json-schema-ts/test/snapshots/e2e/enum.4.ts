@@ -1,1 +1,8 @@
-export type EnumWithJSONLiteral = ({"type":"string"} | {"foo":3} | "foo" | {"foo":{"bar":"baz"}} | [2,3,4] | [{"foo":[4,6]}])
+export type Enum4 = 
+	[object Object] |
+	[object Object] |
+	'foo' |
+	[object Object] |
+	2,3,4 |
+	[object Object]
+;

@@ -3,6 +3,11 @@
  * Removes special characters, converts to PascalCase, and ensures name starts with a letter.
  */
 export function toSafeString(str: string): string {
+  const dotIdx = str.lastIndexOf('/')
+  if (dotIdx !== -1) {
+    str = str.slice(dotIdx + 1)
+  }
+
   // Convert to string if not already
   const value = str
     .normalize()
@@ -20,4 +25,8 @@ export function toSafeString(str: string): string {
     .replace(/^\d+/, '')
 
   return value
+}
+
+export function isValidPropertyName(name: string) {
+  return /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(name)
 }

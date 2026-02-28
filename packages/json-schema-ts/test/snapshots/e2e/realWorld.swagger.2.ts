@@ -1,6 +1,2 @@
-export interface RealWorldSwagger {
-definitions?: Definitions
-}
-export interface Definitions {
-additionalProperties?: Definitions
-}
+export type RealWorldSwagger2 = { definitions?: { additionalProperties?: Schema } };
+export type Schema = { additionalProperties?: Schema };

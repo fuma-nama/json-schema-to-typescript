@@ -1,3 +1,1 @@
-export interface ReferencingCombined {
-foo: ExampleCombinedSchema
-}
+export type Ref6b = { foo: string | number };

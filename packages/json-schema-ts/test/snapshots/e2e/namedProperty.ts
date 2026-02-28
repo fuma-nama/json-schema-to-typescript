@@ -1,11 +1,1 @@
-/**
- * Array of authorized user ids.
- */
-export type UserIdArray = string[]
-
-/**
- * My cool schema
- */
-export interface ExampleSchema {
-users?: UserIdArray
-}
+/*My cool schema*/ export type NamedProperty = { /*Array of authorized user ids.*/ users?: string[] };

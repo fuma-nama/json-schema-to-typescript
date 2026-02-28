@@ -1,4 +1,1 @@
-export interface SchemaWithBooleanSubschemasUnknownAny {
-always?: unknown
-never?: never
-}
+export type BooleanSchema1 = { always?: any; never?: never };

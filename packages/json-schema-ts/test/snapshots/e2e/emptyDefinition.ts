@@ -1,5 +1,1 @@
-export type MyInterface = unknown
-
-export interface EmptyDefinition {
-[k: string]: MyInterface
-}
+export type EmptyDefinition = Record<string, unknown>;

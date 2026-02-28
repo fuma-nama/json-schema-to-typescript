@@ -1,3 +1,1 @@
-export interface MySchema {
-example?: (boolean | string)
-}
+export type Union3 = { example?: boolean | string };

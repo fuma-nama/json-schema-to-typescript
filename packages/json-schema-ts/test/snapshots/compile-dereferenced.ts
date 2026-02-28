@@ -1,4 +1,1 @@
-export interface Person {
-name?: string
-children?: Person
-}
+export type Person = { name?: string; children?: Person };

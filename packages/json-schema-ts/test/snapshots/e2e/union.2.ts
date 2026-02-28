@@ -1,5 +1,1 @@
-export interface Union {
-input?: (string | {
-
-} | string[])
-}
+export type Union2 = { input?: string | {  } | string[] };

@@ -1,6 +1,1 @@
-export interface Sample {
-neighborhood?: Person[]
-}
-export interface Person {
-age?: number
-}
+export type Ref7 = { neighborhood?: { name?: string; age?: number }[] };

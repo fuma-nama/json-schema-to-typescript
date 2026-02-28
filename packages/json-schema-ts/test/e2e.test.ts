@@ -5,6 +5,7 @@ import { compile, CompileOptions } from '../src'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { JSONSchema } from 'json-schema-typed/draft-2020-12'
+import type { DereferenceOptions } from '@apidevtools/json-schema-ref-parser/dist/lib/options'
 
 const cwd = path.join(path.dirname(fileURLToPath(import.meta.url)), '../')
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), './e2e')
@@ -27,20 +28,29 @@ function stripExtension(filename: string): string {
 
 function runOne(exports: TestCase, name: string) {
   test(name, async () => {
+    const idToSchema = new WeakMap<object, string>()
     let input = exports.input
     if (exports.ref !== false) {
       input = await dereference(path.join(cwd, name), exports.input, {
-        mutateInputSchema: false
+        mutateInputSchema: false,
+        dereference: {
+          onDereference(path, value) {
+            idToSchema.set(value, path)
+          }
+        } satisfies DereferenceOptions
       })
     }
 
     const options: CompileOptions = {
       name: stripExtension(name),
+      getSchemaId(schema) {
+        return idToSchema.get(schema)
+      },
       ...exports.options
     }
 
     if (exports.error) {
-      await expect(compile(input, options)).rejects.toThrowError()
+      await expect(() => compile(input, options)).toThrowError()
     } else {
       await expect(compile(input, options)).toMatchFileSnapshot(`./snapshots/e2e/${name}`)
     }

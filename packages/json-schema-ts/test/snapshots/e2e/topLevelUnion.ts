@@ -1,1 +1,1 @@
-export type TopLevelUnion = (number | string)
+export type TopLevelUnion = number | string;

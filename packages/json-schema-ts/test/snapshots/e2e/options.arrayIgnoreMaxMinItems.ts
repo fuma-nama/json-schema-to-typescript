@@ -1,104 +1,32 @@
-export interface ArrayMaxMinItems {
-array?: {
-/**
- * @minItems 3
- */
-withMinItems?: string[]
-/**
- * @maxItems 3
- */
-withMaxItems?: string[]
-/**
- * @minItems 3
- * @maxItems 8
- */
-withMinMaxItems?: string[]
-/**
- * @maxItems 0
- */
-withMaxItems0?: string[]
-/**
- * @minItems 0
- */
-withMinItems0?: string[]
-/**
- * @minItems 0
- * @maxItems 0
- */
-withMinMaxItems0?: string[]
-}
-untyped?: {
-/**
- * @minItems 3
- */
-withMinItems?: unknown[]
-/**
- * @maxItems 3
- */
-withMaxItems?: unknown[]
-/**
- * @minItems 3
- * @maxItems 8
- */
-withMinMaxItems?: unknown[]
-/**
- * @maxItems 0
- */
-withMaxItems0?: unknown[]
-/**
- * @minItems 0
- */
-withMinItems0?: unknown[]
-/**
- * @minItems 0
- * @maxItems 0
- */
-withMinMaxItems0?: unknown[]
-}
-tuple?: {
-/**
- * @minItems 2
- */
-withMinItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 8
- */
-withMinItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @maxItems 2
- */
-withMaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @maxItems 8
- */
-withMaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 4
- * @maxItems 8
- */
-withMinItemsLessThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 2
- * @maxItems 4
- */
-withMinItemsLessThanItemLength_and_MaxItemsLessThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 8
- * @maxItems 10
- */
-withMinItemsGreaterThanItemLength_and_MaxItemsGreaterThanItemLength?: [1, 2, 3, 4, 5, 6]
-/**
- * @maxItems 0
- */
-withMaxItems0?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 0
- */
-withMinItems0?: [1, 2, 3, 4, 5, 6]
-/**
- * @minItems 0
- * @maxItems 0
- */
-withMinMaxItems0?: [1, 2, 3, 4, 5, 6]
-}
-}
+export type OptionsArrayIgnoreMaxMinItems = { 
+	array?: { 
+		withMinItems?: string[];
+		withMaxItems?: string[];
+		withMinMaxItems?: string[];
+		withMaxItems0?: string[];
+		withMinItems0?: string[];
+		withMinMaxItems0?: string[]
+	 };
+
+	untyped?: { 
+		withMinItems?: any[];
+		withMaxItems?: any[];
+		withMinMaxItems?: any[];
+		withMaxItems0?: any[];
+		withMinItems0?: any[];
+		withMinMaxItems0?: any[]
+	 };
+
+	tuple?: { 
+		withMinItemsLessThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinItemsGreaterThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMaxItemsLessThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMaxItemsGreaterThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinItemsLessThanItemLength_and_MaxItemsGreaterThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinItemsLessThanItemLength_and_MaxItemsLessThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinItemsGreaterThanItemLength_and_MaxItemsGreaterThanItemLength?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMaxItems0?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinItems0?: [1?, 2?, 3?, 4?, 5?, 6?];
+		withMinMaxItems0?: [1?, 2?, 3?, 4?, 5?, 6?]
+	 }
+ };

@@ -1,5 +1,5 @@
-export interface OptimizableSchema {
-bar: (string | number)
-foo: unknown
-fooBar: (A | B)
-}
+export type Optimize = { 
+	bar: string | string | number | string;
+	foo: string | any | number;
+	fooBar: A | A | B | A | B
+ };

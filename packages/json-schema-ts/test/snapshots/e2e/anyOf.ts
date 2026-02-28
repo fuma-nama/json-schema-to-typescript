@@ -1,14 +1,2 @@
-export interface AnyOf {
-foo: (Foo | Bar | Baz)
-}
-export interface Foo {
-a: string
-b?: number
-}
-export interface Bar {
-a?: ("a" | "b" | "c")
-bam?: ("wam")[]
-}
-export interface Baz {
-baz?: Bar
-}
+export type AnyOf = { foo: { a: string; b?: number } | Bar | { baz?: Bar } };
+export type Bar = { a?: 'a' | 'b' | 'c'; bam?: 'wam'[] };

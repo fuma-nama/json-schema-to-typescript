@@ -1,3 +1,1 @@
-export interface UnnamedSchema {
-foo: string
-}
+export type UnnamedSchema = { foo: string };

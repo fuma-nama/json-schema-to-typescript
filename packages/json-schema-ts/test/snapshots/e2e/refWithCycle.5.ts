@@ -1,7 +1,2 @@
-export interface RefWithCycle {
-owner?: Person
-}
-export interface Person {
-name?: string
-children?: Person
-}
+export type RefWithCycle5 = { owner?: { name?: string; children?: PersonJson } };
+export type PersonJson = { name?: string; children?: PersonJson };

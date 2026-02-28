@@ -1,11 +1,3 @@
-export type Intersection = (A | B)
-export type A = (Base & {
-b?: B
-})
-export type B = (Base & {
-x?: string
-})
-
-export interface Base {
-y?: string
-}
+export type Intersection5 = Base & { b?: B } | B;
+export type Base = { y?: string };
+export type B = Base & { x?: string };

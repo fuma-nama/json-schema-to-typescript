@@ -1,3 +1,1 @@
-export interface EmptySchema {
-[k: string]: unknown
-}
+export type EmptySchema = unknown;

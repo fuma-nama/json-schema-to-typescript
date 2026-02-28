@@ -1,8 +1,5 @@
-export interface ExampleSchema {
-firstName: string
-lastName: string
-/**
- * Age in years
- */
-age?: number
-}
+export type NotExtensible = { 
+	firstName: string;
+	lastName: string;
+	/*Age in years*/ age?: number
+ };

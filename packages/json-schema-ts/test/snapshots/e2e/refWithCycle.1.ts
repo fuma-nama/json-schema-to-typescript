@@ -1,5 +1,4 @@
-export interface LocalCycle {
-foo: LocalCycle
-bar?: LocalCycle
-[k: string]: unknown
-}
+export type RefWithCycle1 = 
+	{ foo: RefWithCycle1; bar?: RefWithCycle1 } &
+	Record<string, any>
+;

@@ -1,11 +1,8 @@
-export interface Required {
-location: (Location & {
-[k: string]: unknown
-})
-name: string
-website?: string
-}
-export interface Location {
-city?: string
-postalCode?: number
-}
+export type Required = { 
+	location: 
+		{ city?: string; postalCode?: number } &
+		Record<'postalCode', unknown>
+	;
+	name: string;
+	website?: string
+ };

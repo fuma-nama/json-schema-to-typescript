@@ -1,3 +1,1 @@
-export interface Extends extends Base1, Base2 {
-foo: string
-}
+export type Extends2b = { foo: string };

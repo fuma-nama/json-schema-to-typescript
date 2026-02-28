@@ -1,5 +1,5 @@
-export interface ReservedWords {
-additionalProperties?: number[]
-definitions?: number
-properties?: boolean
-}
+export type ReservedWords1 = { 
+	additionalProperties?: number[];
+	definitions?: number;
+	properties?: boolean
+ };

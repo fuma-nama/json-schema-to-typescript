@@ -1,5 +1,1 @@
-export type ExampleCombinedSchema = (string | number)
-
-export interface ReferencingCombined {
-foo: ExampleCombinedSchema
-}
+export type Ref6a = { foo: string | number };

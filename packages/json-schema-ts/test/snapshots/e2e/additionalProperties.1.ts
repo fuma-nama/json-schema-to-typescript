@@ -1,4 +1,1 @@
-export interface AdditionalProperties {
-foo?: string
-[k: string]: number
-}
+export type AdditionalProperties1 = { foo?: string } & Record<string, number>;
