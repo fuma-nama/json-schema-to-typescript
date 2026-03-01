@@ -1,3 +1,5 @@
+export interface Ref1b { foo: ExampleSchema }
+
 export interface ExampleSchema {
 	firstName: string;
 	lastName: string;
@@ -9,5 +11,3 @@ export interface ExampleSchema {
 	favoriteFoods?: any[];
 	likesDogs?: boolean
 }
-
-export interface Ref1b { foo: ExampleSchema }

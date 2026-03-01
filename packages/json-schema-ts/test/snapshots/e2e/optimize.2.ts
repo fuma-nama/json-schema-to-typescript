@@ -1,7 +1,3 @@
-export type A = string;
-export interface B {}
-export interface C {}
-
 export interface Optimize2 {
 	a: string | A;
 	b: {  } | {  } | B;
@@ -9,3 +5,7 @@ export interface Optimize2 {
 	d: {  } & {  };
 	e: {  } | {  } & {  }
 }
+
+export type A = string;
+export interface B {}
+export interface C {}

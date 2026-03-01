@@ -1,8 +1,3 @@
-/**
-* Map from number to string
-*/
-export type Foobar = Map<number, string>;
-
 export interface CustomType {
 	foo?: Set<number|string>;
 	/**
@@ -11,3 +6,8 @@ export interface CustomType {
 	bar?: (a: number, b: number) => number;
 	foobar?: Foobar
 }
+
+/**
+* Map from number to string
+*/
+export type Foobar = Map<number, string>;

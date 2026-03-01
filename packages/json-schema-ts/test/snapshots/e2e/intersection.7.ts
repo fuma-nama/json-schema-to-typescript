@@ -1,6 +1,3 @@
-export type MyString = string;
-export type MyNullable = null;
-
 export interface Intersection7 {
 	A: string;
 	B: string;
@@ -13,3 +10,6 @@ export interface Intersection7 {
 	I: string | number & null;
 	J: { foo: string; bar: number } & MyNullable
 }
+
+export type MyString = string;
+export type MyNullable = null;

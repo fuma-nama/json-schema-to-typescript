@@ -1,5 +1,3 @@
-export interface E {}
-
 export interface AdditionalProperties3 {
 	a?: {  };
 	b?: {  };
@@ -7,3 +5,5 @@ export interface AdditionalProperties3 {
 	d?: Record<string, number>;
 	e?: E
 }
+
+export interface E {}

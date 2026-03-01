@@ -1,4 +1,80 @@
 /**
+* The platform API empowers developers to automate, extend and combine Heroku with other services.
+*/
+export interface RealWorldHeroku {
+	'account-feature'?: HerokuPlatformAPIAccountFeature;
+	account?: HerokuPlatformAPIAccount;
+	'add-on-action'?: HerokuPlatformAPIAddOnAction;
+	'add-on-attachment'?: HerokuPlatformAPIAddOnAttachment;
+	'add-on-config'?: HerokuPlatformAPIAddOnConfig;
+	'add-on-plan-action'?: HerokuPlatformAPIAddOnPlanAction;
+	'add-on-region-capability'?: HerokuPlatformAPIAddOnRegionCapability;
+	'add-on-service'?: HerokuPlatformAPIAddOnService;
+	'add-on'?: HerokuPlatformAPIAddOn;
+	'app-feature'?: HerokuPlatformAPIAppFeature;
+	'app-formation-set'?: HerokuPlatformAPIApplicationFormationSet;
+	'app-setup'?: HerokuSetupAPIAppSetup;
+	'app-transfer'?: HerokuPlatformAPIAppTransfer;
+	app?: HerokuPlatformAPIApp;
+	'build-result'?: HerokuBuildAPIBuildResult;
+	build?: HerokuBuildAPIBuild;
+	'buildpack-installation'?: HerokuPlatformAPIBuildpackInstallations;
+	collaborator?: HerokuPlatformAPICollaborator;
+	'config-var'?: HerokuPlatformAPIConfigVars;
+	credit?: HerokuPlatformAPICredit;
+	domain?: HerokuPlatformAPIDomain;
+	'dyno-size'?: HerokuPlatformAPIDynoSize;
+	dyno?: HerokuPlatformAPIDyno;
+	event?: HerokuPlatformAPIEvent;
+	'failed-event'?: HerokuPlatformAPIFailedEvent;
+	'filter-apps'?: HerokuPlatformAPIFilters;
+	formation?: HerokuPlatformAPIFormation;
+	'identity-provider'?: HerokuPlatformAPIIdentityProvider;
+	'inbound-ruleset'?: HerokuPlatformAPIInboundRuleset;
+	invitation?: HerokuPlatformAPIInvitation;
+	'invoice-address'?: HerokuVaultAPIInvoiceAddress;
+	invoice?: HerokuPlatformAPIInvoice;
+	key?: HerokuPlatformAPIKey;
+	'log-drain'?: HerokuPlatformAPILogDrain;
+	'log-session'?: HerokuPlatformAPILogSession;
+	'oauth-authorization'?: HerokuPlatformAPIOAuthAuthorization;
+	'oauth-client'?: HerokuPlatformAPIOAuthClient;
+	'oauth-grant'?: HerokuPlatformAPIOAuthGrant;
+	'oauth-token'?: HerokuPlatformAPIOAuthToken;
+	'organization-add-on'?: HerokuPlatformAPIOrganizationAddOn;
+	'organization-app-collaborator'?: HerokuPlatformAPIOrganizationAppCollaborator;
+	'organization-app'?: HerokuPlatformAPIOrganizationApp;
+	'organization-feature'?: HerokuPlatformAPIOrganizationFeature;
+	'organization-invitation'?: HerokuPlatformAPIOrganizationInvitation;
+	'organization-invoice'?: HerokuPlatformAPIOrganizationInvoice;
+	'organization-member'?: HerokuPlatformAPIOrganizationMember;
+	'organization-preferences'?: HerokuPlatformAPIOrganizationPreferences;
+	organization?: HerokuPlatformAPIOrganization;
+	'outbound-ruleset'?: HerokuPlatformAPIOutboundRuleset;
+	'password-reset'?: HerokuPlatformAPIPasswordReset;
+	'organization-app-permission'?: HerokuPlatformAPIOrganizationAppPermission;
+	'pipeline-coupling'?: HerokuPlatformAPIPipelineCoupling;
+	'pipeline-promotion-target'?: HerokuPlatformAPIPipelinePromotionTarget;
+	'pipeline-promotion'?: HerokuPlatformAPIPipelinePromotion;
+	pipeline?: HerokuPlatformAPIPipeline;
+	plan?: HerokuPlatformAPIPlan;
+	'rate-limit'?: HerokuPlatformAPIRateLimit;
+	region?: HerokuPlatformAPIRegion;
+	release?: HerokuPlatformAPIRelease;
+	slug?: HerokuPlatformAPISlug;
+	'sms-number'?: HerokuPlatformAPISMSNumber;
+	'sni-endpoint'?: HerokuPlatformAPISNIEndpoint;
+	source?: HerokuPlatformAPISource;
+	'space-app-access'?: HerokuPlatformAPISpaceAccess;
+	'space-nat'?: HerokuPlatformAPISpaceNetworkAddressTranslation;
+	space?: HerokuPlatformAPISpace;
+	'ssl-endpoint'?: HerokuPlatformAPISSLEndpoint;
+	stack?: HerokuPlatformAPIStack;
+	'user-preferences'?: HerokuPlatformAPIUserPreferences;
+	'whitelisted-add-on-service'?: HerokuPlatformAPIWhitelistedEntity
+}
+
+/**
 * An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
 */
 export interface HerokuPlatformAPIAccountFeature {
@@ -3936,79 +4012,3 @@ export interface AddonService { id?: Id10; name?: Name8; human_name?: HumanName 
 * unique identifier for this whitelisting entity
 */
 export type Id48 = string;
-
-/**
-* The platform API empowers developers to automate, extend and combine Heroku with other services.
-*/
-export interface RealWorldHeroku {
-	'account-feature'?: HerokuPlatformAPIAccountFeature;
-	account?: HerokuPlatformAPIAccount;
-	'add-on-action'?: HerokuPlatformAPIAddOnAction;
-	'add-on-attachment'?: HerokuPlatformAPIAddOnAttachment;
-	'add-on-config'?: HerokuPlatformAPIAddOnConfig;
-	'add-on-plan-action'?: HerokuPlatformAPIAddOnPlanAction;
-	'add-on-region-capability'?: HerokuPlatformAPIAddOnRegionCapability;
-	'add-on-service'?: HerokuPlatformAPIAddOnService;
-	'add-on'?: HerokuPlatformAPIAddOn;
-	'app-feature'?: HerokuPlatformAPIAppFeature;
-	'app-formation-set'?: HerokuPlatformAPIApplicationFormationSet;
-	'app-setup'?: HerokuSetupAPIAppSetup;
-	'app-transfer'?: HerokuPlatformAPIAppTransfer;
-	app?: HerokuPlatformAPIApp;
-	'build-result'?: HerokuBuildAPIBuildResult;
-	build?: HerokuBuildAPIBuild;
-	'buildpack-installation'?: HerokuPlatformAPIBuildpackInstallations;
-	collaborator?: HerokuPlatformAPICollaborator;
-	'config-var'?: HerokuPlatformAPIConfigVars;
-	credit?: HerokuPlatformAPICredit;
-	domain?: HerokuPlatformAPIDomain;
-	'dyno-size'?: HerokuPlatformAPIDynoSize;
-	dyno?: HerokuPlatformAPIDyno;
-	event?: HerokuPlatformAPIEvent;
-	'failed-event'?: HerokuPlatformAPIFailedEvent;
-	'filter-apps'?: HerokuPlatformAPIFilters;
-	formation?: HerokuPlatformAPIFormation;
-	'identity-provider'?: HerokuPlatformAPIIdentityProvider;
-	'inbound-ruleset'?: HerokuPlatformAPIInboundRuleset;
-	invitation?: HerokuPlatformAPIInvitation;
-	'invoice-address'?: HerokuVaultAPIInvoiceAddress;
-	invoice?: HerokuPlatformAPIInvoice;
-	key?: HerokuPlatformAPIKey;
-	'log-drain'?: HerokuPlatformAPILogDrain;
-	'log-session'?: HerokuPlatformAPILogSession;
-	'oauth-authorization'?: HerokuPlatformAPIOAuthAuthorization;
-	'oauth-client'?: HerokuPlatformAPIOAuthClient;
-	'oauth-grant'?: HerokuPlatformAPIOAuthGrant;
-	'oauth-token'?: HerokuPlatformAPIOAuthToken;
-	'organization-add-on'?: HerokuPlatformAPIOrganizationAddOn;
-	'organization-app-collaborator'?: HerokuPlatformAPIOrganizationAppCollaborator;
-	'organization-app'?: HerokuPlatformAPIOrganizationApp;
-	'organization-feature'?: HerokuPlatformAPIOrganizationFeature;
-	'organization-invitation'?: HerokuPlatformAPIOrganizationInvitation;
-	'organization-invoice'?: HerokuPlatformAPIOrganizationInvoice;
-	'organization-member'?: HerokuPlatformAPIOrganizationMember;
-	'organization-preferences'?: HerokuPlatformAPIOrganizationPreferences;
-	organization?: HerokuPlatformAPIOrganization;
-	'outbound-ruleset'?: HerokuPlatformAPIOutboundRuleset;
-	'password-reset'?: HerokuPlatformAPIPasswordReset;
-	'organization-app-permission'?: HerokuPlatformAPIOrganizationAppPermission;
-	'pipeline-coupling'?: HerokuPlatformAPIPipelineCoupling;
-	'pipeline-promotion-target'?: HerokuPlatformAPIPipelinePromotionTarget;
-	'pipeline-promotion'?: HerokuPlatformAPIPipelinePromotion;
-	pipeline?: HerokuPlatformAPIPipeline;
-	plan?: HerokuPlatformAPIPlan;
-	'rate-limit'?: HerokuPlatformAPIRateLimit;
-	region?: HerokuPlatformAPIRegion;
-	release?: HerokuPlatformAPIRelease;
-	slug?: HerokuPlatformAPISlug;
-	'sms-number'?: HerokuPlatformAPISMSNumber;
-	'sni-endpoint'?: HerokuPlatformAPISNIEndpoint;
-	source?: HerokuPlatformAPISource;
-	'space-app-access'?: HerokuPlatformAPISpaceAccess;
-	'space-nat'?: HerokuPlatformAPISpaceNetworkAddressTranslation;
-	space?: HerokuPlatformAPISpace;
-	'ssl-endpoint'?: HerokuPlatformAPISSLEndpoint;
-	stack?: HerokuPlatformAPIStack;
-	'user-preferences'?: HerokuPlatformAPIUserPreferences;
-	'whitelisted-add-on-service'?: HerokuPlatformAPIWhitelistedEntity
-}

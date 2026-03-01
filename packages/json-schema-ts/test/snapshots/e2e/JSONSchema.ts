@@ -1,7 +1,7 @@
 /**
 * Core schema meta-schema
 */
-export interface  {
+export interface JSONSchema {
 	id?: string;
 	$schema?: string;
 	title?: string;
@@ -15,30 +15,30 @@ export interface  {
 	maxLength?: PositiveInteger;
 	minLength?: PositiveIntegerDefault0;
 	pattern?: string;
-	additionalItems?: boolean | ;
-	items?:  | SchemaArray;
+	additionalItems?: boolean | JSONSchema;
+	items?: JSONSchema | SchemaArray;
 	maxItems?: PositiveInteger;
 	minItems?: PositiveIntegerDefault0;
 	uniqueItems?: boolean;
 	maxProperties?: PositiveInteger;
 	minProperties?: PositiveIntegerDefault0;
 	required?: StringArray;
-	additionalProperties?: boolean | ;
-	definitions?: Record<string, >;
-	properties?: Record<string, >;
-	patternProperties?: Record<string, >;
-	dependencies?: Record<string,  | StringArray>;
+	additionalProperties?: boolean | JSONSchema;
+	definitions?: Record<string, JSONSchema>;
+	properties?: Record<string, JSONSchema>;
+	patternProperties?: Record<string, JSONSchema>;
+	dependencies?: Record<string, JSONSchema | StringArray>;
 	enum?: any[];
 	type?: SimpleTypes | SimpleTypes[];
 	allOf?: SchemaArray;
 	anyOf?: SchemaArray;
 	oneOf?: SchemaArray;
-	not?: 
+	not?: JSONSchema
 }
 
 export type PositiveInteger = number;
 export type PositiveIntegerDefault0 = PositiveInteger & unknown;
-export type SchemaArray = [];
+export type SchemaArray = JSONSchema[];
 export type StringArray = string[];
 
 export type SimpleTypes = 
@@ -50,5 +50,3 @@ export type SimpleTypes =
 	'object' |
 	'string'
 ;
-
-export type JSONSchema = ;

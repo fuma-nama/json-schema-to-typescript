@@ -1,3 +1,5 @@
+export interface Ref5 { foo: ExampleSchema; bar: ExampleSchema1 }
+
 export interface ExampleSchema {
 	firstName: string;
 	lastName: string;
@@ -11,4 +13,3 @@ export interface ExampleSchema {
 }
 
 export interface ExampleSchema1 { isConflict: boolean }
-export interface Ref5 { foo: ExampleSchema; bar: ExampleSchema1 }

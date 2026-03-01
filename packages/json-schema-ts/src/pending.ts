@@ -4,17 +4,18 @@ export function createPendingFactory() {
   const allPendings = new WeakSet()
 
   return {
-    createPending<T extends object>(defaultValue?: T) {
+    create<T extends object>(defaultValue?: T) {
       const pending = defaultValue ?? ({} as T)
       allPendings.add(pending)
       return pending
     },
 
-    isPending(obj: object) {
+    is(obj: object) {
       return allPendings.has(obj)
     },
 
-    resolvePending(obj: object, value: object) {
+    resolve(obj: object, value: object) {
+      if (!this.is(obj)) return
       replace(obj, value)
       allPendings.delete(obj)
     }

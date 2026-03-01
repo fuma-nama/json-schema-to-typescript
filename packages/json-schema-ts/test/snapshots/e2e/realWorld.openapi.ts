@@ -1,3 +1,20 @@
+/**
+* Validation schema for OpenAPI Specification 3.0.X.
+*/
+export type RealWorldOpenapi = 
+	{ 
+		openapi: string;
+		info: Info;
+		externalDocs?: ExternalDocumentation;
+		servers?: Server[];
+		security?: SecurityRequirement[];
+		tags?: Tag[];
+		paths: Paths;
+		components?: Components
+	 } &
+	Record<string, unknown>
+;
+
 export type Info = 
 	{ 
 		title: string;
@@ -331,23 +348,6 @@ export type OpenIdConnectSecurityScheme =
 		type: 'openIdConnect';
 		openIdConnectUrl: string;
 		description?: string
-	 } &
-	Record<string, unknown>
-;
-
-/**
-* Validation schema for OpenAPI Specification 3.0.X.
-*/
-export type RealWorldOpenapi = 
-	{ 
-		openapi: string;
-		info: Info;
-		externalDocs?: ExternalDocumentation;
-		servers?: Server[];
-		security?: SecurityRequirement[];
-		tags?: Tag[];
-		paths: Paths;
-		components?: Components
 	 } &
 	Record<string, unknown>
 ;

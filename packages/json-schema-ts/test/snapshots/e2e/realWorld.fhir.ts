@@ -1,4 +1,156 @@
 /**
+* see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas
+*/
+export type RealWorldFhir = 
+	Account |
+	ActivityDefinition |
+	AdverseEvent |
+	AllergyIntolerance |
+	Appointment |
+	AppointmentResponse |
+	AuditEvent |
+	Basic |
+	Binary |
+	BiologicallyDerivedProduct |
+	BodyStructure |
+	Bundle |
+	CapabilityStatement |
+	CarePlan |
+	CareTeam |
+	CatalogEntry |
+	ChargeItem |
+	ChargeItemDefinition |
+	Claim |
+	ClaimResponse |
+	ClinicalImpression |
+	CodeSystem |
+	Communication |
+	CommunicationRequest |
+	CompartmentDefinition |
+	Composition |
+	ConceptMap |
+	Condition |
+	Consent |
+	Contract |
+	Coverage |
+	CoverageEligibilityRequest |
+	CoverageEligibilityResponse |
+	DetectedIssue |
+	Device |
+	DeviceDefinition |
+	DeviceMetric |
+	DeviceRequest |
+	DeviceUseStatement |
+	DiagnosticReport |
+	DocumentManifest |
+	DocumentReference |
+	EffectEvidenceSynthesis |
+	Encounter |
+	Endpoint |
+	EnrollmentRequest |
+	EnrollmentResponse |
+	EpisodeOfCare |
+	EventDefinition |
+	Evidence |
+	EvidenceVariable |
+	ExampleScenario |
+	ExplanationOfBenefit |
+	FamilyMemberHistory |
+	Flag |
+	Goal |
+	GraphDefinition |
+	Group |
+	GuidanceResponse |
+	HealthcareService |
+	ImagingStudy |
+	Immunization |
+	ImmunizationEvaluation |
+	ImmunizationRecommendation |
+	ImplementationGuide |
+	InsurancePlan |
+	Invoice |
+	Library |
+	Linkage |
+	List |
+	Location |
+	Measure |
+	MeasureReport |
+	Media |
+	Medication |
+	MedicationAdministration |
+	MedicationDispense |
+	MedicationKnowledge |
+	MedicationRequest |
+	MedicationStatement |
+	MedicinalProduct |
+	MedicinalProductAuthorization |
+	MedicinalProductContraindication |
+	MedicinalProductIndication |
+	MedicinalProductIngredient |
+	MedicinalProductInteraction |
+	MedicinalProductManufactured |
+	MedicinalProductPackaged |
+	MedicinalProductPharmaceutical |
+	MedicinalProductUndesirableEffect |
+	MessageDefinition |
+	MessageHeader |
+	MolecularSequence |
+	NamingSystem |
+	NutritionOrder |
+	Observation |
+	ObservationDefinition |
+	OperationDefinition |
+	OperationOutcome |
+	Organization |
+	OrganizationAffiliation |
+	Parameters |
+	Patient |
+	PaymentNotice |
+	PaymentReconciliation |
+	Person |
+	PlanDefinition |
+	Practitioner |
+	PractitionerRole |
+	Procedure |
+	Provenance |
+	Questionnaire |
+	QuestionnaireResponse |
+	RelatedPerson |
+	RequestGroup |
+	ResearchDefinition |
+	ResearchElementDefinition |
+	ResearchStudy |
+	ResearchSubject |
+	RiskAssessment |
+	RiskEvidenceSynthesis |
+	Schedule |
+	SearchParameter |
+	ServiceRequest |
+	Slot |
+	Specimen |
+	SpecimenDefinition |
+	StructureDefinition |
+	StructureMap |
+	Subscription |
+	Substance |
+	SubstanceNucleicAcid |
+	SubstancePolymer |
+	SubstanceProtein |
+	SubstanceReferenceInformation |
+	SubstanceSourceMaterial |
+	SubstanceSpecification |
+	SupplyDelivery |
+	SupplyRequest |
+	Task |
+	TerminologyCapabilities |
+	TestReport |
+	TestScript |
+	ValueSet |
+	VerificationResult |
+	VisionPrescription
+;
+
+/**
 * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
 */
 export interface Account {
@@ -3423,7 +3575,7 @@ export interface Quantity10 {
 */
 export interface Meta1 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -3446,7 +3598,7 @@ export interface Meta1 {
 	tag?: Coding[]
 }
 
-export type NoName = Extension[];
+export type Anonymous = Extension[];
 
 /**
 * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
@@ -3867,7 +4019,7 @@ export type Id3 = string;
 */
 export interface Meta2 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -4586,7 +4738,7 @@ export type Id4 = string;
 */
 export interface Meta3 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -5004,7 +5156,7 @@ export type Id5 = string;
 */
 export interface Meta4 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -5454,7 +5606,7 @@ export type Id6 = string;
 */
 export interface Meta5 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -5755,7 +5907,7 @@ export type Id7 = string;
 */
 export interface Meta6 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -5946,7 +6098,7 @@ export type Id8 = string;
 */
 export interface Meta7 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -6452,7 +6604,7 @@ export type Id9 = string;
 */
 export interface Meta8 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -6577,7 +6729,7 @@ export type Id10 = string;
 */
 export interface Meta9 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -6725,7 +6877,7 @@ export type Id11 = string;
 */
 export interface Meta10 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -7156,7 +7308,7 @@ export type Id12 = string;
 */
 export interface Meta11 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -7336,7 +7488,7 @@ export type Id13 = string;
 */
 export interface Meta12 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -7896,7 +8048,7 @@ export type Id14 = string;
 */
 export interface Meta13 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -9024,7 +9176,7 @@ export type Id15 = string;
 */
 export interface Meta14 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -9582,7 +9734,7 @@ export type Id16 = string;
 */
 export interface Meta15 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -9841,7 +9993,7 @@ export type Id17 = string;
 */
 export interface Meta16 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -10143,7 +10295,7 @@ export type Id18 = string;
 */
 export interface Meta17 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -10580,7 +10732,7 @@ export type Id19 = string;
 */
 export interface Meta18 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -11020,7 +11172,7 @@ export type Id20 = string;
 */
 export interface Meta19 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -12728,7 +12880,7 @@ export type Id21 = string;
 */
 export interface Meta20 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -14181,7 +14333,7 @@ export type Id22 = string;
 */
 export interface Meta21 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -14590,7 +14742,7 @@ export type Id23 = string;
 */
 export interface Meta22 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -15286,7 +15438,7 @@ export type Id24 = string;
 */
 export interface Meta23 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -15624,7 +15776,7 @@ export type Id25 = string;
 */
 export interface Meta24 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -15976,7 +16128,7 @@ export type Id26 = string;
 */
 export interface Meta25 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -16260,7 +16412,7 @@ export type Id27 = string;
 */
 export interface Meta26 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -16816,7 +16968,7 @@ export type Id28 = string;
 */
 export interface Meta27 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -17452,7 +17604,7 @@ export type Id29 = string;
 */
 export interface Meta28 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -17883,7 +18035,7 @@ export type Id30 = string;
 */
 export interface Meta29 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -18344,10 +18496,10 @@ export interface ConsentProvision1 {
 	code?: CodeableConcept5[];
 	dataPeriod?: Period35;
 	data?: ConsentData[];
-	provision?: NoName1
+	provision?: Anonymous1
 }
 
-export type NoName1 = ConsentProvision1[];
+export type Anonymous1 = ConsentProvision1[];
 
 /**
 * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
@@ -18492,7 +18644,7 @@ export type Id31 = string;
 */
 export interface Meta30 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -20418,7 +20570,7 @@ export type Id32 = string;
 */
 export interface Meta31 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -20870,7 +21022,7 @@ export type Id33 = string;
 */
 export interface Meta32 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -21441,7 +21593,7 @@ export type Id34 = string;
 */
 export interface Meta33 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -22073,7 +22225,7 @@ export type Id35 = string;
 */
 export interface Meta34 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -22422,7 +22574,7 @@ export type Id36 = string;
 */
 export interface Meta35 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -23098,7 +23250,7 @@ export type Id37 = string;
 */
 export interface Meta36 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -23893,7 +24045,7 @@ export type Id38 = string;
 */
 export interface Meta37 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -24206,7 +24358,7 @@ export type Id39 = string;
 */
 export interface Meta38 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -24616,7 +24768,7 @@ export type Id40 = string;
 */
 export interface Meta39 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -24885,7 +25037,7 @@ export type Id41 = string;
 */
 export interface Meta40 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -25142,7 +25294,7 @@ export type Id42 = string;
 */
 export interface Meta41 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -25406,7 +25558,7 @@ export type Id43 = string;
 */
 export interface Meta42 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -25887,7 +26039,7 @@ export type Id44 = string;
 */
 export interface Meta43 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -26629,7 +26781,7 @@ export type Id45 = string;
 */
 export interface Meta44 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -27280,7 +27432,7 @@ export type Id46 = string;
 */
 export interface Meta45 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -27431,7 +27583,7 @@ export type Id47 = string;
 */
 export interface Meta46 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -27616,7 +27768,7 @@ export type Id48 = string;
 */
 export interface Meta47 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -27832,7 +27984,7 @@ export type Id49 = string;
 */
 export interface Meta48 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -28185,7 +28337,7 @@ export type Id50 = string;
 */
 export interface Meta49 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -28574,7 +28726,7 @@ export type Id51 = string;
 */
 export interface Meta50 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -28903,7 +29055,7 @@ export type Id52 = string;
 */
 export interface Meta51 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -29440,7 +29592,7 @@ export type Id53 = string;
 */
 export interface Meta52 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -30258,7 +30410,7 @@ export type Id54 = string;
 */
 export interface Meta53 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -33042,7 +33194,7 @@ export type Id55 = string;
 */
 export interface Meta54 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -33445,7 +33597,7 @@ export type Id56 = string;
 */
 export interface Meta55 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -33667,7 +33819,7 @@ export type Id57 = string;
 */
 export interface Meta56 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -34045,7 +34197,7 @@ export type Id58 = string;
 */
 export interface Meta57 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -34496,7 +34648,7 @@ export type Id59 = string;
 */
 export interface Meta58 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -34904,7 +35056,7 @@ export type Id60 = string;
 */
 export interface Meta59 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -35208,7 +35360,7 @@ export type Id61 = string;
 */
 export interface Meta60 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -35626,7 +35778,7 @@ export type Id62 = string;
 */
 export interface Meta61 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -36126,7 +36278,7 @@ export type Id65 = string;
 */
 export interface Meta62 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -36749,7 +36901,7 @@ export type Id66 = string;
 */
 export interface Meta63 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -36975,7 +37127,7 @@ export type Id67 = string;
 */
 export interface Meta64 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -37720,7 +37872,7 @@ export type Id68 = string;
 */
 export interface Meta65 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -38274,10 +38426,10 @@ export interface ImplementationGuidePage1 {
 	_title?: Element1058;
 	generation?: 'html' | 'markdown' | 'xml' | 'generated';
 	_generation?: Element1059;
-	page?: NoName2
+	page?: Anonymous2
 }
 
-export type NoName2 = ImplementationGuidePage1[];
+export type Anonymous2 = ImplementationGuidePage1[];
 
 /**
 * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
@@ -38687,7 +38839,7 @@ export type Id72 = string;
 */
 export interface Meta66 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -39402,7 +39554,7 @@ export type Id73 = string;
 */
 export interface Meta67 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -39912,7 +40064,7 @@ export type Id74 = string;
 */
 export interface Meta68 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -40220,7 +40372,7 @@ export type Id75 = string;
 */
 export interface Meta69 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -40416,7 +40568,7 @@ export type Id76 = string;
 */
 export interface Meta70 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -40739,7 +40891,7 @@ export type Id77 = string;
 */
 export interface Meta71 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -41185,7 +41337,7 @@ export type Id78 = string;
 */
 export interface Meta72 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -41917,7 +42069,7 @@ export type Id79 = string;
 */
 export interface Meta73 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -42464,7 +42616,7 @@ export type Id80 = string;
 */
 export interface Meta74 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -42781,7 +42933,7 @@ export type Id81 = string;
 */
 export interface Meta75 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -43116,7 +43268,7 @@ export type Id82 = string;
 */
 export interface Meta76 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -43547,7 +43699,7 @@ export type Id83 = string;
 */
 export interface Meta77 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -44026,7 +44178,7 @@ export type Id84 = string;
 */
 export interface Meta78 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -45143,7 +45295,7 @@ export type Id85 = string;
 */
 export interface Meta79 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -45767,7 +45919,7 @@ export type Id86 = string;
 */
 export interface Meta80 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -46051,7 +46203,7 @@ export type Id87 = string;
 */
 export interface Meta81 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -46662,7 +46814,7 @@ export type Id88 = string;
 */
 export interface Meta82 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -46997,10 +47149,10 @@ export interface MedicinalProductAuthorizationProcedure1 {
 	datePeriod?: Period85;
 	dateDateTime?: string;
 	_dateDateTime?: Element1229;
-	application?: NoName3
+	application?: Anonymous3
 }
 
-export type NoName3 = MedicinalProductAuthorizationProcedure1[];
+export type Anonymous3 = MedicinalProductAuthorizationProcedure1[];
 
 /**
 * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
@@ -47071,7 +47223,7 @@ export type Id89 = string;
 */
 export interface Meta83 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -47351,7 +47503,7 @@ export type Id90 = string;
 */
 export interface Meta84 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -47565,7 +47717,7 @@ export type Id91 = string;
 */
 export interface Meta85 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -47967,7 +48119,7 @@ export type Id92 = string;
 */
 export interface Meta86 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -48175,7 +48327,7 @@ export type Id93 = string;
 */
 export interface Meta87 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -48356,7 +48508,7 @@ export type Id94 = string;
 */
 export interface Meta88 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -48684,7 +48836,7 @@ export type Id95 = string;
 */
 export interface Meta89 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -49082,7 +49234,7 @@ export type Id96 = string;
 */
 export interface Meta90 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -49283,7 +49435,7 @@ export type Id97 = string;
 */
 export interface Meta91 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -49622,7 +49774,7 @@ export type Id98 = string;
 */
 export interface Meta92 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -50071,7 +50223,7 @@ export type Id100 = string;
 */
 export interface Meta93 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -51090,7 +51242,7 @@ export type Id101 = string;
 */
 export interface Meta94 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -51388,7 +51540,7 @@ export interface NutritionOrder {
 	supplement?: NutritionOrderSupplement[];
 	enteralFormula?: NutritionOrderEnteralFormula;
 	/**
-	* Comments made about the {{title}} by the requester, performer, subject or other participants.
+	* Comments made about the \{\{title\}\} by the requester, performer, subject or other participants.
 	*/
 	note?: Annotation1[]
 }
@@ -51403,7 +51555,7 @@ export type Id102 = string;
 */
 export interface Meta95 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -52166,7 +52318,7 @@ export type Id103 = string;
 */
 export interface Meta96 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -52853,7 +53005,7 @@ export type Id104 = string;
 */
 export interface Meta97 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -53292,7 +53444,7 @@ export type Id105 = string;
 */
 export interface Meta98 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -53818,7 +53970,7 @@ export type Id106 = string;
 */
 export interface Meta99 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -54067,7 +54219,7 @@ export type Id107 = string;
 */
 export interface Meta100 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -54356,7 +54508,7 @@ export type Id108 = string;
 */
 export interface Meta101 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -54481,7 +54633,7 @@ export type Id109 = string;
 */
 export interface Meta102 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -55310,7 +55462,7 @@ export interface Dosage2 {
 */
 export interface Meta103 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -55438,7 +55590,7 @@ export type Id110 = string;
 */
 export interface Meta104 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -55873,7 +56025,7 @@ export type Id111 = string;
 */
 export interface Meta105 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -56135,7 +56287,7 @@ export type Id112 = string;
 */
 export interface Meta106 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -56620,7 +56772,7 @@ export type Id113 = string;
 */
 export interface Meta107 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -56917,7 +57069,7 @@ export type Id114 = string;
 */
 export interface Meta108 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -58018,7 +58170,7 @@ export type Id117 = string;
 */
 export interface Meta109 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -58248,7 +58400,7 @@ export type Id118 = string;
 */
 export interface Meta110 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -58624,7 +58776,7 @@ export type Id119 = string;
 */
 export interface Meta111 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -59049,7 +59201,7 @@ export type Id120 = string;
 */
 export interface Meta112 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -59389,7 +59541,7 @@ export type Id121 = string;
 */
 export interface Meta113 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -60238,7 +60390,7 @@ export type Id122 = string;
 */
 export interface Meta114 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -60702,7 +60854,7 @@ export type Id123 = string;
 */
 export interface Meta115 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -60954,7 +61106,7 @@ export type Id124 = string;
 */
 export interface Meta116 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -61672,7 +61824,7 @@ export type Id126 = string;
 */
 export interface Meta117 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -62125,7 +62277,7 @@ export type Id127 = string;
 */
 export interface Meta118 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -62833,7 +62985,7 @@ export type Id128 = string;
 */
 export interface Meta119 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -63158,7 +63310,7 @@ export type Id129 = string;
 */
 export interface Meta120 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -63372,7 +63524,7 @@ export type Id130 = string;
 */
 export interface Meta121 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -63811,7 +63963,7 @@ export type Id131 = string;
 */
 export interface Meta122 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -64421,7 +64573,7 @@ export type Id132 = string;
 */
 export interface Meta123 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -64670,7 +64822,7 @@ export type Id133 = string;
 */
 export interface Meta124 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -65072,7 +65224,7 @@ export type Id134 = string;
 */
 export interface Meta125 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -65427,7 +65579,7 @@ export type Id135 = string;
 */
 export interface Meta126 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -65633,7 +65785,7 @@ export type Id136 = string;
 */
 export interface Meta127 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -66142,7 +66294,7 @@ export type Id137 = string;
 */
 export interface Meta128 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -66738,7 +66890,7 @@ export type Id138 = string;
 */
 export interface Meta129 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -68806,7 +68958,7 @@ export interface Dosage3 {
 */
 export interface Meta130 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -69469,7 +69621,7 @@ export interface Dosage4 {
 */
 export interface Meta131 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -70222,7 +70374,7 @@ export interface Dosage5 {
 */
 export interface Meta132 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -71026,7 +71178,7 @@ export interface Dosage6 {
 */
 export interface Meta133 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -71553,7 +71705,7 @@ export type Id142 = string;
 */
 export interface Meta134 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -72810,7 +72962,7 @@ export interface Dosage7 {
 */
 export interface Meta135 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -73189,7 +73341,7 @@ export type Id153 = string;
 */
 export interface Meta136 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -73414,7 +73566,7 @@ export type Id154 = string;
 */
 export interface Meta137 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -73670,7 +73822,7 @@ export type Id155 = string;
 */
 export interface Meta138 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -74083,7 +74235,7 @@ export type Id156 = string;
 */
 export interface Meta139 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -74718,7 +74870,7 @@ export type Id157 = string;
 */
 export interface Meta140 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -74990,7 +75142,7 @@ export type Id158 = string;
 */
 export interface Meta141 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -75440,7 +75592,7 @@ export type Id159 = string;
 */
 export interface Meta142 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -76027,7 +76179,7 @@ export type Id160 = string;
 */
 export interface Meta143 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -77270,7 +77422,7 @@ export type Id161 = string;
 */
 export interface Meta144 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -77573,7 +77725,7 @@ export type Id162 = string;
 */
 export interface Meta145 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -78000,7 +78152,7 @@ export type Id163 = string;
 */
 export interface Meta146 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -79130,7 +79282,7 @@ export interface Dosage8 {
 */
 export interface Meta147 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -79934,7 +80086,7 @@ export interface Dosage9 {
 */
 export interface Meta148 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -80046,7 +80198,7 @@ export type Id164 = string;
 */
 export interface Meta149 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -80791,7 +80943,7 @@ export type Id165 = string;
 */
 export interface Meta150 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -81428,7 +81580,7 @@ export type Id166 = string;
 */
 export interface Meta151 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -83049,7 +83201,7 @@ export type Id174 = string;
 */
 export interface Meta152 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -83862,7 +84014,7 @@ export type Id175 = string;
 */
 export interface Meta153 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -84354,7 +84506,7 @@ export type Id176 = string;
 */
 export interface Meta154 {
 	id?: String;
-	extension?: NoName;
+	extension?: Anonymous;
 	versionId?: Id2;
 	_versionId?: Element145;
 	lastUpdated?: Instant1;
@@ -84889,155 +85041,3 @@ export interface Reference477 {
 	display?: String24;
 	_display?: Element47
 }
-
-/**
-* see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas
-*/
-export type RealWorldFhir = 
-	Account |
-	ActivityDefinition |
-	AdverseEvent |
-	AllergyIntolerance |
-	Appointment |
-	AppointmentResponse |
-	AuditEvent |
-	Basic |
-	Binary |
-	BiologicallyDerivedProduct |
-	BodyStructure |
-	Bundle |
-	CapabilityStatement |
-	CarePlan |
-	CareTeam |
-	CatalogEntry |
-	ChargeItem |
-	ChargeItemDefinition |
-	Claim |
-	ClaimResponse |
-	ClinicalImpression |
-	CodeSystem |
-	Communication |
-	CommunicationRequest |
-	CompartmentDefinition |
-	Composition |
-	ConceptMap |
-	Condition |
-	Consent |
-	Contract |
-	Coverage |
-	CoverageEligibilityRequest |
-	CoverageEligibilityResponse |
-	DetectedIssue |
-	Device |
-	DeviceDefinition |
-	DeviceMetric |
-	DeviceRequest |
-	DeviceUseStatement |
-	DiagnosticReport |
-	DocumentManifest |
-	DocumentReference |
-	EffectEvidenceSynthesis |
-	Encounter |
-	Endpoint |
-	EnrollmentRequest |
-	EnrollmentResponse |
-	EpisodeOfCare |
-	EventDefinition |
-	Evidence |
-	EvidenceVariable |
-	ExampleScenario |
-	ExplanationOfBenefit |
-	FamilyMemberHistory |
-	Flag |
-	Goal |
-	GraphDefinition |
-	Group |
-	GuidanceResponse |
-	HealthcareService |
-	ImagingStudy |
-	Immunization |
-	ImmunizationEvaluation |
-	ImmunizationRecommendation |
-	ImplementationGuide |
-	InsurancePlan |
-	Invoice |
-	Library |
-	Linkage |
-	List |
-	Location |
-	Measure |
-	MeasureReport |
-	Media |
-	Medication |
-	MedicationAdministration |
-	MedicationDispense |
-	MedicationKnowledge |
-	MedicationRequest |
-	MedicationStatement |
-	MedicinalProduct |
-	MedicinalProductAuthorization |
-	MedicinalProductContraindication |
-	MedicinalProductIndication |
-	MedicinalProductIngredient |
-	MedicinalProductInteraction |
-	MedicinalProductManufactured |
-	MedicinalProductPackaged |
-	MedicinalProductPharmaceutical |
-	MedicinalProductUndesirableEffect |
-	MessageDefinition |
-	MessageHeader |
-	MolecularSequence |
-	NamingSystem |
-	NutritionOrder |
-	Observation |
-	ObservationDefinition |
-	OperationDefinition |
-	OperationOutcome |
-	Organization |
-	OrganizationAffiliation |
-	Parameters |
-	Patient |
-	PaymentNotice |
-	PaymentReconciliation |
-	Person |
-	PlanDefinition |
-	Practitioner |
-	PractitionerRole |
-	Procedure |
-	Provenance |
-	Questionnaire |
-	QuestionnaireResponse |
-	RelatedPerson |
-	RequestGroup |
-	ResearchDefinition |
-	ResearchElementDefinition |
-	ResearchStudy |
-	ResearchSubject |
-	RiskAssessment |
-	RiskEvidenceSynthesis |
-	Schedule |
-	SearchParameter |
-	ServiceRequest |
-	Slot |
-	Specimen |
-	SpecimenDefinition |
-	StructureDefinition |
-	StructureMap |
-	Subscription |
-	Substance |
-	SubstanceNucleicAcid |
-	SubstancePolymer |
-	SubstanceProtein |
-	SubstanceReferenceInformation |
-	SubstanceSourceMaterial |
-	SubstanceSpecification |
-	SupplyDelivery |
-	SupplyRequest |
-	Task |
-	TerminologyCapabilities |
-	TestReport |
-	TestScript |
-	ValueSet |
-	VerificationResult |
-	VisionPrescription
-;

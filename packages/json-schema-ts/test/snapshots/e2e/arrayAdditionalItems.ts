@@ -1,37 +1,3 @@
-export interface ExampleSchema {
-	firstName: string;
-	lastName: string;
-	/**
-	* Age in years
-	*/
-	age?: number;
-	height?: number;
-	favoriteFoods?: any[];
-	likesDogs?: boolean
-}
-
-export interface ExampleSchema1 {
-	firstName: string;
-	lastName: string;
-	/**
-	* Age in years
-	*/
-	age?: number;
-	height?: number;
-	favoriteFoods?: any[];
-	likesDogs?: boolean
-}
-
-/**
-* Title matches definition key for kicks
-*/
-export interface FirstDefinition { name?: string }
-
-/**
-* Title is unrelated to definition key and behaviour is the same
-*/
-export interface UnrelatedTitle { name?: string }
-
 export interface ArrayAdditionalItems {
 	namedEums?: { 
 		additionalItemsAny?: [(1 | 2 | 3)?];
@@ -68,3 +34,37 @@ export interface ArrayAdditionalItems {
 		additionalItems?: [UnrelatedTitle?]
 	 }
 }
+
+export interface ExampleSchema {
+	firstName: string;
+	lastName: string;
+	/**
+	* Age in years
+	*/
+	age?: number;
+	height?: number;
+	favoriteFoods?: any[];
+	likesDogs?: boolean
+}
+
+export interface ExampleSchema1 {
+	firstName: string;
+	lastName: string;
+	/**
+	* Age in years
+	*/
+	age?: number;
+	height?: number;
+	favoriteFoods?: any[];
+	likesDogs?: boolean
+}
+
+/**
+* Title matches definition key for kicks
+*/
+export interface FirstDefinition { name?: string }
+
+/**
+* Title is unrelated to definition key and behaviour is the same
+*/
+export interface UnrelatedTitle { name?: string }

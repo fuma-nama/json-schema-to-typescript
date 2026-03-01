@@ -1,10 +1,10 @@
 export interface WithComment {
 	/**
-	* /* comment */
+	* /* comment *\/
 	*/
 	a?: { 
 		/**
-		* /* nested comment */
+		* /* nested comment *\/
 		*/
 		b?: string
 	 }

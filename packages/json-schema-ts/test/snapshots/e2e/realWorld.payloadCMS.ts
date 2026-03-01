@@ -1,5 +1,124 @@
 export type RealWorldPayloadCMS = unknown;
 
+export interface MainMenu {
+	items?: { 
+		type?: 'link' | 'subMenu';
+		label: string;
+		subMenu?: { 
+			column1?: (
+				{ 
+					appearance?: 'primary' | 'secondary' | 'arrow';
+					link?: { 
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuLink'
+				 } |
+
+				{ 
+					content: string;
+					id?: string;
+					blockName?: string;
+					blockType: 'menuDescription'
+				 } |
+
+				{ 
+					media: string | Media;
+					headline: string;
+					link?: { 
+						type?: 'reference' | 'custom';
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuFeature'
+				 }
+			)[];
+			enableColumn2?: boolean;
+			column2?: (
+				{ 
+					appearance?: 'primary' | 'secondary' | 'arrow';
+					link?: { 
+						type?: 'reference' | 'custom';
+						label: string;
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuLink'
+				 } |
+
+				{ 
+					content: string;
+					id?: string;
+					blockName?: string;
+					blockType: 'menuDescription'
+				 } |
+
+				{ 
+					media: string | Media;
+					headline: string;
+					link?: { 
+						type?: 'reference' | 'custom';
+						reference: 
+							{ value: string | Page; relationTo: 'pages' } |
+							{ value: string | Post; relationTo: 'posts' } |
+							{ value: string | Housing; relationTo: 'housing' }
+						;
+						url: string
+					 };
+					id?: string;
+					blockName?: string;
+					blockType: 'menuFeature'
+				 }
+			)[]
+		 };
+
+		link?: { 
+			type?: 'reference' | 'custom';
+			reference: 
+				{ value: string | Page; relationTo: 'pages' } |
+				{ value: string | Post; relationTo: 'posts' } |
+				{ value: string | Housing; relationTo: 'housing' }
+			;
+			url: string
+		 };
+		id?: string
+	 }[];
+
+	secondaryItems?: { 
+		link?: { 
+			type?: 'reference' | 'custom';
+			label: string;
+			reference: 
+				{ value: string | Page; relationTo: 'pages' } |
+				{ value: string | Post; relationTo: 'posts' } |
+				{ value: string | Housing; relationTo: 'housing' }
+			;
+			url: string
+		 };
+		id?: string
+	 }[]
+}
+
 export interface Page {
 	breadcrumbs?: { 
 		doc?: string | Page;
@@ -1903,125 +2022,6 @@ export interface User {
 	lockUntil?: string
 }
 
-export interface MainMenu {
-	items?: { 
-		type?: 'link' | 'subMenu';
-		label: string;
-		subMenu?: { 
-			column1?: (
-				{ 
-					appearance?: 'primary' | 'secondary' | 'arrow';
-					link?: { 
-						type?: 'reference' | 'custom';
-						label: string;
-						reference: 
-							{ value: string | Page; relationTo: 'pages' } |
-							{ value: string | Post; relationTo: 'posts' } |
-							{ value: string | Housing; relationTo: 'housing' }
-						;
-						url: string
-					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuLink'
-				 } |
-
-				{ 
-					content: string;
-					id?: string;
-					blockName?: string;
-					blockType: 'menuDescription'
-				 } |
-
-				{ 
-					media: string | Media;
-					headline: string;
-					link?: { 
-						type?: 'reference' | 'custom';
-						reference: 
-							{ value: string | Page; relationTo: 'pages' } |
-							{ value: string | Post; relationTo: 'posts' } |
-							{ value: string | Housing; relationTo: 'housing' }
-						;
-						url: string
-					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuFeature'
-				 }
-			)[];
-			enableColumn2?: boolean;
-			column2?: (
-				{ 
-					appearance?: 'primary' | 'secondary' | 'arrow';
-					link?: { 
-						type?: 'reference' | 'custom';
-						label: string;
-						reference: 
-							{ value: string | Page; relationTo: 'pages' } |
-							{ value: string | Post; relationTo: 'posts' } |
-							{ value: string | Housing; relationTo: 'housing' }
-						;
-						url: string
-					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuLink'
-				 } |
-
-				{ 
-					content: string;
-					id?: string;
-					blockName?: string;
-					blockType: 'menuDescription'
-				 } |
-
-				{ 
-					media: string | Media;
-					headline: string;
-					link?: { 
-						type?: 'reference' | 'custom';
-						reference: 
-							{ value: string | Page; relationTo: 'pages' } |
-							{ value: string | Post; relationTo: 'posts' } |
-							{ value: string | Housing; relationTo: 'housing' }
-						;
-						url: string
-					 };
-					id?: string;
-					blockName?: string;
-					blockType: 'menuFeature'
-				 }
-			)[]
-		 };
-
-		link?: { 
-			type?: 'reference' | 'custom';
-			reference: 
-				{ value: string | Page; relationTo: 'pages' } |
-				{ value: string | Post; relationTo: 'posts' } |
-				{ value: string | Housing; relationTo: 'housing' }
-			;
-			url: string
-		 };
-		id?: string
-	 }[];
-
-	secondaryItems?: { 
-		link?: { 
-			type?: 'reference' | 'custom';
-			label: string;
-			reference: 
-				{ value: string | Page; relationTo: 'pages' } |
-				{ value: string | Post; relationTo: 'posts' } |
-				{ value: string | Housing; relationTo: 'housing' }
-			;
-			url: string
-		 };
-		id?: string
-	 }[]
-}
-
 export interface Footer {
 	column1?: { 
 		appearance?: 'primary' | 'secondary' | 'tertiary';
@@ -2104,6 +2104,20 @@ export interface Alerts {
 	 }[]
 }
 
+export interface Search {
+	title: string;
+	description?: string;
+	keywords?: string;
+	slug: string;
+	media?: string | Media;
+	doc: 
+		{ value: string | Page; relationTo: 'pages' } |
+		{ value: string | Post; relationTo: 'posts' } |
+		{ value: string | Housing; relationTo: 'housing' } |
+		{ value: string | Person; relationTo: 'people' } |
+		{ value: string | Location; relationTo: 'locations' }
+}
+
 export interface Person {
 	name: string;
 	position?: string;
@@ -2128,20 +2142,6 @@ export interface Person {
 	 };
 	slug?: string;
 	home?: string | Page
-}
-
-export interface Search {
-	title: string;
-	description?: string;
-	keywords?: string;
-	slug: string;
-	media?: string | Media;
-	doc: 
-		{ value: string | Page; relationTo: 'pages' } |
-		{ value: string | Post; relationTo: 'posts' } |
-		{ value: string | Housing; relationTo: 'housing' } |
-		{ value: string | Person; relationTo: 'people' } |
-		{ value: string | Location; relationTo: 'locations' }
 }
 
 export interface FormSubmissions {

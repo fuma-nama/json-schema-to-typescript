@@ -1,3 +1,5 @@
+export interface SchemaTitleAsTypeName { ref: ExampleSchema }
+
 export interface ExampleSchema {
 	firstName: string;
 	lastName: string;
@@ -9,5 +11,3 @@ export interface ExampleSchema {
 	favoriteFoods?: any[];
 	likesDogs?: boolean
 }
-
-export interface SchemaTitleAsTypeName { ref: ExampleSchema }

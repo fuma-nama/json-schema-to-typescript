@@ -1,30 +1,3 @@
-export interface NoName {
-	slug?: string;
-	owner?: string;
-	parent_project?: NoName;
-	/**
-	* Project Name
-	*/
-	name?: string;
-
-	/**
-	* Project Description
-	*/
-	description?: string;
-
-	/**
-	* Repository
-	*/
-	repository_id?: string;
-
-	/**
-	* Code Repository ID
-	*/
-	code_repository_id?: string;
-	created_at?: string;
-	updated_at?: string
-}
-
 /**
 * Butler_API_Entities_UserPrivate model
 */
@@ -49,7 +22,7 @@ export interface Ref8 {
 	projects?: { 
 		slug?: string;
 		owner?: string;
-		parent_project?: NoName;
+		parent_project?: Anonymous;
 		/**
 		* Project Name
 		*/
@@ -72,4 +45,31 @@ export interface Ref8 {
 		created_at?: string;
 		updated_at?: string
 	 }
+}
+
+export interface Anonymous {
+	slug?: string;
+	owner?: string;
+	parent_project?: Anonymous;
+	/**
+	* Project Name
+	*/
+	name?: string;
+
+	/**
+	* Project Description
+	*/
+	description?: string;
+
+	/**
+	* Repository
+	*/
+	repository_id?: string;
+
+	/**
+	* Code Repository ID
+	*/
+	code_repository_id?: string;
+	created_at?: string;
+	updated_at?: string
 }

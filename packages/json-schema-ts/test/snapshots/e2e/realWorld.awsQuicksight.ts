@@ -1,4 +1,60 @@
 /**
+* Definition of the AWS::QuickSight::DataSet Resource Type.
+*/
+export interface RealWorldAwsQuicksight {
+	/**
+	* <p>The Amazon Resource Name (ARN) of the resource.</p>
+	*/
+	Arn?: string;
+	AwsAccountId?: string;
+	/**
+	* <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	*/
+	ColumnGroups?: ColumnGroup[];
+	ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+	/**
+	* <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+	*             imported into SPICE.</p>
+	*/
+	ConsumedSpiceCapacityInBytes?: number;
+
+	/**
+	* <p>The time that this dataset was created.</p>
+	*/
+	CreatedTime?: string;
+	DataSetId?: string;
+	FieldFolders?: FieldFolderMap;
+	ImportMode?: DataSetImportMode;
+	/**
+	* <p>The last time that this dataset was updated.</p>
+	*/
+	LastUpdatedTime?: string;
+	LogicalTableMap?: LogicalTableMap;
+	/**
+	* <p>The display name for the dataset.</p>
+	*/
+	Name?: string;
+
+	/**
+	* <p>The list of columns after all transforms. These columns are available in templates,
+	*             analyses, and dashboards.</p>
+	*/
+	OutputColumns?: OutputColumn[];
+
+	/**
+	* <p>A list of resource permissions on the dataset.</p>
+	*/
+	Permissions?: ResourcePermission[];
+	PhysicalTableMap?: PhysicalTableMap;
+	RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+	/**
+	* <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+	*/
+	Tags?: Tag[];
+	IngestionWaitPolicy?: IngestionWaitPolicy
+}
+
+/**
 * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
 *             a variant type structure. For this structure to be valid, only one of the attributes can
 *             be non-null.</p>
@@ -459,60 +515,4 @@ export interface IngestionWaitPolicy {
 	*  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 	*/
 	IngestionWaitTimeInHours?: number
-}
-
-/**
-* Definition of the AWS::QuickSight::DataSet Resource Type.
-*/
-export interface RealWorldAwsQuicksight {
-	/**
-	* <p>The Amazon Resource Name (ARN) of the resource.</p>
-	*/
-	Arn?: string;
-	AwsAccountId?: string;
-	/**
-	* <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-	*/
-	ColumnGroups?: ColumnGroup[];
-	ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
-	/**
-	* <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
-	*             imported into SPICE.</p>
-	*/
-	ConsumedSpiceCapacityInBytes?: number;
-
-	/**
-	* <p>The time that this dataset was created.</p>
-	*/
-	CreatedTime?: string;
-	DataSetId?: string;
-	FieldFolders?: FieldFolderMap;
-	ImportMode?: DataSetImportMode;
-	/**
-	* <p>The last time that this dataset was updated.</p>
-	*/
-	LastUpdatedTime?: string;
-	LogicalTableMap?: LogicalTableMap;
-	/**
-	* <p>The display name for the dataset.</p>
-	*/
-	Name?: string;
-
-	/**
-	* <p>The list of columns after all transforms. These columns are available in templates,
-	*             analyses, and dashboards.</p>
-	*/
-	OutputColumns?: OutputColumn[];
-
-	/**
-	* <p>A list of resource permissions on the dataset.</p>
-	*/
-	Permissions?: ResourcePermission[];
-	PhysicalTableMap?: PhysicalTableMap;
-	RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-	/**
-	* <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-	*/
-	Tags?: Tag[];
-	IngestionWaitPolicy?: IngestionWaitPolicy
 }

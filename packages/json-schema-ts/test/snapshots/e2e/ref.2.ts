@@ -1,3 +1,15 @@
+export interface Ref2 {
+	/**
+	* Behaviour is the same if definition is referenced as prop within a container
+	*/
+	firstContainer?: { first?: FirstDefinition };
+	second?: UnrelatedTitle;
+	third?: ThirdDefinition;
+	fourth?: FourthDefinitionSimpleObject;
+	fifth?: FifthDefinitionString;
+	sixth?: SixthDefinition
+}
+
 /**
 * Title matches definition key for kicks
 */
@@ -24,15 +36,3 @@ export interface FourthDefinitionSimpleObject {}
 export type FifthDefinitionString = 'one' | 'two' | 'three';
 
 export type SixthDefinition = number;
-
-export interface Ref2 {
-	/**
-	* Behaviour is the same if definition is referenced as prop within a container
-	*/
-	firstContainer?: { first?: FirstDefinition };
-	second?: UnrelatedTitle;
-	third?: ThirdDefinition;
-	fourth?: FourthDefinitionSimpleObject;
-	fifth?: FifthDefinitionString;
-	sixth?: SixthDefinition
-}
