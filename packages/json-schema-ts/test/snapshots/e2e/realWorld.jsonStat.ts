@@ -91,8 +91,17 @@ export type RealWorldJsonStat =
 ;
 
 export type Version = '2.0';
+
+/**
+* @format `uri`
+*/
 export type Href = string;
+
 export type Label = string;
+
+/**
+* @uniqueItems
+*/
 export type Note = string[];
 
 export type Link = Record<string, { 
@@ -125,7 +134,18 @@ export type Link = Record<string, {
 	status?: string | string[] | Record<string, string>
  }[]>;
 
-export type Updated = string | string;
+export type Updated = 
+	/**
+	* @format `date-time`
+	*/
+	string |
+
+	/**
+	* @pattern `^((19|20)\d\d)\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$`
+	*/
+	string
+;
+
 export type Source = string;
 export interface Extension {}
 
@@ -134,7 +154,7 @@ export interface Category {
 	label?: Record<string, string>;
 	note?: Record<string, Note>;
 	unit?: Record<string, { label?: Label; decimals?: number; position?: 'start' | 'end' }>;
-	coordinates?: Record<string, [number?, number?]>;
+	coordinates?: Record<string, [number?, number?, ...never[]]>;
 	child?: Record<string, Note>
 }
 

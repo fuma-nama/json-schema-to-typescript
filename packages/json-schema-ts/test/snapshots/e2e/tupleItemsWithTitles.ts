@@ -1,1 +1,1 @@
-export type TupleItemsWithTitles = [{ foo?: string }?, { bar?: string }?];
+export type TupleItemsWithTitles = [{ foo?: string }?, { bar?: string }?, ...never[]];

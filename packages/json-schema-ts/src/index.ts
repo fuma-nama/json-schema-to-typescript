@@ -1,7 +1,7 @@
 import { JSONSchema } from 'json-schema-typed/draft-2020-12'
 import { AST_NODE_TYPES as Types, TSESTree as AST } from '@typescript-eslint/types'
 import { print, PrintOptions, Visitors } from 'esrap'
-import ts, { Comment } from 'esrap/languages/ts'
+import ts, { type Comment } from 'esrap/languages/ts'
 import { createPendingFactory, PendingFactory } from './pending'
 import { isValidPropertyName, toSafeString } from './utils'
 import { CommentFactory, createCommentFactory, escapeJSDocContent, formatComment } from './comments'
@@ -19,6 +19,11 @@ interface Context extends Pick<Required<CompileOptions>, 'shouldSeparateDeclarat
 
   comments: CommentFactory
   pendings: PendingFactory
+
+  /**
+   * whether the schema should be included or excluded from output.
+   */
+  filter: (schema: JSONSchema) => boolean
 }
 
 function context(options: CompileOptions): Context {
@@ -37,6 +42,12 @@ function context(options: CompileOptions): Context {
       for (const [k, v] of this.declarations) {
         if (v.schema === schema) return k
       }
+    },
+    filter(schema) {
+      if (typeof schema === 'boolean') return true
+      if (schema.readOnly && !options.readOnly) return false
+      if (schema.writeOnly && !options.writeOnly) return false
+      return true
     }
   }
 }
@@ -52,6 +63,9 @@ export interface CompileOptions {
    */
   shouldSeparateDeclaration?: (schema: object) => boolean
   unreachableDefinitions?: boolean
+
+  readOnly?: boolean
+  writeOnly?: boolean
 
   print?: PrintOptions
   printTypeScript?: NonNullable<Parameters<typeof ts>[0]>
@@ -99,7 +113,7 @@ export function compile(schema: JSONSchema, options: CompileOptions = {}): strin
 
   const visitor = ts({
     getLeadingComments(node) {
-      return ctx.comments.all.get(node as never)?.map(formatComment)
+      return ctx.comments.get(node as AST.Node)?.map(formatComment)
     },
     ...options.printTypeScript
   })
@@ -225,14 +239,17 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
   }
 
   if (schema.not) {
-    return base({
+    const child = inline(schema.not, ctx)
+    const out: AST.TSTypeReference = base({
       type: Types.TSTypeReference,
       typeName: identifier('Exclude'),
       typeArguments: base({
         type: Types.TSTypeParameterInstantiation,
-        params: [base({ type: Types.TSUnknownKeyword }), inline(schema.not, ctx)]
+        params: [base({ type: Types.TSUnknownKeyword }), child]
       })
     })
+    ctx.comments.transfer(child, out)
+    return out
   }
 
   const union = schema.oneOf ?? schema.anyOf
@@ -284,7 +301,11 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
   if (Array.isArray(schema.type)) {
     return simplifyUnion({
       type: Types.TSUnionType,
-      types: schema.type.map(v => inline({ ...schema, type: v }, ctx))
+      types: schema.type.map(v => {
+        const child = inline({ ...schema, type: v }, ctx)
+        ctx.comments.delete(child)
+        return child
+      })
     })
   }
 
@@ -308,35 +329,37 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
       const cur: AST.TypeNode[] = []
       if (schema.properties) {
         const required = new Set(schema.required)
+        const members: AST.TypeElement[] = []
 
-        cur.push(
-          base({
-            type: Types.TSTypeLiteral,
-            members: Object.entries(schema.properties).map(([k, v]) => {
-              const child = inline(v, ctx)
-              const prop = {
-                type: Types.TSPropertySignature,
-                key: isValidPropertyName(k) ? identifier(k) : stringLiteral(k),
-                optional: !required.has(k),
-                typeAnnotation: base({
-                  type: Types.TSTypeAnnotation,
-                  typeAnnotation: child
-                })
-              } as AST.TSPropertySignature
+        for (const [k, v] of Object.entries(schema.properties)) {
+          if (!ctx.filter(v)) continue
 
-              ctx.comments.transfer(child, prop)
-              return prop
+          const child = inline(v, ctx)
+          const prop = {
+            type: Types.TSPropertySignature,
+            key: isValidPropertyName(k) ? identifier(k) : stringLiteral(k),
+            optional: !required.has(k),
+            typeAnnotation: base({
+              type: Types.TSTypeAnnotation,
+              typeAnnotation: child
             })
-          })
-        )
+          } as AST.TSPropertySignature
+          ctx.comments.transfer(child, prop)
+          members.push(prop)
+        }
+
+        cur.push(base({ type: Types.TSTypeLiteral, members }))
       }
 
       const fallbackTypes: AST.TypeNode[] = []
 
       if (schema.patternProperties) {
-        for (const value of Object.values(schema.patternProperties)) fallbackTypes.push(inline(value, ctx))
+        for (const value of Object.values(schema.patternProperties)) {
+          if (ctx.filter(value)) fallbackTypes.push(inline(value, ctx))
+        }
       }
-      if (schema.additionalProperties) {
+
+      if (schema.additionalProperties && ctx.filter(schema.additionalProperties)) {
         fallbackTypes.push(inline(schema.additionalProperties, ctx))
       }
 
@@ -359,7 +382,7 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
         )
       }
 
-      // unknown object
+      // empty object
       if (cur.length === 0) return base({ type: Types.TSTypeLiteral, members: [] })
 
       return simplyIntersection({
@@ -368,16 +391,39 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
       })
     }
     case 'array': {
-      if (Array.isArray(schema.items)) {
-        return base({
-          type: Types.TSTupleType,
-          elementTypes: schema.items.map(item =>
+      let tupleItems: JSONSchema[] | undefined
+      let tupleRest: JSONSchema | undefined
+
+      if (Array.isArray(schema.prefixItems)) {
+        tupleItems = schema.prefixItems
+        tupleRest = schema.items
+      } else if (Array.isArray(schema.items)) {
+        // backward compat
+        tupleItems = schema.items
+        tupleRest = schema.additionalItems
+      }
+
+      if (tupleItems !== undefined) {
+        const elementTypes: AST.TypeNode[] = tupleItems.map(item =>
+          base({
+            type: Types.TSOptionalType,
+            typeAnnotation: parenthesizeIfNeeded(inline(item, ctx))
+          })
+        )
+
+        if (tupleRest !== undefined) {
+          elementTypes.push(
             base({
-              type: Types.TSOptionalType,
-              typeAnnotation: parenthesizeIfNeeded(inline(item, ctx))
+              type: Types.TSRestType,
+              typeAnnotation: base({
+                type: Types.TSArrayType,
+                elementType: parenthesizeIfNeeded(inline(tupleRest, ctx))
+              })
             })
           )
-        })
+        }
+
+        return base({ type: Types.TSTupleType, elementTypes })
       }
 
       return base({
@@ -422,15 +468,71 @@ function inline(schema: JSONSchema, ctx: Context, state = State.InlineRoot): AST
   return base({ type: Types.TSUnknownKeyword })
 }
 
+type CommentTagHandler = (key: string, value: unknown) => string | undefined
+const commentHandlers = {
+  raw(k, v) {
+    let content: string
+    if (typeof v === 'string') {
+      content = v
+    } else {
+      content = JSON.stringify(v, null, 2)
+    }
+
+    if (content.includes('\n')) {
+      return `@${k}\n\`\`\`\n${escapeJSDocContent(content)}\n\`\`\``
+    } else {
+      return `@${k} \`${escapeJSDocContent(content, true)}\``
+    }
+  },
+  trigger(key, value) {
+    if (value === true) return `@${key}`
+  }
+} satisfies Record<string, CommentTagHandler>
+
+const CommentTags: Partial<Record<keyof Exclude<JSONSchema, boolean>, CommentTagHandler>> = {
+  minItems: commentHandlers.raw,
+  maxItems: commentHandlers.raw,
+  contains: commentHandlers.raw,
+  uniqueItems: commentHandlers.trigger,
+  pattern: commentHandlers.raw,
+  multipleOf: commentHandlers.raw,
+  default: commentHandlers.raw,
+  minProperties: commentHandlers.raw,
+  minLength: commentHandlers.raw,
+  minimum: commentHandlers.raw,
+  maximum: commentHandlers.raw,
+  exclusiveMaximum: commentHandlers.raw,
+  exclusiveMinimum: commentHandlers.raw,
+  deprecated: commentHandlers.trigger,
+  minContains: commentHandlers.raw,
+  maxContains: commentHandlers.raw,
+  maxLength: commentHandlers.raw,
+  maxProperties: commentHandlers.raw,
+  format: commentHandlers.raw,
+  examples(_, value) {
+    if (!Array.isArray(value)) return
+
+    return value.map(item => commentHandlers.raw('example', item)).join('\n')
+  }
+}
+
 function inlineComment(node: AST.TypeNode, schema: JSONSchema, ctx: Context) {
   if (typeof schema === 'boolean') return
+  const concat: string[] = []
+  if (schema.description) concat.push(escapeJSDocContent(schema.description))
 
-  if (schema.description) {
-    ctx.comments.add(node, {
-      type: 'Block',
-      value: escapeJSDocContent(schema.description)
-    } as Comment)
+  for (const k in schema) {
+    const handler = CommentTags[k as keyof typeof CommentTags]
+    if (!handler) continue
+    const result = handler(k, schema[k as never])
+    if (result !== undefined) concat.push(result)
   }
+
+  if (concat.length === 0) return
+  ctx.comments.add(node, {
+    type: 'Block',
+    value: concat.join('\n')
+  } as Comment)
 }
 
 function identifier(key: string) {

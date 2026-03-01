@@ -1,4 +1,9 @@
-export interface Enum2 { definitions?: Record<string, EntityObject> }
+export interface Enum2 {
+	/**
+	* @minProperties `1`
+	*/
+	definitions?: Record<string, EntityObject>
+}
 
 /**
 * My example entity object definition

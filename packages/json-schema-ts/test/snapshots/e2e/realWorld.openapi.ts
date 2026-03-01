@@ -3,11 +3,17 @@
 */
 export type RealWorldOpenapi = 
 	{ 
+		/**
+		* @pattern `^3\.0\.\d(-.+)?$`
+		*/
 		openapi: string;
 		info: Info;
 		externalDocs?: ExternalDocumentation;
 		servers?: Server[];
 		security?: SecurityRequirement[];
+		/**
+		* @uniqueItems
+		*/
 		tags?: Tag[];
 		paths: Paths;
 		components?: Components
@@ -19,6 +25,9 @@ export type Info =
 	{ 
 		title: string;
 		description?: string;
+		/**
+		* @format `uri-reference`
+		*/
 		termsOfService?: string;
 		contact?: Contact;
 		license?: License;
@@ -28,14 +37,40 @@ export type Info =
 ;
 
 export type Contact = 
-	{ name?: string; url?: string; email?: string } &
+	{ 
+		name?: string;
+		/**
+		* @format `uri-reference`
+		*/
+		url?: string;
+
+		/**
+		* @format `email`
+		*/
+		email?: string
+	 } &
 	Record<string, unknown>
 ;
 
-export type License = { name: string; url?: string } & Record<string, unknown>;
+export type License = 
+	{ 
+		name: string;
+		/**
+		* @format `uri-reference`
+		*/
+		url?: string
+	 } &
+	Record<string, unknown>
+;
 
 export type ExternalDocumentation = 
-	{ description?: string; url: string } &
+	{ 
+		description?: string;
+		/**
+		* @format `uri-reference`
+		*/
+		url: string
+	 } &
 	Record<string, unknown>
 ;
 
@@ -72,6 +107,9 @@ export type PathItem =
 		summary?: string;
 		description?: string;
 		servers?: Server[];
+		/**
+		* @uniqueItems
+		*/
 		parameters?: (Parameter | Reference)[]
 	 } &
 	Record<string, Operation | unknown>
@@ -98,6 +136,9 @@ export type ParameterLocation =
 	*/
 	{ 
 		in?: 'path';
+		/**
+		* @default `simple`
+		*/
 		style?: 'matrix' | 'label' | 'simple';
 		required: true
 	 } |
@@ -107,21 +148,39 @@ export type ParameterLocation =
 	*/
 	{ 
 		in?: 'query';
+		/**
+		* @default `form`
+		*/
 		style?: 'form' | 'spaceDelimited' | 'pipeDelimited' | 'deepObject'
 	 } |
 
 	/**
 	* Parameter in header
 	*/
-	{ in?: 'header'; style?: 'simple' } |
+	{ 
+		in?: 'header';
+		/**
+		* @default `simple`
+		*/
+		style?: 'simple'
+	 } |
 
 	/**
 	* Parameter in cookie
 	*/
-	{ in?: 'cookie'; style?: 'form' }
+	{ 
+		in?: 'cookie';
+		/**
+		* @default `form`
+		*/
+		style?: 'form'
+	 }
 ;
 
-export type Reference = Record<string, string>;
+export type Reference = Record<string, /**
+* @format `uri-reference`
+*/
+string>;
 
 export type Operation = 
 	{ 
@@ -130,10 +189,16 @@ export type Operation =
 		description?: string;
 		externalDocs?: ExternalDocumentation;
 		operationId?: string;
+		/**
+		* @uniqueItems
+		*/
 		parameters?: (Parameter | Reference)[];
 		requestBody?: RequestBody | Reference;
 		responses: Responses;
 		callbacks?: Record<string, Callback | Reference>;
+		/**
+		* @default `false`
+		*/
 		deprecated?: boolean;
 		security?: SecurityRequirement[];
 		servers?: Server[]
@@ -145,6 +210,9 @@ export type RequestBody =
 	{ 
 		description?: string;
 		content: Record<string, MediaType>;
+		/**
+		* @default `false`
+		*/
 		required?: boolean
 	 } &
 	Record<string, unknown>
@@ -152,6 +220,9 @@ export type RequestBody =
 
 export type MediaType = ExampleXORExamples;
 
+/**
+* @minProperties `1`
+*/
 export type Responses = 
 	{ default?: Response | Reference } &
 	Record<string, Response | Reference | unknown>
@@ -168,12 +239,7 @@ export type Response =
 ;
 
 export type Header = ExampleXORExamples & SchemaXORContent;
-
-export type Link = Exclude<unknown, /**
-* Operation Id and Operation Ref are mutually exclusive
-*/
-Record<'operationId' | 'operationRef', unknown>>;
-
+export type Link = Exclude<unknown, Record<'operationId' | 'operationRef', unknown>>;
 export type Callback = Record<string, unknown | PathItem>;
 
 export type Components = 
@@ -194,21 +260,76 @@ export type Components =
 export type Schema = 
 	{ 
 		title?: string;
+		/**
+		* @minimum `0`
+		* @exclusiveMinimum `true`
+		*/
 		multipleOf?: number;
 		maximum?: number;
+		/**
+		* @default `false`
+		*/
 		exclusiveMaximum?: boolean;
 		minimum?: number;
+		/**
+		* @default `false`
+		*/
 		exclusiveMinimum?: boolean;
+
+		/**
+		* @minimum `0`
+		*/
 		maxLength?: number;
+
+		/**
+		* @minimum `0`
+		* @default `0`
+		*/
 		minLength?: number;
+
+		/**
+		* @format `regex`
+		*/
 		pattern?: string;
+
+		/**
+		* @minimum `0`
+		*/
 		maxItems?: number;
+
+		/**
+		* @minimum `0`
+		* @default `0`
+		*/
 		minItems?: number;
+
+		/**
+		* @default `false`
+		*/
 		uniqueItems?: boolean;
+
+		/**
+		* @minimum `0`
+		*/
 		maxProperties?: number;
+
+		/**
+		* @minimum `0`
+		* @default `0`
+		*/
 		minProperties?: number;
+
+		/**
+		* @minItems `1`
+		* @uniqueItems
+		*/
 		required?: string[];
+
+		/**
+		* @minItems `1`
+		*/
 		enum?: unknown[];
+
 		type?: 
 			'array' |
 			'boolean' |
@@ -223,16 +344,32 @@ export type Schema =
 		anyOf?: (Schema | Reference)[];
 		items?: Schema | Reference;
 		properties?: Record<string, Schema | Reference>;
+		/**
+		* @default `true`
+		*/
 		additionalProperties?: Schema | Reference | boolean;
 		description?: string;
 		format?: string;
 		default?: unknown;
+		/**
+		* @default `false`
+		*/
 		nullable?: boolean;
 		discriminator?: Discriminator;
+		/**
+		* @default `false`
+		*/
 		readOnly?: boolean;
+
+		/**
+		* @default `false`
+		*/
 		writeOnly?: boolean;
 		example?: unknown;
 		externalDocs?: ExternalDocumentation;
+		/**
+		* @default `false`
+		*/
 		deprecated?: boolean;
 		xml?: XML
 	 } &
@@ -244,9 +381,19 @@ export interface Discriminator { propertyName: string; mapping?: Record<string, 
 export type XML = 
 	{ 
 		name?: string;
+		/**
+		* @format `uri`
+		*/
 		namespace?: string;
 		prefix?: string;
+		/**
+		* @default `false`
+		*/
 		attribute?: boolean;
+
+		/**
+		* @default `false`
+		*/
 		wrapped?: boolean
 	 } &
 	Record<string, unknown>
@@ -257,6 +404,9 @@ export type Example =
 		summary?: string;
 		description?: string;
 		value?: unknown;
+		/**
+		* @format `uri-reference`
+		*/
 		externalValue?: string
 	 } &
 	Record<string, unknown>
@@ -308,7 +458,14 @@ export type OAuthFlows =
 
 export type ImplicitOAuthFlow = 
 	{ 
+		/**
+		* @format `uri-reference`
+		*/
 		authorizationUrl: string;
+
+		/**
+		* @format `uri-reference`
+		*/
 		refreshUrl?: string;
 		scopes: Record<string, string>
 	 } &
@@ -317,7 +474,14 @@ export type ImplicitOAuthFlow =
 
 export type PasswordOAuthFlow = 
 	{ 
+		/**
+		* @format `uri-reference`
+		*/
 		tokenUrl: string;
+
+		/**
+		* @format `uri-reference`
+		*/
 		refreshUrl?: string;
 		scopes?: Record<string, string>
 	 } &
@@ -326,7 +490,14 @@ export type PasswordOAuthFlow =
 
 export type ClientCredentialsFlow = 
 	{ 
+		/**
+		* @format `uri-reference`
+		*/
 		tokenUrl: string;
+
+		/**
+		* @format `uri-reference`
+		*/
 		refreshUrl?: string;
 		scopes?: Record<string, string>
 	 } &
@@ -335,8 +506,19 @@ export type ClientCredentialsFlow =
 
 export type AuthorizationCodeOAuthFlow = 
 	{ 
+		/**
+		* @format `uri-reference`
+		*/
 		authorizationUrl: string;
+
+		/**
+		* @format `uri-reference`
+		*/
 		tokenUrl: string;
+
+		/**
+		* @format `uri-reference`
+		*/
 		refreshUrl?: string;
 		scopes?: Record<string, string>
 	 } &
@@ -346,6 +528,9 @@ export type AuthorizationCodeOAuthFlow =
 export type OpenIdConnectSecurityScheme = 
 	{ 
 		type: 'openIdConnect';
+		/**
+		* @format `uri-reference`
+		*/
 		openIdConnectUrl: string;
 		description?: string
 	 } &

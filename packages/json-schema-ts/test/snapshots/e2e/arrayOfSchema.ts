@@ -1,4 +1,12 @@
 export interface ArrayOfSchema {
-	countries?: { id: string; name: string }[];
+	countries?: { 
+		/**
+		* @minLength `2`
+		* @maxLength `2`
+		* @pattern `[A-Z]+`
+		*/
+		id: string;
+		name: string
+	 }[];
 	tuple?: [{ foo?: string }?, { bar?: number }?]
 }

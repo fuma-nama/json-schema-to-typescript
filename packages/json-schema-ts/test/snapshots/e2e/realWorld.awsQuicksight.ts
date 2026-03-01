@@ -6,12 +6,26 @@ export interface RealWorldAwsQuicksight {
 	* <p>The Amazon Resource Name (ARN) of the resource.</p>
 	*/
 	Arn?: string;
+
+	/**
+	* @maxLength `12`
+	* @minLength `12`
+	* @pattern `^[0-9]{12}$`
+	*/
 	AwsAccountId?: string;
+
 	/**
 	* <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	* @maxItems `8`
+	* @minItems `1`
 	*/
 	ColumnGroups?: ColumnGroup[];
+
+	/**
+	* @minItems `1`
+	*/
 	ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+
 	/**
 	* <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
 	*             imported into SPICE.</p>
@@ -20,6 +34,7 @@ export interface RealWorldAwsQuicksight {
 
 	/**
 	* <p>The time that this dataset was created.</p>
+	* @format `string`
 	*/
 	CreatedTime?: string;
 	DataSetId?: string;
@@ -27,11 +42,14 @@ export interface RealWorldAwsQuicksight {
 	ImportMode?: DataSetImportMode;
 	/**
 	* <p>The last time that this dataset was updated.</p>
+	* @format `string`
 	*/
 	LastUpdatedTime?: string;
 	LogicalTableMap?: LogicalTableMap;
 	/**
 	* <p>The display name for the dataset.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	Name?: string;
 
@@ -43,12 +61,16 @@ export interface RealWorldAwsQuicksight {
 
 	/**
 	* <p>A list of resource permissions on the dataset.</p>
+	* @maxItems `64`
+	* @minItems `1`
 	*/
 	Permissions?: ResourcePermission[];
 	PhysicalTableMap?: PhysicalTableMap;
 	RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 	/**
 	* <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+	* @maxItems `200`
+	* @minItems `1`
 	*/
 	Tags?: Tag[];
 	IngestionWaitPolicy?: IngestionWaitPolicy
@@ -67,20 +89,60 @@ export interface ColumnGroup { GeoSpatialColumnGroup?: GeoSpatialColumnGroup }
 export interface GeoSpatialColumnGroup {
 	/**
 	* <p>Columns in this hierarchy.</p>
+	* @maxItems `16`
+	* @minItems `1`
 	*/
-	Columns: string[];
+	Columns: /**
+	* @maxLength `128`
+	* @minLength `1`
+	*/
+	string[];
 	CountryCode?: GeoSpatialCountryCode;
 	/**
 	* <p>A display name for the hierarchy.</p>
+	* @maxLength `64`
+	* @minLength `1`
 	*/
 	Name: string
 }
 
 export type GeoSpatialCountryCode = 'US';
-export interface ColumnLevelPermissionRule { ColumnNames?: string[]; Principals?: string[] }
+
+export interface ColumnLevelPermissionRule {
+	/**
+	* @minItems `1`
+	*/
+	ColumnNames?: string[];
+
+	/**
+	* @maxItems `100`
+	* @minItems `1`
+	*/
+	Principals?: string[]
+}
+
 export type FieldFolderMap = Record<string, FieldFolder>;
-export interface FieldFolder { Description?: string; Columns?: string[] }
+
+export interface FieldFolder {
+	/**
+	* @maxLength `500`
+	* @minLength `0`
+	*/
+	Description?: string;
+
+	/**
+	* @maxItems `5000`
+	* @minItems `0`
+	*/
+	Columns?: string[]
+}
+
 export type DataSetImportMode = 'SPICE' | 'DIRECT_QUERY';
+
+/**
+* @maxProperties `64`
+* @minProperties `1`
+*/
 export type LogicalTableMap = Record<string, LogicalTable>;
 
 /**
@@ -92,11 +154,15 @@ export type LogicalTableMap = Record<string, LogicalTable>;
 export interface LogicalTable {
 	/**
 	* <p>A display name for the logical table.</p>
+	* @maxLength `64`
+	* @minLength `1`
 	*/
 	Alias: string;
 
 	/**
 	* <p>Transform operations that act on this logical table.</p>
+	* @maxItems `2048`
+	* @minItems `1`
 	*/
 	DataTransforms?: TransformOperation[];
 	Source: LogicalTableSource
@@ -121,6 +187,8 @@ export interface TransformOperation {
 export interface TagColumnOperation {
 	/**
 	* <p>The column that this operation acts on.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	ColumnName: string;
 
@@ -129,6 +197,8 @@ export interface TagColumnOperation {
 	*         <note>
 	*             <p>This is not tags for the AWS tagging feature. .</p>
 	*         </note>
+	* @maxItems `16`
+	* @minItems `1`
 	*/
 	Tags: ColumnTag[]
 }
@@ -160,6 +230,8 @@ export type GeoSpatialDataRole =
 export interface ColumnDescription {
 	/**
 	* <p>The text of a description for a column.</p>
+	* @maxLength `500`
+	* @minLength `0`
 	*/
 	Text?: string
 }
@@ -171,6 +243,8 @@ export interface FilterOperation {
 	/**
 	* <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 	*             evaluates to true are kept in the dataset.</p>
+	* @maxLength `4096`
+	* @minLength `1`
 	*/
 	ConditionExpression: string
 }
@@ -181,12 +255,16 @@ export interface FilterOperation {
 export interface CastColumnTypeOperation {
 	/**
 	* <p>Column name.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	ColumnName: string;
 
 	/**
 	* <p>When casting a column from string to datetime type, you can supply a string in a
 	*             format supported by Amazon QuickSight to denote the source data format.</p>
+	* @maxLength `32`
+	* @minLength `0`
 	*/
 	Format?: string;
 	NewColumnType: ColumnDataType
@@ -201,6 +279,8 @@ export type ColumnDataType = 'STRING' | 'INTEGER' | 'DECIMAL' | 'DATETIME';
 export interface CreateColumnsOperation {
 	/**
 	* <p>Calculated columns to create.</p>
+	* @maxItems `128`
+	* @minItems `1`
 	*/
 	Columns: CalculatedColumn[]
 }
@@ -213,16 +293,22 @@ export interface CalculatedColumn {
 	* <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
 	*             of a calculated column matches that of an existing calculated column, Amazon QuickSight
 	*             preserves the existing calculated column.</p>
+	* @maxLength `64`
+	* @minLength `1`
 	*/
 	ColumnId: string;
 
 	/**
 	* <p>Column name.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	ColumnName: string;
 
 	/**
 	* <p>An expression that defines the calculated column.</p>
+	* @maxLength `4096`
+	* @minLength `1`
 	*/
 	Expression: string
 }
@@ -233,11 +319,15 @@ export interface CalculatedColumn {
 export interface RenameColumnOperation {
 	/**
 	* <p>The new name for the column.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	NewColumnName: string;
 
 	/**
 	* <p>The name of the column to be renamed.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	ColumnName: string
 }
@@ -249,6 +339,8 @@ export interface RenameColumnOperation {
 export interface ProjectOperation {
 	/**
 	* <p>Projected columns.</p>
+	* @maxItems `2000`
+	* @minItems `1`
 	*/
 	ProjectedColumns: string[]
 }
@@ -260,6 +352,9 @@ export interface ProjectOperation {
 export interface LogicalTableSource {
 	/**
 	* <p>Physical table ID.</p>
+	* @maxLength `64`
+	* @minLength `1`
+	* @pattern `[0-9a-zA-Z-]*`
 	*/
 	PhysicalTableId?: string;
 	JoinInstruction?: JoinInstruction
@@ -271,17 +366,25 @@ export interface LogicalTableSource {
 export interface JoinInstruction {
 	/**
 	* <p>On Clause.</p>
+	* @maxLength `512`
+	* @minLength `1`
 	*/
 	OnClause: string;
 	Type: JoinType;
 	LeftJoinKeyProperties?: JoinKeyProperties;
 	/**
 	* <p>Left operand.</p>
+	* @maxLength `64`
+	* @minLength `1`
+	* @pattern `[0-9a-zA-Z-]*`
 	*/
 	LeftOperand: string;
 
 	/**
 	* <p>Right operand.</p>
+	* @maxLength `64`
+	* @minLength `1`
+	* @pattern `[0-9a-zA-Z-]*`
 	*/
 	RightOperand: string;
 	RightJoinKeyProperties?: JoinKeyProperties
@@ -297,11 +400,15 @@ export interface OutputColumn {
 	Type?: ColumnDataType;
 	/**
 	* <p>A description for a column.</p>
+	* @maxLength `500`
+	* @minLength `0`
 	*/
 	Description?: string;
 
 	/**
 	* <p>A display name for the dataset.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	Name?: string
 }
@@ -312,6 +419,8 @@ export interface OutputColumn {
 export interface ResourcePermission {
 	/**
 	* <p>The IAM action to grant or revoke permissions on.</p>
+	* @maxItems `16`
+	* @minItems `1`
 	*/
 	Actions: string[];
 
@@ -331,10 +440,16 @@ export interface ResourcePermission {
 	*                     (This is less common.) </p>
 	*             </li>
 	*          </ul>
+	* @maxLength `256`
+	* @minLength `1`
 	*/
 	Principal: string
 }
 
+/**
+* @maxProperties `32`
+* @minProperties `1`
+*/
 export type PhysicalTableMap = Record<string, PhysicalTable>;
 
 /**
@@ -359,21 +474,29 @@ export interface RelationalTable {
 
 	/**
 	* <p>The column schema of the table.</p>
+	* @maxItems `2048`
+	* @minItems `1`
 	*/
 	InputColumns: InputColumn[];
 
 	/**
 	* <p>The schema name. This name applies to certain relational database engines.</p>
+	* @maxLength `64`
+	* @minLength `0`
 	*/
 	Schema?: string;
 
 	/**
 	* <p>The catalog associated with a table.</p>
+	* @maxLength `256`
+	* @minLength `0`
 	*/
 	Catalog?: string;
 
 	/**
 	* <p>The name of the relational table.</p>
+	* @maxLength `64`
+	* @minLength `1`
 	*/
 	Name: string
 }
@@ -385,6 +508,8 @@ export interface InputColumn {
 	Type: InputColumnDataType;
 	/**
 	* <p>The name of this column in the underlying data source.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	Name: string
 }
@@ -410,16 +535,22 @@ export interface CustomSql {
 
 	/**
 	* <p>The SQL query.</p>
+	* @maxLength `65536`
+	* @minLength `1`
 	*/
 	SqlQuery: string;
 
 	/**
 	* <p>The column schema from the SQL query result set.</p>
+	* @maxItems `2048`
+	* @minItems `1`
 	*/
 	Columns: InputColumn[];
 
 	/**
 	* <p>A display name for the SQL query result.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	Name: string
 }
@@ -435,6 +566,8 @@ export interface S3Source {
 
 	/**
 	* <p>A physical table type for as S3 data source.</p>
+	* @maxItems `2048`
+	* @minItems `1`
 	*/
 	InputColumns: InputColumn[];
 	UploadSettings?: UploadSettings
@@ -452,11 +585,14 @@ export interface UploadSettings {
 	Format?: FileFormat;
 	/**
 	* <p>A row number to start reading data from.</p>
+	* @minimum `1`
 	*/
 	StartFromRow?: number;
 
 	/**
 	* <p>The delimiter between values in the file.</p>
+	* @maxLength `1`
+	* @minLength `1`
 	*/
 	Delimiter?: string
 }
@@ -475,6 +611,9 @@ export interface RowLevelPermissionDataSet {
 
 	/**
 	* <p>The namespace associated with the row-level permissions dataset.</p>
+	* @maxLength `64`
+	* @minLength `0`
+	* @pattern `^[a-zA-Z0-9._-]*$`
 	*/
 	Namespace?: string;
 	PermissionPolicy: RowLevelPermissionPolicy;
@@ -491,11 +630,15 @@ export type RowLevelPermissionFormatVersion = 'VERSION_1' | 'VERSION_2';
 export interface Tag {
 	/**
 	* <p>Tag value.</p>
+	* @maxLength `256`
+	* @minLength `1`
 	*/
 	Value: string;
 
 	/**
 	* <p>Tag key.</p>
+	* @maxLength `128`
+	* @minLength `1`
 	*/
 	Key: string
 }
@@ -507,12 +650,16 @@ export interface IngestionWaitPolicy {
 	/**
 	* <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
 	*   Applicable only when DataSetImportMode mode is set to SPICE.</p>
+	* @default `true`
 	*/
 	WaitForSpiceIngestion?: boolean;
 
 	/**
 	* <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
 	*  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
+	* @minimum `1`
+	* @maximum `36`
+	* @default `36`
 	*/
 	IngestionWaitTimeInHours?: number
 }

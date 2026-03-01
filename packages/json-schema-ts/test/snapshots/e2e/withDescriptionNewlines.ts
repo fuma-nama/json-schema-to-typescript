@@ -10,6 +10,7 @@ export interface WithDescriptionNewlines {
 	/**
 	* Age description with
 	* multiple lines
+	* @minimum `0`
 	*/
 	age?: number
 }

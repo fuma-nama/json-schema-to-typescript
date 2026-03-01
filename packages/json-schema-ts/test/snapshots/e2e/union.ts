@@ -1,3 +1,13 @@
 export interface Union {
-	test?: { test1?: boolean | string[]; test2?: boolean | string[] }
+	test?: { 
+		/**
+		* @minItems `1`
+		*/
+		test1?: boolean | string[];
+
+		/**
+		* @minItems `1`
+		*/
+		test2?: boolean | string[]
+	 }
 }

@@ -1,2 +1,8 @@
 export interface ReferencesShouldBeNormalized { a: ExampleSchema }
-export interface ExampleSchema { b?: number[] }
+
+export interface ExampleSchema {
+	/**
+	* @maxItems `5`
+	*/
+	b?: number[]
+}

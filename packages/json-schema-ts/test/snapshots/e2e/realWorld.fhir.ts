@@ -222,6 +222,7 @@ export interface Account {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id = string;
 
@@ -247,6 +248,7 @@ export interface Meta {
 
 /**
 * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String = string;
 
@@ -263,96 +265,115 @@ export interface Extension {
 	_url?: Element;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element1;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element2;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^\S*$`
 	*/
 	valueCanonical?: string;
 	_valueCanonical?: Element3;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element4;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element5;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element6;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element7;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element8;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	valueInstant?: string;
 	_valueInstant?: Element9;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element10;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueMarkdown?: string;
 	_valueMarkdown?: Element11;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	valueOid?: string;
 	_valueOid?: Element12;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	valuePositiveInt?: number;
 	_valuePositiveInt?: Element13;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element14;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element15;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	valueUnsignedInt?: number;
 	_valueUnsignedInt?: Element16;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element17;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^\S*$`
 	*/
 	valueUrl?: string;
 	_valueUrl?: Element18;
 	/**
 	* Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	valueUuid?: string;
 	_valueUuid?: Element19;
@@ -391,11 +412,13 @@ export interface Extension {
 
 /**
 * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1 = string;
 
 /**
 * Source of the definition for the extension code - a logical name or a URL.
+* @pattern `^\S*$`
 */
 export type Uri = string;
 
@@ -412,6 +435,7 @@ export interface Element {
 
 /**
 * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String2 = string;
 
@@ -556,6 +580,7 @@ export interface Address {
 
 /**
 * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String3 = string;
 
@@ -571,6 +596,7 @@ export interface Element21 { id?: String2; extension?: Extension[] }
 
 /**
 * Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String4 = string;
 
@@ -581,6 +607,7 @@ export interface Element22 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String5 = string;
 
@@ -591,6 +618,7 @@ export interface Element23 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String6 = string;
 
@@ -601,6 +629,7 @@ export interface Element24 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String7 = string;
 
@@ -611,6 +640,7 @@ export interface Element25 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String8 = string;
 
@@ -621,6 +651,7 @@ export interface Element26 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String9 = string;
 
@@ -631,6 +662,7 @@ export interface Element27 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String10 = string;
 
@@ -656,11 +688,13 @@ export interface Period {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String11 = string;
 
 /**
 * The start of the period. The boundary is inclusive.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime = string;
 
@@ -671,6 +705,7 @@ export interface Element29 { id?: String2; extension?: Extension[] }
 
 /**
 * The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime1 = string;
 
@@ -705,11 +740,13 @@ export interface Age {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String12 = string;
 
 /**
 * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal = number;
 
@@ -725,6 +762,7 @@ export interface Element32 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String13 = string;
 
@@ -735,6 +773,7 @@ export interface Element33 { id?: String2; extension?: Extension[] }
 
 /**
 * The identification of the system that provides the coded form of the unit.
+* @pattern `^\S*$`
 */
 export type Uri1 = string;
 
@@ -745,6 +784,7 @@ export interface Element34 { id?: String2; extension?: Extension[] }
 
 /**
 * A computer processable form of the unit in some unit representation system.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code = string;
 
@@ -765,6 +805,7 @@ export interface Annotation {
 	authorReference?: Reference;
 	/**
 	* The individual responsible for making the annotation.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	authorString?: string;
 	_authorString?: Element48;
@@ -776,6 +817,7 @@ export interface Annotation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String14 = string;
 
@@ -799,11 +841,13 @@ export interface Reference {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String15 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String16 = string;
 
@@ -816,6 +860,7 @@ export interface Element36 { id?: String2; extension?: Extension[] }
 * The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.
 * 
 * The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. "Patient" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).
+* @pattern `^\S*$`
 */
 export type Uri2 = string;
 
@@ -850,6 +895,7 @@ export interface Identifier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String17 = string;
 
@@ -878,6 +924,7 @@ export interface CodeableConcept {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String18 = string;
 
@@ -904,11 +951,13 @@ export interface Coding {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String19 = string;
 
 /**
 * The identification of the code system that defines the meaning of the symbol in the code.
+* @pattern `^\S*$`
 */
 export type Uri3 = string;
 
@@ -919,6 +968,7 @@ export interface Element39 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String20 = string;
 
@@ -929,6 +979,7 @@ export interface Element40 { id?: String2; extension?: Extension[] }
 
 /**
 * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code1 = string;
 
@@ -939,6 +990,7 @@ export interface Element41 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String21 = string;
 
@@ -949,6 +1001,7 @@ export interface Element42 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).
+* @pattern `^true|false$`
 */
 export type Boolean = boolean;
 
@@ -959,6 +1012,7 @@ export interface Element43 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String22 = string;
 
@@ -969,6 +1023,7 @@ export interface Element44 { id?: String2; extension?: Extension[] }
 
 /**
 * Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
+* @pattern `^\S*$`
 */
 export type Uri4 = string;
 
@@ -979,6 +1034,7 @@ export interface Element45 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String23 = string;
 
@@ -1016,6 +1072,7 @@ export interface Reference1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String24 = string;
 
@@ -1031,6 +1088,7 @@ export interface Element48 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates when this particular annotation was made.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime2 = string;
 
@@ -1041,6 +1099,7 @@ export interface Element49 { id?: String2; extension?: Extension[] }
 
 /**
 * The text of the annotation in markdown format.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown = string;
 
@@ -1078,11 +1137,13 @@ export interface Attachment {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String25 = string;
 
 /**
 * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code2 = string;
 
@@ -1093,6 +1154,7 @@ export interface Element51 { id?: String2; extension?: Extension[] }
 
 /**
 * The human language of the content. The value can be any valid value according to BCP 47.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code3 = string;
 
@@ -1113,6 +1175,7 @@ export interface Element53 { id?: String2; extension?: Extension[] }
 
 /**
 * A location where the data can be accessed.
+* @pattern `^\S*$`
 */
 export type Url = string;
 
@@ -1123,6 +1186,7 @@ export interface Element54 { id?: String2; extension?: Extension[] }
 
 /**
 * The number of bytes of data that make up this attachment (before base64 encoding, if that is done).
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt = number;
 
@@ -1143,6 +1207,7 @@ export interface Element56 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String26 = string;
 
@@ -1153,6 +1218,7 @@ export interface Element57 { id?: String2; extension?: Extension[] }
 
 /**
 * The date that the attachment was first created.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime3 = string;
 
@@ -1209,6 +1275,7 @@ export interface ContactPoint {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String27 = string;
 
@@ -1219,6 +1286,7 @@ export interface Element59 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String28 = string;
 
@@ -1234,6 +1302,7 @@ export interface Element61 { id?: String2; extension?: Extension[] }
 
 /**
 * Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt = number;
 
@@ -1280,11 +1349,13 @@ export interface Count {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String29 = string;
 
 /**
 * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal1 = number;
 
@@ -1300,6 +1371,7 @@ export interface Element64 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String30 = string;
 
@@ -1310,6 +1382,7 @@ export interface Element65 { id?: String2; extension?: Extension[] }
 
 /**
 * The identification of the system that provides the coded form of the unit.
+* @pattern `^\S*$`
 */
 export type Uri5 = string;
 
@@ -1320,6 +1393,7 @@ export interface Element66 { id?: String2; extension?: Extension[] }
 
 /**
 * A computer processable form of the unit in some unit representation system.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code4 = string;
 
@@ -1354,11 +1428,13 @@ export interface Distance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String31 = string;
 
 /**
 * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal2 = number;
 
@@ -1374,6 +1450,7 @@ export interface Element69 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String32 = string;
 
@@ -1384,6 +1461,7 @@ export interface Element70 { id?: String2; extension?: Extension[] }
 
 /**
 * The identification of the system that provides the coded form of the unit.
+* @pattern `^\S*$`
 */
 export type Uri6 = string;
 
@@ -1394,6 +1472,7 @@ export interface Element71 { id?: String2; extension?: Extension[] }
 
 /**
 * A computer processable form of the unit in some unit representation system.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code5 = string;
 
@@ -1428,11 +1507,13 @@ export interface Duration {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String33 = string;
 
 /**
 * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal3 = number;
 
@@ -1448,6 +1529,7 @@ export interface Element74 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String34 = string;
 
@@ -1458,6 +1540,7 @@ export interface Element75 { id?: String2; extension?: Extension[] }
 
 /**
 * The identification of the system that provides the coded form of the unit.
+* @pattern `^\S*$`
 */
 export type Uri7 = string;
 
@@ -1468,6 +1551,7 @@ export interface Element76 { id?: String2; extension?: Extension[] }
 
 /**
 * A computer processable form of the unit in some unit representation system.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code6 = string;
 
@@ -1537,6 +1621,7 @@ export interface HumanName {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String35 = string;
 
@@ -1547,6 +1632,7 @@ export interface Element78 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String36 = string;
 
@@ -1557,6 +1643,7 @@ export interface Element79 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String37 = string;
 
@@ -1611,11 +1698,13 @@ export interface Money {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String38 = string;
 
 /**
 * Numerical value (with implicit precision).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal4 = number;
 
@@ -1626,6 +1715,7 @@ export interface Element81 { id?: String2; extension?: Extension[] }
 
 /**
 * ISO 4217 Currency Code.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code7 = string;
 
@@ -1672,11 +1762,13 @@ export interface Quantity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String39 = string;
 
 /**
 * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal5 = number;
 
@@ -1692,6 +1784,7 @@ export interface Element84 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String40 = string;
 
@@ -1702,6 +1795,7 @@ export interface Element85 { id?: String2; extension?: Extension[] }
 
 /**
 * The identification of the system that provides the coded form of the unit.
+* @pattern `^\S*$`
 */
 export type Uri8 = string;
 
@@ -1712,6 +1806,7 @@ export interface Element86 { id?: String2; extension?: Extension[] }
 
 /**
 * A computer processable form of the unit in some unit representation system.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code8 = string;
 
@@ -1735,6 +1830,7 @@ export interface Range {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String41 = string;
 
@@ -1789,6 +1885,7 @@ export interface Ratio {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String42 = string;
 
@@ -1869,6 +1966,7 @@ export interface SampledData {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String43 = string;
 
@@ -1892,6 +1990,7 @@ export interface Quantity5 {
 
 /**
 * The length of time between sampling times, measured in milliseconds.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal6 = number;
 
@@ -1902,6 +2001,7 @@ export interface Element88 { id?: String2; extension?: Extension[] }
 
 /**
 * A correction factor that is applied to the sampled data points before they are added to the origin.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal7 = number;
 
@@ -1912,6 +2012,7 @@ export interface Element89 { id?: String2; extension?: Extension[] }
 
 /**
 * The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal8 = number;
 
@@ -1922,6 +2023,7 @@ export interface Element90 { id?: String2; extension?: Extension[] }
 
 /**
 * The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal9 = number;
 
@@ -1932,6 +2034,7 @@ export interface Element91 { id?: String2; extension?: Extension[] }
 
 /**
 * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt1 = number;
 
@@ -1942,6 +2045,7 @@ export interface Element92 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String44 = string;
 
@@ -1978,11 +2082,13 @@ export interface Signature {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String45 = string;
 
 /**
 * When the digital signature was signed.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant = string;
 
@@ -2023,6 +2129,7 @@ export interface Reference4 {
 
 /**
 * A mime type that indicates the technical format of the target resources signed by the signature.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code9 = string;
 
@@ -2033,6 +2140,7 @@ export interface Element95 { id?: String2; extension?: Extension[] }
 
 /**
 * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code10 = string;
 
@@ -2083,11 +2191,13 @@ export interface Timing {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String46 = string;
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime4 = string;
 
@@ -2198,6 +2308,7 @@ export interface TimingRepeat {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String47 = string;
 
@@ -2243,6 +2354,7 @@ export interface Period5 {
 
 /**
 * A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt2 = number;
 
@@ -2253,6 +2365,7 @@ export interface Element98 { id?: String2; extension?: Extension[] }
 
 /**
 * If present, indicates that the count is a range - so to perform the action between [count] and [countMax] times.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt3 = number;
 
@@ -2263,6 +2376,7 @@ export interface Element99 { id?: String2; extension?: Extension[] }
 
 /**
 * How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal10 = number;
 
@@ -2273,6 +2387,7 @@ export interface Element100 { id?: String2; extension?: Extension[] }
 
 /**
 * If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal11 = number;
 
@@ -2288,6 +2403,7 @@ export interface Element102 { id?: String2; extension?: Extension[] }
 
 /**
 * The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt4 = number;
 
@@ -2298,6 +2414,7 @@ export interface Element103 { id?: String2; extension?: Extension[] }
 
 /**
 * If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt5 = number;
 
@@ -2308,6 +2425,7 @@ export interface Element104 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal12 = number;
 
@@ -2318,6 +2436,7 @@ export interface Element105 { id?: String2; extension?: Extension[] }
 
 /**
 * If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal13 = number;
 
@@ -2333,16 +2452,19 @@ export interface Element107 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code11 = string;
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time = string;
 
 /**
 * The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt1 = number;
 
@@ -2381,11 +2503,13 @@ export interface ContactDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String48 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String49 = string;
 
@@ -2444,6 +2568,7 @@ export interface Contributor {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String50 = string;
 
@@ -2454,6 +2579,7 @@ export interface Element110 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String51 = string;
 
@@ -2521,11 +2647,13 @@ export interface DataRequirement {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String52 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code12 = string;
 
@@ -2536,6 +2664,7 @@ export interface Element112 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical = string;
 
@@ -2594,11 +2723,13 @@ export interface DataRequirementCodeFilter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String53 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String54 = string;
 
@@ -2609,6 +2740,7 @@ export interface Element113 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String55 = string;
 
@@ -2619,6 +2751,7 @@ export interface Element114 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical1 = string;
 
@@ -2644,6 +2777,7 @@ export interface DataRequirementDateFilter {
 	_searchParam?: Element116;
 	/**
 	* The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element117;
@@ -2653,11 +2787,13 @@ export interface DataRequirementDateFilter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String56 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String57 = string;
 
@@ -2668,6 +2804,7 @@ export interface Element115 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String58 = string;
 
@@ -2713,6 +2850,7 @@ export interface Duration2 {
 
 /**
 * Specifies a maximum number of results that are required (uses the _count search parameter).
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt6 = number;
 
@@ -2748,11 +2886,13 @@ export interface DataRequirementSort {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String59 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String60 = string;
 
@@ -2792,11 +2932,13 @@ export interface Expression {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String61 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String62 = string;
 
@@ -2807,6 +2949,7 @@ export interface Element121 { id?: String2; extension?: Extension[] }
 
 /**
 * A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id1 = string;
 
@@ -2822,6 +2965,7 @@ export interface Element123 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String63 = string;
 
@@ -2832,6 +2976,7 @@ export interface Element124 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that defines where the expression is found.
+* @pattern `^\S*$`
 */
 export type Uri9 = string;
 
@@ -2866,11 +3011,13 @@ export interface ParameterDefinition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String64 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code13 = string;
 
@@ -2881,6 +3028,7 @@ export interface Element126 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code14 = string;
 
@@ -2891,6 +3039,7 @@ export interface Element127 { id?: String2; extension?: Extension[] }
 
 /**
 * The minimum number of times this parameter SHALL appear in the request or response.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer = number;
 
@@ -2901,6 +3050,7 @@ export interface Element128 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String65 = string;
 
@@ -2911,6 +3061,7 @@ export interface Element129 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String66 = string;
 
@@ -2921,6 +3072,7 @@ export interface Element130 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code15 = string;
 
@@ -2931,6 +3083,7 @@ export interface Element131 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical2 = string;
 
@@ -2972,6 +3125,7 @@ export interface RelatedArtifact {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String67 = string;
 
@@ -2982,6 +3136,7 @@ export interface Element132 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String68 = string;
 
@@ -2992,6 +3147,7 @@ export interface Element133 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String69 = string;
 
@@ -3002,6 +3158,7 @@ export interface Element134 { id?: String2; extension?: Extension[] }
 
 /**
 * A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown1 = string;
 
@@ -3012,6 +3169,7 @@ export interface Element135 { id?: String2; extension?: Extension[] }
 
 /**
 * A url for the artifact that can be followed to access the actual content.
+* @pattern `^\S*$`
 */
 export type Url1 = string;
 
@@ -3046,6 +3204,7 @@ export interface Attachment1 {
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical3 = string;
 
@@ -3079,11 +3238,13 @@ export interface TriggerDefinition {
 	timingReference?: Reference6;
 	/**
 	* The timing of the event (if this is a periodic trigger).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	timingDate?: string;
 	_timingDate?: Element139;
 	/**
 	* The timing of the event (if this is a periodic trigger).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timingDateTime?: string;
 	_timingDateTime?: Element140;
@@ -3096,6 +3257,7 @@ export interface TriggerDefinition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String70 = string;
 
@@ -3106,6 +3268,7 @@ export interface Element137 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String71 = string;
 
@@ -3208,6 +3371,7 @@ export interface UsageContext {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String72 = string;
 
@@ -3294,6 +3458,7 @@ export interface Dosage {
 	timing?: Timing2;
 	/**
 	* Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
+	* @pattern `^true|false$`
 	*/
 	asNeededBoolean?: boolean;
 	_asNeededBoolean?: Element144;
@@ -3312,11 +3477,13 @@ export interface Dosage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String73 = string;
 
 /**
 * Indicates the order in which the dosage instructions should be applied or interpreted.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer1 = number;
 
@@ -3327,6 +3494,7 @@ export interface Element141 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String74 = string;
 
@@ -3348,6 +3516,7 @@ export interface CodeableConcept5 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String75 = string;
 
@@ -3444,6 +3613,7 @@ export interface DosageDoseAndRate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String76 = string;
 
@@ -3602,6 +3772,7 @@ export type Anonymous = Extension[];
 
 /**
 * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id2 = string;
 
@@ -3612,6 +3783,7 @@ export interface Element145 { id?: String2; extension?: Extension[] }
 
 /**
 * When the resource last changed - e.g. when the version changed.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant1 = string;
 
@@ -3622,6 +3794,7 @@ export interface Element146 { id?: String2; extension?: Extension[] }
 
 /**
 * A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
+* @pattern `^\S*$`
 */
 export type Uri10 = string;
 
@@ -3632,6 +3805,7 @@ export interface Element147 { id?: String2; extension?: Extension[] }
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri11 = string;
 
@@ -3642,6 +3816,7 @@ export interface Element148 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code16 = string;
 
@@ -3670,6 +3845,7 @@ export interface Narrative {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String77 = string;
 
@@ -3963,6 +4139,7 @@ export interface ActivityDefinition {
 	timingTiming?: Timing3;
 	/**
 	* The period, timing or frequency upon which the described activity is to occur.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timingDateTime?: string;
 	_timingDateTime?: Element172;
@@ -4011,6 +4188,7 @@ export interface ActivityDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id3 = string;
 
@@ -4033,6 +4211,7 @@ export interface Meta2 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri12 = string;
 
@@ -4043,6 +4222,7 @@ export interface Element151 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code17 = string;
 
@@ -4064,6 +4244,7 @@ export interface Narrative1 {
 
 /**
 * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers.
+* @pattern `^\S*$`
 */
 export type Uri13 = string;
 
@@ -4091,6 +4272,7 @@ export interface Identifier2 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String78 = string;
 
@@ -4101,6 +4283,7 @@ export interface Element154 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String79 = string;
 
@@ -4111,6 +4294,7 @@ export interface Element155 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String80 = string;
 
@@ -4121,6 +4305,7 @@ export interface Element156 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String81 = string;
 
@@ -4136,6 +4321,7 @@ export interface Element158 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean1 = boolean;
 
@@ -4172,6 +4358,7 @@ export interface Reference8 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime5 = string;
 
@@ -4182,6 +4369,7 @@ export interface Element160 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String82 = string;
 
@@ -4192,6 +4380,7 @@ export interface Element161 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the activity definition from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown2 = string;
 
@@ -4215,6 +4404,7 @@ export interface UsageContext1 {
 
 /**
 * Explanation of why this activity definition is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown3 = string;
 
@@ -4225,6 +4415,7 @@ export interface Element163 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String83 = string;
 
@@ -4235,6 +4426,7 @@ export interface Element164 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown4 = string;
 
@@ -4245,6 +4437,7 @@ export interface Element165 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date = string;
 
@@ -4255,6 +4448,7 @@ export interface Element166 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date1 = string;
 
@@ -4306,6 +4500,7 @@ export interface RelatedArtifact1 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code18 = string;
 
@@ -4316,6 +4511,7 @@ export interface Element168 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical4 = string;
 
@@ -4332,6 +4528,7 @@ export interface CodeableConcept12 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code19 = string;
 
@@ -4342,6 +4539,7 @@ export interface Element169 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code20 = string;
 
@@ -4352,6 +4550,7 @@ export interface Element170 { id?: String2; extension?: Extension[] }
 
 /**
 * Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.
+* @pattern `^true|false$`
 */
 export type Boolean2 = boolean;
 
@@ -4474,11 +4673,13 @@ export interface ActivityDefinitionParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String84 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code21 = string;
 
@@ -4586,6 +4787,7 @@ export interface Reference11 {
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical5 = string;
 
@@ -4612,11 +4814,13 @@ export interface ActivityDefinitionDynamicValue {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String85 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String86 = string;
 
@@ -4730,6 +4934,7 @@ export interface AdverseEvent {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id4 = string;
 
@@ -4752,6 +4957,7 @@ export interface Meta3 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri14 = string;
 
@@ -4762,6 +4968,7 @@ export interface Element175 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code22 = string;
 
@@ -4846,6 +5053,7 @@ export interface Reference13 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime6 = string;
 
@@ -4856,6 +5064,7 @@ export interface Element178 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime7 = string;
 
@@ -4866,6 +5075,7 @@ export interface Element179 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime8 = string;
 
@@ -4962,6 +5172,7 @@ export interface AdverseEventSuspectEntity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String87 = string;
 
@@ -5005,6 +5216,7 @@ export interface AdverseEventCausality {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String88 = string;
 
@@ -5021,6 +5233,7 @@ export interface CodeableConcept19 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String89 = string;
 
@@ -5118,6 +5331,7 @@ export interface AllergyIntolerance {
 	encounter?: Reference19;
 	/**
 	* Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	onsetDateTime?: string;
 	_onsetDateTime?: Element186;
@@ -5126,6 +5340,7 @@ export interface AllergyIntolerance {
 	onsetRange?: Range6;
 	/**
 	* Estimated or actual date,  date-time, or age when allergy or intolerance was identified.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	onsetString?: string;
 	_onsetString?: Element187;
@@ -5148,6 +5363,7 @@ export interface AllergyIntolerance {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id5 = string;
 
@@ -5170,6 +5386,7 @@ export interface Meta4 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri15 = string;
 
@@ -5180,6 +5397,7 @@ export interface Element182 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code23 = string;
 
@@ -5324,6 +5542,7 @@ export interface Element187 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime9 = string;
 
@@ -5364,6 +5583,7 @@ export interface Reference21 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime10 = string;
 
@@ -5426,6 +5646,7 @@ export interface AllergyIntoleranceReaction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String90 = string;
 
@@ -5442,6 +5663,7 @@ export interface CodeableConcept24 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String91 = string;
 
@@ -5452,6 +5674,7 @@ export interface Element190 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime11 = string;
 
@@ -5598,6 +5821,7 @@ export interface Appointment {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id6 = string;
 
@@ -5620,6 +5844,7 @@ export interface Meta5 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri16 = string;
 
@@ -5630,6 +5855,7 @@ export interface Element193 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code24 = string;
 
@@ -5678,6 +5904,7 @@ export interface CodeableConcept27 {
 
 /**
 * The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt2 = number;
 
@@ -5688,6 +5915,7 @@ export interface Element196 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String92 = string;
 
@@ -5698,6 +5926,7 @@ export interface Element197 { id?: String2; extension?: Extension[] }
 
 /**
 * Date/Time that the appointment is to take place.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant2 = string;
 
@@ -5708,6 +5937,7 @@ export interface Element198 { id?: String2; extension?: Extension[] }
 
 /**
 * Date/Time that the appointment is to conclude.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant3 = string;
 
@@ -5718,6 +5948,7 @@ export interface Element199 { id?: String2; extension?: Extension[] }
 
 /**
 * Number of minutes that the appointment is to take. This can be less than the duration between the start and end times.  For example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  Also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt7 = number;
 
@@ -5728,6 +5959,7 @@ export interface Element200 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime12 = string;
 
@@ -5738,6 +5970,7 @@ export interface Element201 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String93 = string;
 
@@ -5748,6 +5981,7 @@ export interface Element202 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String94 = string;
 
@@ -5793,6 +6027,7 @@ export interface AppointmentParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String95 = string;
 
@@ -5899,6 +6134,7 @@ export interface AppointmentResponse {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id7 = string;
 
@@ -5921,6 +6157,7 @@ export interface Meta6 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri17 = string;
 
@@ -5931,6 +6168,7 @@ export interface Element206 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code25 = string;
 
@@ -5967,6 +6205,7 @@ export interface Reference23 {
 
 /**
 * Date/Time that the appointment is to take place, or requested new start time.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant4 = string;
 
@@ -5977,6 +6216,7 @@ export interface Element208 { id?: String2; extension?: Extension[] }
 
 /**
 * This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant5 = string;
 
@@ -6002,6 +6242,7 @@ export interface Reference24 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code26 = string;
 
@@ -6012,6 +6253,7 @@ export interface Element210 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String96 = string;
 
@@ -6090,6 +6332,7 @@ export interface AuditEvent {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id8 = string;
 
@@ -6112,6 +6355,7 @@ export interface Meta7 {
 
 /**
 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+* @pattern `^\S*$`
 */
 export type Uri18 = string;
 
@@ -6122,6 +6366,7 @@ export interface Element212 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code27 = string;
 
@@ -6160,6 +6405,7 @@ export interface Period12 {
 
 /**
 * The time when the event was recorded.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant6 = string;
 
@@ -6175,6 +6421,7 @@ export interface Element216 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String97 = string;
 
@@ -6231,6 +6478,7 @@ export interface AuditEventAgent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String98 = string;
 
@@ -6262,6 +6510,7 @@ export interface Reference25 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String99 = string;
 
@@ -6272,6 +6521,7 @@ export interface Element218 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String100 = string;
 
@@ -6282,6 +6532,7 @@ export interface Element219 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicator that the user is or is not the requestor, or initiator, for the event being audited.
+* @pattern `^true|false$`
 */
 export type Boolean3 = boolean;
 
@@ -6307,6 +6558,7 @@ export interface Reference26 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri19 = string;
 
@@ -6337,11 +6589,13 @@ export interface AuditEventNetwork {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String101 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String102 = string;
 
@@ -6382,11 +6636,13 @@ export interface AuditEventSource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String103 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String104 = string;
 
@@ -6448,6 +6704,7 @@ export interface AuditEventEntity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String105 = string;
 
@@ -6468,6 +6725,7 @@ export interface Reference28 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String106 = string;
 
@@ -6478,6 +6736,7 @@ export interface Element224 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String107 = string;
 
@@ -6516,11 +6775,13 @@ export interface AuditEventDetail {
 	_type?: Element227;
 	/**
 	* The  value of the extra detail.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element228;
 	/**
 	* The  value of the extra detail.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element229
@@ -6528,11 +6789,13 @@ export interface AuditEventDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String108 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String109 = string;
 
@@ -6596,6 +6859,7 @@ export interface Basic {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id9 = string;
 
@@ -6618,6 +6882,7 @@ export interface Meta8 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri20 = string;
 
@@ -6628,6 +6893,7 @@ export interface Element230 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code28 = string;
 
@@ -6675,6 +6941,7 @@ export interface Reference29 {
 
 /**
 * Identifies when the resource was first created.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date2 = string;
 
@@ -6721,6 +6988,7 @@ export interface Binary {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id10 = string;
 
@@ -6743,6 +7011,7 @@ export interface Meta9 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri21 = string;
 
@@ -6753,6 +7022,7 @@ export interface Element233 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code29 = string;
 
@@ -6763,6 +7033,7 @@ export interface Element234 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code30 = string;
 
@@ -6869,6 +7140,7 @@ export interface BiologicallyDerivedProduct {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id11 = string;
 
@@ -6891,6 +7163,7 @@ export interface Meta10 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri22 = string;
 
@@ -6901,6 +7174,7 @@ export interface Element237 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code31 = string;
 
@@ -6943,6 +7217,7 @@ export interface Element240 { id?: String2; extension?: Extension[] }
 
 /**
 * Number of discrete units within this product.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer2 = number;
 
@@ -6971,6 +7246,7 @@ export interface BiologicallyDerivedProductCollection {
 	source?: Reference33;
 	/**
 	* Time of product collection.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	collectedDateTime?: string;
 	_collectedDateTime?: Element242;
@@ -6979,6 +7255,7 @@ export interface BiologicallyDerivedProductCollection {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String110 = string;
 
@@ -7052,6 +7329,7 @@ export interface BiologicallyDerivedProductProcessing {
 	additive?: Reference34;
 	/**
 	* Time of processing.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timeDateTime?: string;
 	_timeDateTime?: Element244;
@@ -7060,11 +7338,13 @@ export interface BiologicallyDerivedProductProcessing {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String111 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String112 = string;
 
@@ -7136,6 +7416,7 @@ export interface BiologicallyDerivedProductManipulation {
 	_description?: Element245;
 	/**
 	* Time of manipulation.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timeDateTime?: string;
 	_timeDateTime?: Element246;
@@ -7144,11 +7425,13 @@ export interface BiologicallyDerivedProductManipulation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String113 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String114 = string;
 
@@ -7205,11 +7488,13 @@ export interface BiologicallyDerivedProductStorage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String115 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String116 = string;
 
@@ -7220,6 +7505,7 @@ export interface Element247 { id?: String2; extension?: Extension[] }
 
 /**
 * Storage temperature.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal14 = number;
 
@@ -7300,6 +7586,7 @@ export interface BodyStructure {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id12 = string;
 
@@ -7322,6 +7609,7 @@ export interface Meta11 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri23 = string;
 
@@ -7332,6 +7620,7 @@ export interface Element250 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code32 = string;
 
@@ -7353,6 +7642,7 @@ export interface Narrative9 {
 
 /**
 * Whether this body site is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean4 = boolean;
 
@@ -7385,6 +7675,7 @@ export interface CodeableConcept33 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String117 = string;
 
@@ -7480,6 +7771,7 @@ export interface Bundle {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id13 = string;
 
@@ -7502,6 +7794,7 @@ export interface Meta12 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri24 = string;
 
@@ -7512,6 +7805,7 @@ export interface Element254 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code33 = string;
 
@@ -7544,6 +7838,7 @@ export interface Element256 { id?: String2; extension?: Extension[] }
 
 /**
 * The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant7 = string;
 
@@ -7554,6 +7849,7 @@ export interface Element257 { id?: String2; extension?: Extension[] }
 
 /**
 * If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle.
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt3 = number;
 
@@ -7586,11 +7882,13 @@ export interface BundleLink {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String118 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String119 = string;
 
@@ -7601,6 +7899,7 @@ export interface Element259 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri25 = string;
 
@@ -7640,11 +7939,13 @@ export interface BundleEntry {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String120 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri26 = string;
 
@@ -7681,6 +7982,7 @@ export interface BundleSearch {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String121 = string;
 
@@ -7691,6 +7993,7 @@ export interface Element262 { id?: String2; extension?: Extension[] }
 
 /**
 * When searching, the server's search ranking score for the entry.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal15 = number;
 
@@ -7735,6 +8038,7 @@ export interface BundleRequest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String122 = string;
 
@@ -7745,6 +8049,7 @@ export interface Element264 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri27 = string;
 
@@ -7755,6 +8060,7 @@ export interface Element265 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String123 = string;
 
@@ -7765,6 +8071,7 @@ export interface Element266 { id?: String2; extension?: Extension[] }
 
 /**
 * Only perform the operation if the last updated date matches. See the API documentation for ["Conditional Read"](http.html#cread).
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant8 = string;
 
@@ -7775,6 +8082,7 @@ export interface Element267 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String124 = string;
 
@@ -7785,6 +8093,7 @@ export interface Element268 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String125 = string;
 
@@ -7822,11 +8131,13 @@ export interface BundleResponse {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String126 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String127 = string;
 
@@ -7837,6 +8148,7 @@ export interface Element270 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri28 = string;
 
@@ -7847,6 +8159,7 @@ export interface Element271 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String128 = string;
 
@@ -7857,6 +8170,7 @@ export interface Element272 { id?: String2; extension?: Extension[] }
 
 /**
 * The date/time that the resource was modified on the server.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant9 = string;
 
@@ -8040,6 +8354,7 @@ export interface CapabilityStatement {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id14 = string;
 
@@ -8062,6 +8377,7 @@ export interface Meta13 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri29 = string;
 
@@ -8072,6 +8388,7 @@ export interface Element274 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code34 = string;
 
@@ -8093,6 +8410,7 @@ export interface Narrative10 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri30 = string;
 
@@ -8103,6 +8421,7 @@ export interface Element276 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String129 = string;
 
@@ -8113,6 +8432,7 @@ export interface Element277 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String130 = string;
 
@@ -8123,6 +8443,7 @@ export interface Element278 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String131 = string;
 
@@ -8138,6 +8459,7 @@ export interface Element280 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean5 = boolean;
 
@@ -8148,6 +8470,7 @@ export interface Element281 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime13 = string;
 
@@ -8158,6 +8481,7 @@ export interface Element282 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String132 = string;
 
@@ -8168,6 +8492,7 @@ export interface Element283 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the capability statement from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown5 = string;
 
@@ -8178,6 +8503,7 @@ export interface Element284 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this capability statement is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown6 = string;
 
@@ -8188,6 +8514,7 @@ export interface Element285 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown7 = string;
 
@@ -8227,11 +8554,13 @@ export interface CapabilityStatementSoftware {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String133 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String134 = string;
 
@@ -8242,6 +8571,7 @@ export interface Element288 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String135 = string;
 
@@ -8252,6 +8582,7 @@ export interface Element289 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime14 = string;
 
@@ -8285,11 +8616,13 @@ export interface CapabilityStatementImplementation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String136 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String137 = string;
 
@@ -8300,6 +8633,7 @@ export interface Element291 { id?: String2; extension?: Extension[] }
 
 /**
 * An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+* @pattern `^\S*$`
 */
 export type Url2 = string;
 
@@ -8381,6 +8715,7 @@ export interface CapabilityStatementRest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String138 = string;
 
@@ -8391,6 +8726,7 @@ export interface Element294 { id?: String2; extension?: Extension[] }
 
 /**
 * Information about the system's restful capabilities that apply across all applications, such as security.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown8 = string;
 
@@ -8427,11 +8763,13 @@ export interface CapabilityStatementSecurity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String139 = string;
 
 /**
 * Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.
+* @pattern `^true|false$`
 */
 export type Boolean6 = boolean;
 
@@ -8442,6 +8780,7 @@ export interface Element296 { id?: String2; extension?: Extension[] }
 
 /**
 * General description of how security works.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown9 = string;
 
@@ -8551,11 +8890,13 @@ export interface CapabilityStatementResource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String140 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code35 = string;
 
@@ -8566,11 +8907,13 @@ export interface Element298 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical6 = string;
 
 /**
 * Additional information about the resource type used by the system.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown10 = string;
 
@@ -8617,6 +8960,7 @@ export interface CapabilityStatementInteraction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String141 = string;
 
@@ -8627,6 +8971,7 @@ export interface Element300 { id?: String2; extension?: Extension[] }
 
 /**
 * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown11 = string;
 
@@ -8642,6 +8987,7 @@ export interface Element302 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag for whether the server is able to return past versions as part of the vRead operation.
+* @pattern `^true|false$`
 */
 export type Boolean7 = boolean;
 
@@ -8652,6 +8998,7 @@ export interface Element303 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
+* @pattern `^true|false$`
 */
 export type Boolean8 = boolean;
 
@@ -8662,6 +9009,7 @@ export interface Element304 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag that indicates that the server supports conditional create.
+* @pattern `^true|false$`
 */
 export type Boolean9 = boolean;
 
@@ -8677,6 +9025,7 @@ export interface Element306 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag that indicates that the server supports conditional update.
+* @pattern `^true|false$`
 */
 export type Boolean10 = boolean;
 
@@ -8730,11 +9079,13 @@ export interface CapabilityStatementSearchParam {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String142 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String143 = string;
 
@@ -8745,6 +9096,7 @@ export interface Element309 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical7 = string;
 
@@ -8755,6 +9107,7 @@ export interface Element310 { id?: String2; extension?: Extension[] }
 
 /**
 * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown12 = string;
 
@@ -8788,11 +9141,13 @@ export interface CapabilityStatementOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String144 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String145 = string;
 
@@ -8803,11 +9158,13 @@ export interface Element312 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical8 = string;
 
 /**
 * Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown13 = string;
 
@@ -8844,6 +9201,7 @@ export interface CapabilityStatementInteraction1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String146 = string;
 
@@ -8854,6 +9212,7 @@ export interface Element314 { id?: String2; extension?: Extension[] }
 
 /**
 * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown14 = string;
 
@@ -8895,6 +9254,7 @@ export interface CapabilityStatementMessaging {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String147 = string;
 
@@ -8921,11 +9281,13 @@ export interface CapabilityStatementEndpoint {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String148 = string;
 
 /**
 * The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier.
+* @pattern `^\S*$`
 */
 export type Url3 = string;
 
@@ -8936,6 +9298,7 @@ export interface Element316 { id?: String2; extension?: Extension[] }
 
 /**
 * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt4 = number;
 
@@ -8946,6 +9309,7 @@ export interface Element317 { id?: String2; extension?: Extension[] }
 
 /**
 * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown15 = string;
 
@@ -8981,6 +9345,7 @@ export interface CapabilityStatementSupportedMessage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String149 = string;
 
@@ -8991,6 +9356,7 @@ export interface Element319 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical9 = string;
 
@@ -9023,6 +9389,7 @@ export interface CapabilityStatementDocument {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String150 = string;
 
@@ -9033,6 +9400,7 @@ export interface Element320 { id?: String2; extension?: Extension[] }
 
 /**
 * A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown16 = string;
 
@@ -9043,6 +9411,7 @@ export interface Element321 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical10 = string;
 
@@ -9168,6 +9537,7 @@ export interface CarePlan {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id15 = string;
 
@@ -9190,6 +9560,7 @@ export interface Meta14 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri31 = string;
 
@@ -9200,6 +9571,7 @@ export interface Element322 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code36 = string;
 
@@ -9221,6 +9593,7 @@ export interface Narrative11 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code37 = string;
 
@@ -9231,6 +9604,7 @@ export interface Element324 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code38 = string;
 
@@ -9241,6 +9615,7 @@ export interface Element325 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String151 = string;
 
@@ -9251,6 +9626,7 @@ export interface Element326 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String152 = string;
 
@@ -9303,6 +9679,7 @@ export interface Period17 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime15 = string;
 
@@ -9363,6 +9740,7 @@ export interface CarePlanActivity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String153 = string;
 
@@ -9451,6 +9829,7 @@ export interface CarePlanDetail {
 	scheduledPeriod?: Period18;
 	/**
 	* The period, timing or frequency upon which the described activity is to occur.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	scheduledString?: string;
 	_scheduledString?: Element332;
@@ -9469,11 +9848,13 @@ export interface CarePlanDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String154 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code39 = string;
 
@@ -9511,6 +9892,7 @@ export interface CodeableConcept35 {
 
 /**
 * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.
+* @pattern `^true|false$`
 */
 export type Boolean11 = boolean;
 
@@ -9628,6 +10010,7 @@ export interface Quantity13 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String155 = string;
 
@@ -9726,6 +10109,7 @@ export interface CareTeam {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id16 = string;
 
@@ -9748,6 +10132,7 @@ export interface Meta15 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri32 = string;
 
@@ -9758,6 +10143,7 @@ export interface Element334 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code40 = string;
 
@@ -9784,6 +10170,7 @@ export interface Element336 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String156 = string;
 
@@ -9862,6 +10249,7 @@ export interface CareTeamParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String157 = string;
 
@@ -9985,6 +10373,7 @@ export interface CatalogEntry {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id17 = string;
 
@@ -10007,6 +10396,7 @@ export interface Meta16 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri33 = string;
 
@@ -10017,6 +10407,7 @@ export interface Element338 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code41 = string;
 
@@ -10049,6 +10440,7 @@ export interface CodeableConcept37 {
 
 /**
 * Whether the entry represents an orderable item.
+* @pattern `^true|false$`
 */
 export type Boolean12 = boolean;
 
@@ -10091,6 +10483,7 @@ export interface Period21 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime16 = string;
 
@@ -10101,6 +10494,7 @@ export interface Element342 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime17 = string;
 
@@ -10136,6 +10530,7 @@ export interface CatalogEntryRelatedEntry {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String158 = string;
 
@@ -10233,6 +10628,7 @@ export interface ChargeItem {
 	context?: Reference50;
 	/**
 	* Date/time(s) or duration when the charged service was applied.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element348;
@@ -10287,6 +10683,7 @@ export interface ChargeItem {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id18 = string;
 
@@ -10309,6 +10706,7 @@ export interface Meta17 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri34 = string;
 
@@ -10319,6 +10717,7 @@ export interface Element345 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code42 = string;
 
@@ -10436,6 +10835,7 @@ export interface ChargeItemPerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String159 = string;
 
@@ -10530,6 +10930,7 @@ export interface Quantity14 {
 
 /**
 * Factor overriding the factor determined by the rules associated with the code.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal16 = number;
 
@@ -10552,6 +10953,7 @@ export interface Money1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String160 = string;
 
@@ -10577,6 +10979,7 @@ export interface Reference55 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime18 = string;
 
@@ -10724,6 +11127,7 @@ export interface ChargeItemDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id19 = string;
 
@@ -10746,6 +11150,7 @@ export interface Meta18 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri35 = string;
 
@@ -10756,6 +11161,7 @@ export interface Element352 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code43 = string;
 
@@ -10777,6 +11183,7 @@ export interface Narrative15 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri36 = string;
 
@@ -10787,6 +11194,7 @@ export interface Element354 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String161 = string;
 
@@ -10797,6 +11205,7 @@ export interface Element355 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String162 = string;
 
@@ -10812,6 +11221,7 @@ export interface Element357 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean13 = boolean;
 
@@ -10822,6 +11232,7 @@ export interface Element358 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime19 = string;
 
@@ -10832,6 +11243,7 @@ export interface Element359 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String163 = string;
 
@@ -10842,6 +11254,7 @@ export interface Element360 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the charge item definition from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown17 = string;
 
@@ -10852,6 +11265,7 @@ export interface Element361 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the charge item definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the charge item definition.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown18 = string;
 
@@ -10862,6 +11276,7 @@ export interface Element362 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date3 = string;
 
@@ -10872,6 +11287,7 @@ export interface Element363 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date4 = string;
 
@@ -10929,11 +11345,13 @@ export interface ChargeItemDefinitionApplicability {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String164 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String165 = string;
 
@@ -10944,6 +11362,7 @@ export interface Element365 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String166 = string;
 
@@ -10954,6 +11373,7 @@ export interface Element366 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String167 = string;
 
@@ -10992,6 +11412,7 @@ export interface ChargeItemDefinitionPropertyGroup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String168 = string;
 
@@ -11021,11 +11442,13 @@ export interface ChargeItemDefinitionPriceComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String169 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code44 = string;
 
@@ -11047,6 +11470,7 @@ export interface CodeableConcept42 {
 
 /**
 * The factor that has been applied on the base price for calculating this component.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal17 = number;
 
@@ -11164,6 +11588,7 @@ export interface Claim {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id20 = string;
 
@@ -11186,6 +11611,7 @@ export interface Meta19 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri37 = string;
 
@@ -11196,6 +11622,7 @@ export interface Element370 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code45 = string;
 
@@ -11217,6 +11644,7 @@ export interface Narrative16 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code46 = string;
 
@@ -11281,6 +11709,7 @@ export interface Period24 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime20 = string;
 
@@ -11379,6 +11808,7 @@ export interface ClaimRelated {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String170 = string;
 
@@ -11477,6 +11907,7 @@ export interface ClaimPayee {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String171 = string;
 
@@ -11563,11 +11994,13 @@ export interface ClaimCareTeam {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String172 = string;
 
 /**
 * A number to uniquely identify care team entries.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt8 = number;
 
@@ -11593,6 +12026,7 @@ export interface Reference67 {
 
 /**
 * The party who is billing and/or responsible for the claimed products or services.
+* @pattern `^true|false$`
 */
 export type Boolean14 = boolean;
 
@@ -11645,17 +12079,20 @@ export interface ClaimSupportingInfo {
 	code?: CodeableConcept52;
 	/**
 	* The date when or period to which this information refers.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	timingDate?: string;
 	_timingDate?: Element378;
 	timingPeriod?: Period25;
 	/**
 	* Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element379;
 	/**
 	* Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element380;
@@ -11667,11 +12104,13 @@ export interface ClaimSupportingInfo {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String173 = string;
 
 /**
 * A number to uniquely identify supporting information entries.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt9 = number;
 
@@ -11827,11 +12266,13 @@ export interface ClaimDiagnosis {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String174 = string;
 
 /**
 * A number to uniquely identify diagnosis entries.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt10 = number;
 
@@ -11922,11 +12363,13 @@ export interface ClaimProcedure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String175 = string;
 
 /**
 * A number to uniquely identify procedure entries.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt11 = number;
 
@@ -11937,6 +12380,7 @@ export interface Element382 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime21 = string;
 
@@ -12009,11 +12453,13 @@ export interface ClaimInsurance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String176 = string;
 
 /**
 * A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt12 = number;
 
@@ -12024,6 +12470,7 @@ export interface Element384 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
+* @pattern `^true|false$`
 */
 export type Boolean15 = boolean;
 
@@ -12066,6 +12513,7 @@ export interface Reference71 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String177 = string;
 
@@ -12114,11 +12562,13 @@ export interface ClaimAccident {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String178 = string;
 
 /**
 * Date of an accident event  related to the products and services contained in the claim.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date5 = string;
 
@@ -12252,6 +12702,7 @@ export interface ClaimItem {
 
 	/**
 	* The date or dates when the service or product was supplied, performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element389;
@@ -12287,11 +12738,13 @@ export interface ClaimItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String179 = string;
 
 /**
 * A number to uniquely identify item entries.
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt13 = number;
 
@@ -12302,6 +12755,7 @@ export interface Element388 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt14 = number;
 
@@ -12440,6 +12894,7 @@ export interface Money3 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal18 = number;
 
@@ -12519,11 +12974,13 @@ export interface ClaimDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String180 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt15 = number;
 
@@ -12597,6 +13054,7 @@ export interface Money5 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal19 = number;
 
@@ -12660,11 +13118,13 @@ export interface ClaimSubDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String181 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt16 = number;
 
@@ -12738,6 +13198,7 @@ export interface Money7 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal20 = number;
 
@@ -12872,6 +13333,7 @@ export interface ClaimResponse {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id21 = string;
 
@@ -12894,6 +13356,7 @@ export interface Meta20 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri38 = string;
 
@@ -12904,6 +13367,7 @@ export interface Element395 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code47 = string;
 
@@ -12925,6 +13389,7 @@ export interface Narrative17 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code48 = string;
 
@@ -12957,6 +13422,7 @@ export interface CodeableConcept71 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code49 = string;
 
@@ -12982,6 +13448,7 @@ export interface Reference75 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime22 = string;
 
@@ -13037,6 +13504,7 @@ export interface Reference78 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code50 = string;
 
@@ -13047,6 +13515,7 @@ export interface Element400 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String182 = string;
 
@@ -13057,6 +13526,7 @@ export interface Element401 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String183 = string;
 
@@ -13129,11 +13599,13 @@ export interface ClaimResponseItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String184 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt17 = number;
 
@@ -13167,6 +13639,7 @@ export interface ClaimResponseAdjudication {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String185 = string;
 
@@ -13206,6 +13679,7 @@ export interface Money10 {
 
 /**
 * A non-monetary value associated with the category. Mutually exclusive to the amount element above.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal21 = number;
 
@@ -13255,11 +13729,13 @@ export interface ClaimResponseDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String186 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt18 = number;
 
@@ -13304,11 +13780,13 @@ export interface ClaimResponseSubDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String187 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt19 = number;
 
@@ -13381,6 +13859,7 @@ export interface ClaimResponseAddItem {
 
 	/**
 	* The date or dates when the service or product was supplied, performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element407;
@@ -13422,6 +13901,7 @@ export interface ClaimResponseAddItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String188 = string;
 
@@ -13538,6 +14018,7 @@ export interface Money11 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal22 = number;
 
@@ -13618,6 +14099,7 @@ export interface ClaimResponseDetail1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String189 = string;
 
@@ -13664,6 +14146,7 @@ export interface Money13 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal23 = number;
 
@@ -13728,6 +14211,7 @@ export interface ClaimResponseSubDetail1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String190 = string;
 
@@ -13774,6 +14258,7 @@ export interface Money15 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal24 = number;
 
@@ -13816,6 +14301,7 @@ export interface ClaimResponseTotal {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String191 = string;
 
@@ -13869,6 +14355,7 @@ export interface ClaimResponsePayment {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String192 = string;
 
@@ -13908,6 +14395,7 @@ export interface CodeableConcept82 {
 
 /**
 * Estimated date the payment will be issued or the actual issue date of payment.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date6 = string;
 
@@ -14021,11 +14509,13 @@ export interface ClaimResponseProcessNote {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String193 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt20 = number;
 
@@ -14041,6 +14531,7 @@ export interface Element413 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String194 = string;
 
@@ -14088,11 +14579,13 @@ export interface ClaimResponseInsurance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String195 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt21 = number;
 
@@ -14103,6 +14596,7 @@ export interface Element415 { id?: String2; extension?: Extension[] }
 
 /**
 * A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
+* @pattern `^true|false$`
 */
 export type Boolean16 = boolean;
 
@@ -14128,6 +14622,7 @@ export interface Reference80 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String196 = string;
 
@@ -14178,11 +14673,13 @@ export interface ClaimResponseError {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String197 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt22 = number;
 
@@ -14193,6 +14690,7 @@ export interface Element418 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt23 = number;
 
@@ -14203,6 +14701,7 @@ export interface Element419 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt24 = number;
 
@@ -14268,6 +14767,7 @@ export interface ClinicalImpression {
 	encounter?: Reference83;
 	/**
 	* The point in time or period over which the subject was assessed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	effectiveDateTime?: string;
 	_effectiveDateTime?: Element425;
@@ -14325,6 +14825,7 @@ export interface ClinicalImpression {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id22 = string;
 
@@ -14347,6 +14848,7 @@ export interface Meta21 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri39 = string;
 
@@ -14357,6 +14859,7 @@ export interface Element421 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code51 = string;
 
@@ -14378,6 +14881,7 @@ export interface Narrative18 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code52 = string;
 
@@ -14410,6 +14914,7 @@ export interface CodeableConcept88 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String198 = string;
 
@@ -14467,6 +14972,7 @@ export interface Period29 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime23 = string;
 
@@ -14530,6 +15036,7 @@ export interface ClinicalImpressionInvestigation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String199 = string;
 
@@ -14546,6 +15053,7 @@ export interface CodeableConcept89 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String200 = string;
 
@@ -14578,6 +15086,7 @@ export interface ClinicalImpressionFinding {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String201 = string;
 
@@ -14609,6 +15118,7 @@ export interface Reference86 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String202 = string;
 
@@ -14734,6 +15244,7 @@ export interface CodeSystem {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id23 = string;
 
@@ -14756,6 +15267,7 @@ export interface Meta22 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri40 = string;
 
@@ -14766,6 +15278,7 @@ export interface Element429 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code53 = string;
 
@@ -14787,6 +15300,7 @@ export interface Narrative19 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri41 = string;
 
@@ -14797,6 +15311,7 @@ export interface Element431 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String203 = string;
 
@@ -14807,6 +15322,7 @@ export interface Element432 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String204 = string;
 
@@ -14817,6 +15333,7 @@ export interface Element433 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String205 = string;
 
@@ -14832,6 +15349,7 @@ export interface Element435 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean17 = boolean;
 
@@ -14842,6 +15360,7 @@ export interface Element436 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime24 = string;
 
@@ -14852,6 +15371,7 @@ export interface Element437 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String206 = string;
 
@@ -14862,6 +15382,7 @@ export interface Element438 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the code system from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown19 = string;
 
@@ -14872,6 +15393,7 @@ export interface Element439 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this code system is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown20 = string;
 
@@ -14882,6 +15404,7 @@ export interface Element440 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown21 = string;
 
@@ -14892,6 +15415,7 @@ export interface Element441 { id?: String2; extension?: Extension[] }
 
 /**
 * If code comparison is case sensitive when codes within this system are compared to each other.
+* @pattern `^true|false$`
 */
 export type Boolean18 = boolean;
 
@@ -14902,6 +15426,7 @@ export interface Element442 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical11 = string;
 
@@ -14912,6 +15437,7 @@ export interface Element443 { id?: String2; extension?: Extension[] }
 
 /**
 * The code system defines a compositional (post-coordination) grammar.
+* @pattern `^true|false$`
 */
 export type Boolean19 = boolean;
 
@@ -14922,6 +15448,7 @@ export interface Element444 { id?: String2; extension?: Extension[] }
 
 /**
 * This flag is used to signify that the code system does not commit to concept permanence across versions. If true, a version must be specified when referencing this code system.
+* @pattern `^true|false$`
 */
 export type Boolean20 = boolean;
 
@@ -14937,11 +15464,13 @@ export interface Element446 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical12 = string;
 
 /**
 * The total number of concepts defined by the code system. Where the code system has a compositional grammar, the basis of this count is defined by the system steward.
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt5 = number;
 
@@ -14985,11 +15514,13 @@ export interface CodeSystemFilter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String207 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code54 = string;
 
@@ -15000,6 +15531,7 @@ export interface Element448 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String208 = string;
 
@@ -15010,6 +15542,7 @@ export interface Element449 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String209 = string;
 
@@ -15057,11 +15590,13 @@ export interface CodeSystemProperty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String210 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code55 = string;
 
@@ -15072,6 +15607,7 @@ export interface Element451 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri42 = string;
 
@@ -15082,6 +15618,7 @@ export interface Element452 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String211 = string;
 
@@ -15135,11 +15672,13 @@ export interface CodeSystemConcept {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String212 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code56 = string;
 
@@ -15150,6 +15689,7 @@ export interface Element455 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String213 = string;
 
@@ -15160,6 +15700,7 @@ export interface Element456 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String214 = string;
 
@@ -15193,11 +15734,13 @@ export interface CodeSystemDesignation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String215 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code57 = string;
 
@@ -15208,6 +15751,7 @@ export interface Element458 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String216 = string;
 
@@ -15236,32 +15780,38 @@ export interface CodeSystemProperty1 {
 	_code?: Element460;
 	/**
 	* The value of this property.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element461;
 	valueCoding?: Coding;
 	/**
 	* The value of this property.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element462;
 	/**
 	* The value of this property.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element463;
 	/**
 	* The value of this property.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element464;
 	/**
 	* The value of this property.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element465;
 	/**
 	* The value of this property.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element466
@@ -15269,11 +15819,13 @@ export interface CodeSystemProperty1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String217 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code58 = string;
 
@@ -15430,6 +15982,7 @@ export interface Communication {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id24 = string;
 
@@ -15452,6 +16005,7 @@ export interface Meta23 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri43 = string;
 
@@ -15462,6 +16016,7 @@ export interface Element467 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code59 = string;
 
@@ -15483,6 +16038,7 @@ export interface Narrative20 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code60 = string;
 
@@ -15504,6 +16060,7 @@ export interface CodeableConcept91 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code61 = string;
 
@@ -15555,6 +16112,7 @@ export interface Reference88 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime25 = string;
 
@@ -15565,6 +16123,7 @@ export interface Element471 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime26 = string;
 
@@ -15607,6 +16166,7 @@ export interface CommunicationPayload {
 
 	/**
 	* A communicated content (or for multi-part communications, one portion of the communication).
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	contentString?: string;
 	_contentString?: Element473;
@@ -15616,6 +16176,7 @@ export interface CommunicationPayload {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String218 = string;
 
@@ -15738,6 +16299,7 @@ export interface CommunicationRequest {
 
 	/**
 	* The time when this communication is to occur.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element480;
@@ -15768,6 +16330,7 @@ export interface CommunicationRequest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id25 = string;
 
@@ -15790,6 +16353,7 @@ export interface Meta24 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri44 = string;
 
@@ -15800,6 +16364,7 @@ export interface Element474 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code62 = string;
 
@@ -15838,6 +16403,7 @@ export interface Identifier8 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code63 = string;
 
@@ -15859,6 +16425,7 @@ export interface CodeableConcept93 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code64 = string;
 
@@ -15869,6 +16436,7 @@ export interface Element477 { id?: String2; extension?: Extension[] }
 
 /**
 * If true indicates that the CommunicationRequest is asking for the specified action to *not* occur.
+* @pattern `^true|false$`
 */
 export type Boolean21 = boolean;
 
@@ -15926,6 +16494,7 @@ export interface CommunicationRequestPayload {
 
 	/**
 	* The communicated content (or for multi-part communications, one portion of the communication).
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	contentString?: string;
 	_contentString?: Element479;
@@ -15935,6 +16504,7 @@ export interface CommunicationRequestPayload {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String219 = string;
 
@@ -16001,6 +16571,7 @@ export interface Period30 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime27 = string;
 
@@ -16120,6 +16691,7 @@ export interface CompartmentDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id26 = string;
 
@@ -16142,6 +16714,7 @@ export interface Meta25 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri45 = string;
 
@@ -16152,6 +16725,7 @@ export interface Element482 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code65 = string;
 
@@ -16173,6 +16747,7 @@ export interface Narrative22 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri46 = string;
 
@@ -16183,6 +16758,7 @@ export interface Element484 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String220 = string;
 
@@ -16193,6 +16769,7 @@ export interface Element485 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String221 = string;
 
@@ -16208,6 +16785,7 @@ export interface Element487 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean22 = boolean;
 
@@ -16218,6 +16796,7 @@ export interface Element488 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime28 = string;
 
@@ -16228,6 +16807,7 @@ export interface Element489 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String222 = string;
 
@@ -16238,6 +16818,7 @@ export interface Element490 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the compartment definition from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown22 = string;
 
@@ -16248,6 +16829,7 @@ export interface Element491 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this compartment definition is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown23 = string;
 
@@ -16263,6 +16845,7 @@ export interface Element493 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the search syntax is supported,.
+* @pattern `^true|false$`
 */
 export type Boolean23 = boolean;
 
@@ -16304,11 +16887,13 @@ export interface CompartmentDefinitionResource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String223 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code66 = string;
 
@@ -16319,6 +16904,7 @@ export interface Element495 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String224 = string;
 
@@ -16404,6 +16990,7 @@ export interface Composition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id27 = string;
 
@@ -16426,6 +17013,7 @@ export interface Meta26 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri47 = string;
 
@@ -16436,6 +17024,7 @@ export interface Element497 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code67 = string;
 
@@ -16520,6 +17109,7 @@ export interface Reference97 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime29 = string;
 
@@ -16530,6 +17120,7 @@ export interface Element500 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String225 = string;
 
@@ -16540,6 +17131,7 @@ export interface Element501 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code68 = string;
 
@@ -16577,6 +17169,7 @@ export interface CompositionAttester {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String226 = string;
 
@@ -16587,6 +17180,7 @@ export interface Element503 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime30 = string;
 
@@ -16649,11 +17243,13 @@ export interface CompositionRelatesTo {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String227 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code69 = string;
 
@@ -16724,6 +17320,7 @@ export interface CompositionEvent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String228 = string;
 
@@ -16780,11 +17377,13 @@ export interface CompositionSection {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String229 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String230 = string;
 
@@ -16832,6 +17431,7 @@ export interface Narrative24 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code70 = string;
 
@@ -16934,21 +17534,25 @@ export interface ConceptMap {
 	_copyright?: Element520;
 	/**
 	* Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.
+	* @pattern `^\S*$`
 	*/
 	sourceUri?: string;
 	_sourceUri?: Element521;
 	/**
 	* Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.
+	* @pattern `^\S*$`
 	*/
 	sourceCanonical?: string;
 	_sourceCanonical?: Element522;
 	/**
 	* The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
+	* @pattern `^\S*$`
 	*/
 	targetUri?: string;
 	_targetUri?: Element523;
 	/**
 	* The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
+	* @pattern `^\S*$`
 	*/
 	targetCanonical?: string;
 	_targetCanonical?: Element524;
@@ -16960,6 +17564,7 @@ export interface ConceptMap {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id28 = string;
 
@@ -16982,6 +17587,7 @@ export interface Meta27 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri48 = string;
 
@@ -16992,6 +17598,7 @@ export interface Element508 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code71 = string;
 
@@ -17013,6 +17620,7 @@ export interface Narrative25 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri49 = string;
 
@@ -17040,6 +17648,7 @@ export interface Identifier11 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String231 = string;
 
@@ -17050,6 +17659,7 @@ export interface Element511 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String232 = string;
 
@@ -17060,6 +17670,7 @@ export interface Element512 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String233 = string;
 
@@ -17075,6 +17686,7 @@ export interface Element514 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean24 = boolean;
 
@@ -17085,6 +17697,7 @@ export interface Element515 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime31 = string;
 
@@ -17095,6 +17708,7 @@ export interface Element516 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String234 = string;
 
@@ -17105,6 +17719,7 @@ export interface Element517 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the concept map from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown24 = string;
 
@@ -17115,6 +17730,7 @@ export interface Element518 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this concept map is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown25 = string;
 
@@ -17125,6 +17741,7 @@ export interface Element519 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the concept map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the concept map.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown26 = string;
 
@@ -17186,11 +17803,13 @@ export interface ConceptMapGroup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String235 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri50 = string;
 
@@ -17201,6 +17820,7 @@ export interface Element525 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String236 = string;
 
@@ -17211,6 +17831,7 @@ export interface Element526 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri51 = string;
 
@@ -17221,6 +17842,7 @@ export interface Element527 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String237 = string;
 
@@ -17257,11 +17879,13 @@ export interface ConceptMapElement {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String238 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code72 = string;
 
@@ -17272,6 +17896,7 @@ export interface Element529 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String239 = string;
 
@@ -17331,11 +17956,13 @@ export interface ConceptMapTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String240 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code73 = string;
 
@@ -17346,6 +17973,7 @@ export interface Element531 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String241 = string;
 
@@ -17361,6 +17989,7 @@ export interface Element533 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String242 = string;
 
@@ -17396,11 +18025,13 @@ export interface ConceptMapDependsOn {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String243 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri52 = string;
 
@@ -17411,11 +18042,13 @@ export interface Element535 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical13 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String244 = string;
 
@@ -17426,6 +18059,7 @@ export interface Element536 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String245 = string;
 
@@ -17465,6 +18099,7 @@ export interface ConceptMapUnmapped {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String246 = string;
 
@@ -17475,6 +18110,7 @@ export interface Element538 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code74 = string;
 
@@ -17485,6 +18121,7 @@ export interface Element539 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String247 = string;
 
@@ -17495,6 +18132,7 @@ export interface Element540 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical14 = string;
 
@@ -17550,6 +18188,7 @@ export interface Condition {
 	encounter?: Reference103;
 	/**
 	* Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	onsetDateTime?: string;
 	_onsetDateTime?: Element543;
@@ -17558,11 +18197,13 @@ export interface Condition {
 	onsetRange?: Range7;
 	/**
 	* Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	onsetString?: string;
 	_onsetString?: Element544;
 	/**
 	* The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	abatementDateTime?: string;
 	_abatementDateTime?: Element545;
@@ -17571,6 +18212,7 @@ export interface Condition {
 	abatementRange?: Range8;
 	/**
 	* The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	abatementString?: string;
 	_abatementString?: Element546;
@@ -17596,6 +18238,7 @@ export interface Condition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id29 = string;
 
@@ -17618,6 +18261,7 @@ export interface Meta28 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri53 = string;
 
@@ -17628,6 +18272,7 @@ export interface Element541 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code75 = string;
 
@@ -17823,6 +18468,7 @@ export interface Element546 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime32 = string;
 
@@ -17887,6 +18533,7 @@ export interface ConditionStage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String248 = string;
 
@@ -17942,6 +18589,7 @@ export interface ConditionEvidence {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String249 = string;
 
@@ -18027,6 +18675,7 @@ export interface Consent {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id30 = string;
 
@@ -18049,6 +18698,7 @@ export interface Meta29 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri54 = string;
 
@@ -18059,6 +18709,7 @@ export interface Element548 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code76 = string;
 
@@ -18111,6 +18762,7 @@ export interface Reference106 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime33 = string;
 
@@ -18182,11 +18834,13 @@ export interface ConsentPolicy {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String250 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri55 = string;
 
@@ -18197,6 +18851,7 @@ export interface Element552 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri56 = string;
 
@@ -18241,11 +18896,13 @@ export interface ConsentVerification {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String251 = string;
 
 /**
 * Has the instruction been verified.
+* @pattern `^true|false$`
 */
 export type Boolean25 = boolean;
 
@@ -18271,6 +18928,7 @@ export interface Reference108 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime34 = string;
 
@@ -18345,6 +19003,7 @@ export interface ConsentProvision {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String252 = string;
 
@@ -18387,6 +19046,7 @@ export interface ConsentActor {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String253 = string;
 
@@ -18455,6 +19115,7 @@ export interface ConsentData {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String254 = string;
 
@@ -18636,6 +19297,7 @@ export interface Contract {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id31 = string;
 
@@ -18658,6 +19320,7 @@ export interface Meta30 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri57 = string;
 
@@ -18668,6 +19331,7 @@ export interface Element558 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code77 = string;
 
@@ -18689,6 +19353,7 @@ export interface Narrative28 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri58 = string;
 
@@ -18699,6 +19364,7 @@ export interface Element560 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String255 = string;
 
@@ -18709,6 +19375,7 @@ export interface Element561 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code78 = string;
 
@@ -18745,6 +19412,7 @@ export interface Reference111 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri59 = string;
 
@@ -18766,6 +19434,7 @@ export interface CodeableConcept108 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime35 = string;
 
@@ -18799,6 +19468,7 @@ export interface CodeableConcept109 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String256 = string;
 
@@ -18809,6 +19479,7 @@ export interface Element565 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String257 = string;
 
@@ -18819,6 +19490,7 @@ export interface Element566 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String258 = string;
 
@@ -18919,6 +19591,7 @@ export interface ContractContentDefinition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String259 = string;
 
@@ -18961,6 +19634,7 @@ export interface Reference114 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime36 = string;
 
@@ -18971,6 +19645,7 @@ export interface Element568 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code79 = string;
 
@@ -18981,6 +19656,7 @@ export interface Element569 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown27 = string;
 
@@ -19038,6 +19714,7 @@ export interface ContractTerm {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String260 = string;
 
@@ -19060,6 +19737,7 @@ export interface Identifier12 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime37 = string;
 
@@ -19130,6 +19808,7 @@ export interface CodeableConcept117 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String261 = string;
 
@@ -19178,11 +19857,13 @@ export interface ContractSecurityLabel {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String262 = string;
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt6 = number;
 
@@ -19249,6 +19930,7 @@ export interface ContractOffer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String263 = string;
 
@@ -19278,6 +19960,7 @@ export interface ContractParty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String264 = string;
 
@@ -19348,41 +20031,49 @@ export interface ContractAnswer {
 
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element573;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element574;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element575;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element576;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element577;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element578;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element579;
 	/**
 	* Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element580;
@@ -19394,6 +20085,7 @@ export interface ContractAnswer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String265 = string;
 
@@ -19496,6 +20188,7 @@ export interface Reference117 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String266 = string;
 
@@ -19591,6 +20284,7 @@ export interface ContractAsset {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String267 = string;
 
@@ -19632,6 +20326,7 @@ export interface ContractContext {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String268 = string;
 
@@ -19652,6 +20347,7 @@ export interface Reference118 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String269 = string;
 
@@ -19662,6 +20358,7 @@ export interface Element582 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String270 = string;
 
@@ -19672,6 +20369,7 @@ export interface Element583 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String271 = string;
 
@@ -19737,6 +20435,7 @@ export interface ContractValuedItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String272 = string;
 
@@ -19785,6 +20484,7 @@ export interface Identifier13 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime38 = string;
 
@@ -19825,6 +20525,7 @@ export interface Money20 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal25 = number;
 
@@ -19835,6 +20536,7 @@ export interface Element586 { id?: String2; extension?: Extension[] }
 
 /**
 * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal26 = number;
 
@@ -19857,6 +20559,7 @@ export interface Money21 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String273 = string;
 
@@ -19867,6 +20570,7 @@ export interface Element588 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime39 = string;
 
@@ -19952,6 +20656,7 @@ export interface ContractAction {
 
 	/**
 	* When action happens.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element591;
@@ -20036,11 +20741,13 @@ export interface ContractAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String274 = string;
 
 /**
 * True if the term prohibits the  action.
+* @pattern `^true|false$`
 */
 export type Boolean26 = boolean;
 
@@ -20086,6 +20793,7 @@ export interface ContractSubject {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String275 = string;
 
@@ -20219,6 +20927,7 @@ export interface ContractSigner {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String276 = string;
 
@@ -20278,6 +20987,7 @@ export interface ContractFriendly {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String277 = string;
 
@@ -20342,6 +21052,7 @@ export interface ContractLegal {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String278 = string;
 
@@ -20406,6 +21117,7 @@ export interface ContractRule {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String279 = string;
 
@@ -20562,6 +21274,7 @@ export interface Coverage {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id32 = string;
 
@@ -20584,6 +21297,7 @@ export interface Meta31 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri60 = string;
 
@@ -20594,6 +21308,7 @@ export interface Element592 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code80 = string;
 
@@ -20615,6 +21330,7 @@ export interface Narrative29 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code81 = string;
 
@@ -20666,6 +21382,7 @@ export interface Reference130 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String280 = string;
 
@@ -20691,6 +21408,7 @@ export interface Reference131 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String281 = string;
 
@@ -20747,6 +21465,7 @@ export interface CoverageClass {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String282 = string;
 
@@ -20763,6 +21482,7 @@ export interface CodeableConcept130 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String283 = string;
 
@@ -20773,6 +21493,7 @@ export interface Element597 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String284 = string;
 
@@ -20783,6 +21504,7 @@ export interface Element598 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt25 = number;
 
@@ -20793,6 +21515,7 @@ export interface Element599 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String285 = string;
 
@@ -20828,6 +21551,7 @@ export interface CoverageCostToBeneficiary {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String286 = string;
 
@@ -20894,6 +21618,7 @@ export interface CoverageException {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String287 = string;
 
@@ -20922,6 +21647,7 @@ export interface Period40 {
 
 /**
 * When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs.
+* @pattern `^true|false$`
 */
 export type Boolean27 = boolean;
 
@@ -20986,6 +21712,7 @@ export interface CoverageEligibilityRequest {
 	patient: Reference132;
 	/**
 	* The date or dates when the enclosed suite of services were performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element605;
@@ -21014,6 +21741,7 @@ export interface CoverageEligibilityRequest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id33 = string;
 
@@ -21036,6 +21764,7 @@ export interface Meta32 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri61 = string;
 
@@ -21046,6 +21775,7 @@ export interface Element602 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code82 = string;
 
@@ -21067,6 +21797,7 @@ export interface Narrative30 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code83 = string;
 
@@ -21120,6 +21851,7 @@ export interface Period41 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime40 = string;
 
@@ -21213,11 +21945,13 @@ export interface CoverageEligibilityRequestSupportingInfo {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String288 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt26 = number;
 
@@ -21243,6 +21977,7 @@ export interface Reference137 {
 
 /**
 * The supporting materials are applicable for all detail items, product/servce categories and specific billing codes.
+* @pattern `^true|false$`
 */
 export type Boolean28 = boolean;
 
@@ -21276,11 +22011,13 @@ export interface CoverageEligibilityRequestInsurance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String289 = string;
 
 /**
 * A flag to indicate that this Coverage is to be used for evaluation of this request when set to true.
+* @pattern `^true|false$`
 */
 export type Boolean29 = boolean;
 
@@ -21306,6 +22043,7 @@ export interface Reference138 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String290 = string;
 
@@ -21363,6 +22101,7 @@ export interface CoverageEligibilityRequestItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String291 = string;
 
@@ -21470,6 +22209,7 @@ export interface CoverageEligibilityRequestDiagnosis {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String292 = string;
 
@@ -21554,6 +22294,7 @@ export interface CoverageEligibilityResponse {
 	patient: Reference142;
 	/**
 	* The date or dates when the enclosed suite of services were performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element614;
@@ -21585,6 +22326,7 @@ export interface CoverageEligibilityResponse {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id34 = string;
 
@@ -21607,6 +22349,7 @@ export interface Meta33 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri62 = string;
 
@@ -21617,6 +22360,7 @@ export interface Element611 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code84 = string;
 
@@ -21638,6 +22382,7 @@ export interface Narrative31 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code85 = string;
 
@@ -21680,6 +22425,7 @@ export interface Period42 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime41 = string;
 
@@ -21725,6 +22471,7 @@ export interface Element616 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String293 = string;
 
@@ -21776,6 +22523,7 @@ export interface CoverageEligibilityResponseInsurance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String294 = string;
 
@@ -21796,6 +22544,7 @@ export interface Reference146 {
 
 /**
 * Flag indicating if the coverage provided is inforce currently if no service date(s) specified or for the whole duration of the service dates.
+* @pattern `^true|false$`
 */
 export type Boolean30 = boolean;
 
@@ -21864,6 +22613,7 @@ export interface CoverageEligibilityResponseItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String295 = string;
 
@@ -21906,6 +22656,7 @@ export interface Reference147 {
 
 /**
 * True if the indicated class of service is excluded from the plan, missing or False indicates the product or service is included in the coverage.
+* @pattern `^true|false$`
 */
 export type Boolean31 = boolean;
 
@@ -21916,6 +22667,7 @@ export interface Element619 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String296 = string;
 
@@ -21926,6 +22678,7 @@ export interface Element620 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String297 = string;
 
@@ -21986,22 +22739,26 @@ export interface CoverageEligibilityResponseBenefit {
 	type: CodeableConcept142;
 	/**
 	* The quantity of the benefit which is permitted under the coverage.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	allowedUnsignedInt?: number;
 	_allowedUnsignedInt?: Element622;
 	/**
 	* The quantity of the benefit which is permitted under the coverage.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	allowedString?: string;
 	_allowedString?: Element623;
 	allowedMoney?: Money24;
 	/**
 	* The quantity of the benefit which have been consumed to date.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	usedUnsignedInt?: number;
 	_usedUnsignedInt?: Element624;
 	/**
 	* The quantity of the benefit which have been consumed to date.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	usedString?: string;
 	_usedString?: Element625;
@@ -22010,6 +22767,7 @@ export interface CoverageEligibilityResponseBenefit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String298 = string;
 
@@ -22070,6 +22828,7 @@ export interface Money25 {
 
 /**
 * A boolean flag indicating whether a preauthorization is required prior to actual service delivery.
+* @pattern `^true|false$`
 */
 export type Boolean32 = boolean;
 
@@ -22080,6 +22839,7 @@ export interface Element626 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri63 = string;
 
@@ -22090,6 +22850,7 @@ export interface Element627 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String299 = string;
 
@@ -22130,6 +22891,7 @@ export interface CoverageEligibilityResponseError {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String300 = string;
 
@@ -22191,6 +22953,7 @@ export interface DetectedIssue {
 	patient?: Reference148;
 	/**
 	* The date or period when the detected issue was initially identified.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	identifiedDateTime?: string;
 	_identifiedDateTime?: Element633;
@@ -22217,6 +22980,7 @@ export interface DetectedIssue {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id35 = string;
 
@@ -22239,6 +23003,7 @@ export interface Meta34 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri64 = string;
 
@@ -22249,6 +23014,7 @@ export interface Element629 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code86 = string;
 
@@ -22270,6 +23036,7 @@ export interface Narrative32 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code87 = string;
 
@@ -22371,11 +23138,13 @@ export interface DetectedIssueEvidence {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String301 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String302 = string;
 
@@ -22386,6 +23155,7 @@ export interface Element634 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri65 = string;
 
@@ -22418,6 +23188,7 @@ export interface DetectedIssueMitigation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String303 = string;
 
@@ -22434,6 +23205,7 @@ export interface CodeableConcept146 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime42 = string;
 
@@ -22566,6 +23338,7 @@ export interface Device {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id36 = string;
 
@@ -22588,6 +23361,7 @@ export interface Meta35 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri66 = string;
 
@@ -22598,6 +23372,7 @@ export interface Element637 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code88 = string;
 
@@ -22674,11 +23449,13 @@ export interface DeviceUdiCarrier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String304 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String305 = string;
 
@@ -22689,6 +23466,7 @@ export interface Element639 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri67 = string;
 
@@ -22699,6 +23477,7 @@ export interface Element640 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri68 = string;
 
@@ -22719,6 +23498,7 @@ export interface Element642 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String306 = string;
 
@@ -22739,6 +23519,7 @@ export interface Element645 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String307 = string;
 
@@ -22749,6 +23530,7 @@ export interface Element646 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String308 = string;
 
@@ -22759,6 +23541,7 @@ export interface Element647 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime43 = string;
 
@@ -22769,6 +23552,7 @@ export interface Element648 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime44 = string;
 
@@ -22779,6 +23563,7 @@ export interface Element649 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String309 = string;
 
@@ -22789,6 +23574,7 @@ export interface Element650 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String310 = string;
 
@@ -22832,11 +23618,13 @@ export interface DeviceDeviceName {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String311 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String312 = string;
 
@@ -22852,6 +23640,7 @@ export interface Element653 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String313 = string;
 
@@ -22862,6 +23651,7 @@ export interface Element654 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String314 = string;
 
@@ -22904,6 +23694,7 @@ export interface DeviceSpecialization {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String315 = string;
 
@@ -22920,6 +23711,7 @@ export interface CodeableConcept148 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String316 = string;
 
@@ -22952,6 +23744,7 @@ export interface DeviceVersion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String317 = string;
 
@@ -22985,6 +23778,7 @@ export interface Identifier14 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String318 = string;
 
@@ -23023,6 +23817,7 @@ export interface DeviceProperty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String319 = string;
 
@@ -23102,6 +23897,7 @@ export interface Reference154 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri69 = string;
 
@@ -23169,6 +23965,7 @@ export interface DeviceDefinition {
 
 	/**
 	* A name of the manufacturer.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	manufacturerString?: string;
 	_manufacturerString?: Element664;
@@ -23242,6 +24039,7 @@ export interface DeviceDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id37 = string;
 
@@ -23264,6 +24062,7 @@ export interface Meta36 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri70 = string;
 
@@ -23274,6 +24073,7 @@ export interface Element659 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code89 = string;
 
@@ -23319,11 +24119,13 @@ export interface DeviceDefinitionUdiDeviceIdentifier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String320 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String321 = string;
 
@@ -23334,6 +24136,7 @@ export interface Element661 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri71 = string;
 
@@ -23344,6 +24147,7 @@ export interface Element662 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri72 = string;
 
@@ -23407,11 +24211,13 @@ export interface DeviceDefinitionDeviceName {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String322 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String323 = string;
 
@@ -23427,6 +24233,7 @@ export interface Element666 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String324 = string;
 
@@ -23470,11 +24277,13 @@ export interface DeviceDefinitionSpecialization {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String325 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String326 = string;
 
@@ -23485,6 +24294,7 @@ export interface Element668 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String327 = string;
 
@@ -23520,6 +24330,7 @@ export interface ProductShelfLife {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String328 = string;
 
@@ -23622,6 +24433,7 @@ export interface ProdCharacteristic {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String329 = string;
 
@@ -23735,6 +24547,7 @@ export interface Quantity33 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String330 = string;
 
@@ -23779,6 +24592,7 @@ export interface DeviceDefinitionCapability {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String331 = string;
 
@@ -23823,6 +24637,7 @@ export interface DeviceDefinitionProperty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String332 = string;
 
@@ -23854,6 +24669,7 @@ export interface Reference157 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri73 = string;
 
@@ -23864,6 +24680,7 @@ export interface Element671 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri74 = string;
 
@@ -23930,6 +24747,7 @@ export interface DeviceDefinitionMaterial {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String333 = string;
 
@@ -23946,6 +24764,7 @@ export interface CodeableConcept156 {
 
 /**
 * Indicates an alternative material of the device.
+* @pattern `^true|false$`
 */
 export type Boolean33 = boolean;
 
@@ -23956,6 +24775,7 @@ export interface Element673 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the substance is a known or suspected allergen.
+* @pattern `^true|false$`
 */
 export type Boolean34 = boolean;
 
@@ -24037,6 +24857,7 @@ export interface DeviceMetric {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id38 = string;
 
@@ -24059,6 +24880,7 @@ export interface Meta37 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri75 = string;
 
@@ -24069,6 +24891,7 @@ export interface Element675 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code90 = string;
 
@@ -24206,6 +25029,7 @@ export interface DeviceMetricCalibration {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String334 = string;
 
@@ -24221,6 +25045,7 @@ export interface Element681 { id?: String2; extension?: Extension[] }
 
 /**
 * Describes the time last calibration has been performed.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant10 = string;
 
@@ -24307,6 +25132,7 @@ export interface DeviceRequest {
 	encounter?: Reference163;
 	/**
 	* The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element689;
@@ -24350,6 +25176,7 @@ export interface DeviceRequest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id39 = string;
 
@@ -24372,6 +25199,7 @@ export interface Meta38 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri76 = string;
 
@@ -24382,6 +25210,7 @@ export interface Element683 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code91 = string;
 
@@ -24420,6 +25249,7 @@ export interface Identifier16 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code92 = string;
 
@@ -24430,6 +25260,7 @@ export interface Element685 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code93 = string;
 
@@ -24440,6 +25271,7 @@ export interface Element686 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code94 = string;
 
@@ -24496,6 +25328,7 @@ export interface DeviceRequestParameter {
 	valueRange?: Range9;
 	/**
 	* The value of the device detail.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element688
@@ -24503,6 +25336,7 @@ export interface DeviceRequestParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String335 = string;
 
@@ -24623,6 +25457,7 @@ export interface Timing8 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime45 = string;
 
@@ -24735,6 +25570,7 @@ export interface DeviceUseStatement {
 	timingPeriod?: Period46;
 	/**
 	* How often the device was used.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timingDateTime?: string;
 	_timingDateTime?: Element694;
@@ -24760,6 +25596,7 @@ export interface DeviceUseStatement {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id40 = string;
 
@@ -24782,6 +25619,7 @@ export interface Meta39 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri77 = string;
 
@@ -24792,6 +25630,7 @@ export interface Element691 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code95 = string;
 
@@ -24863,6 +25702,7 @@ export interface Element694 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime46 = string;
 
@@ -24979,6 +25819,7 @@ export interface DiagnosticReport {
 	encounter?: Reference170;
 	/**
 	* The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	effectiveDateTime?: string;
 	_effectiveDateTime?: Element699;
@@ -25029,6 +25870,7 @@ export interface DiagnosticReport {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id41 = string;
 
@@ -25051,6 +25893,7 @@ export interface Meta40 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri78 = string;
 
@@ -25061,6 +25904,7 @@ export interface Element696 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code96 = string;
 
@@ -25145,6 +25989,7 @@ export interface Period47 {
 
 /**
 * The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant11 = string;
 
@@ -25176,11 +26021,13 @@ export interface DiagnosticReportMedia {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String336 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String337 = string;
 
@@ -25206,6 +26053,7 @@ export interface Reference171 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String338 = string;
 
@@ -25286,6 +26134,7 @@ export interface DocumentManifest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id42 = string;
 
@@ -25308,6 +26157,7 @@ export interface Meta41 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri79 = string;
 
@@ -25318,6 +26168,7 @@ export interface Element703 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code97 = string;
 
@@ -25387,6 +26238,7 @@ export interface Reference172 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime47 = string;
 
@@ -25397,6 +26249,7 @@ export interface Element706 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri80 = string;
 
@@ -25407,6 +26260,7 @@ export interface Element707 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String339 = string;
 
@@ -25437,6 +26291,7 @@ export interface DocumentManifestRelated {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String340 = string;
 
@@ -25550,6 +26405,7 @@ export interface DocumentReference {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id43 = string;
 
@@ -25572,6 +26428,7 @@ export interface Meta42 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri81 = string;
 
@@ -25582,6 +26439,7 @@ export interface Element709 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code98 = string;
 
@@ -25625,6 +26483,7 @@ export interface Element711 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code99 = string;
 
@@ -25661,6 +26520,7 @@ export interface Reference174 {
 
 /**
 * When the document reference was created.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant12 = string;
 
@@ -25726,6 +26586,7 @@ export interface DocumentReferenceRelatesTo {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String341 = string;
 
@@ -25751,6 +26612,7 @@ export interface Reference177 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String342 = string;
 
@@ -25781,6 +26643,7 @@ export interface DocumentReferenceContent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String343 = string;
 
@@ -25846,6 +26709,7 @@ export interface DocumentReferenceContext {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String344 = string;
 
@@ -26031,6 +26895,7 @@ export interface EffectEvidenceSynthesis {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id44 = string;
 
@@ -26053,6 +26918,7 @@ export interface Meta43 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri82 = string;
 
@@ -26063,6 +26929,7 @@ export interface Element716 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code100 = string;
 
@@ -26084,6 +26951,7 @@ export interface Narrative41 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri83 = string;
 
@@ -26094,6 +26962,7 @@ export interface Element718 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String345 = string;
 
@@ -26104,6 +26973,7 @@ export interface Element719 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String346 = string;
 
@@ -26114,6 +26984,7 @@ export interface Element720 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String347 = string;
 
@@ -26129,6 +27000,7 @@ export interface Element722 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime48 = string;
 
@@ -26139,6 +27011,7 @@ export interface Element723 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String348 = string;
 
@@ -26149,6 +27022,7 @@ export interface Element724 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the effect evidence synthesis from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown28 = string;
 
@@ -26159,6 +27033,7 @@ export interface Element725 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the effect evidence synthesis and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the effect evidence synthesis.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown29 = string;
 
@@ -26169,6 +27044,7 @@ export interface Element726 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date7 = string;
 
@@ -26179,6 +27055,7 @@ export interface Element727 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date8 = string;
 
@@ -26307,11 +27184,13 @@ export interface EffectEvidenceSynthesisSampleSize {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String349 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String350 = string;
 
@@ -26322,6 +27201,7 @@ export interface Element729 { id?: String2; extension?: Extension[] }
 
 /**
 * Number of studies included in this evidence synthesis.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer3 = number;
 
@@ -26332,6 +27212,7 @@ export interface Element730 { id?: String2; extension?: Extension[] }
 
 /**
 * Number of participants included in this evidence synthesis.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer4 = number;
 
@@ -26369,11 +27250,13 @@ export interface EffectEvidenceSynthesisResultsByExposure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String351 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String352 = string;
 
@@ -26444,11 +27327,13 @@ export interface EffectEvidenceSynthesisEffectEstimate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String353 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String354 = string;
 
@@ -26481,6 +27366,7 @@ export interface CodeableConcept173 {
 
 /**
 * The point estimate of the effect estimate.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal27 = number;
 
@@ -26527,6 +27413,7 @@ export interface EffectEvidenceSynthesisPrecisionEstimate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String355 = string;
 
@@ -26543,6 +27430,7 @@ export interface CodeableConcept175 {
 
 /**
 * Use 95 for a 95% confidence interval.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal28 = number;
 
@@ -26553,6 +27441,7 @@ export interface Element736 { id?: String2; extension?: Extension[] }
 
 /**
 * Lower bound of confidence interval.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal29 = number;
 
@@ -26563,6 +27452,7 @@ export interface Element737 { id?: String2; extension?: Extension[] }
 
 /**
 * Upper bound of confidence interval.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal30 = number;
 
@@ -26606,6 +27496,7 @@ export interface EffectEvidenceSynthesisCertainty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String356 = string;
 
@@ -26639,6 +27530,7 @@ export interface EffectEvidenceSynthesisCertaintySubcomponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String357 = string;
 
@@ -26773,6 +27665,7 @@ export interface Encounter {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id45 = string;
 
@@ -26795,6 +27688,7 @@ export interface Meta44 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri84 = string;
 
@@ -26805,6 +27699,7 @@ export interface Element739 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code101 = string;
 
@@ -26866,6 +27761,7 @@ export interface EncounterStatusHistory {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String358 = string;
 
@@ -26908,6 +27804,7 @@ export interface EncounterClassHistory {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String359 = string;
 
@@ -26987,6 +27884,7 @@ export interface EncounterParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String360 = string;
 
@@ -27071,6 +27969,7 @@ export interface EncounterDiagnosis {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String361 = string;
 
@@ -27102,6 +28001,7 @@ export interface CodeableConcept179 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt27 = number;
 
@@ -27150,6 +28050,7 @@ export interface EncounterHospitalization {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String362 = string;
 
@@ -27261,6 +28162,7 @@ export interface EncounterLocation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String363 = string;
 
@@ -27424,6 +28326,7 @@ export interface Endpoint {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id46 = string;
 
@@ -27446,6 +28349,7 @@ export interface Meta45 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri85 = string;
 
@@ -27456,6 +28360,7 @@ export interface Element745 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code102 = string;
 
@@ -27482,6 +28387,7 @@ export interface Element747 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String364 = string;
 
@@ -27519,6 +28425,7 @@ export interface Period55 {
 
 /**
 * The uri that describes the actual end-point to connect to.
+* @pattern `^\S*$`
 */
 export type Url4 = string;
 
@@ -27575,6 +28482,7 @@ export interface EnrollmentRequest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id47 = string;
 
@@ -27597,6 +28505,7 @@ export interface Meta46 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri86 = string;
 
@@ -27607,6 +28516,7 @@ export interface Element750 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code103 = string;
 
@@ -27628,6 +28538,7 @@ export interface Narrative44 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code104 = string;
 
@@ -27638,6 +28549,7 @@ export interface Element752 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime49 = string;
 
@@ -27760,6 +28672,7 @@ export interface EnrollmentResponse {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id48 = string;
 
@@ -27782,6 +28695,7 @@ export interface Meta47 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri87 = string;
 
@@ -27792,6 +28706,7 @@ export interface Element754 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code105 = string;
 
@@ -27813,6 +28728,7 @@ export interface Narrative45 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code106 = string;
 
@@ -27843,6 +28759,7 @@ export interface Element757 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String365 = string;
 
@@ -27853,6 +28770,7 @@ export interface Element758 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime50 = string;
 
@@ -27976,6 +28894,7 @@ export interface EpisodeOfCare {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id49 = string;
 
@@ -27998,6 +28917,7 @@ export interface Meta48 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri88 = string;
 
@@ -28008,6 +28928,7 @@ export interface Element760 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code107 = string;
 
@@ -28067,6 +28988,7 @@ export interface EpisodeOfCareStatusHistory {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String366 = string;
 
@@ -28111,6 +29033,7 @@ export interface EpisodeOfCareDiagnosis {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String367 = string;
 
@@ -28142,6 +29065,7 @@ export interface CodeableConcept184 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt28 = number;
 
@@ -28329,6 +29253,7 @@ export interface EventDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id50 = string;
 
@@ -28351,6 +29276,7 @@ export interface Meta49 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri89 = string;
 
@@ -28361,6 +29287,7 @@ export interface Element765 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code108 = string;
 
@@ -28382,6 +29309,7 @@ export interface Narrative47 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri90 = string;
 
@@ -28392,6 +29320,7 @@ export interface Element767 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String368 = string;
 
@@ -28402,6 +29331,7 @@ export interface Element768 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String369 = string;
 
@@ -28412,6 +29342,7 @@ export interface Element769 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String370 = string;
 
@@ -28422,6 +29353,7 @@ export interface Element770 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String371 = string;
 
@@ -28437,6 +29369,7 @@ export interface Element772 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this event definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean35 = boolean;
 
@@ -28473,6 +29406,7 @@ export interface Reference204 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime51 = string;
 
@@ -28483,6 +29417,7 @@ export interface Element774 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String372 = string;
 
@@ -28493,6 +29428,7 @@ export interface Element775 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the event definition from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown30 = string;
 
@@ -28503,6 +29439,7 @@ export interface Element776 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this event definition is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown31 = string;
 
@@ -28513,6 +29450,7 @@ export interface Element777 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String373 = string;
 
@@ -28523,6 +29461,7 @@ export interface Element778 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the event definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the event definition.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown32 = string;
 
@@ -28533,6 +29472,7 @@ export interface Element779 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date9 = string;
 
@@ -28543,6 +29483,7 @@ export interface Element780 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date10 = string;
 
@@ -28718,6 +29659,7 @@ export interface Evidence {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id51 = string;
 
@@ -28740,6 +29682,7 @@ export interface Meta50 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri91 = string;
 
@@ -28750,6 +29693,7 @@ export interface Element782 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code109 = string;
 
@@ -28771,6 +29715,7 @@ export interface Narrative48 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri92 = string;
 
@@ -28781,6 +29726,7 @@ export interface Element784 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String374 = string;
 
@@ -28791,6 +29737,7 @@ export interface Element785 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String375 = string;
 
@@ -28801,6 +29748,7 @@ export interface Element786 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String376 = string;
 
@@ -28811,6 +29759,7 @@ export interface Element787 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String377 = string;
 
@@ -28821,6 +29770,7 @@ export interface Element788 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String378 = string;
 
@@ -28836,6 +29786,7 @@ export interface Element790 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime52 = string;
 
@@ -28846,6 +29797,7 @@ export interface Element791 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String379 = string;
 
@@ -28856,6 +29808,7 @@ export interface Element792 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the evidence from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown33 = string;
 
@@ -28866,6 +29819,7 @@ export interface Element793 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the evidence and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the evidence.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown34 = string;
 
@@ -28876,6 +29830,7 @@ export interface Element794 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date11 = string;
 
@@ -28886,6 +29841,7 @@ export interface Element795 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date12 = string;
 
@@ -29047,6 +30003,7 @@ export interface EvidenceVariable {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id52 = string;
 
@@ -29069,6 +30026,7 @@ export interface Meta51 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri93 = string;
 
@@ -29079,6 +30037,7 @@ export interface Element797 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code110 = string;
 
@@ -29100,6 +30059,7 @@ export interface Narrative49 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri94 = string;
 
@@ -29110,6 +30070,7 @@ export interface Element799 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String380 = string;
 
@@ -29120,6 +30081,7 @@ export interface Element800 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String381 = string;
 
@@ -29130,6 +30092,7 @@ export interface Element801 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String382 = string;
 
@@ -29140,6 +30103,7 @@ export interface Element802 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String383 = string;
 
@@ -29150,6 +30114,7 @@ export interface Element803 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String384 = string;
 
@@ -29165,6 +30130,7 @@ export interface Element805 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime53 = string;
 
@@ -29175,6 +30141,7 @@ export interface Element806 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String385 = string;
 
@@ -29185,6 +30152,7 @@ export interface Element807 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the evidence variable from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown35 = string;
 
@@ -29195,6 +30163,7 @@ export interface Element808 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the evidence variable and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the evidence variable.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown36 = string;
 
@@ -29205,6 +30174,7 @@ export interface Element809 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date13 = string;
 
@@ -29215,6 +30185,7 @@ export interface Element810 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date14 = string;
 
@@ -29261,6 +30232,7 @@ export interface EvidenceVariableCharacteristic {
 	definitionReference?: Reference206;
 	/**
 	* Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
+	* @pattern `^\S*$`
 	*/
 	definitionCanonical?: string;
 	_definitionCanonical?: Element814;
@@ -29276,6 +30248,7 @@ export interface EvidenceVariableCharacteristic {
 	_exclude?: Element815;
 	/**
 	* Indicates what effective period the study covers.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	participantEffectiveDateTime?: string;
 	_participantEffectiveDateTime?: Element816;
@@ -29299,11 +30272,13 @@ export interface EvidenceVariableCharacteristic {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String386 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String387 = string;
 
@@ -29412,6 +30387,7 @@ export interface TriggerDefinition2 {
 
 /**
 * When true, members with this characteristic are excluded from the element.
+* @pattern `^true|false$`
 */
 export type Boolean36 = boolean;
 
@@ -29584,6 +30560,7 @@ export interface ExampleScenario {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id53 = string;
 
@@ -29606,6 +30583,7 @@ export interface Meta52 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri95 = string;
 
@@ -29616,6 +30594,7 @@ export interface Element818 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code111 = string;
 
@@ -29637,6 +30616,7 @@ export interface Narrative50 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri96 = string;
 
@@ -29647,6 +30627,7 @@ export interface Element820 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String388 = string;
 
@@ -29657,6 +30638,7 @@ export interface Element821 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String389 = string;
 
@@ -29672,6 +30654,7 @@ export interface Element823 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean37 = boolean;
 
@@ -29682,6 +30665,7 @@ export interface Element824 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime54 = string;
 
@@ -29692,6 +30676,7 @@ export interface Element825 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String390 = string;
 
@@ -29702,6 +30687,7 @@ export interface Element826 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown37 = string;
 
@@ -29712,6 +30698,7 @@ export interface Element827 { id?: String2; extension?: Extension[] }
 
 /**
 * What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown38 = string;
 
@@ -29751,11 +30738,13 @@ export interface ExampleScenarioActor {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String391 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String392 = string;
 
@@ -29771,6 +30760,7 @@ export interface Element830 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String393 = string;
 
@@ -29781,6 +30771,7 @@ export interface Element831 { id?: String2; extension?: Extension[] }
 
 /**
 * The description of the actor.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown39 = string;
 
@@ -29826,11 +30817,13 @@ export interface ExampleScenarioInstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String394 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String395 = string;
 
@@ -29841,6 +30834,7 @@ export interface Element833 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code112 = string;
 
@@ -29851,6 +30845,7 @@ export interface Element834 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String396 = string;
 
@@ -29861,6 +30856,7 @@ export interface Element835 { id?: String2; extension?: Extension[] }
 
 /**
 * Human-friendly description of the resource instance.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown40 = string;
 
@@ -29893,11 +30889,13 @@ export interface ExampleScenarioVersion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String397 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String398 = string;
 
@@ -29908,6 +30906,7 @@ export interface Element837 { id?: String2; extension?: Extension[] }
 
 /**
 * The description of the resource version.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown41 = string;
 
@@ -29940,11 +30939,13 @@ export interface ExampleScenarioContainedInstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String399 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String400 = string;
 
@@ -29955,6 +30956,7 @@ export interface Element839 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String401 = string;
 
@@ -29995,11 +30997,13 @@ export interface ExampleScenarioProcess {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String402 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String403 = string;
 
@@ -30010,6 +31014,7 @@ export interface Element841 { id?: String2; extension?: Extension[] }
 
 /**
 * A longer description of the group of operations.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown42 = string;
 
@@ -30020,6 +31025,7 @@ export interface Element842 { id?: String2; extension?: Extension[] }
 
 /**
 * Description of initial status before the process starts.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown43 = string;
 
@@ -30030,6 +31036,7 @@ export interface Element843 { id?: String2; extension?: Extension[] }
 
 /**
 * Description of final status after the process ends.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown44 = string;
 
@@ -30070,11 +31077,13 @@ export interface ExampleScenarioStep {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String404 = string;
 
 /**
 * If there is a pause in the flow.
+* @pattern `^true|false$`
 */
 export type Boolean38 = boolean;
 
@@ -30121,11 +31130,13 @@ export interface ExampleScenarioOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String405 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String406 = string;
 
@@ -30136,6 +31147,7 @@ export interface Element846 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String407 = string;
 
@@ -30146,6 +31158,7 @@ export interface Element847 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String408 = string;
 
@@ -30156,6 +31169,7 @@ export interface Element848 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String409 = string;
 
@@ -30166,6 +31180,7 @@ export interface Element849 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String410 = string;
 
@@ -30176,6 +31191,7 @@ export interface Element850 { id?: String2; extension?: Extension[] }
 
 /**
 * A comment to be inserted in the diagram.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown45 = string;
 
@@ -30186,6 +31202,7 @@ export interface Element851 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the initiator is deactivated right after the transaction.
+* @pattern `^true|false$`
 */
 export type Boolean39 = boolean;
 
@@ -30196,6 +31213,7 @@ export interface Element852 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the receiver is deactivated right after the transaction.
+* @pattern `^true|false$`
 */
 export type Boolean40 = boolean;
 
@@ -30232,11 +31250,13 @@ export interface ExampleScenarioAlternative {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String411 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String412 = string;
 
@@ -30247,6 +31267,7 @@ export interface Element854 { id?: String2; extension?: Extension[] }
 
 /**
 * A human-readable description of the alternative explaining when the alternative should occur rather than the base step.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown46 = string;
 
@@ -30402,6 +31423,7 @@ export interface ExplanationOfBenefit {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id54 = string;
 
@@ -30424,6 +31446,7 @@ export interface Meta53 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri97 = string;
 
@@ -30434,6 +31457,7 @@ export interface Element856 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code113 = string;
 
@@ -30482,6 +31506,7 @@ export interface CodeableConcept188 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code114 = string;
 
@@ -30519,6 +31544,7 @@ export interface Period62 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime55 = string;
 
@@ -30628,6 +31654,7 @@ export interface ExplanationOfBenefitRelated {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String413 = string;
 
@@ -30726,6 +31753,7 @@ export interface ExplanationOfBenefitPayee {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String414 = string;
 
@@ -30817,6 +31845,7 @@ export interface Reference218 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code115 = string;
 
@@ -30827,6 +31856,7 @@ export interface Element861 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String415 = string;
 
@@ -30862,11 +31892,13 @@ export interface ExplanationOfBenefitCareTeam {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String416 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt29 = number;
 
@@ -30892,6 +31924,7 @@ export interface Reference219 {
 
 /**
 * The party who is billing and/or responsible for the claimed products or services.
+* @pattern `^true|false$`
 */
 export type Boolean41 = boolean;
 
@@ -30944,17 +31977,20 @@ export interface ExplanationOfBenefitSupportingInfo {
 	code?: CodeableConcept197;
 	/**
 	* The date when or period to which this information refers.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	timingDate?: string;
 	_timingDate?: Element866;
 	timingPeriod?: Period63;
 	/**
 	* Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element867;
 	/**
 	* Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element868;
@@ -30966,11 +32002,13 @@ export interface ExplanationOfBenefitSupportingInfo {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String417 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt30 = number;
 
@@ -31115,11 +32153,13 @@ export interface ExplanationOfBenefitDiagnosis {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String418 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt31 = number;
 
@@ -31210,11 +32250,13 @@ export interface ExplanationOfBenefitProcedure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String419 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt32 = number;
 
@@ -31225,6 +32267,7 @@ export interface Element870 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime56 = string;
 
@@ -31261,6 +32304,7 @@ export interface Reference222 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt33 = number;
 
@@ -31301,11 +32345,13 @@ export interface ExplanationOfBenefitInsurance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String420 = string;
 
 /**
 * A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
+* @pattern `^true|false$`
 */
 export type Boolean42 = boolean;
 
@@ -31354,11 +32400,13 @@ export interface ExplanationOfBenefitAccident {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String421 = string;
 
 /**
 * Date of an accident event  related to the products and services contained in the claim.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date15 = string;
 
@@ -31492,6 +32540,7 @@ export interface ExplanationOfBenefitItem {
 
 	/**
 	* The date or dates when the service or product was supplied, performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element876;
@@ -31542,11 +32591,13 @@ export interface ExplanationOfBenefitItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String422 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt34 = number;
 
@@ -31690,6 +32741,7 @@ export interface Money26 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal31 = number;
 
@@ -31746,6 +32798,7 @@ export interface ExplanationOfBenefitAdjudication {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String423 = string;
 
@@ -31785,6 +32838,7 @@ export interface Money28 {
 
 /**
 * A non-monetary value associated with the category. Mutually exclusive to the amount element above.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal32 = number;
 
@@ -31856,11 +32910,13 @@ export interface ExplanationOfBenefitDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String424 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt35 = number;
 
@@ -31934,6 +32990,7 @@ export interface Money29 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal33 = number;
 
@@ -32012,11 +33069,13 @@ export interface ExplanationOfBenefitSubDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String425 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt36 = number;
 
@@ -32090,6 +33149,7 @@ export interface Money31 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal34 = number;
 
@@ -32174,6 +33234,7 @@ export interface ExplanationOfBenefitAddItem {
 
 	/**
 	* The date or dates when the service or product was supplied, performed or completed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	servicedDate?: string;
 	_servicedDate?: Element883;
@@ -32215,6 +33276,7 @@ export interface ExplanationOfBenefitAddItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String426 = string;
 
@@ -32331,6 +33393,7 @@ export interface Money33 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal35 = number;
 
@@ -32411,6 +33474,7 @@ export interface ExplanationOfBenefitDetail1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String427 = string;
 
@@ -32457,6 +33521,7 @@ export interface Money35 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal36 = number;
 
@@ -32521,6 +33586,7 @@ export interface ExplanationOfBenefitSubDetail1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String428 = string;
 
@@ -32567,6 +33633,7 @@ export interface Money37 {
 
 /**
 * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal37 = number;
 
@@ -32609,6 +33676,7 @@ export interface ExplanationOfBenefitTotal {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String429 = string;
 
@@ -32662,6 +33730,7 @@ export interface ExplanationOfBenefitPayment {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String430 = string;
 
@@ -32701,6 +33770,7 @@ export interface CodeableConcept223 {
 
 /**
 * Estimated date the payment will be issued or the actual issue date of payment.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date16 = string;
 
@@ -32803,11 +33873,13 @@ export interface ExplanationOfBenefitProcessNote {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String431 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt37 = number;
 
@@ -32823,6 +33895,7 @@ export interface Element889 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String432 = string;
 
@@ -32888,6 +33961,7 @@ export interface ExplanationOfBenefitBenefitBalance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String433 = string;
 
@@ -32904,6 +33978,7 @@ export interface CodeableConcept226 {
 
 /**
 * True if the indicated class of service is excluded from the plan, missing or False indicates the product or service is included in the coverage.
+* @pattern `^true|false$`
 */
 export type Boolean43 = boolean;
 
@@ -32914,6 +33989,7 @@ export interface Element891 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String434 = string;
 
@@ -32924,6 +34000,7 @@ export interface Element892 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String435 = string;
 
@@ -32984,17 +34061,20 @@ export interface ExplanationOfBenefitFinancial {
 	type: CodeableConcept230;
 	/**
 	* The quantity of the benefit which is permitted under the coverage.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	allowedUnsignedInt?: number;
 	_allowedUnsignedInt?: Element894;
 	/**
 	* The quantity of the benefit which is permitted under the coverage.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	allowedString?: string;
 	_allowedString?: Element895;
 	allowedMoney?: Money42;
 	/**
 	* The quantity of the benefit which have been consumed to date.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	usedUnsignedInt?: number;
 	_usedUnsignedInt?: Element896;
@@ -33003,6 +34083,7 @@ export interface ExplanationOfBenefitFinancial {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String436 = string;
 
@@ -33129,11 +34210,13 @@ export interface FamilyMemberHistory {
 	bornPeriod?: Period67;
 	/**
 	* The actual or approximate date of birth of the relative.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	bornDate?: string;
 	_bornDate?: Element902;
 	/**
 	* The actual or approximate date of birth of the relative.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	bornString?: string;
 	_bornString?: Element903;
@@ -33141,6 +34224,7 @@ export interface FamilyMemberHistory {
 	ageRange?: Range10;
 	/**
 	* The age of the relative at the time the family member history is recorded.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	ageString?: string;
 	_ageString?: Element904;
@@ -33148,6 +34232,7 @@ export interface FamilyMemberHistory {
 	_estimatedAge?: Element905;
 	/**
 	* Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
+	* @pattern `^true|false$`
 	*/
 	deceasedBoolean?: boolean;
 	_deceasedBoolean?: Element906;
@@ -33155,11 +34240,13 @@ export interface FamilyMemberHistory {
 	deceasedRange?: Range11;
 	/**
 	* Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	deceasedDate?: string;
 	_deceasedDate?: Element907;
 	/**
 	* Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	deceasedString?: string;
 	_deceasedString?: Element908;
@@ -33186,6 +34273,7 @@ export interface FamilyMemberHistory {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id55 = string;
 
@@ -33208,6 +34296,7 @@ export interface Meta54 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri98 = string;
 
@@ -33218,6 +34307,7 @@ export interface Element897 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code116 = string;
 
@@ -33270,6 +34360,7 @@ export interface Reference227 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime57 = string;
 
@@ -33280,6 +34371,7 @@ export interface Element900 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String437 = string;
 
@@ -33367,6 +34459,7 @@ export interface Element904 { id?: String2; extension?: Extension[] }
 
 /**
 * If true, indicates that the age value specified is an estimated value.
+* @pattern `^true|false$`
 */
 export type Boolean44 = boolean;
 
@@ -33443,6 +34536,7 @@ export interface FamilyMemberHistoryCondition {
 	onsetPeriod?: Period68;
 	/**
 	* Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	onsetString?: string;
 	_onsetString?: Element910;
@@ -33454,6 +34548,7 @@ export interface FamilyMemberHistoryCondition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String438 = string;
 
@@ -33481,6 +34576,7 @@ export interface CodeableConcept235 {
 
 /**
 * This condition contributed to the cause of death of the related person. If contributedToDeath is not populated, then it is unknown.
+* @pattern `^true|false$`
 */
 export type Boolean45 = boolean;
 
@@ -33589,6 +34685,7 @@ export interface Flag {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id56 = string;
 
@@ -33611,6 +34708,7 @@ export interface Meta55 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri99 = string;
 
@@ -33621,6 +34719,7 @@ export interface Element911 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code117 = string;
 
@@ -33775,6 +34874,7 @@ export interface Goal {
 	subject: Reference231;
 	/**
 	* The date or event after which the goal should begin being pursued.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	startDate?: string;
 	_startDate?: Element917;
@@ -33811,6 +34911,7 @@ export interface Goal {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id57 = string;
 
@@ -33833,6 +34934,7 @@ export interface Meta56 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri100 = string;
 
@@ -33843,6 +34945,7 @@ export interface Element914 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code118 = string;
 
@@ -33953,22 +35056,26 @@ export interface GoalTarget {
 	detailCodeableConcept?: CodeableConcept242;
 	/**
 	* The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	detailString?: string;
 	_detailString?: Element918;
 	/**
 	* The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
+	* @pattern `^true|false$`
 	*/
 	detailBoolean?: boolean;
 	_detailBoolean?: Element919;
 	/**
 	* The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	detailInteger?: number;
 	_detailInteger?: Element920;
 	detailRatio?: Ratio3;
 	/**
 	* Indicates either the date or the duration after start by which the goal should be met.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	dueDate?: string;
 	_dueDate?: Element921;
@@ -33977,6 +35084,7 @@ export interface GoalTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String439 = string;
 
@@ -34080,6 +35188,7 @@ export interface Duration7 {
 
 /**
 * Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date17 = string;
 
@@ -34090,6 +35199,7 @@ export interface Element922 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String440 = string;
 
@@ -34189,6 +35299,7 @@ export interface GraphDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id58 = string;
 
@@ -34211,6 +35322,7 @@ export interface Meta57 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri101 = string;
 
@@ -34221,6 +35333,7 @@ export interface Element924 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code119 = string;
 
@@ -34242,6 +35355,7 @@ export interface Narrative55 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri102 = string;
 
@@ -34252,6 +35366,7 @@ export interface Element926 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String441 = string;
 
@@ -34262,6 +35377,7 @@ export interface Element927 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String442 = string;
 
@@ -34277,6 +35393,7 @@ export interface Element929 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean46 = boolean;
 
@@ -34287,6 +35404,7 @@ export interface Element930 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime58 = string;
 
@@ -34297,6 +35415,7 @@ export interface Element931 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String443 = string;
 
@@ -34307,6 +35426,7 @@ export interface Element932 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the graph definition from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown47 = string;
 
@@ -34317,6 +35437,7 @@ export interface Element933 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this graph definition is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown48 = string;
 
@@ -34327,6 +35448,7 @@ export interface Element934 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code120 = string;
 
@@ -34337,6 +35459,7 @@ export interface Element935 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical15 = string;
 
@@ -34374,11 +35497,13 @@ export interface GraphDefinitionLink {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String444 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String445 = string;
 
@@ -34389,6 +35514,7 @@ export interface Element936 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String446 = string;
 
@@ -34399,6 +35525,7 @@ export interface Element937 { id?: String2; extension?: Extension[] }
 
 /**
 * Minimum occurrences for this link.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer5 = number;
 
@@ -34409,6 +35536,7 @@ export interface Element938 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String447 = string;
 
@@ -34419,6 +35547,7 @@ export interface Element939 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String448 = string;
 
@@ -34461,11 +35590,13 @@ export interface GraphDefinitionTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String449 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code121 = string;
 
@@ -34476,6 +35607,7 @@ export interface Element941 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String450 = string;
 
@@ -34486,6 +35618,7 @@ export interface Element942 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical16 = string;
 
@@ -34526,6 +35659,7 @@ export interface GraphDefinitionCompartment {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String451 = string;
 
@@ -34536,6 +35670,7 @@ export interface Element943 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code122 = string;
 
@@ -34551,6 +35686,7 @@ export interface Element945 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String452 = string;
 
@@ -34561,6 +35697,7 @@ export interface Element946 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String453 = string;
 
@@ -34640,6 +35777,7 @@ export interface Group {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id59 = string;
 
@@ -34662,6 +35800,7 @@ export interface Meta58 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri103 = string;
 
@@ -34672,6 +35811,7 @@ export interface Element948 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code123 = string;
 
@@ -34693,6 +35833,7 @@ export interface Narrative56 {
 
 /**
 * Indicates whether the record for the group is available for use or is merely being retained for historical purposes.
+* @pattern `^true|false$`
 */
 export type Boolean47 = boolean;
 
@@ -34708,6 +35849,7 @@ export interface Element951 { id?: String2; extension?: Extension[] }
 
 /**
 * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
+* @pattern `^true|false$`
 */
 export type Boolean48 = boolean;
 
@@ -34729,6 +35871,7 @@ export interface CodeableConcept243 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String454 = string;
 
@@ -34739,6 +35882,7 @@ export interface Element953 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt7 = number;
 
@@ -34782,6 +35926,7 @@ export interface GroupCharacteristic {
 	valueCodeableConcept?: CodeableConcept245;
 	/**
 	* The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element955;
@@ -34795,6 +35940,7 @@ export interface GroupCharacteristic {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String455 = string;
 
@@ -34870,6 +36016,7 @@ export interface Reference234 {
 
 /**
 * If true, indicates the characteristic is one that is NOT held by members of the group.
+* @pattern `^true|false$`
 */
 export type Boolean49 = boolean;
 
@@ -34914,6 +36061,7 @@ export interface GroupMember {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String456 = string;
 
@@ -34946,6 +36094,7 @@ export interface Period71 {
 
 /**
 * A flag to indicate that the member is no longer in the group, but previously may have been a member.
+* @pattern `^true|false$`
 */
 export type Boolean50 = boolean;
 
@@ -34993,11 +36142,13 @@ export interface GuidanceResponse {
 
 	/**
 	* An identifier, CodeableConcept or canonical reference to the guidance that was requested.
+	* @pattern `^\S*$`
 	*/
 	moduleUri?: string;
 	_moduleUri?: Element960;
 	/**
 	* An identifier, CodeableConcept or canonical reference to the guidance that was requested.
+	* @pattern `^\S*$`
 	*/
 	moduleCanonical?: string;
 	_moduleCanonical?: Element961;
@@ -35048,6 +36199,7 @@ export interface GuidanceResponse {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id60 = string;
 
@@ -35070,6 +36222,7 @@ export interface Meta59 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri104 = string;
 
@@ -35080,6 +36233,7 @@ export interface Element958 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code124 = string;
 
@@ -35174,6 +36328,7 @@ export interface Reference237 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime59 = string;
 
@@ -35352,6 +36507,7 @@ export interface HealthcareService {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id61 = string;
 
@@ -35374,6 +36530,7 @@ export interface Meta60 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri105 = string;
 
@@ -35384,6 +36541,7 @@ export interface Element964 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code125 = string;
 
@@ -35405,6 +36563,7 @@ export interface Narrative58 {
 
 /**
 * This flag is used to mark the record to not be used. This is not used when a center is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
+* @pattern `^true|false$`
 */
 export type Boolean51 = boolean;
 
@@ -35430,6 +36589,7 @@ export interface Reference241 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String457 = string;
 
@@ -35440,6 +36600,7 @@ export interface Element967 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String458 = string;
 
@@ -35450,6 +36611,7 @@ export interface Element968 { id?: String2; extension?: Extension[] }
 
 /**
 * Extra details about the service that can't be placed in the other fields.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown49 = string;
 
@@ -35505,6 +36667,7 @@ export interface HealthcareServiceEligibility {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String459 = string;
 
@@ -35521,6 +36684,7 @@ export interface CodeableConcept247 {
 
 /**
 * Describes the eligibility conditions for the service.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown50 = string;
 
@@ -35531,6 +36695,7 @@ export interface Element970 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.
+* @pattern `^true|false$`
 */
 export type Boolean52 = boolean;
 
@@ -35575,11 +36740,13 @@ export interface HealthcareServiceAvailableTime {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String460 = string;
 
 /**
 * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
+* @pattern `^true|false$`
 */
 export type Boolean53 = boolean;
 
@@ -35590,6 +36757,7 @@ export interface Element972 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time1 = string;
 
@@ -35600,6 +36768,7 @@ export interface Element973 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time2 = string;
 
@@ -35631,11 +36800,13 @@ export interface HealthcareServiceNotAvailable {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String461 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String462 = string;
 
@@ -35658,6 +36829,7 @@ export interface Period72 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String463 = string;
 
@@ -35770,6 +36942,7 @@ export interface ImagingStudy {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id62 = string;
 
@@ -35792,6 +36965,7 @@ export interface Meta61 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri106 = string;
 
@@ -35802,6 +36976,7 @@ export interface Element977 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code126 = string;
 
@@ -35858,6 +37033,7 @@ export interface Reference243 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime60 = string;
 
@@ -35883,6 +37059,7 @@ export interface Reference244 {
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt8 = number;
 
@@ -35893,6 +37070,7 @@ export interface Element981 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt9 = number;
 
@@ -35933,6 +37111,7 @@ export interface Reference246 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String464 = string;
 
@@ -35991,11 +37170,13 @@ export interface ImagingStudySeries {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String465 = string;
 
 /**
 * The DICOM Series Instance UID for the series.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id63 = string;
 
@@ -36006,6 +37187,7 @@ export interface Element984 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt10 = number;
 
@@ -36016,6 +37198,7 @@ export interface Element985 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String466 = string;
 
@@ -36026,6 +37209,7 @@ export interface Element986 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt11 = number;
 
@@ -36036,6 +37220,7 @@ export interface Element987 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime61 = string;
 
@@ -36066,6 +37251,7 @@ export interface ImagingStudyPerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String467 = string;
 
@@ -36122,11 +37308,13 @@ export interface ImagingStudyInstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String468 = string;
 
 /**
 * The DICOM SOP Instance UID for this image or other DICOM content.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id64 = string;
 
@@ -36137,6 +37325,7 @@ export interface Element989 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt12 = number;
 
@@ -36147,6 +37336,7 @@ export interface Element990 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String469 = string;
 
@@ -36199,11 +37389,13 @@ export interface Immunization {
 	encounter?: Reference249;
 	/**
 	* Date vaccine administered or was to be administered.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element995;
 	/**
 	* Date vaccine administered or was to be administered.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	occurrenceString?: string;
 	_occurrenceString?: Element996;
@@ -36270,6 +37462,7 @@ export interface Immunization {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id65 = string;
 
@@ -36292,6 +37485,7 @@ export interface Meta62 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri107 = string;
 
@@ -36302,6 +37496,7 @@ export interface Element992 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code127 = string;
 
@@ -36323,6 +37518,7 @@ export interface Narrative60 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code128 = string;
 
@@ -36395,6 +37591,7 @@ export interface Element996 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime62 = string;
 
@@ -36405,6 +37602,7 @@ export interface Element997 { id?: String2; extension?: Extension[] }
 
 /**
 * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
+* @pattern `^true|false$`
 */
 export type Boolean54 = boolean;
 
@@ -36456,6 +37654,7 @@ export interface Reference251 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String470 = string;
 
@@ -36466,6 +37665,7 @@ export interface Element999 { id?: String2; extension?: Extension[] }
 
 /**
 * Date vaccine batch expires.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date18 = string;
 
@@ -36536,6 +37736,7 @@ export interface ImmunizationPerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String471 = string;
 
@@ -36567,6 +37768,7 @@ export interface Reference252 {
 
 /**
 * Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent.
+* @pattern `^true|false$`
 */
 export type Boolean55 = boolean;
 
@@ -36603,11 +37805,13 @@ export interface ImmunizationEducation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String472 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String473 = string;
 
@@ -36618,6 +37822,7 @@ export interface Element1002 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri108 = string;
 
@@ -36628,6 +37833,7 @@ export interface Element1003 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime63 = string;
 
@@ -36638,6 +37844,7 @@ export interface Element1004 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime64 = string;
 
@@ -36682,11 +37889,13 @@ export interface ImmunizationReaction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String474 = string;
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime65 = string;
 
@@ -36712,6 +37921,7 @@ export interface Reference253 {
 
 /**
 * Self-reported indicator.
+* @pattern `^true|false$`
 */
 export type Boolean56 = boolean;
 
@@ -36746,21 +37956,25 @@ export interface ImmunizationProtocolApplied {
 
 	/**
 	* Nominal position in a series.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	doseNumberPositiveInt?: number;
 	_doseNumberPositiveInt?: Element1009;
 	/**
 	* Nominal position in a series.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	doseNumberString?: string;
 	_doseNumberString?: Element1010;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	seriesDosesPositiveInt?: number;
 	_seriesDosesPositiveInt?: Element1011;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	seriesDosesString?: string;
 	_seriesDosesString?: Element1012
@@ -36768,11 +37982,13 @@ export interface ImmunizationProtocolApplied {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String475 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String476 = string;
 
@@ -36871,21 +38087,25 @@ export interface ImmunizationEvaluation {
 	_series?: Element1018;
 	/**
 	* Nominal position in a series.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	doseNumberPositiveInt?: number;
 	_doseNumberPositiveInt?: Element1019;
 	/**
 	* Nominal position in a series.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	doseNumberString?: string;
 	_doseNumberString?: Element1020;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	seriesDosesPositiveInt?: number;
 	_seriesDosesPositiveInt?: Element1021;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	seriesDosesString?: string;
 	_seriesDosesString?: Element1022
@@ -36893,6 +38113,7 @@ export interface ImmunizationEvaluation {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id66 = string;
 
@@ -36915,6 +38136,7 @@ export interface Meta63 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri109 = string;
 
@@ -36925,6 +38147,7 @@ export interface Element1013 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code129 = string;
 
@@ -36946,6 +38169,7 @@ export interface Narrative61 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code130 = string;
 
@@ -36971,6 +38195,7 @@ export interface Reference255 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime66 = string;
 
@@ -37033,6 +38258,7 @@ export interface CodeableConcept257 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String477 = string;
 
@@ -37043,6 +38269,7 @@ export interface Element1017 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String478 = string;
 
@@ -37119,6 +38346,7 @@ export interface ImmunizationRecommendation {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id67 = string;
 
@@ -37141,6 +38369,7 @@ export interface Meta64 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri110 = string;
 
@@ -37151,6 +38380,7 @@ export interface Element1023 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code131 = string;
 
@@ -37187,6 +38417,7 @@ export interface Reference258 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime67 = string;
 
@@ -37252,21 +38483,25 @@ export interface ImmunizationRecommendationRecommendation {
 	_series?: Element1028;
 	/**
 	* Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	doseNumberPositiveInt?: number;
 	_doseNumberPositiveInt?: Element1029;
 	/**
 	* Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	doseNumberString?: string;
 	_doseNumberString?: Element1030;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	seriesDosesPositiveInt?: number;
 	_seriesDosesPositiveInt?: Element1031;
 	/**
 	* The recommended number of doses to achieve immunity.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	seriesDosesString?: string;
 	_seriesDosesString?: Element1032;
@@ -37283,6 +38518,7 @@ export interface ImmunizationRecommendationRecommendation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String479 = string;
 
@@ -37331,6 +38567,7 @@ export interface ImmunizationRecommendationDateCriterion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String480 = string;
 
@@ -37347,6 +38584,7 @@ export interface CodeableConcept260 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime68 = string;
 
@@ -37357,6 +38595,7 @@ export interface Element1026 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String481 = string;
 
@@ -37367,6 +38606,7 @@ export interface Element1027 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String482 = string;
 
@@ -37864,6 +39104,7 @@ export interface ImplementationGuide {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id68 = string;
 
@@ -37886,6 +39127,7 @@ export interface Meta65 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri111 = string;
 
@@ -37896,6 +39138,7 @@ export interface Element1033 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code132 = string;
 
@@ -37917,6 +39160,7 @@ export interface Narrative63 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri112 = string;
 
@@ -37927,6 +39171,7 @@ export interface Element1035 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String483 = string;
 
@@ -37937,6 +39182,7 @@ export interface Element1036 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String484 = string;
 
@@ -37947,6 +39193,7 @@ export interface Element1037 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String485 = string;
 
@@ -37962,6 +39209,7 @@ export interface Element1039 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean57 = boolean;
 
@@ -37972,6 +39220,7 @@ export interface Element1040 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime69 = string;
 
@@ -37982,6 +39231,7 @@ export interface Element1041 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String486 = string;
 
@@ -37992,6 +39242,7 @@ export interface Element1042 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the implementation guide from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown51 = string;
 
@@ -38002,6 +39253,7 @@ export interface Element1043 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown52 = string;
 
@@ -38012,6 +39264,7 @@ export interface Element1044 { id?: String2; extension?: Extension[] }
 
 /**
 * The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id69 = string;
 
@@ -38050,16 +39303,19 @@ export interface ImplementationGuideDependsOn {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String487 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical17 = string;
 
 /**
 * The NPM package name for the Implementation Guide that this IG depends on.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id70 = string;
 
@@ -38070,6 +39326,7 @@ export interface Element1047 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String488 = string;
 
@@ -38101,11 +39358,13 @@ export interface ImplementationGuideGlobal {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String489 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code133 = string;
 
@@ -38116,6 +39375,7 @@ export interface Element1049 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical18 = string;
 
@@ -38159,6 +39419,7 @@ export interface ImplementationGuideDefinition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String490 = string;
 
@@ -38186,11 +39447,13 @@ export interface ImplementationGuideGrouping {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String491 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String492 = string;
 
@@ -38201,6 +39464,7 @@ export interface Element1050 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String493 = string;
 
@@ -38264,11 +39528,13 @@ export interface ImplementationGuideResource {
 	_description?: Element1053;
 	/**
 	* If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
+	* @pattern `^true|false$`
 	*/
 	exampleBoolean?: boolean;
 	_exampleBoolean?: Element1054;
 	/**
 	* If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
+	* @pattern `^\S*$`
 	*/
 	exampleCanonical?: string;
 	_exampleCanonical?: Element1055;
@@ -38278,6 +39544,7 @@ export interface ImplementationGuideResource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String494 = string;
 
@@ -38298,6 +39565,7 @@ export interface Reference260 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String495 = string;
 
@@ -38308,6 +39576,7 @@ export interface Element1052 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String496 = string;
 
@@ -38328,6 +39597,7 @@ export interface Element1055 { id?: String2; extension?: Extension[] }
 
 /**
 * Reference to the id of the grouping this resource appears in.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id71 = string;
 
@@ -38355,6 +39625,7 @@ export interface ImplementationGuidePage {
 
 	/**
 	* The source address for the page.
+	* @pattern `^\S*$`
 	*/
 	nameUrl?: string;
 	_nameUrl?: Element1057;
@@ -38374,6 +39645,7 @@ export interface ImplementationGuidePage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String497 = string;
 
@@ -38399,6 +39671,7 @@ export interface Reference261 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String498 = string;
 
@@ -38470,6 +39743,7 @@ export interface ImplementationGuideParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String499 = string;
 
@@ -38480,6 +39754,7 @@ export interface Element1060 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String500 = string;
 
@@ -38514,11 +39789,13 @@ export interface ImplementationGuideTemplate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String501 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code134 = string;
 
@@ -38529,6 +39806,7 @@ export interface Element1062 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String502 = string;
 
@@ -38539,6 +39817,7 @@ export interface Element1063 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String503 = string;
 
@@ -38598,11 +39877,13 @@ export interface ImplementationGuideManifest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String504 = string;
 
 /**
 * A pointer to official web page, PDF or other rendering of the implementation guide.
+* @pattern `^\S*$`
 */
 export type Url5 = string;
 
@@ -38630,11 +39911,13 @@ export interface ImplementationGuideResource1 {
 	reference: Reference262;
 	/**
 	* If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
+	* @pattern `^true|false$`
 	*/
 	exampleBoolean?: boolean;
 	_exampleBoolean?: Element1066;
 	/**
 	* If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
+	* @pattern `^\S*$`
 	*/
 	exampleCanonical?: string;
 	_exampleCanonical?: Element1067;
@@ -38644,6 +39927,7 @@ export interface ImplementationGuideResource1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String505 = string;
 
@@ -38674,6 +39958,7 @@ export interface Element1067 { id?: String2; extension?: Extension[] }
 
 /**
 * The relative path for primary page for this resource within the IG.
+* @pattern `^\S*$`
 */
 export type Url6 = string;
 
@@ -38715,11 +40000,13 @@ export interface ImplementationGuidePage11 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String506 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String507 = string;
 
@@ -38730,6 +40017,7 @@ export interface Element1069 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String508 = string;
 
@@ -38831,6 +40119,7 @@ export interface InsurancePlan {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id72 = string;
 
@@ -38853,6 +40142,7 @@ export interface Meta66 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri113 = string;
 
@@ -38863,6 +40153,7 @@ export interface Element1071 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code135 = string;
 
@@ -38889,6 +40180,7 @@ export interface Element1073 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String509 = string;
 
@@ -38966,6 +40258,7 @@ export interface InsurancePlanContact {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String510 = string;
 
@@ -39066,6 +40359,7 @@ export interface InsurancePlanCoverage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String511 = string;
 
@@ -39107,6 +40401,7 @@ export interface InsurancePlanBenefit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String512 = string;
 
@@ -39123,6 +40418,7 @@ export interface CodeableConcept263 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String513 = string;
 
@@ -39153,6 +40449,7 @@ export interface InsurancePlanLimit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String514 = string;
 
@@ -39230,6 +40527,7 @@ export interface InsurancePlanPlan {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String515 = string;
 
@@ -39270,6 +40568,7 @@ export interface InsurancePlanGeneralCost {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String516 = string;
 
@@ -39286,6 +40585,7 @@ export interface CodeableConcept266 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt38 = number;
 
@@ -39308,6 +40608,7 @@ export interface Money44 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String517 = string;
 
@@ -39341,6 +40642,7 @@ export interface InsurancePlanSpecificCost {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String518 = string;
 
@@ -39380,6 +40682,7 @@ export interface InsurancePlanBenefit1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String519 = string;
 
@@ -39421,6 +40724,7 @@ export interface InsurancePlanCost {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String520 = string;
 
@@ -39546,6 +40850,7 @@ export interface Invoice {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id73 = string;
 
@@ -39568,6 +40873,7 @@ export interface Meta67 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri114 = string;
 
@@ -39578,6 +40884,7 @@ export interface Element1078 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code136 = string;
 
@@ -39604,6 +40911,7 @@ export interface Element1080 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String521 = string;
 
@@ -39655,6 +40963,7 @@ export interface Reference266 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime70 = string;
 
@@ -39685,6 +40994,7 @@ export interface InvoiceParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String522 = string;
 
@@ -39772,11 +41082,13 @@ export interface InvoiceLineItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String523 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt39 = number;
 
@@ -39848,6 +41160,7 @@ export interface InvoicePriceComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String524 = string;
 
@@ -39869,6 +41182,7 @@ export interface CodeableConcept274 {
 
 /**
 * The factor that has been applied on the base price for calculating this component.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal38 = number;
 
@@ -39915,6 +41229,7 @@ export interface Money47 {
 
 /**
 * Payment details such as banking details, period of payment, deductibles, methods of payment.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown53 = string;
 
@@ -40056,6 +41371,7 @@ export interface Library {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id74 = string;
 
@@ -40078,6 +41394,7 @@ export interface Meta68 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri115 = string;
 
@@ -40088,6 +41405,7 @@ export interface Element1087 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code137 = string;
 
@@ -40109,6 +41427,7 @@ export interface Narrative66 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri116 = string;
 
@@ -40119,6 +41438,7 @@ export interface Element1089 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String525 = string;
 
@@ -40129,6 +41449,7 @@ export interface Element1090 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String526 = string;
 
@@ -40139,6 +41460,7 @@ export interface Element1091 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String527 = string;
 
@@ -40149,6 +41471,7 @@ export interface Element1092 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String528 = string;
 
@@ -40164,6 +41487,7 @@ export interface Element1094 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean58 = boolean;
 
@@ -40211,6 +41535,7 @@ export interface Reference271 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime71 = string;
 
@@ -40221,6 +41546,7 @@ export interface Element1096 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String529 = string;
 
@@ -40231,6 +41557,7 @@ export interface Element1097 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the library from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown54 = string;
 
@@ -40241,6 +41568,7 @@ export interface Element1098 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this library is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown55 = string;
 
@@ -40251,6 +41579,7 @@ export interface Element1099 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String530 = string;
 
@@ -40261,6 +41590,7 @@ export interface Element1100 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown56 = string;
 
@@ -40271,6 +41601,7 @@ export interface Element1101 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date19 = string;
 
@@ -40281,6 +41612,7 @@ export interface Element1102 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date20 = string;
 
@@ -40364,6 +41696,7 @@ export interface Linkage {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id75 = string;
 
@@ -40386,6 +41719,7 @@ export interface Meta69 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri117 = string;
 
@@ -40396,6 +41730,7 @@ export interface Element1104 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code138 = string;
 
@@ -40417,6 +41752,7 @@ export interface Narrative67 {
 
 /**
 * Indicates whether the asserted set of linkages are considered to be "in effect".
+* @pattern `^true|false$`
 */
 export type Boolean59 = boolean;
 
@@ -40467,6 +41803,7 @@ export interface LinkageItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String531 = string;
 
@@ -40560,6 +41897,7 @@ export interface List {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id76 = string;
 
@@ -40582,6 +41920,7 @@ export interface Meta70 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri118 = string;
 
@@ -40592,6 +41931,7 @@ export interface Element1108 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code139 = string;
 
@@ -40623,6 +41963,7 @@ export interface Element1111 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String532 = string;
 
@@ -40674,6 +42015,7 @@ export interface Reference275 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime72 = string;
 
@@ -40734,6 +42076,7 @@ export interface ListEntry {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String533 = string;
 
@@ -40750,6 +42093,7 @@ export interface CodeableConcept279 {
 
 /**
 * True if this item is marked as deleted in the list.
+* @pattern `^true|false$`
 */
 export type Boolean60 = boolean;
 
@@ -40760,6 +42104,7 @@ export interface Element1114 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime73 = string;
 
@@ -40883,6 +42228,7 @@ export interface Location {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id77 = string;
 
@@ -40905,6 +42251,7 @@ export interface Meta71 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri119 = string;
 
@@ -40915,6 +42262,7 @@ export interface Element1116 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code140 = string;
 
@@ -40941,6 +42289,7 @@ export interface Element1118 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String534 = string;
 
@@ -40951,6 +42300,7 @@ export interface Element1119 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String535 = string;
 
@@ -41028,11 +42378,13 @@ export interface LocationPosition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String536 = string;
 
 /**
 * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal39 = number;
 
@@ -41043,6 +42395,7 @@ export interface Element1122 { id?: String2; extension?: Extension[] }
 
 /**
 * Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal40 = number;
 
@@ -41053,6 +42406,7 @@ export interface Element1123 { id?: String2; extension?: Extension[] }
 
 /**
 * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal41 = number;
 
@@ -41127,11 +42481,13 @@ export interface LocationHoursOfOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String537 = string;
 
 /**
 * The Location is open all day.
+* @pattern `^true|false$`
 */
 export type Boolean61 = boolean;
 
@@ -41142,6 +42498,7 @@ export interface Element1125 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time3 = string;
 
@@ -41152,6 +42509,7 @@ export interface Element1126 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time4 = string;
 
@@ -41162,6 +42520,7 @@ export interface Element1127 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String538 = string;
 
@@ -41329,6 +42688,7 @@ export interface Measure {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id78 = string;
 
@@ -41351,6 +42711,7 @@ export interface Meta72 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri120 = string;
 
@@ -41361,6 +42722,7 @@ export interface Element1129 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code141 = string;
 
@@ -41382,6 +42744,7 @@ export interface Narrative70 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri121 = string;
 
@@ -41392,6 +42755,7 @@ export interface Element1131 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String539 = string;
 
@@ -41402,6 +42766,7 @@ export interface Element1132 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String540 = string;
 
@@ -41412,6 +42777,7 @@ export interface Element1133 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String541 = string;
 
@@ -41422,6 +42788,7 @@ export interface Element1134 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String542 = string;
 
@@ -41437,6 +42804,7 @@ export interface Element1136 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean62 = boolean;
 
@@ -41473,6 +42841,7 @@ export interface Reference280 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime74 = string;
 
@@ -41483,6 +42852,7 @@ export interface Element1138 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String543 = string;
 
@@ -41493,6 +42863,7 @@ export interface Element1139 { id?: String2; extension?: Extension[] }
 
 /**
 * A free text natural language description of the measure from a consumer's perspective.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown57 = string;
 
@@ -41503,6 +42874,7 @@ export interface Element1140 { id?: String2; extension?: Extension[] }
 
 /**
 * Explanation of why this measure is needed and why it has been designed as it has.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown58 = string;
 
@@ -41513,6 +42885,7 @@ export interface Element1141 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String544 = string;
 
@@ -41523,6 +42896,7 @@ export interface Element1142 { id?: String2; extension?: Extension[] }
 
 /**
 * A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown59 = string;
 
@@ -41533,6 +42907,7 @@ export interface Element1143 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date21 = string;
 
@@ -41543,6 +42918,7 @@ export interface Element1144 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date22 = string;
 
@@ -41565,6 +42941,7 @@ export interface Period75 {
 
 /**
 * Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown60 = string;
 
@@ -41597,6 +42974,7 @@ export interface CodeableConcept284 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String545 = string;
 
@@ -41607,6 +42985,7 @@ export interface Element1147 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String546 = string;
 
@@ -41617,6 +42996,7 @@ export interface Element1148 { id?: String2; extension?: Extension[] }
 
 /**
 * Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown61 = string;
 
@@ -41627,6 +43007,7 @@ export interface Element1149 { id?: String2; extension?: Extension[] }
 
 /**
 * Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure.
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown62 = string;
 
@@ -41648,11 +43029,13 @@ export interface CodeableConcept285 {
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown63 = string;
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown64 = string;
 
@@ -41693,6 +43076,7 @@ export interface MeasureGroup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String547 = string;
 
@@ -41709,6 +43093,7 @@ export interface CodeableConcept286 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String548 = string;
 
@@ -41741,6 +43126,7 @@ export interface MeasurePopulation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String549 = string;
 
@@ -41757,6 +43143,7 @@ export interface CodeableConcept287 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String550 = string;
 
@@ -41811,6 +43198,7 @@ export interface MeasureStratifier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String551 = string;
 
@@ -41827,6 +43215,7 @@ export interface CodeableConcept288 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String552 = string;
 
@@ -41877,6 +43266,7 @@ export interface MeasureComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String553 = string;
 
@@ -41893,6 +43283,7 @@ export interface CodeableConcept289 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String554 = string;
 
@@ -41947,6 +43338,7 @@ export interface MeasureSupplementalData {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String555 = string;
 
@@ -41963,6 +43355,7 @@ export interface CodeableConcept290 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String556 = string;
 
@@ -42061,6 +43454,7 @@ export interface MeasureReport {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id79 = string;
 
@@ -42083,6 +43477,7 @@ export interface Meta73 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri122 = string;
 
@@ -42093,6 +43488,7 @@ export interface Element1157 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code142 = string;
 
@@ -42124,6 +43520,7 @@ export interface Element1160 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical19 = string;
 
@@ -42144,6 +43541,7 @@ export interface Reference281 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime75 = string;
 
@@ -42220,6 +43618,7 @@ export interface MeasureReportGroup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String557 = string;
 
@@ -42258,6 +43657,7 @@ export interface MeasureReportPopulation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String558 = string;
 
@@ -42274,6 +43674,7 @@ export interface CodeableConcept293 {
 
 /**
 * The number of members of the population.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer6 = number;
 
@@ -42345,6 +43746,7 @@ export interface MeasureReportStratifier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String559 = string;
 
@@ -42379,6 +43781,7 @@ export interface MeasureReportStratum {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String560 = string;
 
@@ -42415,6 +43818,7 @@ export interface MeasureReportComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String561 = string;
 
@@ -42464,6 +43868,7 @@ export interface MeasureReportPopulation1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String562 = string;
 
@@ -42480,6 +43885,7 @@ export interface CodeableConcept297 {
 
 /**
 * The number of members of the population in this stratum.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer7 = number;
 
@@ -42576,6 +43982,7 @@ export interface Media {
 	encounter?: Reference286;
 	/**
 	* The date and time(s) at which the media was collected.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	createdDateTime?: string;
 	_createdDateTime?: Element1167;
@@ -42608,6 +44015,7 @@ export interface Media {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id80 = string;
 
@@ -42630,6 +44038,7 @@ export interface Meta74 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri123 = string;
 
@@ -42640,6 +44049,7 @@ export interface Element1164 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code143 = string;
 
@@ -42661,6 +44071,7 @@ export interface Narrative72 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code144 = string;
 
@@ -42751,6 +44162,7 @@ export interface Period77 {
 
 /**
 * The date and time this version of the media was made available to providers, typically after having been reviewed.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant13 = string;
 
@@ -42787,6 +44199,7 @@ export interface CodeableConcept301 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String563 = string;
 
@@ -42812,6 +44225,7 @@ export interface Reference288 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt40 = number;
 
@@ -42822,6 +44236,7 @@ export interface Element1170 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt41 = number;
 
@@ -42832,6 +44247,7 @@ export interface Element1171 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt42 = number;
 
@@ -42842,6 +44258,7 @@ export interface Element1172 { id?: String2; extension?: Extension[] }
 
 /**
 * The duration of the recording in seconds - for audio and video.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal42 = number;
 
@@ -42925,6 +44342,7 @@ export interface Medication {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id81 = string;
 
@@ -42947,6 +44365,7 @@ export interface Meta75 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri124 = string;
 
@@ -42957,6 +44376,7 @@ export interface Element1174 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code145 = string;
 
@@ -42989,6 +44409,7 @@ export interface CodeableConcept302 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code146 = string;
 
@@ -43058,6 +44479,7 @@ export interface MedicationIngredient {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String564 = string;
 
@@ -43089,6 +44511,7 @@ export interface Reference290 {
 
 /**
 * Indication of whether this ingredient affects the therapeutic action of the drug.
+* @pattern `^true|false$`
 */
 export type Boolean63 = boolean;
 
@@ -43131,11 +44554,13 @@ export interface MedicationBatch {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String565 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String566 = string;
 
@@ -43146,6 +44571,7 @@ export interface Element1178 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime76 = string;
 
@@ -43223,6 +44649,7 @@ export interface MedicationAdministration {
 
 	/**
 	* A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	effectiveDateTime?: string;
 	_effectiveDateTime?: Element1183;
@@ -43260,6 +44687,7 @@ export interface MedicationAdministration {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id82 = string;
 
@@ -43282,6 +44710,7 @@ export interface Meta76 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri125 = string;
 
@@ -43292,6 +44721,7 @@ export interface Element1180 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code147 = string;
 
@@ -43313,6 +44743,7 @@ export interface Narrative74 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code148 = string;
 
@@ -43427,6 +44858,7 @@ export interface MedicationAdministrationPerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String567 = string;
 
@@ -43499,11 +44931,13 @@ export interface MedicationAdministrationDosage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String568 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String569 = string;
 
@@ -43691,6 +45125,7 @@ export interface MedicationDispense {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id83 = string;
 
@@ -43713,6 +45148,7 @@ export interface Meta77 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri126 = string;
 
@@ -43723,6 +45159,7 @@ export interface Element1185 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code149 = string;
 
@@ -43744,6 +45181,7 @@ export interface Narrative75 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code150 = string;
 
@@ -43867,6 +45305,7 @@ export interface MedicationDispensePerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String570 = string;
 
@@ -43960,6 +45399,7 @@ export interface Quantity53 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime77 = string;
 
@@ -43970,6 +45410,7 @@ export interface Element1188 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime78 = string;
 
@@ -44025,11 +45466,13 @@ export interface MedicationDispenseSubstitution {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String571 = string;
 
 /**
 * True if the dispenser dispensed a different drug or product from what was prescribed.
+* @pattern `^true|false$`
 */
 export type Boolean64 = boolean;
 
@@ -44170,6 +45613,7 @@ export interface MedicationKnowledge {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id84 = string;
 
@@ -44192,6 +45636,7 @@ export interface Meta78 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri127 = string;
 
@@ -44202,6 +45647,7 @@ export interface Element1191 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code151 = string;
 
@@ -44234,6 +45680,7 @@ export interface CodeableConcept317 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code152 = string;
 
@@ -44311,6 +45758,7 @@ export interface MedicationKnowledgeRelatedMedicationKnowledge {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String572 = string;
 
@@ -44347,6 +45795,7 @@ export interface MedicationKnowledgeMonograph {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String573 = string;
 
@@ -44401,6 +45850,7 @@ export interface MedicationKnowledgeIngredient {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String574 = string;
 
@@ -44432,6 +45882,7 @@ export interface Reference305 {
 
 /**
 * Indication of whether this ingredient affects the therapeutic action of the drug.
+* @pattern `^true|false$`
 */
 export type Boolean65 = boolean;
 
@@ -44452,6 +45903,7 @@ export interface Ratio7 {
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown65 = string;
 
@@ -44484,6 +45936,7 @@ export interface MedicationKnowledgeCost {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String575 = string;
 
@@ -44500,6 +45953,7 @@ export interface CodeableConcept322 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String576 = string;
 
@@ -44543,6 +45997,7 @@ export interface MedicationKnowledgeMonitoringProgram {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String577 = string;
 
@@ -44559,6 +46014,7 @@ export interface CodeableConcept323 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String578 = string;
 
@@ -44598,6 +46054,7 @@ export interface MedicationKnowledgeAdministrationGuidelines {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String579 = string;
 
@@ -44626,6 +46083,7 @@ export interface MedicationKnowledgeDosage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String580 = string;
 
@@ -44697,6 +46155,7 @@ export interface MedicationKnowledgePatientCharacteristics {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String581 = string;
 
@@ -44754,6 +46213,7 @@ export interface MedicationKnowledgeMedicineClassification {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String582 = string;
 
@@ -44790,6 +46250,7 @@ export interface MedicationKnowledgePackaging {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String583 = string;
 
@@ -44842,12 +46303,14 @@ export interface MedicationKnowledgeDrugCharacteristic {
 	valueCodeableConcept?: CodeableConcept330;
 	/**
 	* Description of the characteristic.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1198;
 	valueQuantity?: Quantity57;
 	/**
 	* Description of the characteristic.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element1199
@@ -44855,6 +46318,7 @@ export interface MedicationKnowledgeDrugCharacteristic {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String584 = string;
 
@@ -44939,6 +46403,7 @@ export interface MedicationKnowledgeRegulatory {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String585 = string;
 
@@ -44980,6 +46445,7 @@ export interface MedicationKnowledgeSubstitution {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String586 = string;
 
@@ -44996,6 +46462,7 @@ export interface CodeableConcept331 {
 
 /**
 * Specifies if regulation allows for changes in the medication when dispensing.
+* @pattern `^true|false$`
 */
 export type Boolean66 = boolean;
 
@@ -45025,6 +46492,7 @@ export interface MedicationKnowledgeSchedule {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String587 = string;
 
@@ -45061,6 +46529,7 @@ export interface MedicationKnowledgeMaxDispense {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String588 = string;
 
@@ -45131,6 +46600,7 @@ export interface MedicationKnowledgeKinetics {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String589 = string;
 
@@ -45203,6 +46673,7 @@ export interface MedicationRequest {
 	_doNotPerform?: Element1206;
 	/**
 	* Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.
+	* @pattern `^true|false$`
 	*/
 	reportedBoolean?: boolean;
 	_reportedBoolean?: Element1207;
@@ -45287,6 +46758,7 @@ export interface MedicationRequest {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id85 = string;
 
@@ -45309,6 +46781,7 @@ export interface Meta79 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri128 = string;
 
@@ -45319,6 +46792,7 @@ export interface Element1201 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code153 = string;
 
@@ -45340,6 +46814,7 @@ export interface Narrative77 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code154 = string;
 
@@ -45361,6 +46836,7 @@ export interface CodeableConcept333 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code155 = string;
 
@@ -45371,6 +46847,7 @@ export interface Element1204 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code156 = string;
 
@@ -45381,6 +46858,7 @@ export interface Element1205 { id?: String2; extension?: Extension[] }
 
 /**
 * If true indicates that the provider is asking for the medication request not to occur.
+* @pattern `^true|false$`
 */
 export type Boolean67 = boolean;
 
@@ -45467,6 +46945,7 @@ export interface Reference311 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime79 = string;
 
@@ -45587,6 +47066,7 @@ export interface MedicationRequestDispenseRequest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String590 = string;
 
@@ -45612,6 +47092,7 @@ export interface MedicationRequestInitialFill {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String591 = string;
 
@@ -45683,6 +47164,7 @@ export interface Period79 {
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt13 = number;
 
@@ -45761,6 +47243,7 @@ export interface MedicationRequestSubstitution {
 
 	/**
 	* True if the prescriber allows a different drug to be dispensed from what was prescribed.
+	* @pattern `^true|false$`
 	*/
 	allowedBoolean?: boolean;
 	_allowedBoolean?: Element1210;
@@ -45770,6 +47253,7 @@ export interface MedicationRequestSubstitution {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String592 = string;
 
@@ -45876,6 +47360,7 @@ export interface MedicationStatement {
 	context?: Reference319;
 	/**
 	* The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.taken element is No).
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	effectiveDateTime?: string;
 	_effectiveDateTime?: Element1214;
@@ -45911,6 +47396,7 @@ export interface MedicationStatement {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id86 = string;
 
@@ -45933,6 +47419,7 @@ export interface Meta80 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri129 = string;
 
@@ -45943,6 +47430,7 @@ export interface Element1211 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code157 = string;
 
@@ -45964,6 +47452,7 @@ export interface Narrative78 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code158 = string;
 
@@ -46058,6 +47547,7 @@ export interface Period80 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime80 = string;
 
@@ -46195,6 +47685,7 @@ export interface MedicinalProduct {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id87 = string;
 
@@ -46217,6 +47708,7 @@ export interface Meta81 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri130 = string;
 
@@ -46227,6 +47719,7 @@ export interface Element1216 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code159 = string;
 
@@ -46327,6 +47820,7 @@ export interface MarketingStatus {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String593 = string;
 
@@ -46377,6 +47871,7 @@ export interface Period81 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime81 = string;
 
@@ -46416,11 +47911,13 @@ export interface MedicinalProductName {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String594 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String595 = string;
 
@@ -46452,11 +47949,13 @@ export interface MedicinalProductNamePart {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String596 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String597 = string;
 
@@ -46488,6 +47987,7 @@ export interface MedicinalProductCountryLanguage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String598 = string;
 
@@ -46554,6 +48054,7 @@ export interface MedicinalProductManufacturingBusinessOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String599 = string;
 
@@ -46587,6 +48088,7 @@ export interface Identifier25 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime82 = string;
 
@@ -46654,6 +48156,7 @@ export interface MedicinalProductSpecialDesignation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String600 = string;
 
@@ -46718,6 +48221,7 @@ export interface CodeableConcept357 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime83 = string;
 
@@ -46806,6 +48310,7 @@ export interface MedicinalProductAuthorization {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id88 = string;
 
@@ -46828,6 +48333,7 @@ export interface Meta82 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri131 = string;
 
@@ -46838,6 +48344,7 @@ export interface Element1223 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code160 = string;
 
@@ -46885,6 +48392,7 @@ export interface CodeableConcept359 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime84 = string;
 
@@ -46895,6 +48403,7 @@ export interface Element1225 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime85 = string;
 
@@ -46929,6 +48438,7 @@ export interface Period83 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime86 = string;
 
@@ -46939,6 +48449,7 @@ export interface Element1227 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime87 = string;
 
@@ -46990,6 +48501,7 @@ export interface MedicinalProductAuthorizationJurisdictionalAuthorization {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String601 = string;
 
@@ -47078,6 +48590,7 @@ export interface MedicinalProductAuthorizationProcedure {
 	datePeriod?: Period85;
 	/**
 	* Date of procedure.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	dateDateTime?: string;
 	_dateDateTime?: Element1229;
@@ -47089,6 +48602,7 @@ export interface MedicinalProductAuthorizationProcedure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String602 = string;
 
@@ -47215,6 +48729,7 @@ export interface MedicinalProductContraindication {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id89 = string;
 
@@ -47237,6 +48752,7 @@ export interface Meta83 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri132 = string;
 
@@ -47247,6 +48763,7 @@ export interface Element1230 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code161 = string;
 
@@ -47311,6 +48828,7 @@ export interface MedicinalProductContraindicationOtherTherapy {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String603 = string;
 
@@ -47376,6 +48894,7 @@ export interface Population {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String604 = string;
 
@@ -47495,6 +49014,7 @@ export interface MedicinalProductIndication {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id90 = string;
 
@@ -47517,6 +49037,7 @@ export interface Meta84 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri133 = string;
 
@@ -47527,6 +49048,7 @@ export interface Element1232 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code162 = string;
 
@@ -47620,6 +49142,7 @@ export interface MedicinalProductIndicationOtherTherapy {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String605 = string;
 
@@ -47709,6 +49232,7 @@ export interface MedicinalProductIngredient {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id91 = string;
 
@@ -47731,6 +49255,7 @@ export interface Meta85 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri134 = string;
 
@@ -47741,6 +49266,7 @@ export interface Element1234 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code163 = string;
 
@@ -47790,6 +49316,7 @@ export interface CodeableConcept377 {
 
 /**
 * If the ingredient is a known or suspected allergen.
+* @pattern `^true|false$`
 */
 export type Boolean68 = boolean;
 
@@ -47825,6 +49352,7 @@ export interface MedicinalProductIngredientSpecifiedSubstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String606 = string;
 
@@ -47896,6 +49424,7 @@ export interface MedicinalProductIngredientStrength {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String607 = string;
 
@@ -47941,6 +49470,7 @@ export interface Ratio11 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String608 = string;
 
@@ -47978,6 +49508,7 @@ export interface MedicinalProductIngredientReferenceStrength {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String609 = string;
 
@@ -48014,6 +49545,7 @@ export interface Ratio13 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String610 = string;
 
@@ -48047,6 +49579,7 @@ export interface MedicinalProductIngredientSubstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String611 = string;
 
@@ -48111,6 +49644,7 @@ export interface MedicinalProductInteraction {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id92 = string;
 
@@ -48133,6 +49667,7 @@ export interface Meta86 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri135 = string;
 
@@ -48143,6 +49678,7 @@ export interface Element1239 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code164 = string;
 
@@ -48164,6 +49700,7 @@ export interface Narrative84 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String612 = string;
 
@@ -48194,6 +49731,7 @@ export interface MedicinalProductInteractionInteractant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String613 = string;
 
@@ -48319,6 +49857,7 @@ export interface MedicinalProductManufactured {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id93 = string;
 
@@ -48341,6 +49880,7 @@ export interface Meta87 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri136 = string;
 
@@ -48351,6 +49891,7 @@ export interface Element1242 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code165 = string;
 
@@ -48500,6 +50041,7 @@ export interface MedicinalProductPackaged {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id94 = string;
 
@@ -48522,6 +50064,7 @@ export interface Meta88 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri137 = string;
 
@@ -48532,6 +50075,7 @@ export interface Element1244 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code166 = string;
 
@@ -48553,6 +50097,7 @@ export interface Narrative86 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String614 = string;
 
@@ -48609,6 +50154,7 @@ export interface MedicinalProductPackagedBatchIdentifier {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String615 = string;
 
@@ -48712,6 +50258,7 @@ export interface MedicinalProductPackagedPackageItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String616 = string;
 
@@ -48828,6 +50375,7 @@ export interface MedicinalProductPharmaceutical {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id95 = string;
 
@@ -48850,6 +50398,7 @@ export interface Meta89 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri138 = string;
 
@@ -48860,6 +50409,7 @@ export interface Element1247 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code167 = string;
 
@@ -48923,6 +50473,7 @@ export interface MedicinalProductPharmaceuticalCharacteristics {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String617 = string;
 
@@ -48978,6 +50529,7 @@ export interface MedicinalProductPharmaceuticalRouteOfAdministration {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String618 = string;
 
@@ -49099,6 +50651,7 @@ export interface MedicinalProductPharmaceuticalTargetSpecies {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String619 = string;
 
@@ -49137,6 +50690,7 @@ export interface MedicinalProductPharmaceuticalWithdrawalPeriod {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String620 = string;
 
@@ -49171,6 +50725,7 @@ export interface Quantity67 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String621 = string;
 
@@ -49226,6 +50781,7 @@ export interface MedicinalProductUndesirableEffect {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id96 = string;
 
@@ -49248,6 +50804,7 @@ export interface Meta90 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri139 = string;
 
@@ -49258,6 +50815,7 @@ export interface Element1250 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code168 = string;
 
@@ -49396,6 +50954,7 @@ export interface MessageDefinition {
 	eventCoding?: Coding;
 	/**
 	* Event code or link to the EventDefinition.
+	* @pattern `^\S*$`
 	*/
 	eventUri?: string;
 	_eventUri?: Element1265;
@@ -49427,6 +50986,7 @@ export interface MessageDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id97 = string;
 
@@ -49449,6 +51009,7 @@ export interface Meta91 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri140 = string;
 
@@ -49459,6 +51020,7 @@ export interface Element1252 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code169 = string;
 
@@ -49480,6 +51042,7 @@ export interface Narrative89 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri141 = string;
 
@@ -49490,6 +51053,7 @@ export interface Element1254 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String622 = string;
 
@@ -49500,6 +51064,7 @@ export interface Element1255 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String623 = string;
 
@@ -49510,6 +51075,7 @@ export interface Element1256 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String624 = string;
 
@@ -49525,6 +51091,7 @@ export interface Element1258 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean69 = boolean;
 
@@ -49535,6 +51102,7 @@ export interface Element1259 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime88 = string;
 
@@ -49545,6 +51113,7 @@ export interface Element1260 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String625 = string;
 
@@ -49555,6 +51124,7 @@ export interface Element1261 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown66 = string;
 
@@ -49565,6 +51135,7 @@ export interface Element1262 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown67 = string;
 
@@ -49575,6 +51146,7 @@ export interface Element1263 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown68 = string;
 
@@ -49585,6 +51157,7 @@ export interface Element1264 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical20 = string;
 
@@ -49625,11 +51198,13 @@ export interface MessageDefinitionFocus {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String626 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code170 = string;
 
@@ -49640,11 +51215,13 @@ export interface Element1267 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical21 = string;
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt14 = number;
 
@@ -49655,6 +51232,7 @@ export interface Element1268 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String627 = string;
 
@@ -49691,16 +51269,19 @@ export interface MessageDefinitionAllowedResponse {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String628 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical22 = string;
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown69 = string;
 
@@ -49743,6 +51324,7 @@ export interface MessageHeader {
 	eventCoding?: Coding;
 	/**
 	* Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://terminology.hl7.org/CodeSystem/message-events".  Alternatively uri to the EventDefinition.
+	* @pattern `^\S*$`
 	*/
 	eventUri?: string;
 	_eventUri?: Element1274;
@@ -49766,6 +51348,7 @@ export interface MessageHeader {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id98 = string;
 
@@ -49788,6 +51371,7 @@ export interface Meta92 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri142 = string;
 
@@ -49798,6 +51382,7 @@ export interface Element1272 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code171 = string;
 
@@ -49848,11 +51433,13 @@ export interface MessageHeaderDestination {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String629 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String630 = string;
 
@@ -49878,6 +51465,7 @@ export interface Reference330 {
 
 /**
 * Indicates where the message should be routed to.
+* @pattern `^\S*$`
 */
 export type Url7 = string;
 
@@ -49975,11 +51563,13 @@ export interface MessageHeaderSource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String631 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String632 = string;
 
@@ -49990,6 +51580,7 @@ export interface Element1277 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String633 = string;
 
@@ -50000,6 +51591,7 @@ export interface Element1278 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String634 = string;
 
@@ -50035,6 +51627,7 @@ export interface ContactPoint2 {
 
 /**
 * Identifies the routing target to send acknowledgements to.
+* @pattern `^\S*$`
 */
 export type Url8 = string;
 
@@ -50097,11 +51690,13 @@ export interface MessageHeaderResponse {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String635 = string;
 
 /**
 * The MessageHeader.id of the message to which this message is a response.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id99 = string;
 
@@ -50132,6 +51727,7 @@ export interface Reference336 {
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical23 = string;
 
@@ -50215,6 +51811,7 @@ export interface MolecularSequence {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id100 = string;
 
@@ -50237,6 +51834,7 @@ export interface Meta93 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri143 = string;
 
@@ -50247,6 +51845,7 @@ export interface Element1283 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code172 = string;
 
@@ -50273,6 +51872,7 @@ export interface Element1285 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the sequence is numbered starting at 0 (0-based numbering or coordinates, inclusive start, exclusive end) or starting at 1 (1-based numbering, inclusive start and inclusive end).
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer8 = number;
 
@@ -50400,6 +52000,7 @@ export interface MolecularSequenceReferenceSeq {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String636 = string;
 
@@ -50416,6 +52017,7 @@ export interface CodeableConcept403 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String637 = string;
 
@@ -50457,6 +52059,7 @@ export interface Reference341 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String638 = string;
 
@@ -50472,6 +52075,7 @@ export interface Element1290 { id?: String2; extension?: Extension[] }
 
 /**
 * Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer9 = number;
 
@@ -50482,6 +52086,7 @@ export interface Element1291 { id?: String2; extension?: Extension[] }
 
 /**
 * End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer10 = number;
 
@@ -50521,11 +52126,13 @@ export interface MolecularSequenceVariant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String639 = string;
 
 /**
 * Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer11 = number;
 
@@ -50536,6 +52143,7 @@ export interface Element1293 { id?: String2; extension?: Extension[] }
 
 /**
 * End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer12 = number;
 
@@ -50546,6 +52154,7 @@ export interface Element1294 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String640 = string;
 
@@ -50556,6 +52165,7 @@ export interface Element1295 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String641 = string;
 
@@ -50566,6 +52176,7 @@ export interface Element1296 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String642 = string;
 
@@ -50591,6 +52202,7 @@ export interface Reference342 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String643 = string;
 
@@ -50649,6 +52261,7 @@ export interface MolecularSequenceQuality {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String644 = string;
 
@@ -50670,6 +52283,7 @@ export interface CodeableConcept405 {
 
 /**
 * Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer13 = number;
 
@@ -50680,6 +52294,7 @@ export interface Element1300 { id?: String2; extension?: Extension[] }
 
 /**
 * End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer14 = number;
 
@@ -50719,6 +52334,7 @@ export interface CodeableConcept406 {
 
 /**
 * True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal43 = number;
 
@@ -50729,6 +52345,7 @@ export interface Element1302 { id?: String2; extension?: Extension[] }
 
 /**
 * True positives, from the perspective of the query data, i.e. the number of sites in the Query Call Set for which there are paths through the Truth Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal44 = number;
 
@@ -50739,6 +52356,7 @@ export interface Element1303 { id?: String2; extension?: Extension[] }
 
 /**
 * False negatives, i.e. the number of sites in the Truth Call Set for which there is no path through the Query Call Set that is consistent with all of the alleles at this site, or sites for which there is an inaccurate genotype call for the event. Sites with correct variant but incorrect genotype are counted here.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal45 = number;
 
@@ -50749,6 +52367,7 @@ export interface Element1304 { id?: String2; extension?: Extension[] }
 
 /**
 * False positives, i.e. the number of sites in the Query Call Set for which there is no path through the Truth Call Set that is consistent with this site. Sites with correct variant but incorrect genotype are counted here.
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal46 = number;
 
@@ -50759,6 +52378,7 @@ export interface Element1305 { id?: String2; extension?: Extension[] }
 
 /**
 * The number of false positives where the non-REF alleles in the Truth and Query Call Sets match (i.e. cases where the truth is 1/1 and the query is 0/1 or similar).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal47 = number;
 
@@ -50769,6 +52389,7 @@ export interface Element1306 { id?: String2; extension?: Extension[] }
 
 /**
 * QUERY.TP / (QUERY.TP + QUERY.FP).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal48 = number;
 
@@ -50779,6 +52400,7 @@ export interface Element1307 { id?: String2; extension?: Extension[] }
 
 /**
 * TRUTH.TP / (TRUTH.TP + TRUTH.FN).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal49 = number;
 
@@ -50789,6 +52411,7 @@ export interface Element1308 { id?: String2; extension?: Extension[] }
 
 /**
 * Harmonic mean of Recall and Precision, computed as: 2 * precision * recall / (precision + recall).
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal50 = number;
 
@@ -50887,21 +52510,25 @@ export interface MolecularSequenceRoc {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String645 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer15 = number;
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal51 = number;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer16 = number;
 
@@ -50946,6 +52573,7 @@ export interface MolecularSequenceRepository {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String646 = string;
 
@@ -50956,6 +52584,7 @@ export interface Element1311 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri144 = string;
 
@@ -50966,6 +52595,7 @@ export interface Element1312 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String647 = string;
 
@@ -50976,6 +52606,7 @@ export interface Element1313 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String648 = string;
 
@@ -50986,6 +52617,7 @@ export interface Element1314 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String649 = string;
 
@@ -50996,6 +52628,7 @@ export interface Element1315 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String650 = string;
 
@@ -51031,6 +52664,7 @@ export interface MolecularSequenceStructureVariant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String651 = string;
 
@@ -51047,6 +52681,7 @@ export interface CodeableConcept407 {
 
 /**
 * Used to indicate if the outer and inner start-end values have the same meaning.
+* @pattern `^true|false$`
 */
 export type Boolean70 = boolean;
 
@@ -51057,6 +52692,7 @@ export interface Element1317 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer17 = number;
 
@@ -51089,11 +52725,13 @@ export interface MolecularSequenceOuter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String652 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer18 = number;
 
@@ -51104,6 +52742,7 @@ export interface Element1319 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer19 = number;
 
@@ -51136,11 +52775,13 @@ export interface MolecularSequenceInner {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String653 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer20 = number;
 
@@ -51151,6 +52792,7 @@ export interface Element1321 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer21 = number;
 
@@ -51234,6 +52876,7 @@ export interface NamingSystem {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id101 = string;
 
@@ -51256,6 +52899,7 @@ export interface Meta94 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri145 = string;
 
@@ -51266,6 +52910,7 @@ export interface Element1323 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code173 = string;
 
@@ -51287,6 +52932,7 @@ export interface Narrative92 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String654 = string;
 
@@ -51307,6 +52953,7 @@ export interface Element1327 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime89 = string;
 
@@ -51317,6 +52964,7 @@ export interface Element1328 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String655 = string;
 
@@ -51327,6 +52975,7 @@ export interface Element1329 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String656 = string;
 
@@ -51348,6 +52997,7 @@ export interface CodeableConcept408 {
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown70 = string;
 
@@ -51358,6 +53008,7 @@ export interface Element1331 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String657 = string;
 
@@ -51399,6 +53050,7 @@ export interface NamingSystemUniqueId {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String658 = string;
 
@@ -51409,6 +53061,7 @@ export interface Element1333 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String659 = string;
 
@@ -51419,6 +53072,7 @@ export interface Element1334 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates whether this identifier is the "preferred" identifier of this type.
+* @pattern `^true|false$`
 */
 export type Boolean71 = boolean;
 
@@ -51429,6 +53083,7 @@ export interface Element1335 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String660 = string;
 
@@ -51540,13 +53195,14 @@ export interface NutritionOrder {
 	supplement?: NutritionOrderSupplement[];
 	enteralFormula?: NutritionOrderEnteralFormula;
 	/**
-	* Comments made about the \{\{title\}\} by the requester, performer, subject or other participants.
+	* Comments made about the {{title}} by the requester, performer, subject or other participants.
 	*/
 	note?: Annotation1[]
 }
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id102 = string;
 
@@ -51569,6 +53225,7 @@ export interface Meta95 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri146 = string;
 
@@ -51579,6 +53236,7 @@ export interface Element1337 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code174 = string;
 
@@ -51600,6 +53258,7 @@ export interface Narrative93 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code175 = string;
 
@@ -51610,6 +53269,7 @@ export interface Element1339 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code176 = string;
 
@@ -51650,6 +53310,7 @@ export interface Reference344 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime90 = string;
 
@@ -51720,6 +53381,7 @@ export interface NutritionOrderOralDiet {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String661 = string;
 
@@ -51758,6 +53420,7 @@ export interface NutritionOrderNutrient {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String662 = string;
 
@@ -51812,6 +53475,7 @@ export interface NutritionOrderTexture {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String663 = string;
 
@@ -51839,6 +53503,7 @@ export interface CodeableConcept411 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String664 = string;
 
@@ -51877,6 +53542,7 @@ export interface NutritionOrderSupplement {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String665 = string;
 
@@ -51893,6 +53559,7 @@ export interface CodeableConcept412 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String666 = string;
 
@@ -51921,6 +53588,7 @@ export interface Quantity71 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String667 = string;
 
@@ -51964,6 +53632,7 @@ export interface NutritionOrderEnteralFormula {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String668 = string;
 
@@ -51980,6 +53649,7 @@ export interface CodeableConcept413 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String669 = string;
 
@@ -52001,6 +53671,7 @@ export interface CodeableConcept414 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String670 = string;
 
@@ -52062,6 +53733,7 @@ export interface NutritionOrderAdministration {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String671 = string;
 
@@ -52144,6 +53816,7 @@ export interface Quantity75 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String672 = string;
 
@@ -52226,6 +53899,7 @@ export interface Observation {
 	encounter?: Reference347;
 	/**
 	* The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	effectiveDateTime?: string;
 	_effectiveDateTime?: Element1351;
@@ -52233,6 +53907,7 @@ export interface Observation {
 	effectiveTiming?: Timing13;
 	/**
 	* The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	effectiveInstant?: string;
 	_effectiveInstant?: Element1352;
@@ -52246,16 +53921,19 @@ export interface Observation {
 	valueCodeableConcept?: CodeableConcept417;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1354;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1355;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1356;
@@ -52264,11 +53942,13 @@ export interface Observation {
 	valueSampledData?: SampledData1;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1357;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1358;
@@ -52310,6 +53990,7 @@ export interface Observation {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id103 = string;
 
@@ -52332,6 +54013,7 @@ export interface Meta96 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri147 = string;
 
@@ -52342,6 +54024,7 @@ export interface Element1348 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code177 = string;
 
@@ -52444,6 +54127,7 @@ export interface Element1352 { id?: String2; extension?: Extension[] }
 
 /**
 * The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant14 = string;
 
@@ -52652,6 +54336,7 @@ export interface ObservationReferenceRange {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String673 = string;
 
@@ -52714,6 +54399,7 @@ export interface Range17 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String674 = string;
 
@@ -52743,16 +54429,19 @@ export interface ObservationComponent {
 	valueCodeableConcept?: CodeableConcept423;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1360;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1361;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1362;
@@ -52761,11 +54450,13 @@ export interface ObservationComponent {
 	valueSampledData?: SampledData2;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1363;
 	/**
 	* The information determined as a result of making the observation, if the information has a simple value.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1364;
@@ -52784,6 +54475,7 @@ export interface ObservationComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String675 = string;
 
@@ -52997,6 +54689,7 @@ export interface ObservationDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id104 = string;
 
@@ -53019,6 +54712,7 @@ export interface Meta97 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri148 = string;
 
@@ -53029,6 +54723,7 @@ export interface Element1365 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code178 = string;
 
@@ -53061,6 +54756,7 @@ export interface CodeableConcept425 {
 
 /**
 * Multiple results allowed for observations conforming to this ObservationDefinition.
+* @pattern `^true|false$`
 */
 export type Boolean72 = boolean;
 
@@ -53082,6 +54778,7 @@ export interface CodeableConcept426 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String676 = string;
 
@@ -53116,6 +54813,7 @@ export interface ObservationDefinitionQuantitativeDetails {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String677 = string;
 
@@ -53143,6 +54841,7 @@ export interface CodeableConcept428 {
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal52 = number;
 
@@ -53153,6 +54852,7 @@ export interface Element1369 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer22 = number;
 
@@ -53203,6 +54903,7 @@ export interface ObservationDefinitionQualifiedInterval {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String678 = string;
 
@@ -53259,6 +54960,7 @@ export interface Range21 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String679 = string;
 
@@ -53436,6 +55138,7 @@ export interface OperationDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id105 = string;
 
@@ -53458,6 +55161,7 @@ export interface Meta98 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri149 = string;
 
@@ -53468,6 +55172,7 @@ export interface Element1374 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code179 = string;
 
@@ -53489,6 +55194,7 @@ export interface Narrative96 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri150 = string;
 
@@ -53499,6 +55205,7 @@ export interface Element1376 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String680 = string;
 
@@ -53509,6 +55216,7 @@ export interface Element1377 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String681 = string;
 
@@ -53519,6 +55227,7 @@ export interface Element1378 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String682 = string;
 
@@ -53539,6 +55248,7 @@ export interface Element1381 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean73 = boolean;
 
@@ -53549,6 +55259,7 @@ export interface Element1382 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime91 = string;
 
@@ -53559,6 +55270,7 @@ export interface Element1383 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String683 = string;
 
@@ -53569,6 +55281,7 @@ export interface Element1384 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown71 = string;
 
@@ -53579,6 +55292,7 @@ export interface Element1385 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown72 = string;
 
@@ -53589,6 +55303,7 @@ export interface Element1386 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
+* @pattern `^true|false$`
 */
 export type Boolean74 = boolean;
 
@@ -53599,6 +55314,7 @@ export interface Element1387 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code180 = string;
 
@@ -53609,6 +55325,7 @@ export interface Element1388 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown73 = string;
 
@@ -53619,11 +55336,13 @@ export interface Element1389 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical24 = string;
 
 /**
 * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
+* @pattern `^true|false$`
 */
 export type Boolean75 = boolean;
 
@@ -53634,6 +55353,7 @@ export interface Element1390 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).
+* @pattern `^true|false$`
 */
 export type Boolean76 = boolean;
 
@@ -53644,6 +55364,7 @@ export interface Element1391 { id?: String2; extension?: Extension[] }
 
 /**
 * Indicates whether this operation can be invoked on a particular instance of one of the given types.
+* @pattern `^true|false$`
 */
 export type Boolean77 = boolean;
 
@@ -53654,11 +55375,13 @@ export interface Element1392 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical25 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical26 = string;
 
@@ -53727,11 +55450,13 @@ export interface OperationDefinitionParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String684 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code181 = string;
 
@@ -53747,6 +55472,7 @@ export interface Element1394 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer23 = number;
 
@@ -53757,6 +55483,7 @@ export interface Element1395 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String685 = string;
 
@@ -53767,6 +55494,7 @@ export interface Element1396 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String686 = string;
 
@@ -53777,6 +55505,7 @@ export interface Element1397 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code182 = string;
 
@@ -53817,6 +55546,7 @@ export interface OperationDefinitionBinding {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String687 = string;
 
@@ -53827,6 +55557,7 @@ export interface Element1400 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical27 = string;
 
@@ -53854,11 +55585,13 @@ export interface OperationDefinitionReferencedFrom {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String688 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String689 = string;
 
@@ -53869,6 +55602,7 @@ export interface Element1401 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String690 = string;
 
@@ -53909,11 +55643,13 @@ export interface OperationDefinitionOverload {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String691 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String692 = string;
 
@@ -53962,6 +55698,7 @@ export interface OperationOutcome {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id106 = string;
 
@@ -53984,6 +55721,7 @@ export interface Meta99 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri151 = string;
 
@@ -53994,6 +55732,7 @@ export interface Element1404 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code183 = string;
 
@@ -54100,6 +55839,7 @@ export interface OperationOutcomeIssue {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String693 = string;
 
@@ -54126,6 +55866,7 @@ export interface CodeableConcept430 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String694 = string;
 
@@ -54211,6 +55952,7 @@ export interface Organization {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id107 = string;
 
@@ -54233,6 +55975,7 @@ export interface Meta100 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri152 = string;
 
@@ -54243,6 +55986,7 @@ export interface Element1409 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code184 = string;
 
@@ -54264,6 +56008,7 @@ export interface Narrative98 {
 
 /**
 * Whether the organization's record is still in active use.
+* @pattern `^true|false$`
 */
 export type Boolean78 = boolean;
 
@@ -54274,6 +56019,7 @@ export interface Element1411 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String695 = string;
 
@@ -54351,6 +56097,7 @@ export interface OrganizationContact {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String696 = string;
 
@@ -54500,6 +56247,7 @@ export interface OrganizationAffiliation {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id108 = string;
 
@@ -54522,6 +56270,7 @@ export interface Meta101 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri153 = string;
 
@@ -54532,6 +56281,7 @@ export interface Element1413 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code185 = string;
 
@@ -54553,6 +56303,7 @@ export interface Narrative99 {
 
 /**
 * Whether this organization affiliation record is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean79 = boolean;
 
@@ -54625,6 +56376,7 @@ export interface Parameters {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id109 = string;
 
@@ -54647,6 +56399,7 @@ export interface Meta102 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri154 = string;
 
@@ -54657,6 +56410,7 @@ export interface Element1416 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code186 = string;
 
@@ -54685,96 +56439,115 @@ export interface ParametersParameter {
 	_name?: Element1418;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element1419;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1420;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^\S*$`
 	*/
 	valueCanonical?: string;
 	_valueCanonical?: Element1421;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element1422;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element1423;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1424;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element1425;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element1426;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	valueInstant?: string;
 	_valueInstant?: Element1427;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1428;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueMarkdown?: string;
 	_valueMarkdown?: Element1429;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	valueOid?: string;
 	_valueOid?: Element1430;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	valuePositiveInt?: number;
 	_valuePositiveInt?: Element1431;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1432;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1433;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	valueUnsignedInt?: number;
 	_valueUnsignedInt?: Element1434;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element1435;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^\S*$`
 	*/
 	valueUrl?: string;
 	_valueUrl?: Element1436;
 	/**
 	* If the parameter is a data type.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	valueUuid?: string;
 	_valueUuid?: Element1437;
@@ -54818,11 +56591,13 @@ export interface ParametersParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String697 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String698 = string;
 
@@ -55531,11 +57306,13 @@ export interface Patient {
 	_birthDate?: Element1442;
 	/**
 	* Indicates if the individual is deceased or not.
+	* @pattern `^true|false$`
 	*/
 	deceasedBoolean?: boolean;
 	_deceasedBoolean?: Element1443;
 	/**
 	* Indicates if the individual is deceased or not.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	deceasedDateTime?: string;
 	_deceasedDateTime?: Element1444;
@@ -55546,11 +57323,13 @@ export interface Patient {
 	maritalStatus?: CodeableConcept433;
 	/**
 	* Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).
+	* @pattern `^true|false$`
 	*/
 	multipleBirthBoolean?: boolean;
 	_multipleBirthBoolean?: Element1445;
 	/**
 	* Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	multipleBirthInteger?: number;
 	_multipleBirthInteger?: Element1446;
@@ -55582,6 +57361,7 @@ export interface Patient {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id110 = string;
 
@@ -55604,6 +57384,7 @@ export interface Meta104 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri155 = string;
 
@@ -55614,6 +57395,7 @@ export interface Element1438 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code187 = string;
 
@@ -55640,6 +57422,7 @@ export interface Narrative100 {
 * It is often used to filter patient lists to exclude inactive patients
 * 
 * Deceased patients may also be marked as inactive for the same reasons, but may be active for some time after death.
+* @pattern `^true|false$`
 */
 export type Boolean80 = boolean;
 
@@ -55684,6 +57467,7 @@ export interface Element1441 { id?: String2; extension?: Extension[] }
 
 /**
 * The date of birth for the individual.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date23 = string;
 
@@ -55761,6 +57545,7 @@ export interface PatientContact {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String699 = string;
 
@@ -55875,6 +57660,7 @@ export interface PatientCommunication {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String700 = string;
 
@@ -55891,6 +57677,7 @@ export interface CodeableConcept434 {
 
 /**
 * Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).
+* @pattern `^true|false$`
 */
 export type Boolean81 = boolean;
 
@@ -55940,6 +57727,7 @@ export interface PatientLink {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String701 = string;
 
@@ -56017,6 +57805,7 @@ export interface PaymentNotice {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id111 = string;
 
@@ -56039,6 +57828,7 @@ export interface Meta105 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri156 = string;
 
@@ -56049,6 +57839,7 @@ export interface Element1450 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code188 = string;
 
@@ -56070,6 +57861,7 @@ export interface Narrative101 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code189 = string;
 
@@ -56110,6 +57902,7 @@ export interface Reference362 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime92 = string;
 
@@ -56150,6 +57943,7 @@ export interface Reference364 {
 
 /**
 * The date when the above payment action occurred.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date24 = string;
 
@@ -56279,6 +58073,7 @@ export interface PaymentReconciliation {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id112 = string;
 
@@ -56301,6 +58096,7 @@ export interface Meta106 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri157 = string;
 
@@ -56311,6 +58107,7 @@ export interface Element1455 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code190 = string;
 
@@ -56332,6 +58129,7 @@ export interface Narrative102 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code191 = string;
 
@@ -56354,6 +58152,7 @@ export interface Period93 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime93 = string;
 
@@ -56414,6 +58213,7 @@ export interface Element1459 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String702 = string;
 
@@ -56424,6 +58224,7 @@ export interface Element1460 { id?: String2; extension?: Extension[] }
 
 /**
 * The date of payment as indicated on the financial instrument.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date25 = string;
 
@@ -56492,6 +58293,7 @@ export interface PaymentReconciliationDetail {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String703 = string;
 
@@ -56587,6 +58389,7 @@ export interface Reference372 {
 
 /**
 * The date from the response resource containing a commitment to pay.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date26 = string;
 
@@ -56676,6 +58479,7 @@ export interface PaymentReconciliationProcessNote {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String704 = string;
 
@@ -56686,6 +58490,7 @@ export interface Element1463 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String705 = string;
 
@@ -56764,6 +58569,7 @@ export interface Person {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id113 = string;
 
@@ -56786,6 +58592,7 @@ export interface Meta107 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri158 = string;
 
@@ -56796,6 +58603,7 @@ export interface Element1465 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code192 = string;
 
@@ -56822,6 +58630,7 @@ export interface Element1467 { id?: String2; extension?: Extension[] }
 
 /**
 * The birth date for the person.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date27 = string;
 
@@ -56871,6 +58680,7 @@ export interface Reference375 {
 
 /**
 * Whether this person's record is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean82 = boolean;
 
@@ -56905,6 +58715,7 @@ export interface PersonLink {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String706 = string;
 
@@ -57061,6 +58872,7 @@ export interface PlanDefinition {
 
 /**
 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id114 = string;
 
@@ -57083,6 +58895,7 @@ export interface Meta108 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri159 = string;
 
@@ -57093,6 +58906,7 @@ export interface Element1471 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code193 = string;
 
@@ -57114,6 +58928,7 @@ export interface Narrative104 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri160 = string;
 
@@ -57124,6 +58939,7 @@ export interface Element1473 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String707 = string;
 
@@ -57134,6 +58950,7 @@ export interface Element1474 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String708 = string;
 
@@ -57144,6 +58961,7 @@ export interface Element1475 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String709 = string;
 
@@ -57154,6 +58972,7 @@ export interface Element1476 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String710 = string;
 
@@ -57180,6 +58999,7 @@ export interface Element1478 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean83 = boolean;
 
@@ -57216,6 +59036,7 @@ export interface Reference377 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime94 = string;
 
@@ -57226,6 +59047,7 @@ export interface Element1480 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String711 = string;
 
@@ -57236,6 +59058,7 @@ export interface Element1481 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown74 = string;
 
@@ -57246,6 +59069,7 @@ export interface Element1482 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown75 = string;
 
@@ -57256,6 +59080,7 @@ export interface Element1483 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String712 = string;
 
@@ -57266,6 +59091,7 @@ export interface Element1484 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown76 = string;
 
@@ -57276,6 +59102,7 @@ export interface Element1485 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date28 = string;
 
@@ -57286,6 +59113,7 @@ export interface Element1486 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date29 = string;
 
@@ -57344,6 +59172,7 @@ export interface PlanDefinitionGoal {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String713 = string;
 
@@ -57416,6 +59245,7 @@ export interface PlanDefinitionTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String714 = string;
 
@@ -57566,6 +59396,7 @@ export interface PlanDefinitionAction {
 
 	/**
 	* An optional value describing when the action should be performed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timingDateTime?: string;
 	_timingDateTime?: Element1496;
@@ -57613,11 +59444,13 @@ export interface PlanDefinitionAction {
 	_cardinalityBehavior?: Element1502;
 	/**
 	* A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
+	* @pattern `^\S*$`
 	*/
 	definitionCanonical?: string;
 	_definitionCanonical?: Element1503;
 	/**
 	* A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
+	* @pattern `^\S*$`
 	*/
 	definitionUri?: string;
 	_definitionUri?: Element1504;
@@ -57635,11 +59468,13 @@ export interface PlanDefinitionAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String715 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String716 = string;
 
@@ -57650,6 +59485,7 @@ export interface Element1488 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String717 = string;
 
@@ -57660,6 +59496,7 @@ export interface Element1489 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String718 = string;
 
@@ -57670,6 +59507,7 @@ export interface Element1490 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String719 = string;
 
@@ -57680,6 +59518,7 @@ export interface Element1491 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code194 = string;
 
@@ -57690,6 +59529,7 @@ export interface Element1492 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id115 = string;
 
@@ -57746,6 +59586,7 @@ export interface PlanDefinitionCondition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String720 = string;
 
@@ -57811,11 +59652,13 @@ export interface PlanDefinitionRelatedAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String721 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id116 = string;
 
@@ -57960,6 +59803,7 @@ export interface PlanDefinitionParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String722 = string;
 
@@ -58027,6 +59871,7 @@ export interface Element1504 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical28 = string;
 
@@ -58053,11 +59898,13 @@ export interface PlanDefinitionDynamicValue {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String723 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String724 = string;
 
@@ -58162,6 +60009,7 @@ export interface Practitioner {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id117 = string;
 
@@ -58184,6 +60032,7 @@ export interface Meta109 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri161 = string;
 
@@ -58194,6 +60043,7 @@ export interface Element1506 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code195 = string;
 
@@ -58215,6 +60065,7 @@ export interface Narrative105 {
 
 /**
 * Whether this practitioner's record is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean84 = boolean;
 
@@ -58230,6 +60081,7 @@ export interface Element1509 { id?: String2; extension?: Extension[] }
 
 /**
 * The date of birth for the practitioner.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date30 = string;
 
@@ -58266,6 +60118,7 @@ export interface PractitionerQualification {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String725 = string;
 
@@ -58392,6 +60245,7 @@ export interface PractitionerRole {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id118 = string;
 
@@ -58414,6 +60268,7 @@ export interface Meta110 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri162 = string;
 
@@ -58424,6 +60279,7 @@ export interface Element1511 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code196 = string;
 
@@ -58445,6 +60301,7 @@ export interface Narrative106 {
 
 /**
 * Whether this practitioner role record is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean85 = boolean;
 
@@ -58531,11 +60388,13 @@ export interface PractitionerRoleAvailableTime {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String726 = string;
 
 /**
 * Is this always available? (hence times are irrelevant) e.g. 24 hour service.
+* @pattern `^true|false$`
 */
 export type Boolean86 = boolean;
 
@@ -58546,6 +60405,7 @@ export interface Element1514 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time5 = string;
 
@@ -58556,6 +60416,7 @@ export interface Element1515 { id?: String2; extension?: Extension[] }
 
 /**
 * A time during the day, with no date specified
+* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 */
 export type Time6 = string;
 
@@ -58587,11 +60448,13 @@ export interface PractitionerRoleNotAvailable {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String727 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String728 = string;
 
@@ -58614,6 +60477,7 @@ export interface Period98 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String729 = string;
 
@@ -58692,12 +60556,14 @@ export interface Procedure {
 	encounter?: Reference383;
 	/**
 	* Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	performedDateTime?: string;
 	_performedDateTime?: Element1522;
 	performedPeriod?: Period99;
 	/**
 	* Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	performedString?: string;
 	_performedString?: Element1523;
@@ -58768,6 +60634,7 @@ export interface Procedure {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id119 = string;
 
@@ -58790,6 +60657,7 @@ export interface Meta111 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri163 = string;
 
@@ -58800,6 +60668,7 @@ export interface Element1519 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code197 = string;
 
@@ -58821,6 +60690,7 @@ export interface Narrative107 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code198 = string;
 
@@ -58995,6 +60865,7 @@ export interface ProcedurePerformer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String730 = string;
 
@@ -59087,6 +60958,7 @@ export interface ProcedureFocalDevice {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String731 = string;
 
@@ -59155,6 +61027,7 @@ export interface Provenance {
 	occurredPeriod?: Period100;
 	/**
 	* The period during which the activity occurred.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurredDateTime?: string;
 	_occurredDateTime?: Element1526;
@@ -59193,6 +61066,7 @@ export interface Provenance {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id120 = string;
 
@@ -59215,6 +61089,7 @@ export interface Meta112 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri164 = string;
 
@@ -59225,6 +61100,7 @@ export interface Element1524 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code199 = string;
 
@@ -59263,6 +61139,7 @@ export interface Element1526 { id?: String2; extension?: Extension[] }
 
 /**
 * The instant of time at which the activity was recorded.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant15 = string;
 
@@ -59324,6 +61201,7 @@ export interface ProvenanceAgent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String732 = string;
 
@@ -59405,6 +61283,7 @@ export interface ProvenanceEntity {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String733 = string;
 
@@ -59533,6 +61412,7 @@ export interface Questionnaire {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id121 = string;
 
@@ -59555,6 +61435,7 @@ export interface Meta113 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri165 = string;
 
@@ -59565,6 +61446,7 @@ export interface Element1529 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code200 = string;
 
@@ -59586,6 +61468,7 @@ export interface Narrative109 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri166 = string;
 
@@ -59596,6 +61479,7 @@ export interface Element1531 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String734 = string;
 
@@ -59606,6 +61490,7 @@ export interface Element1532 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String735 = string;
 
@@ -59616,6 +61501,7 @@ export interface Element1533 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String736 = string;
 
@@ -59631,6 +61517,7 @@ export interface Element1535 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean87 = boolean;
 
@@ -59641,6 +61528,7 @@ export interface Element1536 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime95 = string;
 
@@ -59651,6 +61539,7 @@ export interface Element1537 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String737 = string;
 
@@ -59661,6 +61550,7 @@ export interface Element1538 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown77 = string;
 
@@ -59671,6 +61561,7 @@ export interface Element1539 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown78 = string;
 
@@ -59681,6 +61572,7 @@ export interface Element1540 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown79 = string;
 
@@ -59691,6 +61583,7 @@ export interface Element1541 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date31 = string;
 
@@ -59701,6 +61594,7 @@ export interface Element1542 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date32 = string;
 
@@ -59808,11 +61702,13 @@ export interface QuestionnaireItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String738 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String739 = string;
 
@@ -59823,6 +61719,7 @@ export interface Element1544 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri167 = string;
 
@@ -59833,6 +61730,7 @@ export interface Element1545 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String740 = string;
 
@@ -59843,6 +61741,7 @@ export interface Element1546 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String741 = string;
 
@@ -59881,36 +61780,43 @@ export interface QuestionnaireEnableWhen {
 	_operator?: Element1550;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^true|false$`
 	*/
 	answerBoolean?: boolean;
 	_answerBoolean?: Element1551;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	answerDecimal?: number;
 	_answerDecimal?: Element1552;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	answerInteger?: number;
 	_answerInteger?: Element1553;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	answerDate?: string;
 	_answerDate?: Element1554;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	answerDateTime?: string;
 	_answerDateTime?: Element1555;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	answerTime?: string;
 	_answerTime?: Element1556;
 	/**
 	* A value that the referenced question is tested using the specified operator in order for the item to be enabled.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	answerString?: string;
 	_answerString?: Element1557;
@@ -59921,11 +61827,13 @@ export interface QuestionnaireEnableWhen {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String742 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String743 = string;
 
@@ -60014,6 +61922,7 @@ export interface Element1558 { id?: String2; extension?: Extension[] }
 
 /**
 * An indication, if true, that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
+* @pattern `^true|false$`
 */
 export type Boolean88 = boolean;
 
@@ -60024,6 +61933,7 @@ export interface Element1559 { id?: String2; extension?: Extension[] }
 
 /**
 * An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups.
+* @pattern `^true|false$`
 */
 export type Boolean89 = boolean;
 
@@ -60034,6 +61944,7 @@ export interface Element1560 { id?: String2; extension?: Extension[] }
 
 /**
 * An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.
+* @pattern `^true|false$`
 */
 export type Boolean90 = boolean;
 
@@ -60044,6 +61955,7 @@ export interface Element1561 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer24 = number;
 
@@ -60054,6 +61966,7 @@ export interface Element1562 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical29 = string;
 
@@ -60076,21 +61989,25 @@ export interface QuestionnaireAnswerOption {
 
 	/**
 	* A potential answer that's allowed as the answer to this question.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1563;
 	/**
 	* A potential answer that's allowed as the answer to this question.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element1564;
 	/**
 	* A potential answer that's allowed as the answer to this question.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1565;
 	/**
 	* A potential answer that's allowed as the answer to this question.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1566;
@@ -60102,6 +62019,7 @@ export interface QuestionnaireAnswerOption {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String744 = string;
 
@@ -60142,6 +62060,7 @@ export interface Reference395 {
 
 /**
 * Indicates whether the answer value is selected when the list of possible answers is initially shown.
+* @pattern `^true|false$`
 */
 export type Boolean91 = boolean;
 
@@ -60169,41 +62088,49 @@ export interface QuestionnaireInitial {
 
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1568;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element1569;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1570;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element1571;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1572;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1573;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1574;
 	/**
 	* The actual value to for an initial answer.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element1575;
@@ -60215,6 +62142,7 @@ export interface QuestionnaireInitial {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String745 = string;
 
@@ -60382,6 +62310,7 @@ export interface QuestionnaireResponse {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id122 = string;
 
@@ -60404,6 +62333,7 @@ export interface Meta114 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri168 = string;
 
@@ -60414,6 +62344,7 @@ export interface Element1576 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code201 = string;
 
@@ -60452,6 +62383,7 @@ export interface Identifier34 {
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical30 = string;
 
@@ -60492,6 +62424,7 @@ export interface Reference398 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime96 = string;
 
@@ -60565,11 +62498,13 @@ export interface QuestionnaireResponseItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String746 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String747 = string;
 
@@ -60580,6 +62515,7 @@ export interface Element1580 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri169 = string;
 
@@ -60590,6 +62526,7 @@ export interface Element1581 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String748 = string;
 
@@ -60617,41 +62554,49 @@ export interface QuestionnaireResponseAnswer {
 
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1583;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element1584;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1585;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element1586;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1587;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1588;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1589;
 	/**
 	* The answer (or one of the answers) provided by the respondent to the question.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element1590;
@@ -60667,6 +62612,7 @@ export interface QuestionnaireResponseAnswer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String749 = string;
 
@@ -60846,6 +62792,7 @@ export interface RelatedPerson {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id123 = string;
 
@@ -60868,6 +62815,7 @@ export interface Meta115 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri170 = string;
 
@@ -60878,6 +62826,7 @@ export interface Element1591 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code202 = string;
 
@@ -60899,6 +62848,7 @@ export interface Narrative111 {
 
 /**
 * Whether this related person record is in active use.
+* @pattern `^true|false$`
 */
 export type Boolean92 = boolean;
 
@@ -60929,6 +62879,7 @@ export interface Element1594 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the related person was born.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date33 = string;
 
@@ -60972,6 +62923,7 @@ export interface RelatedPersonCommunication {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String750 = string;
 
@@ -60988,6 +62940,7 @@ export interface CodeableConcept458 {
 
 /**
 * Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).
+* @pattern `^true|false$`
 */
 export type Boolean93 = boolean;
 
@@ -61098,6 +63051,7 @@ export interface RequestGroup {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id124 = string;
 
@@ -61120,6 +63074,7 @@ export interface Meta116 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri171 = string;
 
@@ -61130,6 +63085,7 @@ export interface Element1597 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code203 = string;
 
@@ -61168,6 +63124,7 @@ export interface Identifier35 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code204 = string;
 
@@ -61178,6 +63135,7 @@ export interface Element1599 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code205 = string;
 
@@ -61188,6 +63146,7 @@ export interface Element1600 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code206 = string;
 
@@ -61239,6 +63198,7 @@ export interface Reference404 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime97 = string;
 
@@ -61310,6 +63270,7 @@ export interface RequestGroupAction {
 
 	/**
 	* An optional value describing when the action should be performed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timingDateTime?: string;
 	_timingDateTime?: Element1611;
@@ -61342,11 +63303,13 @@ export interface RequestGroupAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String751 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String752 = string;
 
@@ -61357,6 +63320,7 @@ export interface Element1603 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String753 = string;
 
@@ -61367,6 +63331,7 @@ export interface Element1604 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String754 = string;
 
@@ -61377,6 +63342,7 @@ export interface Element1605 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String755 = string;
 
@@ -61387,6 +63353,7 @@ export interface Element1606 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code207 = string;
 
@@ -61418,11 +63385,13 @@ export interface RequestGroupCondition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String756 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code208 = string;
 
@@ -61475,11 +63444,13 @@ export interface RequestGroupRelatedAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String757 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id125 = string;
 
@@ -61490,6 +63461,7 @@ export interface Element1609 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code209 = string;
 
@@ -61615,6 +63587,7 @@ export interface CodeableConcept460 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code210 = string;
 
@@ -61625,6 +63598,7 @@ export interface Element1612 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code211 = string;
 
@@ -61635,6 +63609,7 @@ export interface Element1613 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code212 = string;
 
@@ -61645,6 +63620,7 @@ export interface Element1614 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code213 = string;
 
@@ -61655,6 +63631,7 @@ export interface Element1615 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code214 = string;
 
@@ -61816,6 +63793,7 @@ export interface ResearchDefinition {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id126 = string;
 
@@ -61838,6 +63816,7 @@ export interface Meta117 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri172 = string;
 
@@ -61848,6 +63827,7 @@ export interface Element1617 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code215 = string;
 
@@ -61869,6 +63849,7 @@ export interface Narrative113 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri173 = string;
 
@@ -61879,6 +63860,7 @@ export interface Element1619 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String758 = string;
 
@@ -61889,6 +63871,7 @@ export interface Element1620 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String759 = string;
 
@@ -61899,6 +63882,7 @@ export interface Element1621 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String760 = string;
 
@@ -61909,6 +63893,7 @@ export interface Element1622 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String761 = string;
 
@@ -61919,6 +63904,7 @@ export interface Element1623 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String762 = string;
 
@@ -61934,6 +63920,7 @@ export interface Element1625 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this research definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean94 = boolean;
 
@@ -61970,6 +63957,7 @@ export interface Reference407 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime98 = string;
 
@@ -61980,6 +63968,7 @@ export interface Element1627 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String763 = string;
 
@@ -61990,6 +63979,7 @@ export interface Element1628 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown80 = string;
 
@@ -62000,6 +63990,7 @@ export interface Element1629 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown81 = string;
 
@@ -62010,6 +64001,7 @@ export interface Element1630 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String764 = string;
 
@@ -62020,6 +64012,7 @@ export interface Element1631 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown82 = string;
 
@@ -62030,6 +64023,7 @@ export interface Element1632 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date34 = string;
 
@@ -62040,6 +64034,7 @@ export interface Element1633 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date35 = string;
 
@@ -62269,6 +64264,7 @@ export interface ResearchElementDefinition {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id127 = string;
 
@@ -62291,6 +64287,7 @@ export interface Meta118 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri174 = string;
 
@@ -62301,6 +64298,7 @@ export interface Element1635 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code216 = string;
 
@@ -62322,6 +64320,7 @@ export interface Narrative114 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri175 = string;
 
@@ -62332,6 +64331,7 @@ export interface Element1637 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String765 = string;
 
@@ -62342,6 +64342,7 @@ export interface Element1638 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String766 = string;
 
@@ -62352,6 +64353,7 @@ export interface Element1639 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String767 = string;
 
@@ -62362,6 +64364,7 @@ export interface Element1640 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String768 = string;
 
@@ -62372,6 +64375,7 @@ export interface Element1641 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String769 = string;
 
@@ -62387,6 +64391,7 @@ export interface Element1643 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this research element definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean95 = boolean;
 
@@ -62423,6 +64428,7 @@ export interface Reference412 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime99 = string;
 
@@ -62433,6 +64439,7 @@ export interface Element1645 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String770 = string;
 
@@ -62443,6 +64450,7 @@ export interface Element1646 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown83 = string;
 
@@ -62453,6 +64461,7 @@ export interface Element1647 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown84 = string;
 
@@ -62463,6 +64472,7 @@ export interface Element1648 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String771 = string;
 
@@ -62473,6 +64483,7 @@ export interface Element1649 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown85 = string;
 
@@ -62483,6 +64494,7 @@ export interface Element1650 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date36 = string;
 
@@ -62493,6 +64505,7 @@ export interface Element1651 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date37 = string;
 
@@ -62542,6 +64555,7 @@ export interface ResearchElementDefinitionCharacteristic {
 	definitionCodeableConcept?: CodeableConcept463;
 	/**
 	* Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year).
+	* @pattern `^\S*$`
 	*/
 	definitionCanonical?: string;
 	_definitionCanonical?: Element1655;
@@ -62558,6 +64572,7 @@ export interface ResearchElementDefinitionCharacteristic {
 	_studyEffectiveDescription?: Element1657;
 	/**
 	* Indicates what effective period the study covers.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	studyEffectiveDateTime?: string;
 	_studyEffectiveDateTime?: Element1658;
@@ -62581,6 +64596,7 @@ export interface ResearchElementDefinitionCharacteristic {
 	_participantEffectiveDescription?: Element1660;
 	/**
 	* Indicates what effective period the study covers.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	participantEffectiveDateTime?: string;
 	_participantEffectiveDateTime?: Element1661;
@@ -62604,6 +64620,7 @@ export interface ResearchElementDefinitionCharacteristic {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String772 = string;
 
@@ -62663,6 +64680,7 @@ export interface DataRequirement4 {
 
 /**
 * When true, members with this characteristic are excluded from the element.
+* @pattern `^true|false$`
 */
 export type Boolean96 = boolean;
 
@@ -62684,6 +64702,7 @@ export interface CodeableConcept464 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String773 = string;
 
@@ -62765,6 +64784,7 @@ export interface Element1659 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String774 = string;
 
@@ -62977,6 +64997,7 @@ export interface ResearchStudy {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id128 = string;
 
@@ -62999,6 +65020,7 @@ export interface Meta119 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri176 = string;
 
@@ -63009,6 +65031,7 @@ export interface Element1663 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code217 = string;
 
@@ -63030,6 +65053,7 @@ export interface Narrative115 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String775 = string;
 
@@ -63067,6 +65091,7 @@ export interface CodeableConcept466 {
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown86 = string;
 
@@ -63153,11 +65178,13 @@ export interface ResearchStudyArm {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String776 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String777 = string;
 
@@ -63179,6 +65206,7 @@ export interface CodeableConcept468 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String778 = string;
 
@@ -63210,11 +65238,13 @@ export interface ResearchStudyObjective {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String779 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String780 = string;
 
@@ -63302,6 +65332,7 @@ export interface ResearchSubject {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id129 = string;
 
@@ -63324,6 +65355,7 @@ export interface Meta120 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri177 = string;
 
@@ -63334,6 +65366,7 @@ export interface Element1671 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code218 = string;
 
@@ -63402,6 +65435,7 @@ export interface Reference416 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String781 = string;
 
@@ -63412,6 +65446,7 @@ export interface Element1674 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String782 = string;
 
@@ -63481,6 +65516,7 @@ export interface RiskAssessment {
 	encounter?: Reference421;
 	/**
 	* The date (and possibly time) the risk assessment was performed.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element1679;
@@ -63516,6 +65552,7 @@ export interface RiskAssessment {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id130 = string;
 
@@ -63538,6 +65575,7 @@ export interface Meta121 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri178 = string;
 
@@ -63548,6 +65586,7 @@ export interface Element1676 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code219 = string;
 
@@ -63599,6 +65638,7 @@ export interface Reference419 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code220 = string;
 
@@ -63725,6 +65765,7 @@ export interface RiskAssessmentPrediction {
 	outcome?: CodeableConcept472;
 	/**
 	* Indicates how likely the outcome is (in the specified timeframe).
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	probabilityDecimal?: number;
 	_probabilityDecimal?: Element1680;
@@ -63740,6 +65781,7 @@ export interface RiskAssessmentPrediction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String783 = string;
 
@@ -63782,6 +65824,7 @@ export interface CodeableConcept473 {
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal53 = number;
 
@@ -63814,6 +65857,7 @@ export interface Range30 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String784 = string;
 
@@ -63824,6 +65868,7 @@ export interface Element1682 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String785 = string;
 
@@ -63955,6 +66000,7 @@ export interface RiskEvidenceSynthesis {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id131 = string;
 
@@ -63977,6 +66023,7 @@ export interface Meta122 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri179 = string;
 
@@ -63987,6 +66034,7 @@ export interface Element1684 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code221 = string;
 
@@ -64008,6 +66056,7 @@ export interface Narrative118 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri180 = string;
 
@@ -64018,6 +66067,7 @@ export interface Element1686 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String786 = string;
 
@@ -64028,6 +66078,7 @@ export interface Element1687 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String787 = string;
 
@@ -64038,6 +66089,7 @@ export interface Element1688 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String788 = string;
 
@@ -64053,6 +66105,7 @@ export interface Element1690 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime100 = string;
 
@@ -64063,6 +66116,7 @@ export interface Element1691 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String789 = string;
 
@@ -64073,6 +66127,7 @@ export interface Element1692 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown87 = string;
 
@@ -64083,6 +66138,7 @@ export interface Element1693 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown88 = string;
 
@@ -64093,6 +66149,7 @@ export interface Element1694 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date38 = string;
 
@@ -64103,6 +66160,7 @@ export interface Element1695 { id?: String2; extension?: Extension[] }
 
 /**
 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date39 = string;
 
@@ -64216,11 +66274,13 @@ export interface RiskEvidenceSynthesisSampleSize {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String790 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String791 = string;
 
@@ -64231,6 +66291,7 @@ export interface Element1697 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer25 = number;
 
@@ -64241,6 +66302,7 @@ export interface Element1698 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer26 = number;
 
@@ -64283,11 +66345,13 @@ export interface RiskEvidenceSynthesisRiskEstimate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String792 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String793 = string;
 
@@ -64309,6 +66373,7 @@ export interface CodeableConcept476 {
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal54 = number;
 
@@ -64330,6 +66395,7 @@ export interface CodeableConcept477 {
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer27 = number;
 
@@ -64340,6 +66406,7 @@ export interface Element1702 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer28 = number;
 
@@ -64375,6 +66442,7 @@ export interface RiskEvidenceSynthesisPrecisionEstimate {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String794 = string;
 
@@ -64391,6 +66459,7 @@ export interface CodeableConcept478 {
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal55 = number;
 
@@ -64401,6 +66470,7 @@ export interface Element1704 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal56 = number;
 
@@ -64411,6 +66481,7 @@ export interface Element1705 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal57 = number;
 
@@ -64454,6 +66525,7 @@ export interface RiskEvidenceSynthesisCertainty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String795 = string;
 
@@ -64487,6 +66559,7 @@ export interface RiskEvidenceSynthesisCertaintySubcomponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String796 = string;
 
@@ -64565,6 +66638,7 @@ export interface Schedule {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id132 = string;
 
@@ -64587,6 +66661,7 @@ export interface Meta123 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri181 = string;
 
@@ -64597,6 +66672,7 @@ export interface Element1707 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code222 = string;
 
@@ -64618,6 +66694,7 @@ export interface Narrative119 {
 
 /**
 * Whether this schedule record is in active use or should not be used (such as was entered in error).
+* @pattern `^true|false$`
 */
 export type Boolean97 = boolean;
 
@@ -64640,6 +66717,7 @@ export interface Period113 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String797 = string;
 
@@ -64814,6 +66892,7 @@ export interface SearchParameter {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id133 = string;
 
@@ -64836,6 +66915,7 @@ export interface Meta124 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri182 = string;
 
@@ -64846,6 +66926,7 @@ export interface Element1711 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code223 = string;
 
@@ -64867,6 +66948,7 @@ export interface Narrative120 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri183 = string;
 
@@ -64877,6 +66959,7 @@ export interface Element1713 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String798 = string;
 
@@ -64887,6 +66970,7 @@ export interface Element1714 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String799 = string;
 
@@ -64897,6 +66981,7 @@ export interface Element1715 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical31 = string;
 
@@ -64907,6 +66992,7 @@ export interface Element1716 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean98 = boolean;
 
@@ -64917,6 +67003,7 @@ export interface Element1717 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime101 = string;
 
@@ -64927,6 +67014,7 @@ export interface Element1718 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String800 = string;
 
@@ -64937,6 +67025,7 @@ export interface Element1719 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown89 = string;
 
@@ -64947,6 +67036,7 @@ export interface Element1720 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown90 = string;
 
@@ -64957,6 +67047,7 @@ export interface Element1721 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code224 = string;
 
@@ -64972,6 +67063,7 @@ export interface Element1723 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String801 = string;
 
@@ -64982,6 +67074,7 @@ export interface Element1724 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String802 = string;
 
@@ -64997,6 +67090,7 @@ export interface Element1726 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.
+* @pattern `^true|false$`
 */
 export type Boolean99 = boolean;
 
@@ -65007,6 +67101,7 @@ export interface Element1727 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.
+* @pattern `^true|false$`
 */
 export type Boolean100 = boolean;
 
@@ -65038,16 +67133,19 @@ export interface SearchParameterComponent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String803 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical32 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String804 = string;
 
@@ -65142,6 +67240,7 @@ export interface ServiceRequest {
 	encounter?: Reference428;
 	/**
 	* The date/time at which the requested service should occur.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element1736;
@@ -65149,6 +67248,7 @@ export interface ServiceRequest {
 	occurrenceTiming?: Timing19;
 	/**
 	* If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.
+	* @pattern `^true|false$`
 	*/
 	asNeededBoolean?: boolean;
 	_asNeededBoolean?: Element1737;
@@ -65216,6 +67316,7 @@ export interface ServiceRequest {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id134 = string;
 
@@ -65238,6 +67339,7 @@ export interface Meta125 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri184 = string;
 
@@ -65248,6 +67350,7 @@ export interface Element1730 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code225 = string;
 
@@ -65286,6 +67389,7 @@ export interface Identifier36 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code226 = string;
 
@@ -65296,6 +67400,7 @@ export interface Element1732 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code227 = string;
 
@@ -65306,6 +67411,7 @@ export interface Element1733 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code228 = string;
 
@@ -65316,6 +67422,7 @@ export interface Element1734 { id?: String2; extension?: Extension[] }
 
 /**
 * Set this to true if the record is saying that the service/procedure should NOT be performed.
+* @pattern `^true|false$`
 */
 export type Boolean101 = boolean;
 
@@ -65451,6 +67558,7 @@ export interface CodeableConcept481 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime102 = string;
 
@@ -65487,6 +67595,7 @@ export interface CodeableConcept482 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String805 = string;
 
@@ -65571,6 +67680,7 @@ export interface Slot {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id135 = string;
 
@@ -65593,6 +67703,7 @@ export interface Meta126 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri185 = string;
 
@@ -65603,6 +67714,7 @@ export interface Element1740 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code229 = string;
 
@@ -65655,6 +67767,7 @@ export interface Element1742 { id?: String2; extension?: Extension[] }
 
 /**
 * Date/Time that the slot is to begin.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant16 = string;
 
@@ -65665,6 +67778,7 @@ export interface Element1743 { id?: String2; extension?: Extension[] }
 
 /**
 * Date/Time that the slot is to conclude.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant17 = string;
 
@@ -65675,6 +67789,7 @@ export interface Element1744 { id?: String2; extension?: Extension[] }
 
 /**
 * This slot has already been overbooked, appointments are unlikely to be accepted for this time.
+* @pattern `^true|false$`
 */
 export type Boolean102 = boolean;
 
@@ -65685,6 +67800,7 @@ export interface Element1745 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String806 = string;
 
@@ -65777,6 +67893,7 @@ export interface Specimen {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id136 = string;
 
@@ -65799,6 +67916,7 @@ export interface Meta127 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri186 = string;
 
@@ -65809,6 +67927,7 @@ export interface Element1747 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code230 = string;
 
@@ -65878,6 +67997,7 @@ export interface Reference431 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime103 = string;
 
@@ -65905,6 +68025,7 @@ export interface SpecimenCollection {
 	collector?: Reference432;
 	/**
 	* Time when specimen was collected from subject - the physiologically relevant time.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	collectedDateTime?: string;
 	_collectedDateTime?: Element1751;
@@ -65919,6 +68040,7 @@ export interface SpecimenCollection {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String807 = string;
 
@@ -66067,6 +68189,7 @@ export interface SpecimenProcessing {
 
 	/**
 	* A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	timeDateTime?: string;
 	_timeDateTime?: Element1753;
@@ -66075,11 +68198,13 @@ export interface SpecimenProcessing {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String808 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String809 = string;
 
@@ -66148,11 +68273,13 @@ export interface SpecimenContainer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String810 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String811 = string;
 
@@ -66286,6 +68413,7 @@ export interface SpecimenDefinition {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id137 = string;
 
@@ -66308,6 +68436,7 @@ export interface Meta128 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri187 = string;
 
@@ -66318,6 +68447,7 @@ export interface Element1755 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code231 = string;
 
@@ -66367,6 +68497,7 @@ export interface CodeableConcept491 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String812 = string;
 
@@ -66416,11 +68547,13 @@ export interface SpecimenDefinitionTypeTested {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String813 = string;
 
 /**
 * Primary of secondary specimen.
+* @pattern `^true|false$`
 */
 export type Boolean103 = boolean;
 
@@ -66470,6 +68603,7 @@ export interface SpecimenDefinitionContainer {
 	minimumVolumeQuantity?: Quantity90;
 	/**
 	* The minimum volume to be conditioned in the container.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	minimumVolumeString?: string;
 	_minimumVolumeString?: Element1761;
@@ -66483,6 +68617,7 @@ export interface SpecimenDefinitionContainer {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String814 = string;
 
@@ -66521,6 +68656,7 @@ export interface CodeableConcept495 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String815 = string;
 
@@ -66592,6 +68728,7 @@ export interface SpecimenDefinitionAdditive {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String816 = string;
 
@@ -66623,6 +68760,7 @@ export interface Reference434 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String817 = string;
 
@@ -66633,6 +68771,7 @@ export interface Element1762 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String818 = string;
 
@@ -66684,6 +68823,7 @@ export interface SpecimenDefinitionHandling {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String819 = string;
 
@@ -66728,6 +68868,7 @@ export interface Duration27 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String820 = string;
 
@@ -66882,6 +69023,7 @@ export interface StructureDefinition {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id138 = string;
 
@@ -66904,6 +69046,7 @@ export interface Meta129 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri188 = string;
 
@@ -66914,6 +69057,7 @@ export interface Element1765 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code232 = string;
 
@@ -66935,6 +69079,7 @@ export interface Narrative125 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri189 = string;
 
@@ -66945,6 +69090,7 @@ export interface Element1767 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String821 = string;
 
@@ -66955,6 +69101,7 @@ export interface Element1768 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String822 = string;
 
@@ -66965,6 +69112,7 @@ export interface Element1769 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String823 = string;
 
@@ -66980,6 +69128,7 @@ export interface Element1771 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean104 = boolean;
 
@@ -66990,6 +69139,7 @@ export interface Element1772 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime104 = string;
 
@@ -67000,6 +69150,7 @@ export interface Element1773 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String824 = string;
 
@@ -67010,6 +69161,7 @@ export interface Element1774 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown91 = string;
 
@@ -67020,6 +69172,7 @@ export interface Element1775 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown92 = string;
 
@@ -67030,6 +69183,7 @@ export interface Element1776 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown93 = string;
 
@@ -67071,11 +69225,13 @@ export interface StructureDefinitionMapping {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String825 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id139 = string;
 
@@ -67086,6 +69242,7 @@ export interface Element1779 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri190 = string;
 
@@ -67096,6 +69253,7 @@ export interface Element1780 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String826 = string;
 
@@ -67106,6 +69264,7 @@ export interface Element1781 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String827 = string;
 
@@ -67121,6 +69280,7 @@ export interface Element1783 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.
+* @pattern `^true|false$`
 */
 export type Boolean105 = boolean;
 
@@ -67157,6 +69317,7 @@ export interface StructureDefinitionContext {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String828 = string;
 
@@ -67167,6 +69328,7 @@ export interface Element1785 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String829 = string;
 
@@ -67177,6 +69339,7 @@ export interface Element1786 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri191 = string;
 
@@ -67187,6 +69350,7 @@ export interface Element1787 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical33 = string;
 
@@ -67220,6 +69384,7 @@ export interface StructureDefinitionSnapshot {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String830 = string;
 
@@ -67292,96 +69457,115 @@ export interface ElementDefinition {
 
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	defaultValueBase64Binary?: string;
 	_defaultValueBase64Binary?: Element1810;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^true|false$`
 	*/
 	defaultValueBoolean?: boolean;
 	_defaultValueBoolean?: Element1811;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^\S*$`
 	*/
 	defaultValueCanonical?: string;
 	_defaultValueCanonical?: Element1812;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	defaultValueCode?: string;
 	_defaultValueCode?: Element1813;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	defaultValueDate?: string;
 	_defaultValueDate?: Element1814;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	defaultValueDateTime?: string;
 	_defaultValueDateTime?: Element1815;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	defaultValueDecimal?: number;
 	_defaultValueDecimal?: Element1816;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	defaultValueId?: string;
 	_defaultValueId?: Element1817;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	defaultValueInstant?: string;
 	_defaultValueInstant?: Element1818;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	defaultValueInteger?: number;
 	_defaultValueInteger?: Element1819;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	defaultValueMarkdown?: string;
 	_defaultValueMarkdown?: Element1820;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	defaultValueOid?: string;
 	_defaultValueOid?: Element1821;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	defaultValuePositiveInt?: number;
 	_defaultValuePositiveInt?: Element1822;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	defaultValueString?: string;
 	_defaultValueString?: Element1823;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	defaultValueTime?: string;
 	_defaultValueTime?: Element1824;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	defaultValueUnsignedInt?: number;
 	_defaultValueUnsignedInt?: Element1825;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^\S*$`
 	*/
 	defaultValueUri?: string;
 	_defaultValueUri?: Element1826;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^\S*$`
 	*/
 	defaultValueUrl?: string;
 	_defaultValueUrl?: Element1827;
 	/**
 	* The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	defaultValueUuid?: string;
 	_defaultValueUuid?: Element1828;
@@ -67422,96 +69606,115 @@ export interface ElementDefinition {
 	_orderMeaning?: Element1830;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	fixedBase64Binary?: string;
 	_fixedBase64Binary?: Element1831;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^true|false$`
 	*/
 	fixedBoolean?: boolean;
 	_fixedBoolean?: Element1832;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^\S*$`
 	*/
 	fixedCanonical?: string;
 	_fixedCanonical?: Element1833;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	fixedCode?: string;
 	_fixedCode?: Element1834;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	fixedDate?: string;
 	_fixedDate?: Element1835;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	fixedDateTime?: string;
 	_fixedDateTime?: Element1836;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	fixedDecimal?: number;
 	_fixedDecimal?: Element1837;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	fixedId?: string;
 	_fixedId?: Element1838;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	fixedInstant?: string;
 	_fixedInstant?: Element1839;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	fixedInteger?: number;
 	_fixedInteger?: Element1840;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	fixedMarkdown?: string;
 	_fixedMarkdown?: Element1841;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	fixedOid?: string;
 	_fixedOid?: Element1842;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	fixedPositiveInt?: number;
 	_fixedPositiveInt?: Element1843;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	fixedString?: string;
 	_fixedString?: Element1844;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	fixedTime?: string;
 	_fixedTime?: Element1845;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	fixedUnsignedInt?: number;
 	_fixedUnsignedInt?: Element1846;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^\S*$`
 	*/
 	fixedUri?: string;
 	_fixedUri?: Element1847;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^\S*$`
 	*/
 	fixedUrl?: string;
 	_fixedUrl?: Element1848;
 	/**
 	* Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	fixedUuid?: string;
 	_fixedUuid?: Element1849;
@@ -67558,6 +69761,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	patternBase64Binary?: string;
 	_patternBase64Binary?: Element1850;
@@ -67573,6 +69777,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^true|false$`
 	*/
 	patternBoolean?: boolean;
 	_patternBoolean?: Element1851;
@@ -67588,6 +69793,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^\S*$`
 	*/
 	patternCanonical?: string;
 	_patternCanonical?: Element1852;
@@ -67603,6 +69809,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	patternCode?: string;
 	_patternCode?: Element1853;
@@ -67618,6 +69825,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	patternDate?: string;
 	_patternDate?: Element1854;
@@ -67633,6 +69841,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	patternDateTime?: string;
 	_patternDateTime?: Element1855;
@@ -67648,6 +69857,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	patternDecimal?: number;
 	_patternDecimal?: Element1856;
@@ -67663,6 +69873,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	patternId?: string;
 	_patternId?: Element1857;
@@ -67678,6 +69889,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	patternInstant?: string;
 	_patternInstant?: Element1858;
@@ -67693,6 +69905,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	patternInteger?: number;
 	_patternInteger?: Element1859;
@@ -67708,6 +69921,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	patternMarkdown?: string;
 	_patternMarkdown?: Element1860;
@@ -67723,6 +69937,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	patternOid?: string;
 	_patternOid?: Element1861;
@@ -67738,6 +69953,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	patternPositiveInt?: number;
 	_patternPositiveInt?: Element1862;
@@ -67753,6 +69969,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	patternString?: string;
 	_patternString?: Element1863;
@@ -67768,6 +69985,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	patternTime?: string;
 	_patternTime?: Element1864;
@@ -67783,6 +70001,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	patternUnsignedInt?: number;
 	_patternUnsignedInt?: Element1865;
@@ -67798,6 +70017,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^\S*$`
 	*/
 	patternUri?: string;
 	_patternUri?: Element1866;
@@ -67813,6 +70033,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^\S*$`
 	*/
 	patternUrl?: string;
 	_patternUrl?: Element1867;
@@ -67828,6 +70049,7 @@ export interface ElementDefinition {
 	* 1. If primitive: it must match exactly the pattern value
 	* 2. If a complex object: it must match (recursively) the pattern value
 	* 3. If an array: it must match (recursively) the pattern value.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	patternUuid?: string;
 	_patternUuid?: Element1868;
@@ -67869,82 +70091,98 @@ export interface ElementDefinition {
 
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	minValueDate?: string;
 	_minValueDate?: Element1889;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	minValueDateTime?: string;
 	_minValueDateTime?: Element1890;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	minValueInstant?: string;
 	_minValueInstant?: Element1891;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	minValueTime?: string;
 	_minValueTime?: Element1892;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	minValueDecimal?: number;
 	_minValueDecimal?: Element1893;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	minValueInteger?: number;
 	_minValueInteger?: Element1894;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	minValuePositiveInt?: number;
 	_minValuePositiveInt?: Element1895;
 	/**
 	* The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	minValueUnsignedInt?: number;
 	_minValueUnsignedInt?: Element1896;
 	minValueQuantity?: Quantity95;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	maxValueDate?: string;
 	_maxValueDate?: Element1897;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	maxValueDateTime?: string;
 	_maxValueDateTime?: Element1898;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	maxValueInstant?: string;
 	_maxValueInstant?: Element1899;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	maxValueTime?: string;
 	_maxValueTime?: Element1900;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	maxValueDecimal?: number;
 	_maxValueDecimal?: Element1901;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	maxValueInteger?: number;
 	_maxValueInteger?: Element1902;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	maxValuePositiveInt?: number;
 	_maxValuePositiveInt?: Element1903;
 	/**
 	* The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	maxValueUnsignedInt?: number;
 	_maxValueUnsignedInt?: Element1904;
@@ -67982,11 +70220,13 @@ export interface ElementDefinition {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String831 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String832 = string;
 
@@ -67997,6 +70237,7 @@ export interface Element1789 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String833 = string;
 
@@ -68007,6 +70248,7 @@ export interface Element1790 { id?: String2; extension?: Extension[] }
 
 /**
 * If true, indicates that this slice definition is constraining a slice definition with the same name in an inherited profile. If false, the slice is not overriding any slice in an inherited profile. If missing, the slice might or might not be overriding a slice in an inherited profile, depending on the sliceName.
+* @pattern `^true|false$`
 */
 export type Boolean106 = boolean;
 
@@ -68017,6 +70259,7 @@ export interface Element1791 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String834 = string;
 
@@ -68059,6 +70302,7 @@ export interface ElementDefinitionSlicing {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String835 = string;
 
@@ -68090,6 +70334,7 @@ export interface ElementDefinitionDiscriminator {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String836 = string;
 
@@ -68100,6 +70345,7 @@ export interface Element1793 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String837 = string;
 
@@ -68110,6 +70356,7 @@ export interface Element1794 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String838 = string;
 
@@ -68120,6 +70367,7 @@ export interface Element1795 { id?: String2; extension?: Extension[] }
 
 /**
 * If the matching elements have to occur in the same order as defined in the profile.
+* @pattern `^true|false$`
 */
 export type Boolean107 = boolean;
 
@@ -68135,6 +70383,7 @@ export interface Element1797 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String839 = string;
 
@@ -68145,6 +70394,7 @@ export interface Element1798 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown94 = string;
 
@@ -68155,6 +70405,7 @@ export interface Element1799 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown95 = string;
 
@@ -68165,6 +70416,7 @@ export interface Element1800 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown96 = string;
 
@@ -68175,6 +70427,7 @@ export interface Element1801 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt15 = number;
 
@@ -68185,6 +70438,7 @@ export interface Element1802 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String840 = string;
 
@@ -68219,11 +70473,13 @@ export interface ElementDefinitionBase {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String841 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String842 = string;
 
@@ -68234,6 +70490,7 @@ export interface Element1804 { id?: String2; extension?: Extension[] }
 
 /**
 * An integer with a value that is not negative (e.g. >= 0)
+* @pattern `^[0]|([1-9][0-9]*)$`
 */
 export type UnsignedInt16 = number;
 
@@ -68244,6 +70501,7 @@ export interface Element1805 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String843 = string;
 
@@ -68254,6 +70512,7 @@ export interface Element1806 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri192 = string;
 
@@ -68309,11 +70568,13 @@ export interface ElementDefinitionType {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String844 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri193 = string;
 
@@ -68972,6 +71233,7 @@ export interface Meta130 {
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown97 = string;
 
@@ -68982,6 +71244,7 @@ export interface Element1829 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String845 = string;
 
@@ -70406,96 +72669,115 @@ export interface ElementDefinitionExample {
 	_label?: Element1869;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element1870;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1871;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^\S*$`
 	*/
 	valueCanonical?: string;
 	_valueCanonical?: Element1872;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element1873;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element1874;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element1875;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element1876;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element1877;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	valueInstant?: string;
 	_valueInstant?: Element1878;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1879;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueMarkdown?: string;
 	_valueMarkdown?: Element1880;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	valueOid?: string;
 	_valueOid?: Element1881;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	valuePositiveInt?: number;
 	_valuePositiveInt?: Element1882;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1883;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element1884;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	valueUnsignedInt?: number;
 	_valueUnsignedInt?: Element1885;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element1886;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^\S*$`
 	*/
 	valueUrl?: string;
 	_valueUrl?: Element1887;
 	/**
 	* The actual value for the element, which must be one of the types allowed for this element.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	valueUuid?: string;
 	_valueUuid?: Element1888;
@@ -70534,11 +72816,13 @@ export interface ElementDefinitionExample {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String846 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String847 = string;
 
@@ -71308,6 +73592,7 @@ export interface Quantity96 {
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer29 = number;
 
@@ -71352,11 +73637,13 @@ export interface ElementDefinitionConstraint {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String848 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id140 = string;
 
@@ -71367,6 +73654,7 @@ export interface Element1906 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String849 = string;
 
@@ -71382,6 +73670,7 @@ export interface Element1908 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String850 = string;
 
@@ -71392,6 +73681,7 @@ export interface Element1909 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String851 = string;
 
@@ -71402,6 +73692,7 @@ export interface Element1910 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String852 = string;
 
@@ -71412,11 +73703,13 @@ export interface Element1911 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical34 = string;
 
 /**
 * If true, implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.
+* @pattern `^true|false$`
 */
 export type Boolean108 = boolean;
 
@@ -71427,6 +73720,7 @@ export interface Element1912 { id?: String2; extension?: Extension[] }
 
 /**
 * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
+* @pattern `^true|false$`
 */
 export type Boolean109 = boolean;
 
@@ -71437,6 +73731,7 @@ export interface Element1913 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String853 = string;
 
@@ -71447,6 +73742,7 @@ export interface Element1914 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the element should be included if a client requests a search with the parameter _summary=true.
+* @pattern `^true|false$`
 */
 export type Boolean110 = boolean;
 
@@ -71484,6 +73780,7 @@ export interface ElementDefinitionBinding {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String854 = string;
 
@@ -71494,6 +73791,7 @@ export interface Element1916 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String855 = string;
 
@@ -71504,6 +73802,7 @@ export interface Element1917 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical35 = string;
 
@@ -71535,11 +73834,13 @@ export interface ElementDefinitionMapping {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String856 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id141 = string;
 
@@ -71550,6 +73851,7 @@ export interface Element1918 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code233 = string;
 
@@ -71560,6 +73862,7 @@ export interface Element1919 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String857 = string;
 
@@ -71570,6 +73873,7 @@ export interface Element1920 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String858 = string;
 
@@ -71603,6 +73907,7 @@ export interface StructureDefinitionDifferential {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String859 = string;
 
@@ -71697,6 +74002,7 @@ export interface StructureMap {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id142 = string;
 
@@ -71719,6 +74025,7 @@ export interface Meta134 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri194 = string;
 
@@ -71729,6 +74036,7 @@ export interface Element1922 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code234 = string;
 
@@ -71750,6 +74058,7 @@ export interface Narrative126 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri195 = string;
 
@@ -71760,6 +74069,7 @@ export interface Element1924 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String860 = string;
 
@@ -71770,6 +74080,7 @@ export interface Element1925 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String861 = string;
 
@@ -71780,6 +74091,7 @@ export interface Element1926 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String862 = string;
 
@@ -71795,6 +74107,7 @@ export interface Element1928 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean111 = boolean;
 
@@ -71805,6 +74118,7 @@ export interface Element1929 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime105 = string;
 
@@ -71815,6 +74129,7 @@ export interface Element1930 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String863 = string;
 
@@ -71825,6 +74140,7 @@ export interface Element1931 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown98 = string;
 
@@ -71835,6 +74151,7 @@ export interface Element1932 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown99 = string;
 
@@ -71845,6 +74162,7 @@ export interface Element1933 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown100 = string;
 
@@ -71883,11 +74201,13 @@ export interface StructureMapStructure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String864 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical36 = string;
 
@@ -71898,6 +74218,7 @@ export interface Element1935 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String865 = string;
 
@@ -71908,6 +74229,7 @@ export interface Element1936 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String866 = string;
 
@@ -71956,11 +74278,13 @@ export interface StructureMapGroup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String867 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id143 = string;
 
@@ -71971,6 +74295,7 @@ export interface Element1938 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id144 = string;
 
@@ -71986,6 +74311,7 @@ export interface Element1940 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String868 = string;
 
@@ -72025,11 +74351,13 @@ export interface StructureMapInput {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String869 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id145 = string;
 
@@ -72040,6 +74368,7 @@ export interface Element1942 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String870 = string;
 
@@ -72055,6 +74384,7 @@ export interface Element1944 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String871 = string;
 
@@ -72106,11 +74436,13 @@ export interface StructureMapRule {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String872 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id146 = string;
 
@@ -72145,96 +74477,115 @@ export interface StructureMapSource {
 	_type?: Element1950;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	defaultValueBase64Binary?: string;
 	_defaultValueBase64Binary?: Element1951;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^true|false$`
 	*/
 	defaultValueBoolean?: boolean;
 	_defaultValueBoolean?: Element1952;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^\S*$`
 	*/
 	defaultValueCanonical?: string;
 	_defaultValueCanonical?: Element1953;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	defaultValueCode?: string;
 	_defaultValueCode?: Element1954;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	defaultValueDate?: string;
 	_defaultValueDate?: Element1955;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	defaultValueDateTime?: string;
 	_defaultValueDateTime?: Element1956;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	defaultValueDecimal?: number;
 	_defaultValueDecimal?: Element1957;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	defaultValueId?: string;
 	_defaultValueId?: Element1958;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	defaultValueInstant?: string;
 	_defaultValueInstant?: Element1959;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	defaultValueInteger?: number;
 	_defaultValueInteger?: Element1960;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	defaultValueMarkdown?: string;
 	_defaultValueMarkdown?: Element1961;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	defaultValueOid?: string;
 	_defaultValueOid?: Element1962;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	defaultValuePositiveInt?: number;
 	_defaultValuePositiveInt?: Element1963;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	defaultValueString?: string;
 	_defaultValueString?: Element1964;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	defaultValueTime?: string;
 	_defaultValueTime?: Element1965;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	defaultValueUnsignedInt?: number;
 	_defaultValueUnsignedInt?: Element1966;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^\S*$`
 	*/
 	defaultValueUri?: string;
 	_defaultValueUri?: Element1967;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^\S*$`
 	*/
 	defaultValueUrl?: string;
 	_defaultValueUrl?: Element1968;
 	/**
 	* A value to use if there is no existing value in the source object.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	defaultValueUuid?: string;
 	_defaultValueUuid?: Element1969;
@@ -72288,11 +74639,13 @@ export interface StructureMapSource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String873 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id147 = string;
 
@@ -72303,6 +74656,7 @@ export interface Element1947 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer30 = number;
 
@@ -72313,6 +74667,7 @@ export interface Element1948 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String874 = string;
 
@@ -72323,6 +74678,7 @@ export interface Element1949 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String875 = string;
 
@@ -72976,6 +75332,7 @@ export interface Meta135 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String876 = string;
 
@@ -72991,6 +75348,7 @@ export interface Element1971 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id148 = string;
 
@@ -73001,6 +75359,7 @@ export interface Element1972 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String877 = string;
 
@@ -73011,6 +75370,7 @@ export interface Element1973 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String878 = string;
 
@@ -73021,6 +75381,7 @@ export interface Element1974 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String879 = string;
 
@@ -73098,11 +75459,13 @@ export interface StructureMapTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String880 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id149 = string;
 
@@ -73118,6 +75481,7 @@ export interface Element1977 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String881 = string;
 
@@ -73128,6 +75492,7 @@ export interface Element1978 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id150 = string;
 
@@ -73138,6 +75503,7 @@ export interface Element1979 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id151 = string;
 
@@ -73170,26 +75536,31 @@ export interface StructureMapParameter {
 
 	/**
 	* Parameter value - variable or literal.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element1982;
 	/**
 	* Parameter value - variable or literal.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element1983;
 	/**
 	* Parameter value - variable or literal.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element1984;
 	/**
 	* Parameter value - variable or literal.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element1985;
 	/**
 	* Parameter value - variable or literal.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element1986
@@ -73197,6 +75568,7 @@ export interface StructureMapParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String882 = string;
 
@@ -73256,11 +75628,13 @@ export interface StructureMapDependent {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String883 = string;
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id152 = string;
 
@@ -73271,6 +75645,7 @@ export interface Element1987 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String884 = string;
 
@@ -73333,6 +75708,7 @@ export interface Subscription {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id153 = string;
 
@@ -73355,6 +75731,7 @@ export interface Meta136 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri196 = string;
 
@@ -73365,6 +75742,7 @@ export interface Element1989 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code235 = string;
 
@@ -73391,6 +75769,7 @@ export interface Element1991 { id?: String2; extension?: Extension[] }
 
 /**
 * The time for the server to turn the subscription off.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 */
 export type Instant18 = string;
 
@@ -73401,6 +75780,7 @@ export interface Element1992 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String885 = string;
 
@@ -73411,6 +75791,7 @@ export interface Element1993 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String886 = string;
 
@@ -73421,6 +75802,7 @@ export interface Element1994 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String887 = string;
 
@@ -73468,6 +75850,7 @@ export interface SubscriptionChannel {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String888 = string;
 
@@ -73478,6 +75861,7 @@ export interface Element1996 { id?: String2; extension?: Extension[] }
 
 /**
 * The url that describes the actual end-point to send messages to.
+* @pattern `^\S*$`
 */
 export type Url9 = string;
 
@@ -73488,6 +75872,7 @@ export interface Element1997 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code236 = string;
 
@@ -73558,6 +75943,7 @@ export interface Substance {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id154 = string;
 
@@ -73580,6 +75966,7 @@ export interface Meta137 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri197 = string;
 
@@ -73590,6 +75977,7 @@ export interface Element1999 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code237 = string;
 
@@ -73627,6 +76015,7 @@ export interface CodeableConcept503 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String889 = string;
 
@@ -73659,6 +76048,7 @@ export interface SubstanceInstance {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String890 = string;
 
@@ -73681,6 +76071,7 @@ export interface Identifier44 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime106 = string;
 
@@ -73730,6 +76121,7 @@ export interface SubstanceIngredient {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String891 = string;
 
@@ -73814,6 +76206,7 @@ export interface SubstanceNucleicAcid {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id155 = string;
 
@@ -73836,6 +76229,7 @@ export interface Meta138 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri198 = string;
 
@@ -73846,6 +76240,7 @@ export interface Element2004 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code238 = string;
 
@@ -73878,6 +76273,7 @@ export interface CodeableConcept505 {
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer31 = number;
 
@@ -73888,6 +76284,7 @@ export interface Element2006 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String892 = string;
 
@@ -73945,11 +76342,13 @@ export interface SubstanceNucleicAcidSubunit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String893 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer32 = number;
 
@@ -73960,6 +76359,7 @@ export interface Element2008 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String894 = string;
 
@@ -73970,6 +76370,7 @@ export interface Element2009 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer33 = number;
 
@@ -74051,11 +76452,13 @@ export interface SubstanceNucleicAcidLinkage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String895 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String896 = string;
 
@@ -74083,6 +76486,7 @@ export interface Identifier45 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String897 = string;
 
@@ -74093,6 +76497,7 @@ export interface Element2012 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String898 = string;
 
@@ -74126,6 +76531,7 @@ export interface SubstanceNucleicAcidSugar {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String899 = string;
 
@@ -74148,6 +76554,7 @@ export interface Identifier46 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String900 = string;
 
@@ -74158,6 +76565,7 @@ export interface Element2014 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String901 = string;
 
@@ -74227,6 +76635,7 @@ export interface SubstancePolymer {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id156 = string;
 
@@ -74249,6 +76658,7 @@ export interface Meta139 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri199 = string;
 
@@ -74259,6 +76669,7 @@ export interface Element2016 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code239 = string;
 
@@ -74325,6 +76736,7 @@ export interface SubstancePolymerMonomerSet {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String902 = string;
 
@@ -74364,6 +76776,7 @@ export interface SubstancePolymerStartingMaterial {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String903 = string;
 
@@ -74391,6 +76804,7 @@ export interface CodeableConcept513 {
 
 /**
 * Todo.
+* @pattern `^true|false$`
 */
 export type Boolean112 = boolean;
 
@@ -74419,6 +76833,7 @@ export interface SubstanceAmount {
 	amountRange?: Range38;
 	/**
 	* Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	amountString?: string;
 	_amountString?: Element2019;
@@ -74430,6 +76845,7 @@ export interface SubstanceAmount {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String904 = string;
 
@@ -74479,6 +76895,7 @@ export interface CodeableConcept514 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String905 = string;
 
@@ -74509,6 +76926,7 @@ export interface SubstanceAmountReferenceRange {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String906 = string;
 
@@ -74577,11 +76995,13 @@ export interface SubstancePolymerRepeat {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String907 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer34 = number;
 
@@ -74592,6 +77012,7 @@ export interface Element2021 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String908 = string;
 
@@ -74644,6 +77065,7 @@ export interface SubstancePolymerRepeatUnit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String909 = string;
 
@@ -74660,6 +77082,7 @@ export interface CodeableConcept516 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String910 = string;
 
@@ -74707,6 +77130,7 @@ export interface SubstancePolymerDegreeOfPolymerisation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String911 = string;
 
@@ -74762,6 +77186,7 @@ export interface SubstancePolymerStructuralRepresentation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String912 = string;
 
@@ -74778,6 +77203,7 @@ export interface CodeableConcept518 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String913 = string;
 
@@ -74862,6 +77288,7 @@ export interface SubstanceProtein {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id157 = string;
 
@@ -74884,6 +77311,7 @@ export interface Meta140 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri200 = string;
 
@@ -74894,6 +77322,7 @@ export interface Element2025 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code240 = string;
 
@@ -74926,6 +77355,7 @@ export interface CodeableConcept519 {
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer35 = number;
 
@@ -74967,11 +77397,13 @@ export interface SubstanceProteinSubunit {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String914 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer36 = number;
 
@@ -74982,6 +77414,7 @@ export interface Element2028 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String915 = string;
 
@@ -74992,6 +77425,7 @@ export interface Element2029 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer37 = number;
 
@@ -75043,6 +77477,7 @@ export interface Identifier47 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String916 = string;
 
@@ -75070,6 +77505,7 @@ export interface Identifier48 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String917 = string;
 
@@ -75134,6 +77570,7 @@ export interface SubstanceReferenceInformation {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id158 = string;
 
@@ -75156,6 +77593,7 @@ export interface Meta141 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri201 = string;
 
@@ -75166,6 +77604,7 @@ export interface Element2033 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code241 = string;
 
@@ -75187,6 +77626,7 @@ export interface Narrative132 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String918 = string;
 
@@ -75221,6 +77661,7 @@ export interface SubstanceReferenceInformationGene {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String919 = string;
 
@@ -75272,6 +77713,7 @@ export interface SubstanceReferenceInformationGeneElement {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String920 = string;
 
@@ -75334,6 +77776,7 @@ export interface SubstanceReferenceInformationClassification {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String921 = string;
 
@@ -75384,6 +77827,7 @@ export interface SubstanceReferenceInformationTarget {
 	amountRange?: Range39;
 	/**
 	* Todo.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	amountString?: string;
 	_amountString?: Element2036;
@@ -75396,6 +77840,7 @@ export interface SubstanceReferenceInformationTarget {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String922 = string;
 
@@ -75584,6 +78029,7 @@ export interface SubstanceSourceMaterial {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id159 = string;
 
@@ -75606,6 +78052,7 @@ export interface Meta142 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri202 = string;
 
@@ -75616,6 +78063,7 @@ export interface Element2037 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code242 = string;
 
@@ -75687,6 +78135,7 @@ export interface Identifier51 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String923 = string;
 
@@ -75729,11 +78178,13 @@ export interface SubstanceSourceMaterialFractionDescription {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String924 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String925 = string;
 
@@ -75785,6 +78236,7 @@ export interface SubstanceSourceMaterialOrganism {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String926 = string;
 
@@ -75834,6 +78286,7 @@ export interface CodeableConcept538 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String927 = string;
 
@@ -75865,6 +78318,7 @@ export interface SubstanceSourceMaterialAuthor {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String928 = string;
 
@@ -75881,6 +78335,7 @@ export interface CodeableConcept539 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String929 = string;
 
@@ -75918,11 +78373,13 @@ export interface SubstanceSourceMaterialHybrid {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String930 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String931 = string;
 
@@ -75933,6 +78390,7 @@ export interface Element2043 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String932 = string;
 
@@ -75943,6 +78401,7 @@ export interface Element2044 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String933 = string;
 
@@ -75953,6 +78412,7 @@ export interface Element2045 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String934 = string;
 
@@ -75996,6 +78456,7 @@ export interface SubstanceSourceMaterialOrganismGeneral {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String935 = string;
 
@@ -76065,6 +78526,7 @@ export interface SubstanceSourceMaterialPartDescription {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String936 = string;
 
@@ -76171,6 +78633,7 @@ export interface SubstanceSpecification {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id160 = string;
 
@@ -76193,6 +78656,7 @@ export interface Meta143 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri203 = string;
 
@@ -76203,6 +78667,7 @@ export interface Element2047 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code243 = string;
 
@@ -76274,6 +78739,7 @@ export interface CodeableConcept549 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String937 = string;
 
@@ -76284,6 +78750,7 @@ export interface Element2049 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String938 = string;
 
@@ -76319,6 +78786,7 @@ export interface SubstanceSpecificationMoiety {
 	amountQuantity?: Quantity103;
 	/**
 	* Quantitative value for this moiety.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	amountString?: string;
 	_amountString?: Element2053
@@ -76326,6 +78794,7 @@ export interface SubstanceSpecificationMoiety {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String939 = string;
 
@@ -76359,6 +78828,7 @@ export interface Identifier53 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String940 = string;
 
@@ -76391,6 +78861,7 @@ export interface CodeableConcept552 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String941 = string;
 
@@ -76447,6 +78918,7 @@ export interface SubstanceSpecificationProperty {
 	amountQuantity?: Quantity104;
 	/**
 	* Quantitative value for this property.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	amountString?: string;
 	_amountString?: Element2055
@@ -76454,6 +78926,7 @@ export interface SubstanceSpecificationProperty {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String942 = string;
 
@@ -76481,6 +78954,7 @@ export interface CodeableConcept554 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String943 = string;
 
@@ -76593,6 +79067,7 @@ export interface SubstanceSpecificationStructure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String944 = string;
 
@@ -76620,6 +79095,7 @@ export interface CodeableConcept557 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String945 = string;
 
@@ -76630,6 +79106,7 @@ export interface Element2056 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String946 = string;
 
@@ -76663,6 +79140,7 @@ export interface SubstanceSpecificationIsotope {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String947 = string;
 
@@ -76746,6 +79224,7 @@ export interface SubstanceSpecificationMolecularWeight {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String948 = string;
 
@@ -76825,6 +79304,7 @@ export interface SubstanceSpecificationRepresentation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String949 = string;
 
@@ -76841,6 +79321,7 @@ export interface CodeableConcept562 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String950 = string;
 
@@ -76903,6 +79384,7 @@ export interface SubstanceSpecificationCode {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String951 = string;
 
@@ -76930,6 +79412,7 @@ export interface CodeableConcept564 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime107 = string;
 
@@ -76940,6 +79423,7 @@ export interface Element2059 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String952 = string;
 
@@ -77008,11 +79492,13 @@ export interface SubstanceSpecificationName {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String953 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String954 = string;
 
@@ -77045,6 +79531,7 @@ export interface CodeableConcept566 {
 
 /**
 * If this is the preferred name for this substance.
+* @pattern `^true|false$`
 */
 export type Boolean113 = boolean;
 
@@ -77077,6 +79564,7 @@ export interface SubstanceSpecificationOfficial {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String955 = string;
 
@@ -77104,6 +79592,7 @@ export interface CodeableConcept568 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime108 = string;
 
@@ -77150,6 +79639,7 @@ export interface SubstanceSpecificationRelationship {
 	amountRatio?: Ratio26;
 	/**
 	* A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	amountString?: string;
 	_amountString?: Element2065;
@@ -77163,6 +79653,7 @@ export interface SubstanceSpecificationRelationship {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String956 = string;
 
@@ -77205,6 +79696,7 @@ export interface CodeableConcept570 {
 
 /**
 * For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible substance relationships.
+* @pattern `^true|false$`
 */
 export type Boolean114 = boolean;
 
@@ -77399,6 +79891,7 @@ export interface SupplyDelivery {
 	suppliedItem?: SupplyDeliverySuppliedItem;
 	/**
 	* The date or time(s) the activity occurred.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element2069;
@@ -77414,6 +79907,7 @@ export interface SupplyDelivery {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id161 = string;
 
@@ -77436,6 +79930,7 @@ export interface Meta144 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri204 = string;
 
@@ -77446,6 +79941,7 @@ export interface Element2066 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code244 = string;
 
@@ -77519,6 +80015,7 @@ export interface SupplyDeliverySuppliedItem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String957 = string;
 
@@ -77689,6 +80186,7 @@ export interface SupplyRequest {
 
 	/**
 	* When the request should be fulfilled.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	occurrenceDateTime?: string;
 	_occurrenceDateTime?: Element2075;
@@ -77717,6 +80215,7 @@ export interface SupplyRequest {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id162 = string;
 
@@ -77739,6 +80238,7 @@ export interface Meta145 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri205 = string;
 
@@ -77749,6 +80249,7 @@ export interface Element2070 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code245 = string;
 
@@ -77786,6 +80287,7 @@ export interface CodeableConcept574 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code246 = string;
 
@@ -77860,6 +80362,7 @@ export interface SupplyRequestParameter {
 	valueRange?: Range41;
 	/**
 	* The value of the device detail.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element2074
@@ -77867,6 +80370,7 @@ export interface SupplyRequestParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String958 = string;
 
@@ -77957,6 +80461,7 @@ export interface Timing26 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime109 = string;
 
@@ -78144,6 +80649,7 @@ export interface Task {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id163 = string;
 
@@ -78166,6 +80672,7 @@ export interface Meta146 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri206 = string;
 
@@ -78176,6 +80683,7 @@ export interface Element2077 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code247 = string;
 
@@ -78197,11 +80705,13 @@ export interface Narrative137 {
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical37 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri207 = string;
 
@@ -78261,6 +80771,7 @@ export interface Element2081 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code248 = string;
 
@@ -78282,6 +80793,7 @@ export interface CodeableConcept580 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String959 = string;
 
@@ -78349,6 +80861,7 @@ export interface Period124 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime110 = string;
 
@@ -78359,6 +80872,7 @@ export interface Element2084 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime111 = string;
 
@@ -78465,11 +80979,13 @@ export interface TaskRestriction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String960 = string;
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt43 = number;
 
@@ -78509,96 +81025,115 @@ export interface TaskInput {
 	type: CodeableConcept582;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element2087;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element2088;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueCanonical?: string;
 	_valueCanonical?: Element2089;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element2090;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element2091;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element2092;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element2093;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element2094;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	valueInstant?: string;
 	_valueInstant?: Element2095;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element2096;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueMarkdown?: string;
 	_valueMarkdown?: Element2097;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	valueOid?: string;
 	_valueOid?: Element2098;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	valuePositiveInt?: number;
 	_valuePositiveInt?: Element2099;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element2100;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element2101;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	valueUnsignedInt?: number;
 	_valueUnsignedInt?: Element2102;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element2103;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueUrl?: string;
 	_valueUrl?: Element2104;
 	/**
 	* The value of the input parameter as a basic type.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	valueUuid?: string;
 	_valueUuid?: Element2105;
@@ -78637,6 +81172,7 @@ export interface TaskInput {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String961 = string;
 
@@ -79313,96 +81849,115 @@ export interface TaskOutput {
 	type: CodeableConcept584;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^(\s*([0-9a-zA-Z\+/=]){4}\s*)+$`
 	*/
 	valueBase64Binary?: string;
 	_valueBase64Binary?: Element2106;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element2107;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueCanonical?: string;
 	_valueCanonical?: Element2108;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element2109;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 	*/
 	valueDate?: string;
 	_valueDate?: Element2110;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element2111;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element2112;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 	*/
 	valueId?: string;
 	_valueId?: Element2113;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$`
 	*/
 	valueInstant?: string;
 	_valueInstant?: Element2114;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element2115;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueMarkdown?: string;
 	_valueMarkdown?: Element2116;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$`
 	*/
 	valueOid?: string;
 	_valueOid?: Element2117;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[1-9][0-9]*$`
 	*/
 	valuePositiveInt?: number;
 	_valuePositiveInt?: Element2118;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element2119;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$`
 	*/
 	valueTime?: string;
 	_valueTime?: Element2120;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^[0]|([1-9][0-9]*)$`
 	*/
 	valueUnsignedInt?: number;
 	_valueUnsignedInt?: Element2121;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element2122;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^\S*$`
 	*/
 	valueUrl?: string;
 	_valueUrl?: Element2123;
 	/**
 	* The value of the Output parameter as a basic type.
+	* @pattern `^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 	*/
 	valueUuid?: string;
 	_valueUuid?: Element2124;
@@ -79441,6 +81996,7 @@ export interface TaskOutput {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String962 = string;
 
@@ -80190,6 +82746,7 @@ export interface TerminologyCapabilities {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id164 = string;
 
@@ -80212,6 +82769,7 @@ export interface Meta149 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri208 = string;
 
@@ -80222,6 +82780,7 @@ export interface Element2125 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code249 = string;
 
@@ -80243,6 +82802,7 @@ export interface Narrative138 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri209 = string;
 
@@ -80253,6 +82813,7 @@ export interface Element2127 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String963 = string;
 
@@ -80263,6 +82824,7 @@ export interface Element2128 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String964 = string;
 
@@ -80273,6 +82835,7 @@ export interface Element2129 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String965 = string;
 
@@ -80288,6 +82851,7 @@ export interface Element2131 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean115 = boolean;
 
@@ -80298,6 +82862,7 @@ export interface Element2132 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime112 = string;
 
@@ -80308,6 +82873,7 @@ export interface Element2133 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String966 = string;
 
@@ -80318,6 +82884,7 @@ export interface Element2134 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown101 = string;
 
@@ -80328,6 +82895,7 @@ export interface Element2135 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown102 = string;
 
@@ -80338,6 +82906,7 @@ export interface Element2136 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown103 = string;
 
@@ -80348,6 +82917,7 @@ export interface Element2137 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code250 = string;
 
@@ -80380,11 +82950,13 @@ export interface TerminologyCapabilitiesSoftware {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String967 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String968 = string;
 
@@ -80395,6 +82967,7 @@ export interface Element2139 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String969 = string;
 
@@ -80427,11 +83000,13 @@ export interface TerminologyCapabilitiesImplementation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String970 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String971 = string;
 
@@ -80442,6 +83017,7 @@ export interface Element2141 { id?: String2; extension?: Extension[] }
 
 /**
 * An absolute base URL for the implementation.
+* @pattern `^\S*$`
 */
 export type Url10 = string;
 
@@ -80452,6 +83028,7 @@ export interface Element2142 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the server supports lockedDate.
+* @pattern `^true|false$`
 */
 export type Boolean116 = boolean;
 
@@ -80487,11 +83064,13 @@ export interface TerminologyCapabilitiesCodeSystem {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String972 = string;
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical38 = string;
 
@@ -80545,11 +83124,13 @@ export interface TerminologyCapabilitiesVersion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String973 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String974 = string;
 
@@ -80560,6 +83141,7 @@ export interface Element2144 { id?: String2; extension?: Extension[] }
 
 /**
 * If this is the default version for this code system.
+* @pattern `^true|false$`
 */
 export type Boolean117 = boolean;
 
@@ -80570,6 +83152,7 @@ export interface Element2145 { id?: String2; extension?: Extension[] }
 
 /**
 * If the compositional grammar defined by the code system is supported.
+* @pattern `^true|false$`
 */
 export type Boolean118 = boolean;
 
@@ -80609,11 +83192,13 @@ export interface TerminologyCapabilitiesFilter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String975 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code251 = string;
 
@@ -80624,6 +83209,7 @@ export interface Element2147 { id?: String2; extension?: Extension[] }
 
 /**
 * True if subsumption is supported for this version of the code system.
+* @pattern `^true|false$`
 */
 export type Boolean119 = boolean;
 
@@ -80664,11 +83250,13 @@ export interface TerminologyCapabilitiesExpansion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String976 = string;
 
 /**
 * Whether the server can return nested value sets.
+* @pattern `^true|false$`
 */
 export type Boolean120 = boolean;
 
@@ -80679,6 +83267,7 @@ export interface Element2149 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether the server supports paging on expansion.
+* @pattern `^true|false$`
 */
 export type Boolean121 = boolean;
 
@@ -80689,6 +83278,7 @@ export interface Element2150 { id?: String2; extension?: Extension[] }
 
 /**
 * Allow request for incomplete expansions?
+* @pattern `^true|false$`
 */
 export type Boolean122 = boolean;
 
@@ -80721,11 +83311,13 @@ export interface TerminologyCapabilitiesParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String977 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code252 = string;
 
@@ -80736,6 +83328,7 @@ export interface Element2152 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String978 = string;
 
@@ -80746,6 +83339,7 @@ export interface Element2153 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown104 = string;
 
@@ -80781,11 +83375,13 @@ export interface TerminologyCapabilitiesValidateCode {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String979 = string;
 
 /**
 * Whether translations are validated.
+* @pattern `^true|false$`
 */
 export type Boolean123 = boolean;
 
@@ -80816,11 +83412,13 @@ export interface TerminologyCapabilitiesTranslation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String980 = string;
 
 /**
 * Whether the client must identify the map.
+* @pattern `^true|false$`
 */
 export type Boolean124 = boolean;
 
@@ -80851,11 +83449,13 @@ export interface TerminologyCapabilitiesClosure {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String981 = string;
 
 /**
 * If cross-system closure is supported.
+* @pattern `^true|false$`
 */
 export type Boolean125 = boolean;
 
@@ -80935,6 +83535,7 @@ export interface TestReport {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id165 = string;
 
@@ -80957,6 +83558,7 @@ export interface Meta150 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri210 = string;
 
@@ -80967,6 +83569,7 @@ export interface Element2159 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code253 = string;
 
@@ -81005,6 +83608,7 @@ export interface Identifier58 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String982 = string;
 
@@ -81040,6 +83644,7 @@ export interface Element2163 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal58 = number;
 
@@ -81050,6 +83655,7 @@ export interface Element2164 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String983 = string;
 
@@ -81060,6 +83666,7 @@ export interface Element2165 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime113 = string;
 
@@ -81098,6 +83705,7 @@ export interface TestReportParticipant {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String984 = string;
 
@@ -81108,6 +83716,7 @@ export interface Element2167 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri211 = string;
 
@@ -81118,6 +83727,7 @@ export interface Element2168 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String985 = string;
 
@@ -81151,6 +83761,7 @@ export interface TestReportSetup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String986 = string;
 
@@ -81176,6 +83787,7 @@ export interface TestReportAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String987 = string;
 
@@ -81209,6 +83821,7 @@ export interface TestReportOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String988 = string;
 
@@ -81219,6 +83832,7 @@ export interface Element2170 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown105 = string;
 
@@ -81229,6 +83843,7 @@ export interface Element2171 { id?: String2; extension?: Extension[] }
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri212 = string;
 
@@ -81267,6 +83882,7 @@ export interface TestReportAssert {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String989 = string;
 
@@ -81277,6 +83893,7 @@ export interface Element2173 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown106 = string;
 
@@ -81287,6 +83904,7 @@ export interface Element2174 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String990 = string;
 
@@ -81323,11 +83941,13 @@ export interface TestReportTest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String991 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String992 = string;
 
@@ -81338,6 +83958,7 @@ export interface Element2176 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String993 = string;
 
@@ -81368,6 +83989,7 @@ export interface TestReportAction1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String994 = string;
 
@@ -81426,6 +84048,7 @@ export interface TestReportTeardown {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String995 = string;
 
@@ -81450,6 +84073,7 @@ export interface TestReportAction2 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String996 = string;
 
@@ -81572,6 +84196,7 @@ export interface TestScript {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id166 = string;
 
@@ -81594,6 +84219,7 @@ export interface Meta151 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri213 = string;
 
@@ -81604,6 +84230,7 @@ export interface Element2178 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code254 = string;
 
@@ -81625,6 +84252,7 @@ export interface Narrative140 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri214 = string;
 
@@ -81652,6 +84280,7 @@ export interface Identifier59 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String997 = string;
 
@@ -81662,6 +84291,7 @@ export interface Element2181 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String998 = string;
 
@@ -81672,6 +84302,7 @@ export interface Element2182 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String999 = string;
 
@@ -81687,6 +84318,7 @@ export interface Element2184 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean126 = boolean;
 
@@ -81697,6 +84329,7 @@ export interface Element2185 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime114 = string;
 
@@ -81707,6 +84340,7 @@ export interface Element2186 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1000 = string;
 
@@ -81717,6 +84351,7 @@ export interface Element2187 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown107 = string;
 
@@ -81727,6 +84362,7 @@ export interface Element2188 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown108 = string;
 
@@ -81737,6 +84373,7 @@ export interface Element2189 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown109 = string;
 
@@ -81768,11 +84405,13 @@ export interface TestScriptOrigin {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1001 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer38 = number;
 
@@ -81804,11 +84443,13 @@ export interface TestScriptDestination {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1002 = string;
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer39 = number;
 
@@ -81847,6 +84488,7 @@ export interface TestScriptMetadata {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1003 = string;
 
@@ -81874,11 +84516,13 @@ export interface TestScriptLink {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1004 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri215 = string;
 
@@ -81889,6 +84533,7 @@ export interface Element2193 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1005 = string;
 
@@ -81944,11 +84589,13 @@ export interface TestScriptCapability {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1006 = string;
 
 /**
 * Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.
+* @pattern `^true|false$`
 */
 export type Boolean127 = boolean;
 
@@ -81959,6 +84606,7 @@ export interface Element2195 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.
+* @pattern `^true|false$`
 */
 export type Boolean128 = boolean;
 
@@ -81969,6 +84617,7 @@ export interface Element2196 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1007 = string;
 
@@ -81979,6 +84628,7 @@ export interface Element2197 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer40 = number;
 
@@ -81989,6 +84639,7 @@ export interface Element2198 { id?: String2; extension?: Extension[] }
 
 /**
 * A URI that is a reference to a canonical URL on a FHIR resource
+* @pattern `^\S*$`
 */
 export type Canonical39 = string;
 
@@ -82017,11 +84668,13 @@ export interface TestScriptFixture {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1008 = string;
 
 /**
 * Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.
+* @pattern `^true|false$`
 */
 export type Boolean129 = boolean;
 
@@ -82032,6 +84685,7 @@ export interface Element2199 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
+* @pattern `^true|false$`
 */
 export type Boolean130 = boolean;
 
@@ -82091,11 +84745,13 @@ export interface TestScriptVariable {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1009 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1010 = string;
 
@@ -82106,6 +84762,7 @@ export interface Element2201 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1011 = string;
 
@@ -82116,6 +84773,7 @@ export interface Element2202 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1012 = string;
 
@@ -82126,6 +84784,7 @@ export interface Element2203 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1013 = string;
 
@@ -82136,6 +84795,7 @@ export interface Element2204 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1014 = string;
 
@@ -82146,6 +84806,7 @@ export interface Element2205 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1015 = string;
 
@@ -82156,6 +84817,7 @@ export interface Element2206 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1016 = string;
 
@@ -82166,6 +84828,7 @@ export interface Element2207 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id167 = string;
 
@@ -82199,6 +84862,7 @@ export interface TestScriptSetup {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1017 = string;
 
@@ -82224,6 +84888,7 @@ export interface TestScriptAction {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1018 = string;
 
@@ -82293,11 +84958,13 @@ export interface TestScriptOperation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1019 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code255 = string;
 
@@ -82308,6 +84975,7 @@ export interface Element2209 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1020 = string;
 
@@ -82318,6 +84986,7 @@ export interface Element2210 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1021 = string;
 
@@ -82328,6 +84997,7 @@ export interface Element2211 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code256 = string;
 
@@ -82338,6 +85008,7 @@ export interface Element2212 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code257 = string;
 
@@ -82348,6 +85019,7 @@ export interface Element2213 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer41 = number;
 
@@ -82358,6 +85030,7 @@ export interface Element2214 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
+* @pattern `^true|false$`
 */
 export type Boolean131 = boolean;
 
@@ -82373,6 +85046,7 @@ export interface Element2216 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer42 = number;
 
@@ -82383,6 +85057,7 @@ export interface Element2217 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1022 = string;
 
@@ -82415,11 +85090,13 @@ export interface TestScriptRequestHeader {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1023 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1024 = string;
 
@@ -82430,6 +85107,7 @@ export interface Element2219 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1025 = string;
 
@@ -82440,6 +85118,7 @@ export interface Element2220 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id168 = string;
 
@@ -82450,6 +85129,7 @@ export interface Element2221 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id169 = string;
 
@@ -82460,6 +85140,7 @@ export interface Element2222 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id170 = string;
 
@@ -82470,6 +85151,7 @@ export interface Element2223 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id171 = string;
 
@@ -82480,6 +85162,7 @@ export interface Element2224 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1026 = string;
 
@@ -82597,11 +85280,13 @@ export interface TestScriptAssert {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1027 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1028 = string;
 
@@ -82612,6 +85297,7 @@ export interface Element2226 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1029 = string;
 
@@ -82627,6 +85313,7 @@ export interface Element2228 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1030 = string;
 
@@ -82637,6 +85324,7 @@ export interface Element2229 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1031 = string;
 
@@ -82647,6 +85335,7 @@ export interface Element2230 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1032 = string;
 
@@ -82657,6 +85346,7 @@ export interface Element2231 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code258 = string;
 
@@ -82667,6 +85357,7 @@ export interface Element2232 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1033 = string;
 
@@ -82677,6 +85368,7 @@ export interface Element2233 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1034 = string;
 
@@ -82687,6 +85379,7 @@ export interface Element2234 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1035 = string;
 
@@ -82697,6 +85390,7 @@ export interface Element2235 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether or not the test execution performs validation on the bundle navigation links.
+* @pattern `^true|false$`
 */
 export type Boolean132 = boolean;
 
@@ -82712,6 +85406,7 @@ export interface Element2237 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1036 = string;
 
@@ -82727,6 +85422,7 @@ export interface Element2239 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1037 = string;
 
@@ -82737,6 +85433,7 @@ export interface Element2240 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code259 = string;
 
@@ -82752,6 +85449,7 @@ export interface Element2242 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1038 = string;
 
@@ -82762,6 +85460,7 @@ export interface Element2243 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id172 = string;
 
@@ -82772,6 +85471,7 @@ export interface Element2244 { id?: String2; extension?: Extension[] }
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id173 = string;
 
@@ -82782,6 +85482,7 @@ export interface Element2245 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1039 = string;
 
@@ -82792,6 +85493,7 @@ export interface Element2246 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether or not the test execution will produce a warning only on error for this assert.
+* @pattern `^true|false$`
 */
 export type Boolean133 = boolean;
 
@@ -82828,11 +85530,13 @@ export interface TestScriptTest {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1040 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1041 = string;
 
@@ -82843,6 +85547,7 @@ export interface Element2248 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1042 = string;
 
@@ -82873,6 +85578,7 @@ export interface TestScriptAction1 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1043 = string;
 
@@ -83036,6 +85742,7 @@ export interface TestScriptTeardown {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1044 = string;
 
@@ -83060,6 +85767,7 @@ export interface TestScriptAction2 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1045 = string;
 
@@ -83193,6 +85901,7 @@ export interface ValueSet {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id174 = string;
 
@@ -83215,6 +85924,7 @@ export interface Meta152 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri216 = string;
 
@@ -83225,6 +85935,7 @@ export interface Element2250 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code260 = string;
 
@@ -83246,6 +85957,7 @@ export interface Narrative141 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri217 = string;
 
@@ -83256,6 +85968,7 @@ export interface Element2252 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1046 = string;
 
@@ -83266,6 +85979,7 @@ export interface Element2253 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1047 = string;
 
@@ -83276,6 +85990,7 @@ export interface Element2254 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1048 = string;
 
@@ -83291,6 +86006,7 @@ export interface Element2256 { id?: String2; extension?: Extension[] }
 
 /**
 * A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
+* @pattern `^true|false$`
 */
 export type Boolean134 = boolean;
 
@@ -83301,6 +86017,7 @@ export interface Element2257 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime115 = string;
 
@@ -83311,6 +86028,7 @@ export interface Element2258 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1049 = string;
 
@@ -83321,6 +86039,7 @@ export interface Element2259 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown110 = string;
 
@@ -83331,6 +86050,7 @@ export interface Element2260 { id?: String2; extension?: Extension[] }
 
 /**
 * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+* @pattern `^true|false$`
 */
 export type Boolean135 = boolean;
 
@@ -83341,6 +86061,7 @@ export interface Element2261 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown111 = string;
 
@@ -83351,6 +86072,7 @@ export interface Element2262 { id?: String2; extension?: Extension[] }
 
 /**
 * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type Markdown112 = string;
 
@@ -83392,11 +86114,13 @@ export interface ValueSetCompose {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1050 = string;
 
 /**
 * The Locked Date is  the effective date that is used to determine the version of all referenced Code Systems and Value Set Definitions included in the compose that are not already tied to a specific version.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date40 = string;
 
@@ -83407,6 +86131,7 @@ export interface Element2264 { id?: String2; extension?: Extension[] }
 
 /**
 * Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable $expand parameters (but generally, inactive codes would be expected to be included).
+* @pattern `^true|false$`
 */
 export type Boolean136 = boolean;
 
@@ -83453,11 +86178,13 @@ export interface ValueSetInclude {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1051 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri218 = string;
 
@@ -83468,6 +86195,7 @@ export interface Element2266 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1052 = string;
 
@@ -83504,11 +86232,13 @@ export interface ValueSetConcept {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1053 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code261 = string;
 
@@ -83519,6 +86249,7 @@ export interface Element2268 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1054 = string;
 
@@ -83552,11 +86283,13 @@ export interface ValueSetDesignation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1055 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code262 = string;
 
@@ -83567,6 +86300,7 @@ export interface Element2270 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1056 = string;
 
@@ -83614,11 +86348,13 @@ export interface ValueSetFilter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1057 = string;
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code263 = string;
 
@@ -83634,6 +86370,7 @@ export interface Element2273 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1058 = string;
 
@@ -83679,11 +86416,13 @@ export interface ValueSetExpansion {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1059 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri219 = string;
 
@@ -83694,6 +86433,7 @@ export interface Element2275 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime116 = string;
 
@@ -83704,6 +86444,7 @@ export interface Element2276 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer43 = number;
 
@@ -83714,6 +86455,7 @@ export interface Element2277 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer44 = number;
 
@@ -83742,36 +86484,43 @@ export interface ValueSetParameter {
 	_name?: Element2279;
 	/**
 	* The value of the parameter.
+	* @pattern `^[ \r\n\t\S]+$`
 	*/
 	valueString?: string;
 	_valueString?: Element2280;
 	/**
 	* The value of the parameter.
+	* @pattern `^true|false$`
 	*/
 	valueBoolean?: boolean;
 	_valueBoolean?: Element2281;
 	/**
 	* The value of the parameter.
+	* @pattern `^-?([0]|([1-9][0-9]*))$`
 	*/
 	valueInteger?: number;
 	_valueInteger?: Element2282;
 	/**
 	* The value of the parameter.
+	* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 	*/
 	valueDecimal?: number;
 	_valueDecimal?: Element2283;
 	/**
 	* The value of the parameter.
+	* @pattern `^\S*$`
 	*/
 	valueUri?: string;
 	_valueUri?: Element2284;
 	/**
 	* The value of the parameter.
+	* @pattern `^[^\s]+(\s[^\s]+)*$`
 	*/
 	valueCode?: string;
 	_valueCode?: Element2285;
 	/**
 	* The value of the parameter.
+	* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 	*/
 	valueDateTime?: string;
 	_valueDateTime?: Element2286
@@ -83779,11 +86528,13 @@ export interface ValueSetParameter {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1060 = string;
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1061 = string;
 
@@ -83868,11 +86619,13 @@ export interface ValueSetContains {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1062 = string;
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri220 = string;
 
@@ -83883,6 +86636,7 @@ export interface Element2287 { id?: String2; extension?: Extension[] }
 
 /**
 * If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
+* @pattern `^true|false$`
 */
 export type Boolean137 = boolean;
 
@@ -83893,6 +86647,7 @@ export interface Element2288 { id?: String2; extension?: Extension[] }
 
 /**
 * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use).
+* @pattern `^true|false$`
 */
 export type Boolean138 = boolean;
 
@@ -83903,6 +86658,7 @@ export interface Element2289 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1063 = string;
 
@@ -83913,6 +86669,7 @@ export interface Element2290 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code264 = string;
 
@@ -83923,6 +86680,7 @@ export interface Element2291 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1064 = string;
 
@@ -84006,6 +86764,7 @@ export interface VerificationResult {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id175 = string;
 
@@ -84028,6 +86787,7 @@ export interface Meta153 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri221 = string;
 
@@ -84038,6 +86798,7 @@ export interface Element2293 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code265 = string;
 
@@ -84070,6 +86831,7 @@ export interface CodeableConcept586 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code266 = string;
 
@@ -84080,6 +86842,7 @@ export interface Element2295 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime117 = string;
 
@@ -84114,6 +86877,7 @@ export interface Timing29 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime118 = string;
 
@@ -84124,6 +86888,7 @@ export interface Element2297 { id?: String2; extension?: Extension[] }
 
 /**
 * The date when target is next validated, if appropriate.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date41 = string;
 
@@ -84181,6 +86946,7 @@ export interface VerificationResultPrimarySource {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1065 = string;
 
@@ -84212,6 +86978,7 @@ export interface CodeableConcept589 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime119 = string;
 
@@ -84262,6 +87029,7 @@ export interface VerificationResultAttestation {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1066 = string;
 
@@ -84308,6 +87076,7 @@ export interface CodeableConcept591 {
 
 /**
 * The date the information was attested to.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$`
 */
 export type Date42 = string;
 
@@ -84318,6 +87087,7 @@ export interface Element2300 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1067 = string;
 
@@ -84328,6 +87098,7 @@ export interface Element2301 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1068 = string;
 
@@ -84398,6 +87169,7 @@ export interface VerificationResultValidator {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1069 = string;
 
@@ -84418,6 +87190,7 @@ export interface Reference470 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1070 = string;
 
@@ -84498,6 +87271,7 @@ export interface VisionPrescription {
 
 /**
 * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+* @pattern `^[A-Za-z0-9\-\.]{1,64}$`
 */
 export type Id176 = string;
 
@@ -84520,6 +87294,7 @@ export interface Meta154 {
 
 /**
 * String of characters used to identify a name or a resource
+* @pattern `^\S*$`
 */
 export type Uri222 = string;
 
@@ -84530,6 +87305,7 @@ export interface Element2304 { id?: String2; extension?: Extension[] }
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code267 = string;
 
@@ -84551,6 +87327,7 @@ export interface Narrative143 {
 
 /**
 * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
+* @pattern `^[^\s]+(\s[^\s]+)*$`
 */
 export type Code268 = string;
 
@@ -84561,6 +87338,7 @@ export interface Element2306 { id?: String2; extension?: Extension[] }
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime120 = string;
 
@@ -84601,6 +87379,7 @@ export interface Reference472 {
 
 /**
 * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
+* @pattern `^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$`
 */
 export type DateTime121 = string;
 
@@ -84677,6 +87456,7 @@ export interface VisionPrescriptionLensSpecification {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1071 = string;
 
@@ -84698,6 +87478,7 @@ export interface Element2309 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal59 = number;
 
@@ -84708,6 +87489,7 @@ export interface Element2310 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal60 = number;
 
@@ -84718,6 +87500,7 @@ export interface Element2311 { id?: String2; extension?: Extension[] }
 
 /**
 * A whole number
+* @pattern `^-?([0]|([1-9][0-9]*))$`
 */
 export type Integer45 = number;
 
@@ -84753,11 +87536,13 @@ export interface VisionPrescriptionPrism {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1072 = string;
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal61 = number;
 
@@ -84773,6 +87558,7 @@ export interface Element2314 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal62 = number;
 
@@ -84783,6 +87569,7 @@ export interface Element2315 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal63 = number;
 
@@ -84793,6 +87580,7 @@ export interface Element2316 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal64 = number;
 
@@ -84803,6 +87591,7 @@ export interface Element2317 { id?: String2; extension?: Extension[] }
 
 /**
 * A rational number with implicit precision
+* @pattern `^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$`
 */
 export type Decimal65 = number;
 
@@ -84831,6 +87620,7 @@ export interface Quantity113 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1073 = string;
 
@@ -84841,6 +87631,7 @@ export interface Element2319 { id?: String2; extension?: Extension[] }
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1074 = string;
 
@@ -84867,6 +87658,7 @@ export interface CodeableConcept593 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1075 = string;
 
@@ -84910,6 +87702,7 @@ export interface AccountCoverage {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1076 = string;
 
@@ -84930,6 +87723,7 @@ export interface Reference474 {
 
 /**
 * An integer with a value that is positive (e.g. >0)
+* @pattern `^[1-9][0-9]*$`
 */
 export type PositiveInt44 = number;
 
@@ -84955,6 +87749,7 @@ export interface Reference475 {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1077 = string;
 
@@ -84987,6 +87782,7 @@ export interface AccountGuarantor {
 
 /**
 * A sequence of Unicode characters
+* @pattern `^[ \r\n\t\S]+$`
 */
 export type String1078 = string;
 
@@ -85007,6 +87803,7 @@ export interface Reference476 {
 
 /**
 * A guarantor may be placed on credit hold or otherwise have their role temporarily suspended.
+* @pattern `^true|false$`
 */
 export type Boolean139 = boolean;
 

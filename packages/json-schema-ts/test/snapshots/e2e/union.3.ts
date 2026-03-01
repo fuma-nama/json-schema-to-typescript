@@ -1,1 +1,6 @@
-export interface Union3 { example?: boolean | string }
+export interface Union3 {
+	/**
+	* @default `true`
+	*/
+	example?: boolean | string
+}
