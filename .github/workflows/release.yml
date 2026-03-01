@@ -6,6 +6,10 @@ on:
       - master
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
 
 jobs:
   release:
@@ -19,7 +23,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
-          node-version: 18
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install Dependencies
@@ -33,4 +37,3 @@ jobs:
           version: pnpm run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
