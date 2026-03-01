@@ -1,6 +1,6 @@
 {
   "name": "@fumari/json-schema-ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "compile json schema to typescript typings",
   "type": "module",
   "engines": {
